@@ -7,12 +7,12 @@
 /*--Basics-----*/
 
 * {
-  font-family: 'Roboto'
+  font-family: 'Noto sans'
 }
 
 body {
   margin: 0;
-  background-color: #555;
+  background-color: #3bb4f9;
 }
 
 /*--Main menu------*/
@@ -72,12 +72,38 @@ nav ul li a {
   color: #fff;
 }
 
+
 /*--index page--------*/
+
+/*-search-*/
+
+#searchevents {
+  width: 75%;
+  margin: 36px auto 60px auto;
+  text-align: center;
+}
+
+.searchbar {
+  font-size: 24px;
+  width: 90%;
+  border: none;
+  box-shadow: none;
+}
+
+.searchbutton {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 6px;
+  font-size: 16px;
+}
+
+/*------*/
 
 .box {
 	margin: 12px;
 	padding: 6px;
-	background-color: #eee;
+	background-color: #f7f58c;
 	box-shadow: 2px 2px 2px #000;
 }
 
@@ -96,7 +122,7 @@ p.description {
 /*--footer-------*/
 
 footer {
-  background-color: #222;
+  font-size: 12px;
   color: #fff;
   padding: 24px;
 }

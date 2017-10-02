@@ -4,6 +4,18 @@
 ?>
 
 
+<form action="index.php" method="POST">
+  <table id="searchevents">
+    <tr>
+      <td>Search events</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="searchevent" class="searchbar"></td>
+      <td><INPUT type="submit" class="searchbutton" name="submit" value="GO"></td>
+    </tr>
+  </table>
+</form>
+
 <div id="browse">
 
   <div class="box">
