@@ -19,6 +19,13 @@ body {
 
 header {
   overflow: hidden;
+  display: block;
+  position: relative;
+}
+
+#headbox {
+  height: 10vh;
+  background-color: #222;
 }
 
 nav {
@@ -32,29 +39,30 @@ nav {
 
 #hamb {
   display: block;
-  width: 32px;
-  height: 26px;
-  padding: 6px;
-  background-image: url("../img/hamb.png");
-  background-repeat: no-repeat;
   position: absolute;
-  z-index: 40;
+  background-image: url("../img/hamb.png");
+
 }
 
 #close {
   display: none;
-  width: 32px;
-  height: 26px;
-  padding: 6px;
-  background-image: url("../img/x.png");
-  background-repeat: no-repeat;
   position: absolute;
+  background-image: url("../img/x.png");
   z-index: 40;
+}
+
+#hamb, #close {
+  cursor: pointer;
+  background-repeat: no-repeat;
+  width: 32px;
+  height: 32px;
+  margin: 12px;
+  box-sizing: border-box;
 }
 
 nav ul {
   padding: 24px;
-  margin: 0;
+  margin: 48px 0px;
 }
 
 nav ul li {
@@ -65,4 +73,33 @@ nav ul li {
 nav ul li a {
   text-decoration: none;
   color: #fff;
+}
+
+/*--index page--------*/
+
+.box {
+	margin: 12px;
+	padding: 6px;
+	background-color: #eee;
+	box-shadow: 2px 2px 2px #000;
+}
+
+.box:nth-child(even) {
+
+}
+
+.box:nth-child(odd) {
+
+}
+
+p.description {
+
+}
+
+/*--footer-------*/
+
+footer {
+  background-color: #222;
+  color: #fff;
+  padding: 24px;
 }

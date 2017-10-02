@@ -11,8 +11,11 @@
 		    <main>
 	      <header>
 
-					<span id="hamb" onclick="openNav()"></span>
-          <span id="close" onclick="closeNav()"></span>
+					<span id="close" onclick="closeNav()"></span>
+					<div id="headbox">
+						<div id="hamb" onclick="openNav()"></div>
+					</div>
+
 
 						<nav id="mainmenu">
 							<ul>
