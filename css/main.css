@@ -1,0 +1,68 @@
+/*--General info-----*/
+
+/*Jag har utgått ifrån ökningar med 6px som standard på marginaler /Ellen
+/*Det högsta z-index just nu är 30
+
+
+/*--Basics-----*/
+
+* {
+  font-family: 'Roboto'
+}
+
+body {
+  margin: 0;
+  background-color: #555;
+}
+
+/*--Main menu------*/
+
+header {
+  overflow: hidden;
+}
+
+nav {
+  height: 100vh;
+  width: 50%;
+  background-color: #333;
+  z-index: 30;
+  position: fixed;
+  display: none;
+}
+
+#hamb {
+  display: block;
+  width: 32px;
+  height: 26px;
+  padding: 6px;
+  background-image: url("../img/hamb.png");
+  background-repeat: no-repeat;
+  position: absolute;
+  z-index: 40;
+}
+
+#close {
+  display: none;
+  width: 32px;
+  height: 26px;
+  padding: 6px;
+  background-image: url("../img/x.png");
+  background-repeat: no-repeat;
+  position: absolute;
+  z-index: 40;
+}
+
+nav ul {
+  padding: 24px;
+  margin: 0;
+}
+
+nav ul li {
+  list-style: none;
+  padding: 12px 0px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+}

@@ -11,6 +11,9 @@
 		    <main>
 	      <header>
 
+					<span id="hamb" onclick="openNav()"></span>
+          <span id="close" onclick="closeNav()"></span>
+
 						<nav id="mainmenu">
 							<ul>
 								<li><a class="<?php echo ($current_page == 'index.php' || $current_page == '') ? 'active' : NULL ?>" href="index.php">Home</a></li>
