@@ -6,13 +6,6 @@
 
 
 
-
-
-
 <?php
   include("footer.php");
 ?>
-
-
-
-
