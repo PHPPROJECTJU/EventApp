@@ -11,13 +11,8 @@
 		    <main>
 	      <header>
 
-					<span id="close" onclick="closeNav()"></span>
-					<div id="headbox">
-						<div id="hamb" onclick="openNav()"></div>
-					</div>
-
-
 						<nav id="mainmenu">
+							<div id="close" onclick="closeNav()"></div>
 							<ul>
 								<li><a class="<?php echo ($current_page == 'index.php' || $current_page == '') ? 'active' : NULL ?>" href="index.php">Home</a></li>
 								<li><a class="<?php echo ($current_page == 'profile.php' || $current_page == '') ? 'active' : NULL ?>" href="profile.php">My profile</a></li>
@@ -26,6 +21,10 @@
 							</ul>
 
 						</nav>
+
+						<div id="headbox">
+						 <div id="hamb" onclick="openNav()"></div>
+					 </div>
 
 	      </header>
 

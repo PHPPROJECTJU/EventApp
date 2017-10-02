@@ -20,17 +20,15 @@ body {
 header {
   overflow: hidden;
   display: block;
-  position: relative;
 }
 
 #headbox {
   height: 10vh;
-  background-color: #222;
 }
 
-nav {
+#mainmenu {
   height: 100vh;
-  width: 50%;
+  width: 60%;
   background-color: #333;
   z-index: 30;
   position: fixed;
@@ -45,10 +43,9 @@ nav {
 }
 
 #close {
-  display: none;
   position: absolute;
   background-image: url("../img/x.png");
-  z-index: 40;
+  right: 0;
 }
 
 #hamb, #close {
