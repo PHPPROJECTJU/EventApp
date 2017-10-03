@@ -101,25 +101,34 @@ nav ul li a {
   border-radius: 25px;
 }
 
-/*------*/
+/*--boxes----*/
 
 .box {
 	margin: 12px;
-	padding: 6px;
-	background-color: #f7f58c;
+	padding: 18px;
 	box-shadow: 2px 2px 2px #000;
 }
 
 .box:nth-child(even) {
-
+  background-color: #f7f58c;
 }
 
 .box:nth-child(odd) {
+  background-color: #27e5dc;
+}
 
+.profiletitle {
+  float: right;
+  margin: 0 0 12px 0;
+}
+
+.profilepic {
+  width: 40%;
+  border-radius: 50%;
 }
 
 p.description {
-
+  font-size: 14px;
 }
 
 /*--footer-------*/

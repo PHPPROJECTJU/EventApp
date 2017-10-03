@@ -19,6 +19,8 @@
 <div id="browse">
 
   <div class="box">
+    <h3 class="profiletitle">Bowling &amp; pizza</h3>
+    <img src="img/ellen.jpg" class="profilepic"/>
     <p class="description">Some text about events event evsnesabdija
       cdasfaifhnjkn hfsfeoscndnvcdsoifjdsiccxjnzkcjnzjk
       Hje här ör lite text om ingenting för att elenne ska ska hur detta ser ut stavar jag ens rtt???
