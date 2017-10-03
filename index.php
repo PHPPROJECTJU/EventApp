@@ -22,6 +22,9 @@
     <p class="description">Some text about events event evsnesabdija
       cdasfaifhnjkn hfsfeoscndnvcdsoifjdsiccxjnzkcjnzjk
       Hje här ör lite text om ingenting för att elenne ska ska hur detta ser ut stavar jag ens rtt???
+      r ör lite text om ingenting för att elenne ska ska hur detta ser ut stavar jag ens rtt???
+
+      r ör lite text om ingenting för att elenne ska ska hur detta ser ut stavar jag ens rtt???
     </p>
   </div>
 
