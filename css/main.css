@@ -107,6 +107,7 @@ nav ul li a {
 	margin: 12px;
 	padding: 18px;
 	box-shadow: 2px 2px 2px #000;
+  overflow: hidden;
 }
 
 .box:nth-child(even) {
@@ -118,9 +119,15 @@ nav ul li a {
 }
 
 .profiletitle {
-  float: right;
   display: block;
   clear: left;
+  margin: 0 0 6px 0;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+hr {
+  border: 1px solid black;
   margin: 0 0 12px 0;
 }
 
@@ -132,18 +139,24 @@ nav ul li a {
 
 .specifics {
   float:left;
+  margin: 6px 0 0 6px;
 }
 
 .specifics img {
-  width: 30px;
+  width: 24px;
+  float: left;
+  margin-right: 6px;
 }
 
 .specifics h4 {
   margin: 6px 0;
+  float: left;
+  font-size: 14px;
 }
 
 p.description {
   font-size: 14px;
+  float: left;
 }
 
 /*--footer-------*/

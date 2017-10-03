@@ -20,10 +20,14 @@
 
   <div class="box">
     <h3 class="profiletitle">Bowling &amp; pizza</h3>
-    <div class="specifics">
-        <img src="img/place.png" /><h4>Munksjön Jönköping</h4>
-    </div>
+    <hr />
     <img src="img/ellen.jpg" class="profilepic"/>
+    <div class="specifics">
+        <img src="img/place.png" /><h4>Munksjön</h4>
+        <br />
+        <br />
+        <img src="img/time.png" /><h4>24/7 kl 10.00</h4>
+    </div>
     <p class="description">Some text about events event evsnesabdija
       cdasfaifhnjkn hfsfeoscndnvcdsoifjdsiccxjnzkcjnzjk
       Hje här ör lite text om ingenting för att elenne ska ska hur detta ser ut stavar jag ens rtt???
