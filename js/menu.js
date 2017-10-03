@@ -4,11 +4,10 @@ var hamb = document.getElementById("hamb");
 
 
 function openNav() {
-	   menu.style.display = "block";
-	   hamb.style.display = "none";
+		menu.style.width = "250px";
 }
 
 function closeNav() {
-     menu.style.display = "none";
-     hamb.style.display = "block";
+		menu.style.width = "0px";
+
 }

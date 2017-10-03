@@ -8,11 +8,11 @@
 	  </head>
 
 	  <body>
-		    <main>
+		    <main id="main">
 	      <header>
 
 						<nav id="mainmenu">
-							<div id="close" onclick="closeNav()"></div>
+							<div id="close" onclick="closeNav()">×</div>
 							<ul>
 								<li><a class="<?php echo ($current_page == 'index.php' || $current_page == '') ? 'active' : NULL ?>" href="index.php">Home</a></li>
 								<li><a class="<?php echo ($current_page == 'profile.php' || $current_page == '') ? 'active' : NULL ?>" href="profile.php">My profile</a></li>
