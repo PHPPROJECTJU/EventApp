@@ -20,6 +20,9 @@
 
   <div class="box">
     <h3 class="profiletitle">Bowling &amp; pizza</h3>
+    <div class="specifics">
+        <img src="img/place.png" /><h4>Munksjön Jönköping</h4>
+    </div>
     <img src="img/ellen.jpg" class="profilepic"/>
     <p class="description">Some text about events event evsnesabdija
       cdasfaifhnjkn hfsfeoscndnvcdsoifjdsiccxjnzkcjnzjk

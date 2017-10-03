@@ -119,12 +119,27 @@ nav ul li a {
 
 .profiletitle {
   float: right;
+  display: block;
+  clear: left;
   margin: 0 0 12px 0;
 }
 
 .profilepic {
   width: 40%;
   border-radius: 50%;
+  float: left;
+}
+
+.specifics {
+  float:left;
+}
+
+.specifics img {
+  width: 30px;
+}
+
+.specifics h4 {
+  margin: 6px 0;
 }
 
 p.description {
