@@ -89,6 +89,8 @@ nav ul li a {
   box-shadow: none;
   border-radius: 25px;
   background-color: #eee;
+  padding: 6px 6px 6px 24px;
+  box-sizing: border-box;
 }
 
 .searchbutton {

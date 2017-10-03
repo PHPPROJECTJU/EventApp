@@ -19,25 +19,37 @@
 <div id="browse">
 
   <div class="box">
-    <h3 class="profiletitle">Bowling &amp; pizza</h3>
-    <hr />
-    <img src="img/ellen.jpg" class="profilepic"/>
-    <div class="specifics">
-        <p><img src="img/place.png" />Jönköping centrum</p>
-        <br />
-        <p><img src="img/time.png" />24/7 kl 10.00</p>
-    </div>
-    <p class="description">Some text about events event evsnesabdija
-      cdasfaifhnjkn hfsfeoscndnvcdsoifjdsiccxjnzkcjnzjk
-      Hje här ör lite text om ingenting för att elenne ska ska hur detta ser ut stavar jag ens rtt???
-    </p>
-    <br />
-    <a href="event.php" class="seemore">more...</a>
+      <h3 class="profiletitle">Bowling &amp; pizza</h3>
+      <hr />
+      <img src="img/ellen.jpg" class="profilepic"/>
+      <div class="specifics">
+          <p><img src="img/place.png" />Jönköping centrum</p>
+          <br />
+          <p><img src="img/time.png" />24/7 kl 10.00</p>
+      </div>
+      <p class="description">Some text about events event evsnesabdija
+        cdasfaifhnjkn hfsfeoscndnvcdsoifjdsiccxjnzkcjnzjk
+        Hje här ör lite text om ingenting för att elenne ska ska hur detta ser ut stavar jag ens rtt???
+      </p>
+      <br />
+      <a href="event.php" class="seemore">more...</a>
   </div>
 
   <div class="box">
-    <p class="description">ELLENS ÄNDRING
-    </p>
+      <h3 class="profiletitle">Bowling &amp; pizza</h3>
+      <hr />
+      <img src="img/ellen.jpg" class="profilepic"/>
+      <div class="specifics">
+          <p><img src="img/place.png" />Jönköping centrum</p>
+          <br />
+          <p><img src="img/time.png" />24/7 kl 10.00</p>
+      </div>
+      <p class="description">Some text about events event evsnesabdija
+        cdasfaifhnjkn hfsfeoscndnvcdsoifjdsiccxjnzkcjnzjk
+        Hje här ör lite text om ingenting för att elenne ska ska hur detta ser ut stavar jag ens rtt???
+      </p>
+      <br />
+      <a href="event.php" class="seemore">more...</a>
   </div>
 
   <div class="box">
