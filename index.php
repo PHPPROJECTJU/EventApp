@@ -23,10 +23,10 @@
     <hr />
     <img src="img/ellen.jpg" class="profilepic"/>
     <div class="specifics">
-        <img src="img/place.png" /><h4>Munksjön</h4>
+        <p><img src="img/place.png" />Jönköping centrum</p>
         <br />
         <br />
-        <img src="img/time.png" /><h4>24/7 kl 10.00</h4>
+        <p><img src="img/time.png" />24/7 kl 10.00</p>
     </div>
     <p class="description">Some text about events event evsnesabdija
       cdasfaifhnjkn hfsfeoscndnvcdsoifjdsiccxjnzkcjnzjk

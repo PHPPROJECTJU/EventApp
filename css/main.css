@@ -139,17 +139,21 @@ hr {
 
 .specifics {
   float:left;
-  margin: 6px 0 0 6px;
+  width: 60%;
+  box-sizing: border-box;
+  padding-left: 6px;
 }
 
 .specifics img {
   width: 24px;
   float: left;
-  margin-right: 6px;
+  padding-right: 6px;
 }
 
-.specifics h4 {
-  margin: 6px 0;
+.specifics p {
+  font-weight: bold;
+  padding: 6px 0;
+  margin: 0;
   float: left;
   font-size: 14px;
 }
