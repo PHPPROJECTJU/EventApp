@@ -27,7 +27,7 @@ header {
 }
 
 #headbox {
-  height: 10vh;
+  height: 5vh;
 }
 
 #mainmenu {
@@ -116,13 +116,14 @@ nav ul li a {
   overflow: hidden;
 }
 
-.box:nth-child(even) {
-  background-color: #f7f58c;
+.box:nth-child(2n+1) {
+  background-color: #9c5ec1;
 }
 
-.box:nth-child(odd) {
+.box:nth-child(2n+2) {
   background-color: #27e5dc;
 }
+
 
 .profiletitle {
   display: block;
