@@ -36,17 +36,16 @@
   </div>
 
   <div class="box">
-      <h3 class="profiletitle">Bowling &amp; pizza</h3>
+      <h3 class="profiletitle">Gå på Jurassic Park-premiären</h3>
       <hr />
       <img src="img/ellen.jpg" class="profilepic"/>
       <div class="specifics">
-          <p><img src="img/place.png" />Jönköping centrum</p>
+          <p><img src="img/place.png" />SF Bergakungen</p>
           <br />
-          <p><img src="img/time.png" />24/7 kl 10.00</p>
+          <p><img src="img/time.png" />30/7 kl 20.30</p>
       </div>
       <p class="description">Some text about events event evsnesabdija
         cdasfaifhnjkn hfsfeoscndnvcdsoifjdsiccxjnzkcjnzjk
-        Hje här ör lite text om ingenting för att elenne ska ska hur detta ser ut stavar jag ens rtt???
       </p>
       <br />
       <a href="event.php" class="seemore">more...</a>
