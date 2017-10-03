@@ -12,7 +12,7 @@
 
 body {
   margin: 0;
-  background-color: #3bb4f9;
+  background-color: #fff;
 }
 
 /*--Main menu------*/
@@ -78,7 +78,6 @@ nav ul li a {
 /*-search-*/
 
 #searchevents {
-  width: 75%;
   margin: 36px auto 60px auto;
   text-align: center;
 }
@@ -88,6 +87,8 @@ nav ul li a {
   width: 90%;
   border: none;
   box-shadow: none;
+  border-radius: 25px;
+  background-color: #eee;
 }
 
 .searchbutton {
@@ -96,6 +97,8 @@ nav ul li a {
   border: none;
   padding: 6px;
   font-size: 16px;
+  width: 50px;
+  border-radius: 25px;
 }
 
 /*------*/
