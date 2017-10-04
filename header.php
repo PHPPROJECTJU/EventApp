@@ -16,6 +16,7 @@
 							<ul>
 								<li><a class ="slide-effect" id="<?php echo ($current_page == 'index.php' || $current_page == '') ? 'active' : NULL ?>" href="index.php">Home</a></li>
 								<li><a class ="slide-effect" id="<?php echo ($current_page == 'profile.php') ? 'active' : NULL ?>" href="profile.php">My profile</a></li>
+								<li><a class ="slide-effect" id="<?php echo ($current_page == 'myevents.php') ? 'active' : NULL ?>" href="myevents.php">My events</a></li>
 								<li><a class ="slide-effect" id="<?php echo ($current_page == 'about.php') ? 'active' : NULL ?>" href="about.php">About</a></li>
 								<li><a class ="slide-effect" id="<?php echo ($current_page == 'contact.php') ? 'active' : NULL ?>" href="contact.php">Contact</a></li>
 							</ul>
@@ -24,6 +25,7 @@
 
 						<div id="headbox">
 						 <div id="hamb" onclick="openNav()">&#9776;</div>
+						 <img class="logo" src="img/eventually.png"/>
 					 </div>
 
 	      </header>

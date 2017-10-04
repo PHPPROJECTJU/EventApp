@@ -24,6 +24,8 @@ p {
 header {
   overflow: hidden;
   display: block;
+  height: 50px;
+  background-color: white;
 }
 
 #headbox {
@@ -44,6 +46,7 @@ header {
     background-color: #333;
     overflow-x: hidden;
     transition: width 0.2s;
+    box-shadow: 14px 0px 45px rgba(0, 0, 0, 0.5);
 }
 
 #mainmenu {-webkit-transition-timing-function: ease;}
@@ -54,7 +57,7 @@ header {
   position: absolute;
   font-size: 250%;
   line-height: 32px;
-  margin: 6px 12px 12px 12px;
+  margin: 2px 12px 12px 12px;
   color: #27e5dc;
 }
 
@@ -67,6 +70,14 @@ header {
   margin: 6px 6px 12px 12px;
   padding: 0;
   line-height: 32px;
+}
+
+.logo {
+  width: 250px;
+  margin: 0 auto;
+  overflow: hidden;
+  display: block;
+  margin-top: 5px;
 }
 
 nav ul {
@@ -90,7 +101,7 @@ nav ul li a {
   display: block;
   height: 3px;
   width: 100%;
-  background: white;
+  background: #27e5dc;
 }
 /* Have to display it like inlineblock. Otherwise it will look uggly :) */
 .slide-effect {
@@ -108,7 +119,7 @@ nav ul li a {
 /* Sets width to 100% and therefore it becomes visible. */
 .slide-effect:hover:after {
   width: 100%;
-  background: white;
+  background: #27e5dc;
 }
 
 
@@ -188,7 +199,7 @@ hr {
   float:left;
   width: 60%;
   box-sizing: border-box;
-  padding-left: 6px;
+  padding-left: 18px;
 }
 
 .specifics img {
