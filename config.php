@@ -8,7 +8,7 @@ $current_page = end($strings);
 
 $dbname = 'insertourdatabasename';
 $dbuser = 'root';
-$dbpass = '';
+$dbpass = 'root';
 $dbserver = 'localhost';
 
 ?>

@@ -85,6 +85,32 @@ nav ul li a {
   color: #fff;
 }
 
+#active.slide-effect:after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: white;
+}
+/* Have to display it like inlineblock. Otherwise it will look uggly :) */
+.slide-effect {
+  display: inline-block;
+}
+/* adds the line below, but since line width is set to zero it won't appear. */
+.slide-effect:after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 0;
+  background: transparent;
+  transition: width 0.3s ease, background-color 0.3s ease; /* .5 seonds for changes to the width and background-color */
+}
+/* Sets width to 100% and therefore it becomes visible. */
+.slide-effect:hover:after {
+  width: 100%;
+  background: white;
+}
+
 
 /*--index page--------*/
 
@@ -200,9 +226,22 @@ footer {
 /*=====================================640PX========================================*/
 @media (min-width: 640px) {
 
+  .box {
+    float: left;
+    width: calc(50% - 60px);
+  }
+
 }
 
 /*=====================================960PX========================================*/
 @media (min-width: 960px) {
+  .box {
+    float: left;
+    width: calc(33.333% - 60px);
+  }
+
+  .box:nth-child(3n+1) {
+    clear: left;
+  }
 
 }
