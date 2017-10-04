@@ -25,7 +25,7 @@ header {
   overflow: hidden;
   display: block;
   height: 50px;
-  background-color: white;
+  background-color: #3a3a3a;
 }
 
 #headbox {
@@ -52,13 +52,14 @@ header {
 #mainmenu {-webkit-transition-timing-function: ease;}
 
 #hamb {
-  cursor: pointer;
-  display: block;
-  position: absolute;
-  font-size: 250%;
-  line-height: 32px;
-  margin: 2px 12px 12px 12px;
-  color: #27e5dc;
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    font-size: 250%;
+    line-height: 32px;
+    color: #27e5dc;
+    left: 12px;
+    top: 7px;
 }
 
 #close {
@@ -73,11 +74,11 @@ header {
 }
 
 .logo {
-  width: 250px;
+  width: 180px;
   margin: 0 auto;
   overflow: hidden;
   display: block;
-  margin-top: 5px;
+  margin-top: 15px;
 }
 
 nav ul {
@@ -128,7 +129,7 @@ nav ul li a {
 /*-search-*/
 
 #searchevents {
-  margin: 36px auto 60px auto;
+  margin: 15px auto 17px auto;
   text-align: center;
 }
 
@@ -141,6 +142,7 @@ nav ul li a {
   background-color: #eee;
   padding: 6px 6px 6px 24px;
   box-sizing: border-box;
+  caret-color: red;
 }
 
 input:focus {
@@ -153,9 +155,18 @@ input:focus {
   color: #fff;
   border: none;
   padding: 6px;
-  font-size: 16px;
-  width: 50px;
+  font-size: 23px;
+  width: 69px;
   border-radius: 25px;
+}
+
+.searchbutton:hover {
+  background-color: grey;
+  cursor: pointer;
+}
+
+.searchbutton:active {
+  background-color: #333;
 }
 
 /*--boxes----*/
@@ -250,6 +261,11 @@ footer {
   .box {
     float: left;
     width: calc(50% - 47px);
+  }
+
+  .logo {
+    width: 250px;
+    margin-top: 10px;
   }
 
 }
