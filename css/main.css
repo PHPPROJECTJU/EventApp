@@ -30,29 +30,44 @@ header {
   height: 5vh;
 }
 
-#mainmenu {
-  height: 100vh;
-  width: 60%;
-  background-color: #333;
-  z-index: 30;
-  position: fixed;
-  display: none;
+#main {
+  transition: margin-left 0.5s;
 }
+
+#mainmenu {
+    height: 100vh;
+    width: 0;
+    position: fixed;
+    z-index: 30;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    overflow-x: hidden;
+    transition: width 0.5s;
+}
+#mainmenu {-webkit-transition-timing-function: ease;}
 
 #hamb {
   display: block;
   position: absolute;
   background-image: url("../img/hamb.png");
 
+
 }
 
 #close {
   position: absolute;
-  background-image: url("../img/x.png");
+  /*background-image: url("../img/x.png");*/
   right: 0;
+  color: lightgrey;
+  font-size: 500%;
+  margin: 10px 15px;
+  padding: 0;
+  cursor: pointer;
+  line-height: 50px;
 }
 
-#hamb, #close {
+#hamb{
   cursor: pointer;
   background-repeat: no-repeat;
   width: 32px;
@@ -69,6 +84,7 @@ nav ul {
 nav ul li {
   list-style: none;
   padding: 12px 0px;
+  width: 100px;
 }
 
 nav ul li a {
@@ -186,4 +202,14 @@ footer {
   font-size: 12px;
   color: #fff;
   padding: 24px;
+}
+
+/*=====================================640PX========================================*/
+@media (min-width: 640px) {
+
+}
+
+/*=====================================960PX========================================*/
+@media (min-width: 960px) {
+
 }
