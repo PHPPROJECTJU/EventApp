@@ -55,15 +55,16 @@ header {
   font-size: 250%;
   line-height: 32px;
   margin: 6px 12px 12px 12px;
+  color: #27e5dc;
 }
 
 #close {
   cursor: pointer;
   position: absolute;
   right: 0;
-  color: lightgrey;
+  color: #27e5dc;
   font-size: 450%;
-  margin: 6px 12px 12px 12px;
+  margin: 6px 6px 12px 12px;
   padding: 0;
   cursor: pointer;
   line-height: 32px;
@@ -104,6 +105,11 @@ nav ul li a {
   background-color: #eee;
   padding: 6px 6px 6px 24px;
   box-sizing: border-box;
+}
+
+input:focus {
+    outline:none;
+    caret-color: #fff;
 }
 
 .searchbutton {
