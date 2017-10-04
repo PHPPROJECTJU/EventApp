@@ -58,10 +58,10 @@ header {
   right: 0;
   color: lightgrey;
   font-size: 450%;
-  margin: 12px;
+  margin: 6px 12px 12px 12px;
   padding: 0;
   cursor: pointer;
-  line-height: 28px;
+  line-height: 32px;
 }
 
 #hamb{
