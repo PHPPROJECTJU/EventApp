@@ -51,20 +51,17 @@ header {
   display: block;
   position: absolute;
   background-image: url("../img/hamb.png");
-
-
 }
 
 #close {
   position: absolute;
-  /*background-image: url("../img/x.png");*/
   right: 0;
   color: lightgrey;
-  font-size: 500%;
-  margin: 10px 15px;
+  font-size: 450%;
+  margin: 12px;
   padding: 0;
   cursor: pointer;
-  line-height: 50px;
+  line-height: 28px;
 }
 
 #hamb{
