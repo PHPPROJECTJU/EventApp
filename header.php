@@ -23,7 +23,7 @@
 						</nav>
 
 						<div id="headbox">
-						 <div id="hamb" onclick="openNav()"></div>
+						 <div id="hamb" onclick="openNav()">&#9776;</div>
 					 </div>
 
 	      </header>

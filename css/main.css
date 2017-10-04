@@ -45,15 +45,20 @@ header {
     overflow-x: hidden;
     transition: width 0.5s;
 }
+
 #mainmenu {-webkit-transition-timing-function: ease;}
 
 #hamb {
+  cursor: pointer;
   display: block;
   position: absolute;
-  background-image: url("../img/hamb.png");
+  font-size: 250%;
+  line-height: 32px;
+  margin: 6px 12px 12px 12px;
 }
 
 #close {
+  cursor: pointer;
   position: absolute;
   right: 0;
   color: lightgrey;
@@ -62,15 +67,6 @@ header {
   padding: 0;
   cursor: pointer;
   line-height: 32px;
-}
-
-#hamb{
-  cursor: pointer;
-  background-repeat: no-repeat;
-  width: 32px;
-  height: 32px;
-  margin: 12px;
-  box-sizing: border-box;
 }
 
 nav ul {
