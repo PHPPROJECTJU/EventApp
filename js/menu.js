@@ -1,3 +1,6 @@
+
+
+
 var menu = document.getElementById("mainmenu");
 var hamb = document.getElementById("hamb");
 
