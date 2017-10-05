@@ -1,7 +1,7 @@
             </div>
             <footer>
                   <p>© Julia Palm, Albin Johansson, Ellen Brage
-                  <br/>Jönköping University 2017
+                  <br/>Jönköping University <?php echo date("Y");?>
                   </p>
             </footer>
 
