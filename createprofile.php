@@ -14,8 +14,8 @@
 	  </head>
 
 <!--formfields should only be required if there is no input from before-->
-<div id="editprofile">
-    <form method="POST" name="editprofile" action="createprofile.php">
+<div id="createprofile">
+    <form method="POST" name="createprofile" action="createprofile.php">
         <h1>Welcome!<br> Create your profile</h1>
           <br>
           <input type="name" name="firstname" placeholder="Firstname" required/>

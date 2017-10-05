@@ -302,14 +302,14 @@ width: 90%;
   margin-top:10px;
 }
 
-/*-edit profile-*/
+/*-create profile-*/
 
-#editprofile {
+#createprofile {
   text-align: center;
   margin: 20px;
 }
 
-#editprofile input {
+#createprofile input {
 	display: block;
 	margin: auto;
 	width: 80%;
@@ -317,7 +317,7 @@ width: 90%;
 	padding: 10px;
 }
 
-#editprofile textarea {
+#createprofile textarea {
 	display: block;
 	margin: auto;
 	width: 80%;
@@ -325,7 +325,7 @@ width: 90%;
 	padding: 10px;
 }
 
-#editprofile input[type=submit] {
+#createprofile input[type=submit] {
 	background: #ddd;
 	color: #000;
 	font-size: 13px;
