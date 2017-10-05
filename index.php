@@ -18,7 +18,7 @@
 <div id="browse">
 
   <?php
-      /*@ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
+      @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
 
       if ($db->connect_error) {
           echo "could not connect: " . $db->connect_error;
@@ -28,15 +28,29 @@
 
       echo "<p>Hello from php!</p>";
 
-      $query = "SELECT * FROM Event";
+      $query = "SELECT User.Username, User.ProfilePicture, Event.Title, Event.StartDate, Event.StartTime, Event.Information, Location.StreetAdress
+                FROM User
+                JOIN Event
+                ON User.UserID=Event.UserID
+                JOIN Location
+                ON Event.LocationID=Location.LocationID";
 
       $stmt = $db->prepare($query);
-      $stmt->bind_result($EventID, $Title, $StartDate, $EndDate, $EndTime, $EndTime, $LocationID, $Information, $Status, $UserID, $Tags, $Comments);
+      $stmt->bind_result($Username, $ProfilePicture, $Title, $StartDate, $StartTime, $Information, $StreetAdress);
       $stmt->execute();
 
-      echo $query;
+      while ($stmt->fetch()) {
+          echo "<div class='box'>";
+          echo "<h3 class='profiletitle'>$Title</h3>";
+          echo "<img src='$ProfilePicture' class='profilepic'/>";
+          echo "<div class='specifics'>";
+          echo "<p><img src='img/place.png' />$StreetAdress</p> <br />";
+          echo "<p><img src='img/time.png' />$StartDate kl $StartTime</p>";
+          echo "</div>";
+          echo "<p class='description'>$Information</p>";
+          echo "</div>";
+      }
 
-*/
   ?>
 
   <div class="box">
