@@ -303,6 +303,14 @@ p.description {
   display: inline;
 }
 
+.arrow {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid black;
+}
+
 #about {
   width: 50%;
   background-color: #eee;
@@ -310,6 +318,7 @@ p.description {
   display: none;
   z-index: 30;
   position: absolute;
+  padding: 6px;
 }
 
 /*-contact form-*/
