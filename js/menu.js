@@ -14,13 +14,13 @@ function closeNav() {
 		menu.style.width = "0px";
 }
 
-var aboutBubble = document.getElementById("about");
-var aboutButton = document.getElementById("aboutbutton");
+
+var aboutBox = document.getElementById("aboutBox");
 
 function showAbout() {
-		if (aboutBubble.style.display == "block") {
-			aboutBubble.style.display = "none";
+		if (aboutBox.style.display == "block") {
+			aboutBox.style.display = "none";
 		} else {
-			aboutBubble.style.display = "block";
+			aboutBox.style.display = "block";
 		}
 }

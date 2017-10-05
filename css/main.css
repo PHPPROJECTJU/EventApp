@@ -322,14 +322,19 @@ p.description {
   border-bottom: 10px solid #eee;
 }
 
+#aboutBox {
+  overflow: hidden;
+  display: none;
+}
+
 #about {
   width: 50%;
   background-color: #eee;
   overflow: hidden;
-  display: none;
   z-index: 30;
   position: absolute;
   padding: 6px;
+  top: 30px;
 }
 
 /*-contact form-*/

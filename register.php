@@ -19,9 +19,11 @@
 
     <div id="registerbox">
       <div id="aboutbutton" onclick="showAbout()">About</div>
-      <div id="about">
+      <div id="aboutBox">
           <div class="arrow"></div>
-          <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit</p>
+          <div id="about">
+              <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit</p>
+          </div>
       </div>
 
         <form action="">
