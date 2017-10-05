@@ -176,14 +176,19 @@ input:focus {
 	padding: 18px;
 	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   overflow: hidden;
+  height: 300px;
 }
 
 .box:nth-child(2n+1) {
-  background-color: #9c5ec1;
+  /*background-color: #9c5ec1;*/
+  background-color:#eee;
+  border: 3px solid #000;
 }
 
 .box:nth-child(2n+2) {
-  background-color: #27e5dc;
+  /*background-color: #27e5dc;*/
+  background-color:#eee;
+  border: 3px solid #000;
 }
 
 
@@ -292,6 +297,10 @@ p.description {
 
 .already a{
   text-decoration: none;
+}
+
+#aboutbutton {
+  display: inline;
 }
 
 #about {
