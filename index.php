@@ -31,7 +31,7 @@
       $query = "SELECT * FROM Event";
 
       $stmt = $db->prepare($query);
-      $stmt->bind_result($EventID, $Title, $StartDate, $EndDate, $EndTime, $EndTime, $LocationID, $Information, $Status);
+      $stmt->bind_result($EventID, $Title, $StartDate, $EndDate, $EndTime, $EndTime, $LocationID, $Information, $Status, $UserID, $Tags, $Comments);
       $stmt->execute();
 
       echo $query;
