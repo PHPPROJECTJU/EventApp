@@ -13,7 +13,7 @@
           <td><input type="text" name="username" class="searchbar" placeholder="username"></td>
         </tr>
         <tr>
-          <td><input type="password" name="password" class="searchbar" placeholder="password"></td>
+          <td><input type="password" name="password" class="registerbar" placeholder="password"></td>
         </tr>
           <td><input type="submit" class="searchbutton" name="submit" value="GO"></td>
         </tr>
