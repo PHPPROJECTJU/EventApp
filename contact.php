@@ -14,17 +14,25 @@
   </div>
 </form>
 
+<!--Some of this code was taken from http://htmldog.com/techniques/formtoemail/ 2017-10-05-->
+
 <?php
+
+  $adminEmail = "paju1600@student.ju.se";
+
+  if($_POST["submit"]) {
+      $to = $adminEmail;
+      $subject = "Message from Eventually";
+      $sender = $_POST["name"];
+      $senderEmail = $_POST["email"];
+      $message = $_POST["message"];
+
+      $mailBody="Name: $sender\nEmail: $senderEmail\n\n$message";
+
+      mail($to, $subject, $mailBody, "From: $sender <$senderEmail>");
+
+      $thankYou="<p>Thank you! Your message has been sent.</p>";
+  }
+
   include("footer.php");
-?>
-
-<!--This code was taken from a thread 2017-10-05 https://stackoverflow.com/questions/20927980/using-html-and-php-to-send-form-data-to-an-email written by user Ferrakkem Bhuiyan-->
-
-<?PHP
-  $email = $_POST["email"];
-  $to = "paju1600@student.ju.se";
-  $subject = "New message from Eventually user";
-  $headers = "From: $email\n";
-  $message = $_POST["message"];
-  mail($to,$subject,$message,$headers);
 ?>
