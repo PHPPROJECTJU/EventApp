@@ -33,7 +33,8 @@ header {
 }
 
 #main {
-  transition: margin-left 0.5s;
+  transition: margin-left 0.5s
+  /*position:relative;*/
 }
 
 #mainmenu {
@@ -391,8 +392,10 @@ footer {
   margin-top: 70px;
   display: inline-block;
   width: 100vw;
-  position: absolute;
+  /*text-align: center;
+  position: fixed;
   bottom: 0;
+  overflow: hidden;*/
 }
 
 /*=====================================640PX========================================*/
