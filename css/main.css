@@ -248,7 +248,7 @@ p.description {
 }
 
 .profilebox {
-  background-color: #fff;
+  background-color: #fd5659;
   width:;
   margin: 15px;
   border: 1px solid lightgrey;
@@ -309,6 +309,7 @@ p.description {
   overflow: hidden;
   display: none;
   z-index: 30;
+  position: absolute;
 }
 
 /*-contact form-*/
