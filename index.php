@@ -18,6 +18,24 @@
 <div id="browse">
 
   <?php
+      @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
+
+      if ($db->connect_error) {
+          echo "could not connect: " . $db->connect_error;
+          printf("<br><a href=index.php>Return to home page </a>");
+          exit();
+      }
+
+      echo "<p>Hello from php!</p>";
+
+      $query = "SELECT * FROM Event";
+
+      $stmt = $db->prepare($query);
+      $stmt->bind_result($EventID, $Title, $StartDate, $EndDate, $EndTime, $EndTime, $LocationID, $Information, $Status);
+      $stmt->execute();
+
+      echo $query;
+
 
   ?>
 

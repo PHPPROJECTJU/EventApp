@@ -6,7 +6,7 @@ $strings = explode('/', $url);
 
 $current_page = end($strings);
 
-$dbname = 'insertourdatabasename';
+$dbname = 'Eventapp';
 $dbuser = 'root';
 $dbpass = 'root';
 $dbserver = 'localhost';
