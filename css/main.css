@@ -333,14 +333,14 @@ p.description {
 #aboutBox {
   overflow: hidden;
   display: none;
+  z-index: 30;
+  position: absolute;
 }
 
 #about {
   width: 50%;
   background-color: #eee;
   overflow: hidden;
-  z-index: 30;
-  position: absolute;
   padding: 6px;
   top: 30px;
 }
