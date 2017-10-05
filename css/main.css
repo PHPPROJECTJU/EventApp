@@ -256,7 +256,6 @@ p.description {
 
 }
 
-<<<<<<< HEAD
 /*-contact form-*/
 
 #contactform h3 {
@@ -292,19 +291,6 @@ p.description {
 	font-size: 13px;
 	border-radius: 10px;
 	width: 20%;
-=======
-/*--------My events--------*/
-.eventmain {
-  background-color: green;
-  padding: 10px;
-  overflow: hidden;
-}
-
-.eventchoose {
-  display: inline;
-  margin: 0 auto;
-  background-color: blue;
->>>>>>> f7048171c81cb12593e66848559e6d024bca7ac6
 =======
   margin: 0 auto;
 }
