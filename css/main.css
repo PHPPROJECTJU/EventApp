@@ -291,10 +291,11 @@ p.description {
   text-decoration: none;
 }
 
-.about {
+#about {
   width: 50%;
   background-color: #eee;
   overflow: hidden;
+  display: none;
 }
 
 /*-contact form-*/
