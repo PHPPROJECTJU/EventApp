@@ -386,6 +386,8 @@ footer {
   margin-top: 70px;
   display: inline-block;
   width: 100vw;
+  position: absolute;
+  bottom: 0;
 }
 
 /*=====================================640PX========================================*/
