@@ -288,6 +288,7 @@ p.description {
 .about {
   width: 50%;
   background-color: #eee;
+  overflow: hidden;
 }
 
 /*-contact form-*/
