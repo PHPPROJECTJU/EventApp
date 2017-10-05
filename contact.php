@@ -9,7 +9,7 @@
       <h3>Contact Eventually</h3>
         <input type="name" name="name" placeholder="Name" required/>
         <input type="email" name="email" placeholder="E-Mail" required/>
-        <textarea name="textarea" placeholder="Message"></textarea>
+        <textarea name="message" placeholder="Message"></textarea>
         <input type="submit" value="Send" />
   </div>
 </form>
@@ -23,8 +23,8 @@
 <?PHP
   $email = $_POST["email"];
   $to = "paju1600@student.ju.se";
-  $subject = "New Email Address for Mailing List";
+  $subject = "New message from Eventually user";
   $headers = "From: $email\n";
-  $message = "A visitor to your site has sent the following message.\n";
+  $message = $_POST["message"];
   mail($to,$subject,$message,$headers);
 ?>
