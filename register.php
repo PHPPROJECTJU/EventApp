@@ -18,7 +18,7 @@
 
 
     <div id="registerbox">
-      <div onclick="showAbout()">About</div>
+      <div id="aboutbutton" onclick="showAbout()">About</div>
       <div id="about">
 
       </div>
