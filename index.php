@@ -17,6 +17,10 @@
 
 <div id="browse">
 
+  <?php
+
+  ?>
+
   <div class="box">
       <h3 class="profiletitle">Bowling &amp; pizza</h3>
       <hr />
