@@ -290,6 +290,7 @@ p.description {
   width: 50%;
   background-color: #eee;
   overflow: hidden;
+  display: none;
 }
 
 /*-contact form-*/
