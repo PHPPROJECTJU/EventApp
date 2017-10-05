@@ -248,7 +248,20 @@ p.description {
 }
 
 #registerform {
-  
+
+}
+
+/*--------My events--------*/
+.eventmain {
+  background-color: green;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.eventchoose {
+  display: inline;
+  margin: 0 auto;
+  background-color: blue;
 }
 
 /*--footer-------*/
