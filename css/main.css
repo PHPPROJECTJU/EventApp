@@ -255,6 +255,20 @@ p.description {
   padding: 20px;
 }
 
+<<<<<<< HEAD
+=======
+.profilebutton {
+  padding: 15px;
+  border-radius: 40px;
+  background-color: #fd5659;
+  border: none;
+  outline: none;
+  font-size: 120%;
+  color: #fff;
+  float: right;
+}
+
+>>>>>>> 5fa0ae7a9c5a32bb515ac5c95d2e48d8f1760986
 /*--register-------*/
 
 #registerbox {
