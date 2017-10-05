@@ -242,6 +242,14 @@ p.description {
   color: #fff;
 }
 
+.profilebox {
+  background-color: #fd5659;
+  width:;
+  margin: 15px;
+  border: 1px solid lightgrey;
+  padding: 20px;
+}
+
 /*--register-------*/
 
 #registerbox {

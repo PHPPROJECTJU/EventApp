@@ -26,7 +26,7 @@
           exit();
       }
 
-      $query = "SELECT User.Username, User.ProfilePicture, Event.Title, Event.StartDate, Event.StartTime, Event.Information, Location.StreetAdress
+      $query = "SELECT User.UserName, User.ProfilePicture, Event.Title, Event.StartDate, Event.StartTime, Event.Information, Location.StreetAdress
                 FROM User
                 JOIN Event
                 ON User.UserID=Event.UserID
@@ -34,7 +34,7 @@
                 ON Event.LocationID=Location.LocationID";
 
       $stmt = $db->prepare($query);
-      $stmt->bind_result($Username, $ProfilePicture, $Title, $StartDate, $StartTime, $Information, $StreetAdress);
+      $stmt->bind_result($UserName, $ProfilePicture, $Title, $StartDate, $StartTime, $Information, $StreetAdress);
       $stmt->execute();
 
       while ($stmt->fetch()) {
