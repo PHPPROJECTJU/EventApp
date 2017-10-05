@@ -12,5 +12,11 @@ function openNav() {
 
 function closeNav() {
 		menu.style.width = "0px";
+}
 
+var aboutBubble = document.getElementById("about");
+var aboutButton = document.getElementById("aboutbutton");
+
+function showAbout() {
+		aboutBubble.style.display = "block";
 }
