@@ -12,7 +12,7 @@
 
 body {
   margin: 0;
-  background-color: #fff;
+  background-color: #FAFAFA;
 }
 
 p {
@@ -24,41 +24,61 @@ p {
 header {
   overflow: hidden;
   display: block;
+  height: 50px;
+  background-color: #3a3a3a;
 }
 
 #headbox {
   height: 5vh;
 }
 
-#mainmenu {
-  height: 100vh;
-  width: 60%;
-  background-color: #333;
-  z-index: 30;
-  position: fixed;
-  display: none;
+#main {
+  transition: margin-left 0.5s;
 }
 
-#hamb {
-  display: block;
-  position: absolute;
-  background-image: url("../img/hamb.png");
+#mainmenu {
+    height: 120vh;
+    width: 0;
+    position: fixed;
+    z-index: 30;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    overflow-x: hidden;
+    transition: width 0.2s;
+    box-shadow: 14px 0px 45px rgba(0, 0, 0, 0.5);
+}
 
+#mainmenu {-webkit-transition-timing-function: ease;}
+
+#hamb {
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    font-size: 250%;
+    line-height: 32px;
+    color: #27e5dc;
+    left: 12px;
+    top: 7px;
 }
 
 #close {
+  cursor: pointer;
   position: absolute;
-  background-image: url("../img/x.png");
   right: 0;
+  color: #27e5dc;
+  font-size: 450%;
+  margin: 6px 6px 12px 12px;
+  padding: 0;
+  line-height: 32px;
 }
 
-#hamb, #close {
-  cursor: pointer;
-  background-repeat: no-repeat;
-  width: 32px;
-  height: 32px;
-  margin: 12px;
-  box-sizing: border-box;
+.logo {
+  width: 180px;
+  margin: 0 auto;
+  overflow: hidden;
+  display: block;
+  margin-top: 15px;
 }
 
 nav ul {
@@ -69,11 +89,38 @@ nav ul {
 nav ul li {
   list-style: none;
   padding: 12px 0px;
+  width: 100px;
 }
 
 nav ul li a {
   text-decoration: none;
   color: #fff;
+}
+
+#active.slide-effect:after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #27e5dc;
+}
+/* Have to display it like inlineblock. Otherwise it will look uggly :) */
+.slide-effect {
+  display: inline-block;
+}
+/* adds the line below, but since line width is set to zero it won't appear. */
+.slide-effect:after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 0;
+  background: transparent;
+  transition: width 0.3s ease, background-color 0.3s ease; /* .5 seonds for changes to the width and background-color */
+}
+/* Sets width to 100% and therefore it becomes visible. */
+.slide-effect:hover:after {
+  width: 100%;
+  background: #27e5dc;
 }
 
 
@@ -82,7 +129,7 @@ nav ul li a {
 /*-search-*/
 
 #searchevents {
-  margin: 36px auto 60px auto;
+  margin: 15px auto 17px auto;
   text-align: center;
 }
 
@@ -97,22 +144,36 @@ nav ul li a {
   box-sizing: border-box;
 }
 
+input:focus {
+    outline:none;
+    caret-color: #fff;
+}
+
 .searchbutton {
   background-color: #333;
   color: #fff;
   border: none;
   padding: 6px;
-  font-size: 16px;
-  width: 50px;
+  font-size: 23px;
+  width: 69px;
   border-radius: 25px;
+}
+
+.searchbutton:hover {
+  background-color: grey;
+  cursor: pointer;
+}
+
+.searchbutton:active {
+  background-color: #333;
 }
 
 /*--boxes----*/
 
 .box {
-	margin: 12px;
+	margin: 5px;
 	padding: 18px;
-	box-shadow: 2px 2px 2px #000;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   overflow: hidden;
 }
 
@@ -148,7 +209,7 @@ hr {
   float:left;
   width: 60%;
   box-sizing: border-box;
-  padding-left: 6px;
+  padding-left: 18px;
 }
 
 .specifics img {
@@ -180,10 +241,73 @@ p.description {
   color: #fff;
 }
 
+/*--register-------*/
+
+#registerbox {
+  background-color: #9c5ec1;
+  margin: 5px;
+	padding: 18px;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+#registerform {
+<<<<<<< HEAD
+
+}
+
+
+
+.registerbar {
+  font-size: 16px;
+  width: 90%;
+  border: none;
+  box-shadow: none;
+  border-radius: 25px;
+  background-color: #eee;
+  padding: 6px 6px 6px 24px;
+  box-sizing: border-box;
+  margin: 12px;
+>>>>>>> f150d1d46d9daf8ca3c7dbfb54ce2ba53acefcf4
+}
+
 /*--footer-------*/
 
 footer {
   font-size: 12px;
   color: #fff;
   padding: 24px;
+  overflow: hidden;
+  background-color: #3a3a3a;
+  margin-top: 70px;
+  display: inline-block;
+  width: 100vw;
+}
+
+/*=====================================640PX========================================*/
+@media (min-width: 640px) {
+
+  .box {
+    float: left;
+    width: calc(50% - 47px);
+  }
+
+  .logo {
+    width: 250px;
+    margin-top: 10px;
+  }
+
+}
+
+/*=====================================960PX========================================*/
+@media (min-width: 960px) {
+  .box {
+    float: left;
+    width: calc(33.333% - 47px);
+  }
+
+  .box:nth-child(3n+1) {
+    clear: left;
+  }
+
 }
