@@ -4,9 +4,7 @@
 
 ?>
 
-
-
-
+<a href="editprofile.php">Link to edit profile</a>
 
 <?php
   include("footer.php");
