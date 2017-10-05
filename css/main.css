@@ -244,11 +244,8 @@ p.description {
 /*--register-------*/
 
 #registerbox {
-  background-color: #9c5ec1;
-  margin: 5px;
-	padding: 18px;
-	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
+margin: 0 auto;
+width: 90%;
 }
 
 #registerform {
