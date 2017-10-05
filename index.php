@@ -26,8 +26,6 @@
           exit();
       }
 
-      echo "<p>Hello from php!</p>";
-
       $query = "SELECT User.Username, User.ProfilePicture, Event.Title, Event.StartDate, Event.StartTime, Event.Information, Location.StreetAdress
                 FROM User
                 JOIN Event
