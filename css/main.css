@@ -245,10 +245,67 @@ p.description {
 
 #registerbox {
   background-color: #9c5ec1;
+  margin: 5px;
+	padding: 18px;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
 }
 
 #registerform {
-  
+<<<<<<< HEAD
+
+}
+
+/*-contact form-*/
+
+#contactform h3 {
+	margin: 0px;
+	text-align: center;
+}
+
+#contactform {
+	background: #eee;
+	padding: 10px;
+	margin-top: 10px;
+}
+
+#contactform input {
+	display: block;
+	margin: auto;
+	width: 80%;
+	margin-top: 10px;
+	padding: 10px;
+}
+
+#contactform textarea {
+	display: block;
+	margin: auto;
+	width: 80%;
+	margin-top: 10px;
+	padding: 10px;
+}
+
+#contactform input[type=submit] {
+	background: #ddd;
+	color: #000;
+	font-size: 13px;
+	border-radius: 10px;
+	width: 20%;
+=======
+  margin: 0 auto;
+}
+
+.registerbar {
+  font-size: 16px;
+  width: 90%;
+  border: none;
+  box-shadow: none;
+  border-radius: 25px;
+  background-color: #eee;
+  padding: 6px 6px 6px 24px;
+  box-sizing: border-box;
+  margin: 12px;
+>>>>>>> f150d1d46d9daf8ca3c7dbfb54ce2ba53acefcf4
 }
 
 /*--footer-------*/
