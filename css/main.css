@@ -285,6 +285,11 @@ p.description {
   text-decoration: none;
 }
 
+.about {
+  width: 50%;
+  background-color: #eee;
+}
+
 /*-contact form-*/
 
 #contactform h3 {

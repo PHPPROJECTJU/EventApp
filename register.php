@@ -18,7 +18,7 @@
 
 
     <div id="registerbox">
-
+      <div id="about" onclick="showAbout()">
         <form action="">
           <table id="registerform">
             <tr>
