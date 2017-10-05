@@ -241,6 +241,16 @@ p.description {
   color: #fff;
 }
 
+/*--register-------*/
+
+#registerbox {
+  background-color: #9c5ec1;
+}
+
+#registerform {
+  
+}
+
 /*--footer-------*/
 
 footer {
