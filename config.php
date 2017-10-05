@@ -8,7 +8,7 @@ $current_page = end($strings);
 
 $dbname = 'Eventapp';
 $dbuser = 'root';
-$dbpass = 'root';
+$dbpass = '';
 $dbserver = 'localhost';
 
 ?>
