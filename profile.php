@@ -31,7 +31,8 @@
 ?>
 
 
-<a href="createprofile.php">Link to edit profile</a>
+<a href="createprofile.php">Link to create profile</a>
+<a href="editprofile.php">Link to edit profile</a>
 
 <?php
   include("footer.php");
