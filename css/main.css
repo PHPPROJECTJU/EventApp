@@ -172,25 +172,13 @@ input:focus {
 /*--boxes----*/
 
 .box {
-	margin: 5px;
+	margin: 15px;
 	padding: 18px;
-	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   height: 300px;
+  border: solid 1px lightgrey;
 }
-
-.box:nth-child(2n+1) {
-  /*background-color: #9c5ec1;*/
-  background-color:#eee;
-  border: 3px solid #000;
-}
-
-.box:nth-child(2n+2) {
-  /*background-color: #27e5dc;*/
-  background-color:#eee;
-  border: 3px solid #000;
-}
-
 
 .profiletitle {
   display: block;
@@ -323,26 +311,33 @@ p.description {
 }
 
 .arrow {
-  width: 0;
-  height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-bottom: 10px solid #eee;
+width: 0;
+height: 0;
+border-left: 10px solid transparent;
+border-right: 10px solid transparent;
+border-bottom: 10px solid #eee;
+position: absolute;
+left: 29px;
+top: -10px;
+z-index: 62;
+overflow: hidden;
+
 }
 
 #aboutBox {
-  overflow: hidden;
   display: none;
   z-index: 30;
   position: absolute;
+  margin-left: 12px;
 }
 
 #about {
   width: 50%;
   background-color: #eee;
   overflow: hidden;
-  padding: 6px;
+  padding: 10px;
   top: 30px;
+    border-radius: 20px;
 }
 
 /*-contact form-*/
@@ -457,7 +452,7 @@ footer {
 
   .box {
     float: left;
-    width: calc(50% - 47px);
+    width: calc(50% - 68px);
   }
 
   .logo {
@@ -471,7 +466,7 @@ footer {
 @media (min-width: 960px) {
   .box {
     float: left;
-    width: calc(33.333% - 47px);
+    width: calc(33.333% - 68px);
   }
 
   .box:nth-child(3n+1) {
