@@ -24,7 +24,7 @@
     while ($stmt->fetch()) {
         echo "<div class='profilebox'>";
         echo "Name:</br> $FirstName</br></br>Lastname:</br> $LastName</br></br>Birthdate:</br>$Birthdate</br></br>Username:</br>$UserName</br></br>Password:</br>$Password</br></br>Email:</br> $EmailAdress</br></br>About:</br>$About</br></br>Profile picture:</br> $ProfilePicture";
-        echo "</br></br><button class='profilebutton' href='createprofile.php'>Link to edit profile</button>";
+        echo "</br></br><a class='profilebutton' href='editprofile.php'>Link to edit profile</a>";
         echo "</div>";
     }
 
