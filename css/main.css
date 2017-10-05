@@ -305,6 +305,24 @@ p.description {
   margin-top:10px;
 }
 
+/*-about page-*/
+
+.about {
+  margin: 20px;
+}
+
+.about cite {
+  font-size: 30px;
+  font-style: oblique;
+}
+
+.about img {
+  width: 100%;
+  padding: 5px;
+  border: 1px black solid;
+  box-sizing: border-box;
+}
+
 /*--footer-------*/
 
 footer {
