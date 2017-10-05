@@ -18,5 +18,9 @@ var aboutBubble = document.getElementById("about");
 var aboutButton = document.getElementById("aboutbutton");
 
 function showAbout() {
-		aboutBubble.style.display = "block";
+		if (aboutBubble.style.display == "block";) {
+			aboutBubble.style.display = "none";
+		} else {
+			aboutBubble.style.display = "block";
+		}
 }
