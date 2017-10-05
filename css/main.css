@@ -244,11 +244,13 @@ p.description {
 /*--register-------*/
 
 #registerbox {
-margin: 0 auto;
-width: 90%;
+
 }
 
 #registerform {
+  margin: 48px auto;
+  width: 90%;
+  text-align: center;
 }
 
 .registerbar {
@@ -261,6 +263,26 @@ width: 90%;
   padding: 6px 6px 6px 24px;
   box-sizing: border-box;
   margin: 12px;
+}
+
+.registerbutton {
+  margin-top: 24px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 6px 24px;
+  font-size: 23px;
+  border-radius: 25px;
+}
+
+.already {
+  margin: 0 auto;
+  width: 90%;
+  text-align: center;
+}
+
+.already a{
+  text-decoration: none;
 }
 
 /*-contact form-*/
