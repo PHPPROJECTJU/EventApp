@@ -268,12 +268,17 @@ p.description {
 
 /*--register-------*/
 
+.red {
+  background-color: #fd5659;
+  height: 100vh;
+}
+
 #registerbox {
   overflow: hidden;
 }
 
 #registerform {
-  margin: 48px auto;
+  margin: 100px auto;
   width: 90%;
   text-align: center;
 }
@@ -311,7 +316,10 @@ p.description {
 }
 
 #aboutbutton {
-  display: inline;
+  display: inline-block;
+  cursor: pointer;
+  margin: 30px;
+  color: #fff;
 }
 
 .arrow {

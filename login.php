@@ -32,20 +32,12 @@
               <td><input type="text" name="username" class="registerbar" placeholder="username" required></td>
             </tr>
             <tr>
-              <td><input type="text" name="username" class="registerbar" placeholder="e-mail address" required></td>
-            </tr>
-            <tr>
               <td><input type="password" name="password" class="registerbar" placeholder="password" required></td>
             </tr>
-            <tr>
-              <td><input type="password" name="password" class="registerbar" placeholder="repeat password" required></td>
-            </tr>
-              <td><input type="submit" class="registerbutton" name="submit" value="register"></td>
+              <td><input type="submit" class="registerbutton" name="submit" value="login"></td>
             </tr>
           </table>
         </form>
-
-              <p class="already">Already registered? <a href="login.php">Sign in</a></p>
 
     </div>
 
