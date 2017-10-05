@@ -34,5 +34,8 @@
       echo $thankYou="<p>Thank you! Your message has been sent.</p>";
   }
 
+#This code should work but we suspect that you need to set up a mail server or have a published site
+#Error, undefined index for submit, check this out!
+
   include("footer.php");
 ?>
