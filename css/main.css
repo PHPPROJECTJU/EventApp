@@ -263,7 +263,7 @@ p.description {
   outline: none;
   font-size: 120%;
   color: #fff;
-  float: right;
+  margin: 0 auto;
 }
 
 /*--register-------*/
