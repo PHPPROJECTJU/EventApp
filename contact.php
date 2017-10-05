@@ -10,7 +10,7 @@
         <input type="name" name="name" placeholder="Name" required/>
         <input type="email" name="email" placeholder="E-Mail" required/>
         <textarea name="message" placeholder="Message"></textarea>
-        <input type="submit" value="Send" />
+        <input type="submit" name="submit" value="Send" />
   </div>
 </form>
 
@@ -31,7 +31,7 @@
 
       mail($to, $subject, $mailBody, "From: $sender <$senderEmail>");
 
-      $thankYou="<p>Thank you! Your message has been sent.</p>";
+      echo $thankYou="<p>Thank you! Your message has been sent.</p>";
   }
 
   include("footer.php");
