@@ -18,16 +18,22 @@
     <form method="POST" name="createprofile" action="createprofile.php">
         <h1>Welcome!<br> Create your profile</h1>
           <br>
+          <input type="name" name="username" placeholder="Username" required/>
+          <br>
+          <input type="name" name="password" placeholder="Password" required/>
+          <br>
           <input type="name" name="firstname" placeholder="Firstname" required/>
           <br>
           <input type="name" name="lastname" placeholder="Lastname" required/>
           <br>
+          <input type="name" name="email" placeholder="Email" required/>
+          <br>
           <input type="date" name="bday" min="<?php $date ?>" required/>
           <br>
 
-          <p>Upload your own profile picture:</p>
+          <p>Choose a profile picture:</p>
           <!--Don't really know how to fix this one, heh...-->
-          <!--Uploaded pic should get the id of the usr that uploaded the pic and be displayed-->
+          <!--Uploaded pic should get the id of the user that uploaded the pic and be displayed-->
           <input type="file" name="fileupload" id="fileupload">
 
           <h3>About me</h3>
@@ -38,3 +44,44 @@
 </div>
 
 </html>
+
+<?php
+
+  if (isset($_POST['username'], $_POST['password'], $_POST['firstname'], $_POST['lastname'], $_POST['email'], $_POST['bday'], $_POST['fileupload'], $_POST['about'])) {
+  # Get data from form
+      $Username = trim($_POST['username']);
+      $Password = sha1($_POST['password']);
+      $FirstName = trim($_POST['firstname']);
+      $LastName = trim($_POST['lastname']);
+      $Email = trim($_POST['email']);
+      $Bday = trim($_POST['bday']);
+      $ProfilePicture = trim($_POST['fileupload']);
+      $About = trim($_POST['about']);
+
+      //if (!$Username || !$password || !$FirstName || !$LastName || !$Email || !$Bday || !$ProfilePicture || !$About) {
+        //printf("You must fill in all fields in order to create your profile.");
+        //printf("<br><a href=index.php>Return to home page </a>");
+        //exit();
+      //}
+//--------------DATABASE CONNECTION--------------//
+      @ $db = new mysqli('localhost', 'root', '', 'EventApp');
+
+      if ($db->connect_error) {
+          echo "could not connect: " . $db->connect_error;
+          printf("<br><a href='index.php'>Return to home page </a>");
+          exit();
+      }
+//-----------------------------------------------//
+
+      $stmt = $db->prepare("INSERT INTO User ('UserID', 'Username', 'Password', 'EmailAdress', 'FirstName', 'LastName', 'Birthdate', 'About', 'ProfilePicture')
+                            VALUES (null, '$Username', '$Password', '$FirstName', '$LastName', '$Email', '$Bday', '$ProfilePicture', '$About')");
+      $stmt->bind_param('isssssiss', $Username, $Password, $FirstName, $LastName, $Email, $Bday, $ProfilePicture, $About);
+      $stmt->execute();
+      /*if(mysqli_query($Username, $Password, $FirstName, $LastName, $Email, $Bday, $ProfilePicture, $About)){
+        printf("<br>User added!");
+      }
+      else { printf("<br><a href=index.php>Return to home page </a>");
+      }
+      exit;*/
+    }
+?>
