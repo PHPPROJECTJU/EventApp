@@ -58,11 +58,12 @@
       $ProfilePicture = trim($_POST['fileupload']);
       $About = trim($_POST['about']);
 
-      //if (!$Username || !$password || !$FirstName || !$LastName || !$Email || !$Bday || !$ProfilePicture || !$About) {
-        //printf("You must fill in all fields in order to create your profile.");
-        //printf("<br><a href=index.php>Return to home page </a>");
-        //exit();
-      //}
+
+      if (!$Username || !$password || !$FirstName || !$LastName || !$Email || !$Bday || !$ProfilePicture || !$About) {
+        printf("You must fill in all fields in order to create your profile.");
+        printf("<br><a href=index.php>Return to home page </a>");
+        exit();
+      }
 //--------------DATABASE CONNECTION--------------//
       @ $db = new mysqli('localhost', 'root', '', 'EventApp');
 
@@ -74,14 +75,10 @@
 //-----------------------------------------------//
 
       $stmt = $db->prepare("INSERT INTO User ('UserID', 'Username', 'Password', 'EmailAdress', 'FirstName', 'LastName', 'Birthdate', 'About', 'ProfilePicture')
-                            VALUES (null, '$Username', '$Password', '$FirstName', '$LastName', '$Email', '$Bday', '$ProfilePicture', '$About')");
+                            VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?)");
       $stmt->bind_param('isssssiss', $Username, $Password, $FirstName, $LastName, $Email, $Bday, $ProfilePicture, $About);
       $stmt->execute();
-      /*if(mysqli_query($Username, $Password, $FirstName, $LastName, $Email, $Bday, $ProfilePicture, $About)){
-        printf("<br>User added!");
-      }
-      else { printf("<br><a href=index.php>Return to home page </a>");
-      }
-      exit;*/
+      printf("<br>User added!");
+      printf("<br><a href=index.php>Return to home page </a>");
     }
 ?>
