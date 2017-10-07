@@ -34,7 +34,10 @@
           <p>Choose a profile picture:</p>
           <!--Don't really know how to fix this one, heh...-->
           <!--Uploaded pic should get the id of the user that uploaded the pic and be displayed-->
-          <input type="file" name="fileupload" id="fileupload">
+          <form action="" method="POST" enctype="multipart/form-data">
+              <input type="file" name="fileupload" id="fileupload">
+              <br />
+          </form>
 
           <h3>About me</h3>
           <textarea name="about" placeholder="Tell me something about yourself!"></textarea>
