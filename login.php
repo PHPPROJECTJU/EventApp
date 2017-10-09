@@ -18,6 +18,9 @@
 <?php if(isset($_POST) && !empty($_POST)) : ?>
 
 <?php
+
+  session_start();
+
 	$getusername =  stripslashes($_POST['getusername']);
 	$getpassword =  stripslashes($_POST['getpassword']);
 
@@ -44,6 +47,7 @@
 			exit();
 		}
     }
+
 
 ?>
 
