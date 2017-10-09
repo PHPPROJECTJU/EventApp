@@ -1,7 +1,6 @@
 /*--General info-----*/
 
 /*Jag har utgått ifrån ökningar med 6px som standard på marginaler /Ellen
-/*Det högsta z-index just nu är 30
 
 
 /*--Basics-----*/
@@ -172,23 +171,22 @@ input:focus {
 /*--boxes----*/
 
 .box {
-	margin: 5px;
+	margin: 15px;
 	padding: 18px;
-	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
   overflow: hidden;
   height: 300px;
+  border: 1px solid lightgrey;
 }
 
 .box:nth-child(2n+1) {
   /*background-color: #9c5ec1;*/
   background-color:#eee;
-  border: 3px solid #000;
 }
 
 .box:nth-child(2n+2) {
   /*background-color: #27e5dc;*/
   background-color:#eee;
-  border: 3px solid #000;
 }
 
 
@@ -328,13 +326,18 @@ p.description {
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-bottom: 10px solid #eee;
+  position: absolute;
+  left: 29px;
+  top: -10px;
+  z-index: 62;
+  overflow: hidden;
 }
 
 #aboutBox {
-  overflow: hidden;
   display: none;
   z-index: 30;
   position: absolute;
+  margin-left: 12px;
 }
 
 #about {
@@ -342,7 +345,9 @@ p.description {
   background-color: #eee;
   overflow: hidden;
   padding: 6px;
+  padding: 10px;
   top: 30px;
+  border-radius: 20px;
 }
 
 /*-contact form-*/
