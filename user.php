@@ -14,7 +14,6 @@ echo '<INPUT type="hidden" name="bookid" value=' . $UserID . '>';
 $UserID = trim($_GET['UserID']);      // From the hidden field
 $UserID = addslashes($UserID);
 
-echo $UserID;
 
 
     @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
@@ -43,6 +42,7 @@ echo $UserID;
         echo "</br>Birthdate:</br>$Birthdate</br>";
         echo "</br>Email:</br> $EmailAdress</br>";
         echo "</br>About:</br>$About</br>";
+        echo "</br></br><a class='profilebutton' href='editprofile.php'>See hosted events</a>";
         echo "</div>";
     }
 

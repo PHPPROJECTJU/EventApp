@@ -18,10 +18,21 @@ p, h3 {
   margin: 0;
 }
 
+ul, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+
 
 /*--Main menu------*/
 
-header {
+#mainheader {
   overflow: hidden;
   display: block;
   height: 50px;
@@ -82,18 +93,18 @@ header {
   margin-top: 15px;
 }
 
-nav ul {
+#mainmenu ul {
   padding: 24px;
   margin: 48px 0px;
 }
 
-nav ul li {
+#mainmenu ul li {
   list-style: none;
   padding: 12px 0px;
   width: 100px;
 }
 
-nav ul li a {
+#mainmenu ul li a {
   text-decoration: none;
   color: #fff;
 }
@@ -291,6 +302,37 @@ p.description {
 }
 
 /*--personal profile--*/
+
+#myprofileheader {
+  background-color: #b13c3e;
+}
+
+#profileorevents {
+  overflow: hidden;
+}
+
+#profileorevents ul {
+  overflow: hidden;
+}
+
+#profileorevents ul li {
+  float: left;
+  width: 50%;
+  text-align: center;
+}
+
+#profileorevents ul li a {
+    color: #fff;
+    height: 100%;
+    width: 100%;
+    display: block;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+#profileorevents ul li #active{
+  background-color: #e34d50;
+}
 
 .profilebox {
   background-color: #fff;
