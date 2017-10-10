@@ -178,17 +178,36 @@ input:focus {
   height: 300px;
   border: 1px solid lightgrey;
   position: relative;
+  background-color: #eee;
 }
 
-.box:nth-child(2n+1) {
-  /*background-color: #9c5ec1;*/
-  background-color:#eee;
+/*--event page version:---*/
+
+.eventpagebox {
+  margin: 15px;
+	padding: 18px;
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  height: auto;
+  border: 1px solid lightgrey;
+  position: relative;
+  background-color: #eee;
 }
 
-.box:nth-child(2n+2) {
-  /*background-color: #27e5dc;*/
-  background-color:#eee;
+.goback {
+  font-size: 28px;
+  line-height: 28px;
+  color: #fff;
+  background-color: #fd5659;
+  padding: 12px;
+  margin: 15px;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: block;
 }
+
+/*-----*/
 
 
 .profiletitle {
