@@ -225,8 +225,8 @@ hr {
 }
 
 .profilepic {
+  clip-path: circle(50% at center);
   width: 40%;
-  border-radius: 50%;
   float: left;
 }
 
