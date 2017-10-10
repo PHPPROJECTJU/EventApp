@@ -23,7 +23,12 @@
 
     while ($stmt->fetch()) {
         echo "<div class='profilebox'>";
-        echo "Name:</br> $FirstName</br></br>Lastname:</br> $LastName</br></br>Birthdate:</br>$Birthdate</br></br>Username:</br>$UserName</br></br>Password:</br>$Password</br></br>Email:</br> $EmailAdress</br></br>About:</br>$About</br></br>Profile picture:</br> $ProfilePicture";
+        echo "<img src='$ProfilePicture' id='personalprofilepic'/>";
+        echo "</br>$UserName</br></br>";
+        echo "Name:</br> $FirstName $LastName</br>";
+        echo "</br>Birthdate:</br>$Birthdate</br>";
+        echo "</br>Email:</br> $EmailAdress</br>";
+        echo "</br>About:</br>$About</br>";
         echo "</br></br><a class='profilebutton' href='editprofile.php'>Link to edit profile</a>";
         echo "</div>";
     }

@@ -40,7 +40,7 @@ echo $EventID;
 #here I'm sending us back to index page, the idea is to land on the heading of the same event
 
 
-echo "<a href='index.php#" . urlencode($Title) . "' class='goback'>&larr;</a>";
+echo "<a href='index.php#" . $Title . "' class='goback'>&larr;</a>";
 
     while ($stmt->fetch()) {
         echo "<div class='eventpagebox'>";

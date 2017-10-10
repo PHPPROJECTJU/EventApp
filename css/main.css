@@ -277,12 +277,14 @@ p.description {
   text-align: center;
 }
 
+/*--personal profile--*/
+
 .profilebox {
   background-color: #fff;
   width:;
   margin: 15px;
   border: 1px solid lightgrey;
-  padding: 20px;
+  padding: 36px;
 }
 
 .profilebutton {
@@ -294,6 +296,11 @@ p.description {
   font-size: 120%;
   color: #fff;
   margin: 0 auto;
+}
+/*profile pictures only at the personal profile*/
+#personalprofilepic {
+  clip-path: circle(50% at center);
+  width: 100%;
 }
 
 /*--register-------*/
