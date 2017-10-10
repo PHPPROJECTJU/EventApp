@@ -362,6 +362,36 @@ p.description {
   text-align: center;
 }
 
+/*--myevents-----*/
+
+/*subheader on myevents page:*/
+#whatevent {
+  background-color: #7e2b2c;
+}
+
+#chooseeventtype ul {
+  overflow: hidden;
+}
+
+#chooseeventtype ul li {
+  float: left;
+  width: 33.33%;
+  text-align: center;
+}
+
+#chooseeventtype ul li a {
+    color: #fff;
+    height: 100%;
+    width: 100%;
+    display: block;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+#chooseeventtype ul li #active{
+  background-color: #973335;
+}
+
 /*--register-------*/
 
 .red {
