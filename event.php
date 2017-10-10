@@ -55,6 +55,11 @@ echo "<a href='index.php#" . $Title . "' class='goback'>&larr;</a>";
         echo "</div>";
     }
 
+?>
+
+<?php
+
+echo "<h2 class='commentheader'>Comments</h2>";
 
 ?>
 

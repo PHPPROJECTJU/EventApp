@@ -14,7 +14,7 @@ body {
   background-color: #FAFAFA;
 }
 
-p, h3 {
+p, h3, h2 {
   margin: 0;
 }
 
@@ -220,6 +220,10 @@ input:focus {
   display: block;
 }
 
+.commentheader {
+  margin: 48px 0 0 15px;
+}
+
 /*--Displaying event and user info on index---*/
 
 
@@ -300,6 +304,8 @@ p.description {
   left: 0;
   text-align: center;
 }
+
+
 
 /*--personal profile--*/
 
