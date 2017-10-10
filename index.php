@@ -31,7 +31,7 @@
       }
 
 
-      $query = "SELECT User.UserName, User.ProfilePicture, Event.EventID, Event.Title, Event.StartDate, Event.StartTime, Event.Information, Location.StreetAdress
+      $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Title, Event.StartDate, Event.StartTime, Event.Information, Location.StreetAdress
                 FROM User
                 JOIN Event
                 ON User.UserID=Event.UserID
@@ -41,13 +41,16 @@
                 ";
 
       $stmt = $db->prepare($query);
-      $stmt->bind_result($UserName, $ProfilePicture, $EventID, $Title, $StartDate, $StartTime, $Information, $StreetAdress);
+      $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Title, $StartDate, $StartTime, $Information, $StreetAdress);
       $stmt->execute();
 
       while ($stmt->fetch()) {
           echo "<div class='box'>";
           echo "<h3 class='profiletitle'>$Title</h3>";
+          echo "<span class='pictureandname'>";
           echo "<img src='$ProfilePicture' class='profilepic'/>";
+          echo "<a class='username' href='user.php?UserID= " . urlencode($UserID) . " '> $UserName </a>";
+          echo "</span>";
           echo "<div class='specifics'>";
           echo "<p><img src='img/place.png' />$StreetAdress</p> <br />";
           echo "<p><img src='img/time.png' />$StartDate kl $StartTime</p>";

@@ -14,9 +14,10 @@ body {
   background-color: #FAFAFA;
 }
 
-p {
+p, h3 {
   margin: 0;
 }
+
 
 /*--Main menu------*/
 
@@ -208,7 +209,7 @@ input:focus {
   display: block;
 }
 
-/*-----*/
+/*--Displaying event and user info on index---*/
 
 
 .profiletitle {
@@ -219,15 +220,27 @@ input:focus {
   text-align: center;
 }
 
-hr {
-  border: 1px solid black;
-  margin: 0 0 12px 0;
+
+
+/*this is a span that contains profilepic and username*/
+.pictureandname {
+  float: left;
+  width: 40%;
+  margin-bottom: 12px;
 }
 
 .profilepic {
   clip-path: circle(50% at center);
-  width: 40%;
-  float: left;
+  width: 100%;
+}
+
+.username {
+  font-weight: bold;
+  color: #fd5659;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  display: block;
 }
 
 .specifics {
@@ -301,6 +314,10 @@ p.description {
 #personalprofilepic {
   clip-path: circle(50% at center);
   width: 100%;
+}
+
+.personalusername {
+  text-align: center;
 }
 
 /*--register-------*/

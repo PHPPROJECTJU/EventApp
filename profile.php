@@ -24,7 +24,7 @@
     while ($stmt->fetch()) {
         echo "<div class='profilebox'>";
         echo "<img src='$ProfilePicture' id='personalprofilepic'/>";
-        echo "</br>$UserName</br></br>";
+        echo "</br><h3 class='personalusername'>$UserName</h3></br></br>";
         echo "Name:</br> $FirstName $LastName</br>";
         echo "</br>Birthdate:</br>$Birthdate</br>";
         echo "</br>Email:</br> $EmailAdress</br>";
