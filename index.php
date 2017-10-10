@@ -19,6 +19,9 @@
 
 
   <?php
+
+
+
       @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
 
       if ($db->connect_error) {
@@ -27,12 +30,15 @@
           exit();
       }
 
+
       $query = "SELECT User.UserName, User.ProfilePicture, Event.EventID, Event.Title, Event.StartDate, Event.StartTime, Event.Information, Location.StreetAdress
                 FROM User
                 JOIN Event
                 ON User.UserID=Event.UserID
                 JOIN Location
-                ON Event.LocationID=Location.LocationID";
+                ON Event.LocationID=Location.LocationID
+                ORDER BY Event.EventID DESC
+                ";
 
       $stmt = $db->prepare($query);
       $stmt->bind_result($UserName, $ProfilePicture, $EventID, $Title, $StartDate, $StartTime, $Information, $StreetAdress);
