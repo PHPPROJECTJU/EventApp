@@ -42,7 +42,7 @@ $UserID = addslashes($UserID);
         echo "</br>Birthdate:</br>$Birthdate</br>";
         echo "</br>Email:</br> $EmailAdress</br>";
         echo "</br>About:</br>$About</br>";
-        echo "</br></br><a class='profilebutton' href='editprofile.php'>See hosted events</a>";
+        echo "</br></br><a class='profilebutton' href='hostedevents.php?UserID= " . urlencode($UserID) . " '>See hosted events</a>";
         echo "</div>";
     }
 

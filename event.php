@@ -13,8 +13,6 @@ echo '<INPUT type="hidden" name="bookid" value=' . $EventID . '>';
 $EventID = trim($_GET['EventID']);      // From the hidden field
 $EventID = addslashes($EventID);
 
-echo $EventID;
-
     @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
 
     if ($db->connect_error) {
