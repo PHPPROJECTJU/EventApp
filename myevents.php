@@ -3,10 +3,7 @@
   include("header.php");
   include("myprofileheader.php");
   include("myeventsheader.php");
-
 ?>
-
-
 
 <?php
   include("footer.php");

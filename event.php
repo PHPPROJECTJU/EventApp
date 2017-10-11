@@ -47,7 +47,7 @@ $EventID = addslashes($EventID);
     $stmt2->bind_result($TagName);
     $stmt2->execute();*/
 
-#here I'm sending us back to index page, the idea is to land on the heading of the same event
+#Here I'm sending us back to index page, the idea is to land on the heading of the same event
 
 
 echo "<a href='index.php#" . $Title . "' class='goback'>&larr;</a>";
