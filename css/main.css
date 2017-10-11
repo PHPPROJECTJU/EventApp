@@ -210,8 +210,8 @@ input:focus {
   text-decoration: none;
   font-size: 28px;
   line-height: 28px;
-  color: #fff;
-  background-color: #fd5659;
+  color: #000;
+  background-color: #fafafa;
   padding: 12px;
   margin: 15px;
   border-radius: 50%;
