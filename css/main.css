@@ -608,7 +608,7 @@ footer {
   width: 104%;
 }
 
-.logoutfooter {
+footer.logoutfooter {
   position: fixed;
   bottom: 0;
 }
