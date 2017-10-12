@@ -18,10 +18,7 @@
 
 <?php
   include("myeventsheader.php");
-
 ?>
-
-
 
 <?php
   include("footer.php");

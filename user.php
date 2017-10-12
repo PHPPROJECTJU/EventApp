@@ -1,7 +1,6 @@
 <?php
   include("config.php");
   include("header.php");
-
 ?>
 
 <?php
@@ -13,8 +12,6 @@ echo '<INPUT type="hidden" name="bookid" value=' . $UserID . '>';
 
 $UserID = trim($_GET['UserID']);      // From the hidden field
 $UserID = addslashes($UserID);
-
-
 
     @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
 
@@ -47,7 +44,6 @@ $UserID = addslashes($UserID);
     }
 
 ?>
-
 
 <?php
   include("footer.php");

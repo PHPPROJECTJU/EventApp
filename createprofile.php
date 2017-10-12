@@ -13,7 +13,7 @@
 	      <link href="https://fonts.googleapis.com/css?family=Lato|Noto+Sans:300,400,600|Roboto:300,400,600,700" rel="stylesheet">
 	  </head>
 
-<!--formfields should only be required if there is no input from before-->
+<!--Formfields are required when creating user because all profiles should look the same-->
 <div id="createprofile">
     <form method="POST" name="createprofile" action="createprofile.php">
         <h1>Welcome!<br> Create your profile</h1>
@@ -49,9 +49,9 @@
 </html>
 
 <?php
-
+  #Checks if data has been submitted
   if (isset($_POST['username'], $_POST['password'], $_POST['firstname'], $_POST['lastname'], $_POST['email'], $_POST['bday'], $_POST['fileupload'], $_POST['about'])) {
-  # Get data from form
+  #Get data from form
       $Username = trim($_POST['username']);
       $Password = sha1($_POST['password']);
       $FirstName = trim($_POST['firstname']);

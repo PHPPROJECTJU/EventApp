@@ -4,7 +4,6 @@
 
 ?>
 
-
 <form action="index.php" method="POST">
   <table id="searchevents">
 
@@ -17,10 +16,7 @@
 
 <div id="browse">
 
-
   <?php
-
-
 
       @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
 
@@ -29,7 +25,6 @@
           printf("<br><a href=index.php>Return to home page </a>");
           exit();
       }
-
 
       $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Title, Event.StartDate, Event.StartTime, Event.Information, Location.StreetAdress
                 FROM User
@@ -60,11 +55,9 @@
           echo "</div>";
       }
 
-
   ?>
 
 </div>
-
 
 <?php
   include("footer.php");

@@ -6,7 +6,6 @@
 
 <!--myprofileheader could be included, but then we wouldn't be able to have it active at the same time as the lower tabs-->
 
-
 <header id="myprofileheader">
 
     <nav id="profileorevents">
@@ -19,10 +18,7 @@
 
 <?php
   include("myeventsheader.php");
-
 ?>
-
-
 
 <?php
   include("footer.php");
