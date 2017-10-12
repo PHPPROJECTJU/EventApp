@@ -24,6 +24,7 @@
               <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit</p>
           </div>
       </div>
+        <img src="img/event_ually.png" class="startlogo"/>
 
         <form action="">
           <table id="registerform">
@@ -44,7 +45,7 @@
           </table>
         </form>
 
-              <p class="already">Already registered? <a href="login.php">Sign in</a></p>
+              <p class="already">Already registered? <a href="login.php" class="loginbutton">Sign in</a></p>
 
     </div>
 

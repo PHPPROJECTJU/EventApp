@@ -446,6 +446,28 @@ p.description {
   border-radius: 25px;
 }
 
+.startlogo {
+  width: 150px;
+  margin: 0 auto;
+  display: block;
+  margin-top: 50px;
+}
+
+.loginbutton {
+  border: 2px solid white;
+  padding: 10px 20px;
+  border-radius: 35px;
+  color: white;
+  margin-left: 15px;
+  transition: 0.2s;
+}
+
+.loginbutton:hover {
+  border: 2px solid white;
+  color: #fd5659;
+  background-color: white;
+}
+
 .already {
   margin: 0 auto;
   width: 90%;
