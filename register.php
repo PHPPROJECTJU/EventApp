@@ -20,7 +20,7 @@
       <div id="aboutBox">
           <div class="arrow"></div>
           <div id="about">
-              <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit</p>
+              <p>Welcome to Eventually!<br>This is a web application where you can see events hosted nearby. Register and create an event you too. Eventually you'll get some new friend!</p>
           </div>
       </div>
         <img src="img/event_ually.png" class="startlogo"/>
@@ -39,7 +39,7 @@
             <tr>
               <td><input type="password" name="password" class="registerbar" placeholder="repeat password" required></td>
             </tr>
-              <td><input type="submit" class="registerbutton" name="submit" value="register"></td>
+              <td><input type="submit" class="registerbutton" name="submit" value="Register"></td>
             </tr>
           </table>
         </form>
