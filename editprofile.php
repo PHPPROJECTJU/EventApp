@@ -4,8 +4,9 @@
   #Can't really make the min date work?
   $date = date('Y-m-d');
 
+  session_start();
   if (!isset($_SESSION['username'])) {
-    header("login.php");
+    header("location:login.php");
   }
 ?>
 

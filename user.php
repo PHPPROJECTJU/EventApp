@@ -2,8 +2,9 @@
   include("config.php");
   include("header.php");
 
+  session_start();
   if (!isset($_SESSION['username'])) {
-    header("login.php");
+    header("location:login.php");
   }
 ?>
 
