@@ -1,9 +1,10 @@
-            </div>
+
             <footer>
                   <!--<p>© Julia Palm, Albin Johansson, Ellen Brage
                   <br/>Jönköping University <?php echo date("Y");?>
                 </p>-->
             </footer>
+            </div>
 
         </main>
     </body>

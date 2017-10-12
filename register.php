@@ -16,7 +16,6 @@
 
 <div id="content">
 
-    <div id="registerbox">
       <div id="aboutbutton" onclick="showAbout()">About</div>
       <div id="aboutBox">
           <div class="arrow"></div>
@@ -49,7 +48,6 @@
 
     </div>
 
-</div>
 
 </main>
 </body>

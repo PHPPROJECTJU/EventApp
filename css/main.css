@@ -16,11 +16,9 @@ body {
 
 main {
 background-color: #fd5659;
-overflow: hidden;
 }
 
 #content {
-
 }
 
 p, h3, h2 {
@@ -408,12 +406,8 @@ p.description {
   background-color: #fd5659;
 }
 
-#registerbox {
-  overflow: hidden;
-}
-
 #registerform {
-  margin: 100px auto;
+  margin: 48px auto;
   width: 90%;
   text-align: center;
 }
@@ -444,7 +438,7 @@ p.description {
   width: 150px;
   margin: 0 auto;
   display: block;
-  margin-top: 50px;
+  margin-top: 24px;
 }
 
 .loginbutton {
