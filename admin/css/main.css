@@ -397,14 +397,14 @@ p.description {
   background-color: #973335;
 }
 
-/*--register-------*/
+/*--register/login-------*/
 
 .red {
   background-color: #6EE6F0;
 }
 
-#registerform {
-  margin: 48px auto;
+#adminloginform {
+  margin: 18px auto 48px auto;
   width: 90%;
   text-align: center;
 }
@@ -470,6 +470,19 @@ p.description {
   text-decoration: none;
 }
 
+.registerbutton {
+  margin-top: 24px;
+  background-color: #4DA1A8;
+  color: #fff;
+  border: none;
+  padding: 10px 40px;
+  font-size: 100%;
+  border-radius: 25px;
+}
+.registerbutton:hover {
+  background-color: #58B8C0;
+  cursor: pointer;
+}
 
 /*-contact form-*/
 

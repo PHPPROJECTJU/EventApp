@@ -70,9 +70,9 @@
 
     <div id="registerbox">
 
-      <img src="img/event_ually.png" class="adminstartlogo"/>
+      <img src="img/eventually_admin.png" class="adminstartlogo"/>
         <form action="" method="POST">
-          <table id="registerform">
+          <table id="adminloginform">
             <tr>
               <td><input type="text" name="getusername" class="registerbar" placeholder="username" required></td>
             </tr>
