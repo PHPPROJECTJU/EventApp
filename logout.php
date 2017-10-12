@@ -22,9 +22,11 @@ if (!isset($_SESSION['username'])) {
               <?php
                   session_destroy();
                   unset($_SESSION['username']);
-                  printf("You are now logged out.<br>");
-                  printf("<br><a href=login.php>Return to login page.</a>");
               ?>
+              <div class="logouttext">
+                You are now logged out.
+                <br><br><br><a href=login.php class="logoutbutton">Return to login page.</a>
+              </div>
 
               <footer class="logoutfooter">
                 <img src="img/skyline-1.png" class="footerimg">

@@ -590,6 +590,28 @@ p.description {
   box-sizing: border-box;
 }
 
+.logouttext {
+  margin: 0 auto;
+  width: 90%;
+  text-align: center;
+  color: white;
+}
+
+.logoutbutton {
+  border: 2px solid white;
+  padding: 10px 20px;
+  border-radius: 35px;
+  color: white;
+  transition: 0.2s;
+}
+
+.logoutbutton:hover {
+  border: 2px solid white;
+  color: #fd5659;
+  background-color: white;
+}
+
+
 /*--footer-------*/
 
 footer {
