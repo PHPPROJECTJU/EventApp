@@ -1,11 +1,12 @@
 <?php
-  include("header.php");
-  include("config.php");
-
   session_start();
   if (!isset($_SESSION['username'])) {
-    header("login.php");
+    header("location:login.php");
   }
+?>
+<?php
+  include("header.php");
+  include("config.php");
 ?>
 
 <!--<a href="index.php#" class="goback">&larr;</a>-->

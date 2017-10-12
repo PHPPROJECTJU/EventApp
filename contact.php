@@ -1,11 +1,12 @@
 <?php
-  include("config.php");
-  include("header.php");
-
   session_start();
   if (!isset($_SESSION['username'])) {
     header("location:login.php");
   }
+?>
+<?php
+  include("config.php");
+  include("header.php");
 ?>
 
 <!--Idea is to send input to admin user e-mail-->

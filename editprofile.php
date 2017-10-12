@@ -1,13 +1,14 @@
 <?php
-  include("config.php");
-  include("header.php");
-  #Can't really make the min date work?
-  $date = date('Y-m-d');
-
   session_start();
   if (!isset($_SESSION['username'])) {
     header("location:login.php");
   }
+?>
+<?php
+  include("config.php");
+  include("header.php");
+  #Can't really make the min date work?
+  $date = date('Y-m-d');
 ?>
 
 <!--Formfields should only be required if there is no input from before-->
