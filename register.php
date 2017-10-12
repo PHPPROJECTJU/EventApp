@@ -25,19 +25,19 @@
       </div>
         <img src="img/event_ually.png" class="startlogo"/>
 
-        <form action="">
+        <form action="" method="POST">
           <table id="registerform">
             <tr>
               <td><input type="text" name="username" class="registerbar" placeholder="Username" required></td>
             </tr>
             <tr>
-              <td><input type="text" name="username" class="registerbar" placeholder="E-mail address" required></td>
+              <td><input type="text" name="email" class="registerbar" placeholder="E-mail address" required></td>
             </tr>
             <tr>
               <td><input type="password" name="password" class="registerbar" placeholder="Password" required></td>
             </tr>
             <tr>
-              <td><input type="password" name="password" class="registerbar" placeholder="Repeat password" required></td>
+              <td><input type="password" name="repeatpassword" class="registerbar" placeholder="Repeat password" required></td>
             </tr>
               <td><input type="submit" class="registerbutton" name="submit" value="Register"></td>
             </tr>
@@ -49,22 +49,18 @@
     </div>
 
     <?php
-    if (isset($_POST['newbooktitle'])) {
+    if (isset($_POST['submit'])) {
         // This is the postback so add the book to the database
         # Get data from form
-        $newbooktitle = trim($_POST['newbooktitle']);
-        $newbookauthor = trim($_POST['newbookauthor']);
-        $newisbn = trim($_POST['newisbn']);
+        $username = trim($_POST['Username']);
+        $email = trim($_POST['email']);
+        $password = trim($_POST['password']);
+        $repeatpassword = trim($_POST['repeatpassword']);
 
-        if (!$newbooktitle || !$newbookauthor || !$newisbn) {
-            printf("You must specify title, an author and isbn number!");
-            printf("<br><a href=index.php>Return to home page </a>");
-            exit();
-        }
-
-        $newbooktitle = addslashes($newbooktitle);
-        $newbookauthor = addslashes($newbookauthor);
-        $newisbn = addslashes($newisbn);
+        $username = addslashes($username);
+        $email = addslashes($email);
+        $password = addslashes($password);
+        $repeatpassword = addslashes($repeatpassword);
 
         # Open the database using the "librarian" account
     @ $db = new mysqli('localhost', 'root', '', 'EventApp');
@@ -76,11 +72,10 @@
         }
 
         // Prepare an insert statement and execute it
-        $stmt = $db->prepare("INSERT INTO User VALUES (null, ?, ?, ?, false)");
-        $stmt->bind_param('sss', $newbooktitle, $newbookauthor, $newisbn);
+        $stmt = $db->prepare("INSERT INTO User (User.Username, User.EmailAdress, User.Password) VALUES (?, ?, ?)");
+        $stmt->bind_param('sss', $username, $email, $password);
         $stmt->execute();
-        printf("<br><br><br><br>Book Added!");
-        printf("<br><a href=index.php>Return to admin home page </a>");
+        printf("<br><br><br><br>User Added!");
         //exit;
     }
 
