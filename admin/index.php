@@ -100,6 +100,7 @@ $title = "Delete event";
 
 <?php
 
+
 include("footer.php");
 
  ?>

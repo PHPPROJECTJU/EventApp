@@ -1,3 +1,10 @@
+/*--General info-----*/
+
+/*Jag har utgått ifrån ökningar med 6px som standard på marginaler /Ellen
+
+
+/*--Basics-----*/
+
 * {
   font-family: 'Noto sans'
 }
@@ -5,6 +12,10 @@
 body {
   margin: 0;
   background-color: #6EE6F0;
+}
+
+
+#content {
 }
 
 p, h3, h2, h1 {
@@ -20,6 +31,8 @@ ul, li {
 a {
   text-decoration: none;
 }
+
+
 
 /*--Main menu------*/
 
@@ -119,4 +132,548 @@ a {
 .slide-effect:hover:after {
   width: 100%;
   background: #6EE6F0;
+}
+
+
+/*--index page--------*/
+
+/*-search-*/
+
+#searchevents {
+  margin: 15px auto 17px auto;
+  text-align: center;
+}
+
+.searchbar {
+  font-size: 24px;
+  width: 90%;
+  border: none;
+  box-shadow: none;
+  border-radius: 25px;
+  background-color: #eee;
+  padding: 6px 6px 6px 24px;
+  box-sizing: border-box;
+}
+
+input:focus {
+    outline:none;
+    caret-color: #fff;
+}
+
+.searchbutton {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 6px;
+  font-size: 23px;
+  width: 69px;
+  border-radius: 25px;
+}
+
+.searchbutton:hover {
+  background-color: grey;
+  cursor: pointer;
+}
+
+.searchbutton:active {
+  background-color: #333;
+}
+
+/*--boxes----*/
+
+.box {
+	margin: 15px;
+	padding: 18px;
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  height: 300px;
+  border: 1px solid lightgrey;
+  position: relative;
+  background-color: #eee;
+}
+
+/*--event page version:---*/
+
+.eventpagebox {
+  margin: 15px;
+	padding: 18px;
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  height: auto;
+  border: 1px solid lightgrey;
+  position: relative;
+  background-color: #eee;
+}
+
+.goback {
+  text-decoration: none;
+  font-size: 28px;
+  line-height: 28px;
+  color: #000;
+  background-color: #fafafa;
+  padding: 12px;
+  margin: 15px;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+
+.commentheader {
+  margin: 48px 0 0 15px;
+}
+
+/*--Displaying event and user info on index---*/
+
+
+.profiletitle {
+  display: block;
+  clear: left;
+  margin: 0 0 6px 0;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+
+
+/*this is a span that contains profilepic and username*/
+.pictureandname {
+  float: left;
+  width: 40%;
+  margin-bottom: 12px;
+}
+
+.profilepic {
+  clip-path: circle(50% at center);
+  width: 100%;
+}
+
+.username {
+  font-weight: bold;
+  color: #6EE6F0;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+}
+
+.specifics {
+  float:left;
+  width: 60%;
+  box-sizing: border-box;
+  padding-left: 18px;
+}
+
+.specifics img {
+  width: 24px;
+  float: left;
+  padding-right: 6px;
+}
+
+.specifics p {
+  font-weight: bold;
+  padding: 6px 0;
+  margin: 0;
+  float: left;
+  font-size: 14px;
+}
+
+p.description {
+  font-size: 14px;
+  float: left;
+  margin: 12px 0px;
+}
+
+.seemore {
+  display: block;
+  width: 100%;
+  float: left;
+  text-align: center;
+  text-decoration: none;
+  color: #6EE6F0;
+  background-image: url("../img/gradientbox-5.png");
+  /*linear-gradient(rgba(255,0,0,0), rgba(238, 238, 238,1));*/
+  background-size: 100%;
+  background-repeat: no-repeat;
+  z-index: 10;
+  position: absolute;
+  padding: 48px 0 24px 0;
+  margin: 0 auto;
+  bottom: 0px;
+  left: 0;
+  text-align: center;
+}
+
+
+
+/*--personal profile--*/
+
+#myprofileheader {
+  background-color: #b13c3e;
+}
+
+#profileorevents {
+  overflow: hidden;
+}
+
+#profileorevents ul {
+  overflow: hidden;
+}
+
+#profileorevents ul li {
+  float: left;
+  width: 50%;
+  text-align: center;
+}
+
+#profileorevents ul li a {
+    color: #fff;
+    height: 100%;
+    width: 100%;
+    display: block;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+#profileorevents ul li #active{
+  background-color: #6EE6F0;
+}
+
+.profilebox {
+  background-color: #fff;
+  width:;
+  margin: 15px;
+  border: 1px solid lightgrey;
+  padding: 36px;
+}
+
+.profilebutton {
+  padding: 15px;
+  border-radius: 40px;
+  background-color: #6EE6F0;
+  border: none;
+  outline: none;
+  font-size: 120%;
+  color: #fff;
+  margin: 0 auto;
+}
+/*profile pictures only at the personal profile*/
+#personalprofilepic {
+  clip-path: circle(50% at center);
+  width: 100%;
+}
+
+.personalusername {
+  text-align: center;
+}
+
+/*--myevents-----*/
+
+/*subheader on myevents page:*/
+#whatevent {
+  background-color: #7e2b2c;
+}
+
+#chooseeventtype ul {
+  overflow: hidden;
+}
+
+#chooseeventtype ul li {
+  float: left;
+  width: 33.33%;
+  text-align: center;
+}
+
+#chooseeventtype ul li a {
+    color: #fff;
+    height: 100%;
+    width: 100%;
+    display: block;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+#chooseeventtype ul li #active{
+  background-color: #973335;
+}
+
+/*--register-------*/
+
+.red {
+  background-color: #6EE6F0;
+}
+
+#registerform {
+  margin: 48px auto;
+  width: 90%;
+  text-align: center;
+}
+
+.registerbar {
+  font-size: 16px;
+  width: 90%;
+  border: none;
+  box-shadow: none;
+  border-radius: 25px;
+  background-color: #eee;
+  padding: 6px 6px 6px 24px;
+  box-sizing: border-box;
+  margin: 12px;
+}
+
+.registerbutton {
+  margin-top: 24px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 6px 24px;
+  font-size: 23px;
+  border-radius: 25px;
+}
+
+.startlogo {
+  width: 150px;
+  margin: 0 auto;
+  display: block;
+  margin-top: 24px;
+}
+
+.loginbutton {
+  border: 2px solid white;
+  padding: 10px 20px;
+  border-radius: 35px;
+  color: white;
+  margin-left: 15px;
+  transition: 0.2s;
+}
+
+.loginbutton:hover {
+  border: 2px solid white;
+  color: #6EE6F0;
+  background-color: white;
+}
+
+.already {
+  margin: 0 auto;
+  width: 90%;
+  text-align: center;
+}
+
+.already a{
+  text-decoration: none;
+}
+
+#aboutbutton {
+  display: inline-block;
+  cursor: pointer;
+  margin: 30px;
+  color: #fff;
+}
+
+.arrow {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #eee;
+  position: absolute;
+  left: 29px;
+  top: -10px;
+  z-index: 62;
+  overflow: hidden;
+}
+
+#aboutBox {
+  display: none;
+  z-index: 30;
+  position: absolute;
+  margin-left: 12px;
+}
+
+#about {
+  width: 50%;
+  background-color: #eee;
+  overflow: hidden;
+  padding: 6px;
+  padding: 10px;
+  top: 30px;
+  border-radius: 20px;
+}
+
+/*-contact form-*/
+
+#contactform h3 {
+	margin: 0px;
+	text-align: center;
+}
+
+#contactform {
+	background: #eee;
+	padding: 10px;
+	margin-top: 10px;
+}
+
+#contactform input {
+	display: block;
+	margin: auto;
+	width: 80%;
+	margin-top: 10px;
+	padding: 10px;
+}
+
+#contactform textarea {
+	display: block;
+	margin: auto;
+	width: 80%;
+	margin-top: 10px;
+	padding: 10px;
+}
+
+#contactform input[type=submit] {
+	background: #ddd;
+	color: #000;
+	font-size: 13px;
+	border-radius: 10px;
+	width: 30%;
+  margin: 0 auto;
+  margin-top:10px;
+}
+
+/*-create profile-*/
+
+#createprofile {
+  text-align: center;
+  margin: 20px;
+}
+
+#createprofile input {
+	display: block;
+	margin: auto;
+	width: 80%;
+	margin-top: 10px;
+	padding: 10px;
+}
+
+#createprofile textarea {
+	display: block;
+	margin: auto;
+	width: 80%;
+	margin-top: 10px;
+	padding: 10px;
+}
+
+#createprofile input[type=submit] {
+	background: #ddd;
+	color: #000;
+	font-size: 13px;
+	border-radius: 10px;
+	width: 30%;
+  margin: 0 auto;
+  margin-top:10px;
+}
+
+/*-about page-*/
+
+.about {
+  margin: 20px;
+}
+
+.about cite {
+  font-size: 30px;
+  font-style: oblique;
+}
+
+.about img {
+  width: 100%;
+  padding: 5px;
+  border: 1px black solid;
+  box-sizing: border-box;
+}
+
+.logoutbox {
+  height: 300px;
+  padding-top: 160px;
+  z-index: 30;
+}
+
+.logouttext {
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+}
+
+.logoutbuttonwrap {
+  text-align: center;
+  margin-top: 30px;
+}
+
+a.logoutbutton {
+  border: 2px solid white;
+  padding: 10px 20px;
+  border-radius: 35px;
+  color: white;
+  transition: 0.2s;
+  margin-top: 60px;
+  text-align: center;
+}
+
+a.logoutbutton:hover {
+  border: 2px solid white;
+  color: #6EE6F0;
+  background-color: white;
+}
+
+
+/*--footer-------*/
+
+footer {
+  font-size: 12px;
+  color: #fff;
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 70px;
+  display: block;
+  overflow: hidden;
+}
+
+.footerimg {
+  margin: -10px;
+  padding: 0;
+  width: 104%;
+}
+
+footer.logoutfooter {
+  position: fixed;
+  bottom: 0;
+}
+
+/*=====================================640PX========================================*/
+@media (min-width: 640px) {
+
+  .box {
+    float: left;
+    width: calc(50% - 47px);
+  }
+
+  .logo {
+    width: 250px;
+    margin-top: 10px;
+  }
+  .footerimg {
+    repeat: repeat;
+  }
+
+}
+
+/*=====================================960PX========================================*/
+@media (min-width: 960px) {
+  .box {
+    float: left;
+    width: calc(33.333% - 47px);
+  }
+
+  .box:nth-child(3n+1) {
+    clear: left;
+  }
+
 }
