@@ -26,8 +26,6 @@
           </div>
       </div>
 
-      <img src="img/event_ually.png" class="startlogo"/>
-
         <form action="">
           <table id="registerform">
             <tr>
@@ -47,7 +45,7 @@
           </table>
         </form>
 
-              <p class="already">Already registered? <a href="login.php" class="loginbutton" >Sign in</a></p>
+              <p class="already">Already registered? <a href="login.php">Sign in</a></p>
 
     </div>
 
