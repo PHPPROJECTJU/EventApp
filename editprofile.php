@@ -3,6 +3,10 @@
   include("header.php");
   #Can't really make the min date work?
   $date = date('Y-m-d');
+
+  if (!isset($_SESSION['username'])) {
+    header("login.php");
+  }
 ?>
 
 <!--Formfields should only be required if there is no input from before-->

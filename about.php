@@ -2,6 +2,10 @@
   include("config.php");
   include("header.php");
 
+  if (!isset($_SESSION['username'])) {
+    header("login.php");
+  }
+
 ?>
 
 <div class="about">

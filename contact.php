@@ -1,7 +1,10 @@
 <?php
   include("config.php");
   include("header.php");
-
+  
+  if (!isset($_SESSION['username'])) {
+    header("login.php");
+  }
 ?>
 
 <!--Idea is to send input to admin user e-mail-->

@@ -2,6 +2,10 @@
   include("config.php");
   #Can't really make the min date work?
   $date = date('Y-m-d');
+
+  if (!isset($_SESSION['username'])) {
+    header("login.php");
+  }
 ?>
 
 <!DOCTYPE html>

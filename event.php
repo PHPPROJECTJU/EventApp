@@ -1,6 +1,11 @@
 <?php
   include("header.php");
   include("config.php");
+
+  session_start();
+  if (!isset($_SESSION['username'])) {
+    header("login.php");
+  }
 ?>
 
 <!--<a href="index.php#" class="goback">&larr;</a>-->
