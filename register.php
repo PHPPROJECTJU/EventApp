@@ -16,6 +16,7 @@
 
 <div id="content">
 
+
     <div id="registerbox">
       <div id="aboutbutton" onclick="showAbout()">About</div>
       <div id="aboutBox">

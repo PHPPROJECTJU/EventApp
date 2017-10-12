@@ -2,7 +2,9 @@
   include("config.php");
   include("header.php");
   include("myprofileheader.php");
+
 ?>
+
 
 <?php
     @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);

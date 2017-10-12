@@ -4,7 +4,6 @@
 
 ?>
 
-<!--Idea is to send input to admin user e-mail-->
 <form method="POST" name="contactform" action="contact.php">
   <div id="contactform">
       <h3>Contact Eventually</h3>
@@ -15,7 +14,7 @@
   </div>
 </form>
 
-<!--Some of the code below was taken from http://htmldog.com/techniques/formtoemail/ 2017-10-05-->
+<!--Some of this code was taken from http://htmldog.com/techniques/formtoemail/ 2017-10-05-->
 
 <?php
 

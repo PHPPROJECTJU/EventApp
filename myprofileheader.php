@@ -1,4 +1,5 @@
 <header id="myprofileheader">
+
     <nav id="profileorevents">
         <ul>
             <li><a id="<?php echo ($current_page == 'profile.php') ? 'active' : NULL ?>" href="profile.php">View profile</a></li>

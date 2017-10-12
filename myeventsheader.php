@@ -6,4 +6,5 @@
         <li><a id="<?php echo ($current_page == 'attendedevents.php') ? 'active' : NULL ?>" href="attendedevents.php">Attending</a></li>
       </ul>
   </nav>
+
 </header>

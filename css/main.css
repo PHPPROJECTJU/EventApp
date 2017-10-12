@@ -11,16 +11,7 @@
 
 body {
   margin: 0;
-  background-color: #000;
-}
-
-main {
-background-color: #fd5659;
-overflow: hidden;
-}
-
-#content {
-
+  background-color: #FAFAFA;
 }
 
 p, h3, h2 {
@@ -219,8 +210,8 @@ input:focus {
   text-decoration: none;
   font-size: 28px;
   line-height: 28px;
-  color: #000;
-  background-color: #fafafa;
+  color: #fff;
+  background-color: #fd5659;
   padding: 12px;
   margin: 15px;
   border-radius: 50%;
@@ -346,7 +337,7 @@ p.description {
 }
 
 #profileorevents ul li #active{
-  background-color: #fd5659;
+  background-color: #e34d50;
 }
 
 .profilebox {
@@ -614,16 +605,12 @@ p.description {
 footer {
   font-size: 12px;
   color: #fff;
-  height: 200px;
-  background-image: url("../img/skyline-1.png");
-  background-size: 100%;
-  background-repeat: no-repeat;
-  /*background-color: #fd5659;*/
-  width: 100%;
-  box-sizing: border-box;
-  padding-top: 70px;
-  display: block;
-
+  padding: 24px;
+  overflow: hidden;
+  background-color: #3a3a3a;
+  margin-top: 70px;
+  display: inline-block;
+  width: 100vw;
   /*text-align: center;
   position: fixed;
   bottom: 0;

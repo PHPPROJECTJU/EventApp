@@ -30,24 +30,12 @@ $EventID = addslashes($EventID);
               WHERE Event.EventID=$EventID
               ";
 
+
     $stmt = $db->prepare($query);
     $stmt->bind_result($UserName, $ProfilePicture, $UserID, $Title, $StartDate, $StartTime, $Information, $StreetAdress);
     $stmt->execute();
 
-  /* $gettag = "SELECT Tags.TagName
-                 FROM Tags
-                 JOIN GetTag
-                 ON Tags.TagID=GetTag.TagID
-                 JOIN Event
-                 ON Event.EventID=GetTag.EventID
-                 WHERE Event.EventID=$EventID
-                 ";
-
-    $stmt2 = $db->prepare($gettag);
-    $stmt2->bind_result($TagName);
-    $stmt2->execute();*/
-
-#Here I'm sending us back to index page, the idea is to land on the heading of the same event
+#here I'm sending us back to index page, the idea is to land on the heading of the same event
 
 
 echo "<a href='index.php#" . $Title . "' class='goback'>&larr;</a>";
@@ -66,10 +54,6 @@ echo "<a href='index.php#" . $Title . "' class='goback'>&larr;</a>";
         echo "<p class='description'>$Information</p>";
         echo "</div>";
     }
-
-  /*  while ($stmt2->fetch()) {
-        echo "$TagName";
-    }*/
 
 ?>
 
