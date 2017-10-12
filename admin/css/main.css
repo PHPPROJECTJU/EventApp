@@ -1,0 +1,122 @@
+* {
+  font-family: 'Noto sans'
+}
+
+body {
+  margin: 0;
+  background-color: #6EE6F0;
+}
+
+p, h3, h2, h1 {
+  margin: 0;
+}
+
+ul, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*--Main menu------*/
+
+#mainheader {
+  overflow: hidden;
+  display: block;
+  height: 50px;
+  background-color: #6EE6F0;
+}
+
+#headbox {
+  height: 5vh;
+}
+
+#mainmenu {
+    height: 120vh;
+    width: 0;
+    position: fixed;
+    z-index: 30;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    overflow-x: hidden;
+    transition: width 0.2s;
+    box-shadow: 14px 0px 45px rgba(0, 0, 0, 0.5);
+}
+
+#mainmenu {-webkit-transition-timing-function: ease;}
+
+#hamb {
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    font-size: 250%;
+    line-height: 32px;
+    color: #fff;
+    left: 12px;
+    top: 7px;
+}
+
+#close {
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  color: #fff;
+  font-size: 450%;
+  margin: 6px 6px 12px 12px;
+  padding: 0;
+  line-height: 32px;
+}
+
+.logo {
+  width: 180px;
+  margin: 0 auto;
+  overflow: hidden;
+  display: block;
+  margin-top: 15px;
+}
+
+#mainmenu ul {
+  padding: 24px;
+  margin: 48px 0px;
+}
+
+#mainmenu ul li {
+  list-style: none;
+  padding: 12px 0px;
+  width: 100px;
+}
+
+#mainmenu ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+#active.slide-effect:after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #6EE6F0;
+}
+/* Have to display it like inlineblock. Otherwise it will look uggly :) */
+.slide-effect {
+  display: inline-block;
+}
+/* adds the line below, but since line width is set to zero it won't appear. */
+.slide-effect:after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 0;
+  background: transparent;
+  transition: width 0.3s ease, background-color 0.3s ease; /* .5 seonds for changes to the width and background-color */
+}
+/* Sets width to 100% and therefore it becomes visible. */
+.slide-effect:hover:after {
+  width: 100%;
+  background: #6EE6F0;
+}
