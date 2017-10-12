@@ -608,6 +608,11 @@ footer {
   width: 104%;
 }
 
+.logoutfooter {
+  position: fixed;
+  bottom: 0;
+}
+
 /*=====================================640PX========================================*/
 @media (min-width: 640px) {
 
