@@ -47,9 +47,12 @@ $EventID = trim($_GET['EventID']);
 #Here I'm sending us back to index page, the idea is to land on the heading of the same event
 
 
-echo "<a href='index.php#" . urlencode($Title) . "' class='goback'>&larr;</a>";
+
+
+
 
     while ($stmt->fetch()) {
+        echo "<a href='index.php#". urlencode($UserID) ."' class='goback'>&larr;</a>";
         echo "<div class='eventpagebox'>";
         echo "<h3 class='profiletitle'>$Title</h3>";
         echo "<span class='pictureandname'>";
