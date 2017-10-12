@@ -40,12 +40,11 @@
 
 
     while ($stmt->fetch()) {
-        if (sha1($getpassword) == $password)
-		{
-			$_SESSION['username'] = $getusername;
-			header("location:index.php");
-			exit();
-		}
+        if (sha1($getpassword) == $password){
+    			$_SESSION['username'] = $getusername;
+    			header("location:index.php");
+    			exit();
+    		}
     }
 
 
