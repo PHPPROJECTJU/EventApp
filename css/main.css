@@ -52,11 +52,6 @@ a {
   height: 5vh;
 }
 
-#main {
-  transition: margin-left 0.5s
-  /*position:relative;*/
-}
-
 #mainmenu {
     height: 120vh;
     width: 0;
@@ -411,7 +406,6 @@ p.description {
 
 .red {
   background-color: #fd5659;
-  height: 100vh;
 }
 
 #registerbox {
