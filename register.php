@@ -39,7 +39,7 @@
             <tr>
               <td><input type="password" name="password" class="registerbar" placeholder="repeat password" required></td>
             </tr>
-              <td><input type="submit" class="registerbutton" name="submit" value="register"></td>
+              <td><input type="submit" class="registerbutton" name="submit" value="Register"></td>
             </tr>
           </table>
         </form>
