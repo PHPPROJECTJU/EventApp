@@ -503,6 +503,7 @@ p.description {
   padding: 10px;
   top: 30px;
   border-radius: 20px;
+  box-shadow: 8px 8px 24px rgba(0,0,0,0.2);
 }
 
 /*-contact form-*/
@@ -664,6 +665,11 @@ footer.logoutfooter {
     width: 250px;
     margin-top: 10px;
   }
+
+  #registerform {
+    width: 50%;
+  }
+
   .footerimg {
     repeat: repeat;
   }
@@ -675,6 +681,10 @@ footer.logoutfooter {
   .box {
     float: left;
     width: calc(33.333% - 47px);
+  }
+
+  #registerform {
+    width: 30%;
   }
 
   .box:nth-child(3n+1) {
