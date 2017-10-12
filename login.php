@@ -76,7 +76,7 @@
               <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit</p>
           </div>
       </div>
-
+      <img src="img/event_ually.png" class="startlogo"/>
         <form action="" method="POST">
           <table id="registerform">
             <tr>
@@ -89,6 +89,7 @@
             </tr>
           </table>
         </form>
+        <p class="already">Not a member? <a href="register.php" class="loginbutton">Register here</a></p>
 
     </div>
 
