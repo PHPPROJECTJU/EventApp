@@ -25,7 +25,7 @@
       </div>
         <img src="img/event_ually.png" class="startlogo"/>
 
-        <form action="" method="POST">
+        <form action="createprofile.php" method="POST">
           <table id="registerform">
             <tr>
               <td><input type="text" name="username" class="registerbar" placeholder="Username" required></td>

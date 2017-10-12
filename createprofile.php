@@ -1,7 +1,7 @@
 <?php
   session_start();
   if (!isset($_SESSION['username'])) {
-    header("location:login.php");
+    //header("location:login.php");
   }
 ?>
 <?php
@@ -23,7 +23,7 @@
 <main>
 <div id="createprofile">
   <h1>Welcome!<br> Finish your profile</h1>
-  <form action="">
+  <form action="index.php" method="POST">
     <table id="registerform">
       <tr>
         <td>
@@ -66,45 +66,39 @@
   </html>
 
   <?php
-    #Checks if data has been submitted
-    if (isset($_POST['submit'])) {
-    #Get data from form
-    $Username = addslashes($_POST['username']);
-    $FirstName = addslashes($_POST['firstname']);
-    $LastName = addslashes($_POST['lastname']);
-    $Email = addslashes($_POST['email']);
-    $Bday = addslashes($_POST['bday']);
-    $ProfilePicture = addslashes($_POST['fileupload']);
-    $About = addslashes($_POST['about']);
+  if (isset($_POST['submit'])) {
+      // This is the postback so add the book to the database
+      # Get data from form
+      $firstname = trim($_POST['firstname']);
+      $lastname = trim($_POST['email']);
+      $bday = trim($_POST['bday']);
+      $fileupload = trim($_POST['fileupload']);
+      $about = trim($_POST['about']);
 
+      $firstname = addslashes($firstname);
+      $lastname = addslashes($lastname);
+      $bday = addslashes($bday);
+      $fileupload = addslashes($fileupload);
+      $about = addslashes($about);
 
-        $Username = trim($_POST['username']);
-        $Password = sha1($_POST['password']);
-        $FirstName = trim($_POST['firstname']);
-        $LastName = trim($_POST['lastname']);
-        $Email = trim($_POST['email']);
-        $Bday = trim($_POST['bday']);
-        $ProfilePicture = trim($_POST['fileupload']);
-        $About = trim($_POST['about']);
+      # Open the database using the "librarian" account
+  @ $db = new mysqli('localhost', 'root', '', 'EventApp');
 
-
-  //--------------DATABASE CONNECTION--------------//
-        @ $db = new mysqli('localhost', 'root', '', 'EventApp');
-
-        if ($db->connect_error) {
-            echo "could not connect: " . $db->connect_error;
-            printf("<br><a href='index.php'>Return to home page </a>");
-            exit();
-        }
-  //-----------------------------------------------//
-
-        $stmt = $db->prepare("INSERT INTO User ('UserID', 'Username', 'Password', 'EmailAdress', 'FirstName', 'LastName', 'Birthdate', 'About', 'ProfilePicture')
-                              VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param('isssssiss', $Username, $Password, $FirstName, $LastName, $Email, $Bday, $About, $ProfilePicture);
-        $stmt->execute();
-        printf("<br>User added!");
-        printf("<br><a href=index.php>Return to home page </a>");
+      if ($db->connect_error) {
+          echo "could not connect: " . $db->connect_error;
+          printf("<br><a href=index.php>Return to home page </a>");
+          exit();
       }
+
+      // Prepare an insert statement and execute it
+      $stmt = $db->prepare("UPDATE User SET FirstName='$firstname', LastName='$lastname', Birthdate='$bday', ProfilePicture='$fileupload', About='$about' WHERE UserID=13");
+      $stmt->bind_param('sssss', $firstname, $lastname, $bday, $fileupload, $about);
+      $stmt->execute();
+      printf("<br><br><br><br>Congratulations!<br>You have now created your Eventually-account.");
+      //exit;
+  }
+
+  // Not a postback, so present the book entry form
   ?>
 
 </main>
