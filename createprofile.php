@@ -21,38 +21,47 @@
 
 <!--Formfields are required when creating user because all profiles should look the same-->
 <main>
-
-  <div id="createprofile">
-      <form method="POST" name="createprofile" action="createprofile.php">
-          <h1>Welcome!<br> Create your profile</h1>
-            <br>
-            <input type="name" name="username" placeholder="Username" required/>
-            <br>
-            <input type="password" name="password" placeholder="Password" required/>
-            <br>
-            <input type="name" name="firstname" placeholder="Firstname" required/>
-            <br>
-            <input type="name" name="lastname" placeholder="Lastname" required/>
-            <br>
-            <input type="name" name="email" placeholder="Email" required/>
-            <br>
-            <input type="date" name="bday" min="<?php $date ?>" required/>
-            <br>
-
-            <p>Choose a profile picture:</p>
-            <!--Don't really know how to fix this one, heh...-->
-            <!--Uploaded pic should get the id of the user that uploaded the pic and be displayed-->
-            <form action="" method="POST" enctype="multipart/form-data">
-                <input type="file" name="fileupload" id="fileupload">
-                <br />
-            </form>
-
-            <h3>About me</h3>
-            <textarea name="about" placeholder="Tell me something about yourself!"></textarea>
-            <br>
-            <input type="submit" name="submit" value="Submit" />
-      </form>
-  </div>
+<div id="createprofile">
+  <h1>Welcome!<br> Finish your profile</h1>
+  <form action="">
+    <table id="registerform">
+      <tr>
+        <td>
+          <input type="name" name="firstname" class="registerbar" placeholder="Firstname" required/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="name" name="lastname" class="registerbar" placeholder="Lastname" required/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="date" name="bday" class="registerbar" placeholder="Birthdate" required/>
+        </td>
+      </tr>
+      <tr>
+            <td>
+                <p>Choose a profile picture:</p>
+                <!--Don't really know how to fix this one, heh...-->
+                <!--Uploaded pic should get the id of the user that uploaded the pic and be displayed-->
+                <form action="" method="POST" enctype="multipart/form-data">
+                    <input type="file" name="fileupload" id="fileupload">
+                    <br />
+                </form>
+            </td>
+      </tr>
+      <tr>
+          <td>
+              <textarea name="about" placeholder="Tell me something about yourself!" class="registerbar"></textarea>
+          </td>
+      </tr>
+      <tr>
+        <td><input type="submit" class="registerbutton" name="submit" value="Register"></td>
+      </tr>
+    </table>
+  </form>
+</div>
 
   </html>
 
