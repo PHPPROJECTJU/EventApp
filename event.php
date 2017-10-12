@@ -8,10 +8,7 @@
 <?php
 
 $EventID = trim($_GET['EventID']);
-echo '<INPUT type="hidden" name="bookid" value=' . $EventID . '>';
 
-$EventID = trim($_GET['EventID']);      // From the hidden field
-$EventID = addslashes($EventID);
 
     @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
 
@@ -50,7 +47,7 @@ $EventID = addslashes($EventID);
 #Here I'm sending us back to index page, the idea is to land on the heading of the same event
 
 
-echo "<a href='index.php#" . $Title . "' class='goback'>&larr;</a>";
+echo "<a href='index.php#" . urlencode($Title) . "' class='goback'>&larr;</a>";
 
     while ($stmt->fetch()) {
         echo "<div class='eventpagebox'>";

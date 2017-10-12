@@ -21,7 +21,7 @@
 
   $adminEmail = "paju1600@student.ju.se";
 
-  if($_POST["submit"]) {
+  if($_POST['submit']) {
       $to = $adminEmail;
       $subject = "Message from Eventually";
       $sender = $_POST["name"];
@@ -33,6 +33,7 @@
       mail($to, $subject, $mailBody, "From: $sender <$senderEmail>");
 
       echo $thankYou="<p>Thank you! Your message has been sent.</p>";
+
   }
 
 #This code should work but we suspect that you need to set up a mail server or have a published site

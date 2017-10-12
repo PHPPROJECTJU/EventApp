@@ -2,6 +2,7 @@
   include("config.php");
   include("header.php");
 
+
 ?>
 
 <!--myprofileheader could be included, but then we wouldn't be able to have it active at the same time as the lower tabs-->

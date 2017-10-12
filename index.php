@@ -51,7 +51,7 @@
           echo "<p><img src='img/time.png' />$StartDate kl $StartTime</p>";
           echo "</div>";
           echo "<p class='description'>$Information</p>";
-          echo "<a class='seemore' href='event.php?EventID= " . urlencode($EventID) . " '>more...</a>";
+          echo "<a class='seemore' href='event.php?EventID=" . urlencode($EventID) . " '>more...</a>";
           echo "</div>";
       }
 

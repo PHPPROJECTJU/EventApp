@@ -11,17 +11,14 @@
 
 body {
   margin: 0;
-  background-color: #000;
+  background-color: #fd5659;
 }
 
-main {
-background-color: #fd5659;
-}
 
 #content {
 }
 
-p, h3, h2 {
+p, h3, h2, h1 {
   margin: 0;
 }
 
