@@ -25,10 +25,10 @@ if (!isset($_SESSION['username'])) {
               ?>
               <div class="logoutbox">
                 <div class="logouttext">
-                  You are now logged out.
+                  You are now logged out
                 </div>
                 <div class="logoutbuttonwrap">
-                  <a href=login.php class="logoutbutton">Return to login page.</a>
+                  <a href=login.php class="logoutbutton">Return to login page</a>
                 </div>
               </div>
 
