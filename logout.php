@@ -23,9 +23,13 @@ if (!isset($_SESSION['username'])) {
                   session_destroy();
                   unset($_SESSION['username']);
               ?>
-              <div class="logouttext">
-                You are now logged out.
-                <br><br><br><a href=login.php class="logoutbutton">Return to login page.</a>
+              <div class="logoutbox">
+                <div class="logouttext">
+                  You are now logged out.
+                </div>
+                <div class="logoutbuttonwrap">
+                  <a href=login.php class="logoutbutton">Return to login page.</a>
+                </div>
               </div>
 
               <footer class="logoutfooter">

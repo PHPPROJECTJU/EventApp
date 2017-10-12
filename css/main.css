@@ -590,22 +590,34 @@ p.description {
   box-sizing: border-box;
 }
 
+.logoutbox {
+  height: 300px;
+  padding-top: 160px;
+  z-index: 30;
+}
+
 .logouttext {
   margin: 0 auto;
-  width: 90%;
   text-align: center;
   color: white;
 }
 
-.logoutbutton {
+.logoutbuttonwrap {
+  text-align: center;
+  margin-top: 30px;
+}
+
+a.logoutbutton {
   border: 2px solid white;
   padding: 10px 20px;
   border-radius: 35px;
   color: white;
   transition: 0.2s;
+  margin-top: 60px;
+  text-align: center;
 }
 
-.logoutbutton:hover {
+a.logoutbutton:hover {
   border: 2px solid white;
   color: #fd5659;
   background-color: white;
