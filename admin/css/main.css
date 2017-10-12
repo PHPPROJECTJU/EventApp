@@ -157,7 +157,7 @@ a {
 
 input:focus {
     outline:none;
-    caret-color: #fff;
+    caret-color: #4DA1A8;
 }
 
 .searchbutton {
@@ -631,6 +631,7 @@ footer.logoutfooter {
   bottom: 0;
 }
 
+
 /*=====================================640PX========================================*/
 @media (min-width: 640px) {
 
@@ -643,6 +644,11 @@ footer.logoutfooter {
     width: 250px;
     margin-top: 10px;
   }
+
+  #registerform {
+    width: 50%;
+  }
+
   .footerimg {
     repeat: repeat;
   }
@@ -654,6 +660,10 @@ footer.logoutfooter {
   .box {
     float: left;
     width: calc(33.333% - 47px);
+  }
+
+  #registerform {
+    width: 30%;
   }
 
   .box:nth-child(3n+1) {
