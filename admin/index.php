@@ -29,13 +29,19 @@ $title = "Delete event";
 
                 <h3>BROWSE EVENTS</h3>
 
-                <div class="search">
-                    <form action="index.php" method="GET">
-                        <INPUT type="text" name="searchtitle" placeholder="Title">
-                        <INPUT type="submit" name="submit" value="Search">
-                        <INPUT type="text" name="searchuser" placeholder="User">
-                        <INPUT type="submit" name="submit" value="Search">
-                    </form>
+										<form action="index.php" method="POST">
+										  <table id="searchevents">
+
+										    <tr>
+										      <td><INPUT type="text" class="registerbar" name="searchtitle" placeholder="Title"></td>
+										      <td><INPUT type="submit" class="searchbutton" name="submit" value="GO"></td>
+												</tr>
+												<tr>
+													<td><INPUT type="text" class="registerbar" name="searchuser" placeholder="User"></td>
+													<td><INPUT type="submit" class="searchbutton" name="submit" value="GO"></td>
+										    </tr>
+										  </table>
+										</form>
                 </div>
 
                 <div id="eventlist">
