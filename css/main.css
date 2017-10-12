@@ -157,7 +157,7 @@ a {
 
 input:focus {
     outline:none;
-    caret-color: #fff;
+    caret-color: #af3e41;
 }
 
 .searchbutton {
@@ -416,7 +416,7 @@ p.description {
   box-shadow: none;
   border-radius: 25px;
   background-color: #eee;
-  padding: 6px 6px 6px 24px;
+  padding: 6px 6px 6px 17px;
   box-sizing: border-box;
   margin: 12px;
 }

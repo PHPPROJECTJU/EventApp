@@ -80,10 +80,10 @@
         <form action="" method="POST">
           <table id="registerform">
             <tr>
-              <td><input type="text" name="getusername" class="registerbar" placeholder="username" required></td>
+              <td><input type="text" name="getusername" class="registerbar" placeholder="Username" required></td>
             </tr>
             <tr>
-              <td><input type="password" name="getpassword" class="registerbar" placeholder="password" required></td>
+              <td><input type="password" name="getpassword" class="registerbar" placeholder="Password" required></td>
             </tr>
               <td><input type="submit" class="registerbutton" name="submit" value="Sign in"></td>
             </tr>

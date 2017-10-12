@@ -28,16 +28,16 @@
         <form action="">
           <table id="registerform">
             <tr>
-              <td><input type="text" name="username" class="registerbar" placeholder="username" required></td>
+              <td><input type="text" name="username" class="registerbar" placeholder="Username" required></td>
             </tr>
             <tr>
-              <td><input type="text" name="username" class="registerbar" placeholder="e-mail address" required></td>
+              <td><input type="text" name="username" class="registerbar" placeholder="E-mail address" required></td>
             </tr>
             <tr>
-              <td><input type="password" name="password" class="registerbar" placeholder="password" required></td>
+              <td><input type="password" name="password" class="registerbar" placeholder="Password" required></td>
             </tr>
             <tr>
-              <td><input type="password" name="password" class="registerbar" placeholder="repeat password" required></td>
+              <td><input type="password" name="password" class="registerbar" placeholder="Repeat password" required></td>
             </tr>
               <td><input type="submit" class="registerbutton" name="submit" value="Register"></td>
             </tr>
@@ -48,6 +48,44 @@
 
     </div>
 
+    <?php
+    if (isset($_POST['newbooktitle'])) {
+        // This is the postback so add the book to the database
+        # Get data from form
+        $newbooktitle = trim($_POST['newbooktitle']);
+        $newbookauthor = trim($_POST['newbookauthor']);
+        $newisbn = trim($_POST['newisbn']);
+
+        if (!$newbooktitle || !$newbookauthor || !$newisbn) {
+            printf("You must specify title, an author and isbn number!");
+            printf("<br><a href=index.php>Return to home page </a>");
+            exit();
+        }
+
+        $newbooktitle = addslashes($newbooktitle);
+        $newbookauthor = addslashes($newbookauthor);
+        $newisbn = addslashes($newisbn);
+
+        # Open the database using the "librarian" account
+    @ $db = new mysqli('localhost', 'root', '', 'EventApp');
+
+        if ($db->connect_error) {
+            echo "could not connect: " . $db->connect_error;
+            printf("<br><a href=index.php>Return to home page </a>");
+            exit();
+        }
+
+        // Prepare an insert statement and execute it
+        $stmt = $db->prepare("INSERT INTO User VALUES (null, ?, ?, ?, false)");
+        $stmt->bind_param('sss', $newbooktitle, $newbookauthor, $newisbn);
+        $stmt->execute();
+        printf("<br><br><br><br>Book Added!");
+        printf("<br><a href=index.php>Return to admin home page </a>");
+        //exit;
+    }
+
+    // Not a postback, so present the book entry form
+    ?>
 
 </main>
 </body>
