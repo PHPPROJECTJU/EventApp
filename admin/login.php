@@ -63,13 +63,14 @@
 
 
 	  <body>
-		    <main>
+		    <main class="red" id="main">
 
 <div id="content">
 
 
     <div id="registerbox">
 
+      <img src="img/event_ually.png" class="adminstartlogo"/>
         <form action="" method="POST">
           <table id="registerform">
             <tr>
@@ -82,6 +83,7 @@
             </tr>
           </table>
         </form>
+        <p class="already">Not a member? <a href="register.php" class="loginbutton">Register here</a></p>
 
     </div>
 

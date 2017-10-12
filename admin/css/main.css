@@ -438,6 +438,13 @@ p.description {
   margin-top: 24px;
 }
 
+/*Version of startlogo with margin upwards*/
+.adminstartlogo {
+  width: 150px;
+  margin: 106px auto 0 auto;
+  display: block;
+}
+
 .loginbutton {
   border: 2px solid white;
   padding: 10px 20px;
@@ -463,42 +470,6 @@ p.description {
   text-decoration: none;
 }
 
-#aboutbutton {
-  display: inline-block;
-  cursor: pointer;
-  margin: 30px;
-  color: #fff;
-}
-
-.arrow {
-  width: 0;
-  height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-bottom: 10px solid #eee;
-  position: absolute;
-  left: 29px;
-  top: -10px;
-  z-index: 62;
-  overflow: hidden;
-}
-
-#aboutBox {
-  display: none;
-  z-index: 30;
-  position: absolute;
-  margin-left: 12px;
-}
-
-#about {
-  width: 50%;
-  background-color: #eee;
-  overflow: hidden;
-  padding: 6px;
-  padding: 10px;
-  top: 30px;
-  border-radius: 20px;
-}
 
 /*-contact form-*/
 
