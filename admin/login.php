@@ -83,7 +83,7 @@
             </tr>
           </table>
         </form>
-        <p class="already">Not a member? <a href="register.php" class="loginbutton">Register here</a></p>
+        <p class="already"><a href="../index.php" class="loginbutton">Go to main page</a></p>
 
     </div>
 
