@@ -12,16 +12,13 @@
 
 
 ?>
-
-<form action="index.php" method="POST">
-  <table id="searchevents">
-
-    <tr>
-      <td><input type="text" name="searchevent" class="searchbar" placeholder="search events"></td>
-      <td><INPUT type="submit" class="searchbutton" name="submit" value="GO"></td>
-    </tr>
-  </table>
-</form>
+<div class="searchwrapper">
+    <img class="chooselocation" src="img/pin.png">
+    <form class="searchform" action="index.php" method="POST">
+          <input type="text" name="searchevent" class="searchbar" placeholder="Search events">
+          <input type="submit" class="searchbutton" name="submit" value="GO">
+    </form>
+</div>
 
 <div id="browse">
 
