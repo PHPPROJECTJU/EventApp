@@ -33,6 +33,7 @@ $username = $_SESSION['username'];
 						<div id="headbox">
 						 <div id="hamb" onclick="openNav()">&#9776;</div>
 						 <img class="logo" src="img/eventually.png"/>
+						 <a href="createevent.php"><div class="createeventbutton"><div class="theplus">+</div></div></a>
 					 </div>
 
 	      </header>
