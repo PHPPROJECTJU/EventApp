@@ -47,7 +47,7 @@ $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID,
 
       while ($stmt->fetch()) {
           echo "<div class='box'>";
-          echo "<a name='". urldecode($UserID) ."'><h3 class='profiletitle'>$Title</h3></a>";
+          echo "<a name='". $UserID ."'><h3 class='profiletitle'>$Title</h3></a>";
           echo "<span class='pictureandname'>";
           echo "<img src='../$ProfilePicture' class='profilepic'/>";
           echo "<a class='username' href='user.php?UserID= " . urlencode($UserID) . " '> $UserName </a>";

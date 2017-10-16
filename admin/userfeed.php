@@ -11,7 +11,7 @@
 
 <div class="searchwrapper">
     <form class="searchform" action="index.php" method="POST">
-          <input type="text" name="searchevent" class="searchbar" placeholder="Search events">
+          <input type="text" name="searchevent" class="searchbar" placeholder="Search users">
           <input type="submit" class="searchbutton" name="submit" value="GO">
     </form>
 </div>
@@ -36,14 +36,11 @@
     $stmt->execute();
 
     while ($stmt->fetch()) {
-        echo "<div class='profilebox'>";
-        echo "<img src='../$ProfilePicture' id='personalprofilepic'/>";
-        echo "</br><h3 class='personalusername'>$UserName</h3></br></br>";
+        echo "<div class='profileboxfeed'>";
+        echo "<img src='../$ProfilePicture' class='profilepicfeed'/>";
+        echo "</br><a name='". $UserID ."'><h3 class='personalusername'>$UserName</h3></a></br>";
         echo "Name:</br> $FirstName $LastName</br>";
-        echo "</br>Birthdate:</br>$Birthdate</br>";
-        echo "</br>Email:</br> $EmailAdress</br>";
-        echo "</br>About:</br>$About</br>";
-        echo "</br></br><a class='profilebutton' href='hostedevents.php?UserID= " . urlencode($UserID) . " '>See hosted events</a>";
+        echo "<a class='seemore' href='user.php?UserID=". urlencode($UserID) ."'>more...</a>";
         echo "</div>";
     }
 

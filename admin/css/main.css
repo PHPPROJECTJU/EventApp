@@ -144,16 +144,27 @@ a {
   text-align: center;
 }
 
-.searchbar {
-  font-size: 24px;
-  width: 90%;
-  border: none;
-  box-shadow: none;
-  border-radius: 25px;
-  background-color: #eee;
-  padding: 6px 6px 6px 24px;
-  box-sizing: border-box;
+.searchwrapper {
+  margin: 0 auto;
+  display: block;
+  overflow: hidden;
+  padding: 5px;
+  position: relative;
 }
+
+.searchform {
+  float: left;
+}
+
+.searchbar {
+    font-size: 20px;
+    border: none;
+    box-shadow: none;
+    border-radius: 25px;
+    background-color: #eee;
+    padding: 6px 6px 6px 15px;
+    box-sizing: border-box;
+  }
 
 input:focus {
     outline:none;
@@ -165,9 +176,12 @@ input:focus {
   color: #fff;
   border: none;
   padding: 6px;
-  font-size: 23px;
+  font-size: 20px;
   width: 69px;
   border-radius: 25px;
+  position: absolute;
+  right: 15px;
+  top: 5px;
 }
 
 .searchbutton:hover {
@@ -196,6 +210,7 @@ input:focus {
 
 .eventpagebox {
   margin: 15px;
+  margin-top: 0;
 	padding: 18px;
 	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
   overflow: hidden;
@@ -287,7 +302,6 @@ p.description {
 .seemore {
   display: block;
   width: 100%;
-  float: left;
   text-align: center;
   text-decoration: none;
   color: #6EE6F0;
@@ -304,47 +318,30 @@ p.description {
   text-align: center;
 }
 
-
-
-/*--personal profile--*/
-
-#myprofileheader {
-  background-color: #b13c3e;
-}
-
-#profileorevents {
-  overflow: hidden;
-}
-
-#profileorevents ul {
-  overflow: hidden;
-}
-
-#profileorevents ul li {
-  float: left;
-  width: 50%;
-  text-align: center;
-}
-
-#profileorevents ul li a {
-    color: #fff;
-    height: 100%;
-    width: 100%;
-    display: block;
-    padding: 12px;
-    box-sizing: border-box;
-}
-
-#profileorevents ul li #active{
-  background-color: #6EE6F0;
-}
+/*users' profiles-----*/
 
 .profilebox {
-  background-color: #fff;
-  width:;
+  background-color: #eee;
   margin: 15px;
   border: 1px solid lightgrey;
   padding: 36px;
+}
+
+#personalprofilepic {
+  clip-path: circle(50% at center);
+  width: 100%;
+}
+
+/*this one is only displayed in the feed, needs to be shorter*/
+
+.profileboxfeed {
+  background-color: #eee;
+  height:300px;
+  margin: 15px;
+  border: 1px solid lightgrey;
+  padding: 18px;
+  overflow: hidden;
+  position: relative;
 }
 
 .profilebutton {
@@ -358,9 +355,10 @@ p.description {
   margin: 0 auto;
 }
 /*profile pictures only at the personal profile*/
-#personalprofilepic {
+.profilepicfeed {
   clip-path: circle(50% at center);
-  width: 100%;
+  width: 60%;
+  margin: 12px calc(25% - 18px) 0 calc(25% - 18px);
 }
 
 .personalusername {
@@ -484,95 +482,21 @@ p.description {
   cursor: pointer;
 }
 
-/*-contact form-*/
+/*-deleting stuff-*/
 
-#contactform h3 {
-	margin: 0px;
-	text-align: center;
+#deletebutton {
+ cursor: pointer;
+text-align: right;
+display: block;
+ color: red;
+ font-size: 450%;
+ padding: 0;
+ line-height: 32px;
+ margin: -24px 15px -12px 15px;
 }
 
-#contactform {
-	background: #eee;
-	padding: 10px;
-	margin-top: 10px;
-}
 
-#contactform input {
-	display: block;
-	margin: auto;
-	width: 80%;
-	margin-top: 10px;
-	padding: 10px;
-}
-
-#contactform textarea {
-	display: block;
-	margin: auto;
-	width: 80%;
-	margin-top: 10px;
-	padding: 10px;
-}
-
-#contactform input[type=submit] {
-	background: #ddd;
-	color: #000;
-	font-size: 13px;
-	border-radius: 10px;
-	width: 30%;
-  margin: 0 auto;
-  margin-top:10px;
-}
-
-/*-create profile-*/
-
-#createprofile {
-  text-align: center;
-  margin: 20px;
-}
-
-#createprofile input {
-	display: block;
-	margin: auto;
-	width: 80%;
-	margin-top: 10px;
-	padding: 10px;
-}
-
-#createprofile textarea {
-	display: block;
-	margin: auto;
-	width: 80%;
-	margin-top: 10px;
-	padding: 10px;
-}
-
-#createprofile input[type=submit] {
-	background: #ddd;
-	color: #000;
-	font-size: 13px;
-	border-radius: 10px;
-	width: 30%;
-  margin: 0 auto;
-  margin-top:10px;
-}
-
-/*-about page-*/
-
-.about {
-  margin: 20px;
-}
-
-.about cite {
-  font-size: 30px;
-  font-style: oblique;
-}
-
-.about img {
-  width: 100%;
-  padding: 5px;
-  border: 1px black solid;
-  box-sizing: border-box;
-}
+/*-----*/
 
 .logoutbox {
   height: 300px;
