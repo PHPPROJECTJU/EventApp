@@ -14,6 +14,11 @@
 ?>
 <div class="searchwrapper">
     <a href=""><img class="chooselocation" src="img/pin.png"></a>
+      <table onclick="showregion()" id="regionmenu">
+          <tr><td colspan="3">Select your region</td></tr>
+          <tr><td>Jönköping</td><td>Jönköping</td><td>Jönköping</td></tr>
+          <tr><td>Jönköping</td><td>Jönköping</td><td>Jönköping</td></tr>
+      </table>
     <form class="searchform" action="index.php" method="POST">
           <input type="text" name="searchevent" class="searchbar" placeholder="Search events">
           <input type="submit" class="searchbutton" name="submit" value="GO">

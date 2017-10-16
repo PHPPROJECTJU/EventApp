@@ -227,6 +227,10 @@ img.chooselocation {
   margin-right: 21px;
 }
 
+#regionmenu {
+  display: none;
+}
+
 
 
 /*--boxes----*/

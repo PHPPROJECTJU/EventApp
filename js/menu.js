@@ -24,3 +24,13 @@ function showAbout() {
 			aboutBox.style.display = "block";
 		}
 }
+
+var regionmenu = document.getElementById("regionmenu");
+
+function showregion() {
+		if (regionmenu.style.display == "block") {
+			regionmenu.style.display = "none";
+		} else {
+			regionmenu.style.display = "block";
+		}
+}
