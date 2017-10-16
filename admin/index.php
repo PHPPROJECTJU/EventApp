@@ -8,10 +8,91 @@
 <?php
 include("config.php");
 include("header.php");
-$title = "Delete event";
 ?>
 
+<?php
+
+$username = ($_SESSION['username']);
+
+ ?>
+
+<h1>Welcome, <?=$username?>!</h1>
+
                 <?php
+                @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
+
+                if ($db->connect_error) {
+                    echo "could not connect: " . $db->connect_error;
+                    printf("<br><a href=index.php>Return to home page </a>");
+                    exit();
+                }
+
+/*---showing some info about how many users/events there are right now-----*/
+
+                $howmanyusers = "SELECT COUNT(*) FROM User";
+
+                $stmt = $db->prepare($howmanyusers);
+                $stmt->bind_result($numberofusers);
+                $stmt->execute();
+
+                while ($stmt->fetch()) {
+                    echo "<h3>";
+                    echo "There are currently ";
+                    echo $numberofusers . " registered users";
+                    echo "</h3>";
+                }
+
+                $howmanyevents = "SELECT COUNT(*) FROM Event";
+
+                $stmt = $db->prepare($howmanyevents);
+                $stmt->bind_result($numberofevents);
+                $stmt->execute();
+
+                while ($stmt->fetch()) {
+                    echo "<h3>";
+                    echo "and " . $numberofevents . " active events";
+                    echo " on Eventually.";
+                    echo "</h3>";
+                }
+
+/*---end---------------------------------------------*/
+
+
+                /*
+
+                $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Title, Event.StartDate, Event.StartTime, Event.Information, Location.StreetAdress
+                                FROM User
+                                JOIN Event
+                                ON User.UserID=Event.UserID
+                                JOIN Location
+                                ON Event.LocationID=Location.LocationID
+                                ORDER BY Event.EventID DESC
+                                ";
+
+                      $stmt = $db->prepare($query);
+                      $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Title, $StartDate, $StartTime, $Information, $StreetAdress);
+                      $stmt->execute();
+
+                      while ($stmt->fetch()) {
+                          echo "<div class='box'>";
+                          echo "<a name='". urldecode($UserID) ."'><h3 class='profiletitle'>$Title</h3></a>";
+                          echo "<span class='pictureandname'>";
+                          echo "<img src='$ProfilePicture' class='profilepic'/>";
+                          echo "<a class='username' href='user.php?UserID= " . urlencode($UserID) . " '> $UserName </a>";
+                          echo "</span>";
+                          echo "<div class='specifics'>";
+                          echo "<p><img src='img/place.png' />$StreetAdress</p> <br />";
+                          echo "<p><img src='img/time.png' />$StartDate kl $StartTime</p>";
+                          echo "</div>";
+                          echo "<p class='description'>$Information</p>";
+                          echo "<a class='seemore' href='event.php?EventID=" . urlencode($EventID) . " '>more...</a>";
+                          echo "</div>";
+                      }
+
+                  ?>
+
+
+                /*
                 if (isset($_GET['EventID'])) {
                     $eventid = trim($_GET['EventID']);
                     $eventid = addslashes($eventid);
@@ -103,7 +184,7 @@ $title = "Delete event";
                         echo "</tr>";
                     }
                     echo "</table>";
-
+*/
                     ?>
 
                 </div>

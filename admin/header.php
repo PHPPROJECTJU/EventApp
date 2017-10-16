@@ -14,7 +14,10 @@
 						<nav id="mainmenu">
 							<div id="close" onclick="closeNav()">×</div>
 							<ul>
-								<li><a class ="slide-effect" id="<?php echo ($current_page == 'index.php' || $current_page == '') ? 'active' : NULL ?>" href="index.php">Browse</a></li>
+								<li><a class ="slide-effect" id="<?php echo ($current_page == 'index.php' || $current_page == '') ? 'active' : NULL ?>" href="index.php">Home</a></li>
+								<li><a class ="slide-effect" id="<?php echo ($current_page == 'eventfeed.php') ? 'active' : NULL ?>" href="eventfeed.php">Events</a></li>
+								<li><a class ="slide-effect" id="<?php echo ($current_page == 'userfeed.php') ? 'active' : NULL ?>" href="userfeed.php">Users</a></li>
+								<li><a class ="slide-effect" id="<?php echo ($current_page == 'rules.php') ? 'active' : NULL ?>" href="rules.php">Rules</a></li>
 								<li><a class ="slide-effect" href="logout.php">Logout</a></li>
 							</ul>
 
