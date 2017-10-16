@@ -39,6 +39,7 @@ $UserID = addslashes($UserID);
 
     while ($stmt->fetch()) {
         echo "<a href='userfeed.php#". urlencode($UserID) ."' class='goback'>&larr;</a>";
+        echo "<div id='deletebutton'>×</div><br />";
         echo "<div class='profilebox'>";
         echo "<img src='../$ProfilePicture' id='personalprofilepic'/>";
         echo "</br><h3 class='personalusername'>$UserName</h3></br></br>";

@@ -38,9 +38,8 @@
     while ($stmt->fetch()) {
         echo "<div class='profileboxfeed'>";
         echo "<img src='../$ProfilePicture' class='profilepicfeed'/>";
-        echo "</br><a name='". $UserID ."'><h3 class='personalusername'>$UserName</h3></a></br>";
-        echo "Name:</br> $FirstName $LastName</br>";
-        echo "<a class='seemore' href='user.php?UserID=". urlencode($UserID) ."'>more...</a>";
+        echo "</br><a name='". $UserID ."'><h3 class='personalusername'>$UserName</h3></a>";
+        echo "<a class='seemore' href='user.php?UserID=". urlencode($UserID) ."'>administrate...</a>";
         echo "</div>";
     }
 

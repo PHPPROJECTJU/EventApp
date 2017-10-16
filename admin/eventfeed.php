@@ -57,7 +57,7 @@ $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID,
           echo "<p><img src='../img/time.png' />$StartDate kl $StartTime</p>";
           echo "</div>";
           echo "<p class='description'>$Information</p>";
-          echo "<a class='seemore' href='event.php?EventID=" . urlencode($EventID) . " '>more...</a>";
+          echo "<a class='seemore' href='event.php?EventID=" . urlencode($EventID) . " '>administrate...</a>";
           echo "</div>";
       }
 
