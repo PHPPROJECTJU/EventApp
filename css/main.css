@@ -565,7 +565,6 @@ p.description {
 }
 
 #contactform {
-	background: #eee;
 	padding: 10px;
 	margin-top: 10px;
 }
@@ -587,13 +586,13 @@ p.description {
 }
 
 #contactform input[type=submit] {
-	background: #ddd;
-	color: #000;
-	font-size: 13px;
-	border-radius: 10px;
-	width: 30%;
-  margin: 0 auto;
-  margin-top:10px;
+  margin-top: 24px;
+  background-color: #973335;
+  color: #fff;
+  border: none;
+  padding: 10px 40px;
+  font-size: 100%;
+  border-radius: 25px;
 }
 
 /*-create profile-*/
