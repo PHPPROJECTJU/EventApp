@@ -52,8 +52,15 @@ if (isset($_POST) && !empty($_POST)) {
 
 
     $search = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Title, Event.StartDate, Event.StartTime, Event.Information, Location.StreetAdress
-              FROM Event
-              WHERE Title LIKE" . $searchphrase . "
+              FROM User
+              JOIN Event
+              ON User.UserID=Event.UserID
+              JOIN Location
+              ON Event.LocationID=Location.LocationID
+              WHERE Title LIKE '%" . $searchphrase . "%'
+              OR Information LIKE '%" . $searchphrase . "%'
+              OR UserName LIKE '%" . $searchphrase . "%'
+              ORDER BY Event.EventID DESC
               ";
 
           $stmt = $db->prepare($search);
