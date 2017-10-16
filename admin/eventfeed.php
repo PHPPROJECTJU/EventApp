@@ -12,7 +12,7 @@
 ?>
 
 <div class="searchwrapper">
-    <form class="searchform" action="index.php" method="POST">
+    <form class="searchform" action="eventfeed.php" method="POST">
           <input type="text" name="searchevent" class="searchbar" placeholder="Search events">
           <input type="submit" class="searchbutton" name="submit" value="GO">
     </form>
@@ -30,36 +30,68 @@ if ($db->connect_error) {
 
 /*-----showing the feed of events that can be administered--------*/
 
+/*--Search function-----------------------------------------*/
+
+if (isset($_POST) && !empty($_POST)) {
+
+    $searchphrase = htmlentities($_POST['searchevent']);
+
+    $searchphrase = trim($searchphrase);
+
+    $searchphrase = mysqli_real_escape_string($db, $searchphrase);
+
+    $searchphrase = addslashes($searchphrase);
 
 
-$query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Title, Event.StartDate, Event.StartTime, Event.Information, Location.StreetAdress
-                FROM User
-                JOIN Event
-                ON User.UserID=Event.UserID
-                JOIN Location
-                ON Event.LocationID=Location.LocationID
-                ORDER BY Event.EventID DESC
-                ";
+    $search = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Title, Event.StartDate, Event.StartTime, Event.Information, Location.StreetAdress
+              FROM User
+              JOIN Event
+              ON User.UserID=Event.UserID
+              JOIN Location
+              ON Event.LocationID=Location.LocationID
+              WHERE Title LIKE '%" . $searchphrase . "%'
+              OR Information LIKE '%" . $searchphrase . "%'
+              ORDER BY Event.EventID DESC
+              ";
 
-      $stmt = $db->prepare($query);
-      $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Title, $StartDate, $StartTime, $Information, $StreetAdress);
-      $stmt->execute();
+          $stmt = $db->prepare($search);
+          $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Title, $StartDate, $StartTime, $Information, $StreetAdress);
+          $stmt->execute();
+} else {
 
-      while ($stmt->fetch()) {
-          echo "<div class='box'>";
-          echo "<a name='". $UserID ."'><h3 class='profiletitle'>$Title</h3></a>";
-          echo "<span class='pictureandname'>";
-          echo "<img src='../$ProfilePicture' class='profilepic'/>";
-          echo "<a class='username' href='user.php?UserID= " . urlencode($UserID) . " '> $UserName </a>";
-          echo "</span>";
-          echo "<div class='specifics'>";
-          echo "<p><img src='../img/place.png' />$StreetAdress</p> <br />";
-          echo "<p><img src='../img/time.png' />$StartDate kl $StartTime</p>";
-          echo "</div>";
-          echo "<p class='description'>$Information</p>";
-          echo "<a class='seemore' href='event.php?EventID=" . urlencode($EventID) . " '>administrate...</a>";
-          echo "</div>";
-      }
+/*--Getting stuff from database without searching-----------------------------------------*/
+
+    $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Title, Event.StartDate, Event.StartTime, Event.Information, Location.StreetAdress
+                    FROM User
+                    JOIN Event
+                    ON User.UserID=Event.UserID
+                    JOIN Location
+                    ON Event.LocationID=Location.LocationID
+                    ORDER BY Event.EventID DESC
+                    ";
+
+          $stmt = $db->prepare($query);
+          $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Title, $StartDate, $StartTime, $Information, $StreetAdress);
+          $stmt->execute();
+
+
+        }
+
+        while ($stmt->fetch()) {
+            echo "<div class='box'>";
+            echo "<a name='". $UserID ."'><h3 class='profiletitle'>$Title</h3></a>";
+            echo "<span class='pictureandname'>";
+            echo "<img src='../$ProfilePicture' class='profilepic'/>";
+            echo "<a class='username' href='user.php?UserID= " . urlencode($UserID) . " '> $UserName </a>";
+            echo "</span>";
+            echo "<div class='specifics'>";
+            echo "<p><img src='../img/place.png' />$StreetAdress</p> <br />";
+            echo "<p><img src='../img/time.png' />$StartDate kl $StartTime</p>";
+            echo "</div>";
+            echo "<p class='description'>$Information</p>";
+            echo "<a class='seemore' href='event.php?EventID=" . urlencode($EventID) . " '>administrate...</a>";
+            echo "</div>";
+        }
 
 
 ?>
