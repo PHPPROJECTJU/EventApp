@@ -12,6 +12,7 @@
 
 <?php
 
+
 $EventID = trim($_GET['EventID']);
 
 
@@ -74,17 +75,40 @@ echo "<h2 class='commentheader'>Comments</h2>";
 
 <?php
 
+//Here we're going to capture the ID of the user logged in
+
+
+
+$myusername = $_SESSION['username'];
+echo $myusername;
+$myUserIDquery = "SELECT User.UserID
+            FROM User
+            WHERE User.UserName = $myusername
+            ";
+$stmt = $db->prepare($myUserIDquery);
+$stmt->bind_result($myUserID);
+$stmt->execute();
+//
+
+
+
+
 if (isset($_POST['postcomment']) && !empty($_POST['postcomment']) ) {
 
   $comment = htmlentities($_POST['commentfield']);
   $comment = addslashes($comment);
 
-  $commentquery = ("INSERT INTO Comments(Text)
-                VALUES ('{$comment}')
+  $commentquery = ("INSERT INTO Comments(Text, UserID, EventID)
+                VALUES ('{$comment}', '{$myUserID}', '{$EventID}')
                 ");
 
-$stmt = $db->prepare($commentquery);
-$stmt->execute();
+  $stmt = $db->prepare($commentquery);
+  $stmt->execute();
+
+  while ($stmt->fetch()) {
+      echo "comment";
+
+  }
 
 }
 
