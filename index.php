@@ -13,16 +13,39 @@
 
 ?>
 <div class="searchwrapper">
-    <a href=""><img class="chooselocation" src="img/pin.png"></a>
-      <table onclick="showregion()" id="regionmenu">
-          <tr><td colspan="3">Select your region</td></tr>
-          <tr><td>Jönköping</td><td>Jönköping</td><td>Jönköping</td></tr>
-          <tr><td>Jönköping</td><td>Jönköping</td><td>Jönköping</td></tr>
-      </table>
-    <form class="searchform" action="index.php" method="POST">
-          <input type="text" name="searchevent" class="searchbar" placeholder="Search events">
-          <input type="submit" class="searchbutton" name="submit" value="GO">
-    </form>
+    <div class="searchwrapper_second">
+        <img class="chooselocation" src="img/pin.png" onclick='showregion()'>
+
+        <form class="searchform" action="index.php" method="POST">
+              <input type="text" name="searchevent" class="searchbar" placeholder="Search events">
+              <input type="submit" class="searchbutton" name="submit" value="GO">
+        </form>
+    </div>
+    <ul id='regionmenu'>
+      <div class="liwrapper">
+        <?php
+            @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
+
+            if ($db->connect_error) {
+                echo "could not connect: " . $db->connect_error;
+                printf("<br><a href=index.php>Return to home page </a>");
+                exit();
+            }
+
+            $getregion = "SELECT State.state_id, State.state_name
+                      FROM State
+                      ";
+
+            $stmt = $db->prepare($getregion);
+            $stmt->bind_result($regionid, $showregion);
+            $stmt->execute();
+
+              while ($stmt->fetch()) {
+                  echo "<li><button href=''>$showregion</button></li>";
+              }
+         ?>
+       </div>
+     </ul>
 </div>
 
 <div id="browse">
@@ -105,6 +128,10 @@ if (isset($_POST) && !empty($_POST)) {
   ?>
 
 </div>
+
+
+
+
 
 <?php
   include("footer.php");

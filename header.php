@@ -31,9 +31,52 @@ $username = $_SESSION['username'];
 						</nav>
 
 						<div id="headbox">
-						 <div id="hamb" onclick="openNav()">&#9776;</div>
-						 <img class="logo" src="img/eventually.png"/>
-						 <a href="createevent.php"><div class="createeventbutton"><div class="theplus">+</div></div></a>
+								 <div id="hamb" onclick="openNav()">&#9776;</div>
+								 <img class="logo" src="img/eventually.png"/>
+									<div id="myBtn" class="createeventbutton">
+											 	<div class="theplus">+</div>
+									</div>
+					 </div>
+
+					 <div id="myModal" class="modal">
+
+					   <!-- Modal content -->
+					   <div class="modal-content">
+					     <div class="modal-header">
+					       <span class="close">&times;</span>
+					       <h2>Create a new event!</h2>
+								 	<div class="modal-body">
+										 <form action="index.php" method="POST">
+						           <table id="registerform">
+						             <tr>
+						               <td><input type="text" name="eventname" class="registerbar" placeholder="Event name" required></td>
+						             </tr>
+						             <tr>
+						               <td>
+														 	<select name="select region" form="eventform" placeholder="Select region">
+																	<option value="" disabled selected>Select your region</option>
+																	<option>1</option>
+													        <option>2</option>
+													        <option>3</option>
+													        <option>4</option>
+													 		</select>
+													</td>
+						             </tr>
+						             <tr>
+						               <td><input type="password" name="password" class="registerbar" placeholder="Time for event" required></td>
+						             </tr>
+						             <tr>
+						               <td><input type="password" name="repeatpassword" class="registerbar" placeholder="Description of event" required></td>
+						             </tr>
+						               <td><input type="submit" class="registerbutton" name="submit" value="Register"></td>
+						             </tr>
+						           </table>
+						         </form>
+									 </div>
+
+					     </div>
+					   </div>
+
 					 </div>
 
 	      </header>

@@ -121,6 +121,7 @@ textarea:focus {
   width: 10px;
   height: 10px;
   transition: 0.2s;
+  cursor: pointer;
 }
 .createeventbutton:hover {
   background-color: rgba(255,255,255,0.3);
@@ -216,7 +217,7 @@ input:focus {
   border-radius: 25px;
   position: absolute;
   right: 15px;
-  top: 5px;
+  top: 9px;
 }
 
 .searchbutton:hover {
@@ -236,16 +237,142 @@ input:focus {
   position: relative;
 }
 
+.searchwrapper_second {
+  overflow: hidden;
+  margin-top: 4px;
+  box-sizing: border-box;
+}
+
 img.chooselocation {
   width: 25px;
   float: left;
   margin-left: 7px;
   margin-right: 21px;
+  cursor: pointer;
 }
 
 #regionmenu {
-  display: none;
+  background-color: #eee;
+  z-index: 100;
+  overflow: hidden;
+  height: 0px;
+  transition: 0.3s;
+  clear: both;
+  width: 100%;
+  margin-top: 5px;
+  border-radius: 3px;
+  box-sizing: border-box;
 }
+
+#regionmenu li {
+  float: left;
+  text-align: justify;
+  box-sizing: border-box;
+}
+#regionmenu li button{
+  padding: 10px;
+  border: black solid 1px;
+  margin: 10px auto 0px 10px;
+  overflow: hidden;
+  cursor: pointer;
+  font-size: 100%;
+  outline: none;
+  border-radius: 5px;
+  background-color: #fd5659;
+  color: white;
+  border: none;
+  border-bottom: 2px solid #fd0101;
+  box-sizing: border-box;
+
+}
+#regionmenu li button:hover{
+  background-color: #af3e41;
+}
+#regionmenu li button:active{
+
+   transform: translateY(1px);
+}
+
+
+.liwrapper {
+  overflow:hidden;
+  padding-bottom: 10px;
+  transition: 0.3s;
+}
+
+/*--------modal start--------*/
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 11; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #af3e41;
+    margin: auto;
+    padding: 0;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #aaa;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 12px 6px;
+    background-color: #af3e41;
+    color: white;
+    text-align: center;
+
+}
+
+.modal-body {
+  padding: 2px 16px;
+}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+/*--------modal end--------*/
 
 
 
@@ -570,11 +697,10 @@ p.description {
 }
 
 #about {
-  width: 91%;
+  width: 89%;
   background-color: #eee;
   overflow: hidden;
-  padding: 6px;
-  padding: 10px;
+  padding: 15px;
   top: 30px;
   border-radius: 20px;
   box-shadow: 8px 8px 24px rgba(0,0,0,0.2);
