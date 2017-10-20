@@ -14,7 +14,7 @@
 ?>
 <div class="searchwrapper">
     <div class="searchwrapper_second">
-        <img class="chooselocation" src="img/pin.png" onclick='showregion()'>
+        <img class="chooselocation" src="img/pin.png">
 
         <form class="searchform" action="index.php" method="POST">
               <input type="text" name="searchevent" class="searchbar" placeholder="Search events">

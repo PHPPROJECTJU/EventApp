@@ -27,15 +27,25 @@ function showAbout() {
 
 var regionmenu = document.getElementById("regionmenu");
 
-function showregion() {
-		if (regionmenu.style.height == "auto") {
+
+
+document.querySelector('.chooselocation').addEventListener('click', function() {
+  document.querySelector('#regionmenu').classList.toggle('collapsed');
+});
+
+
+
+
+
+/*function showregion() {
+		if (regionmenu.style.height == "500px") {
 			regionmenu.style.height = "0px";
 
 		} else {
-			regionmenu.style.height = "auto";
+			regionmenu.style.height = "500px";
 
 		}
-}
+}*/
 // -----------------Modal functionalities-----------------
 
 // Get the modal

@@ -255,13 +255,17 @@ img.chooselocation {
   background-color: #eee;
   z-index: 100;
   overflow: hidden;
-  height: 0px;
-  transition: 0.3s;
+  max-height: 0;
+  transition: 0.5s;
   clear: both;
   width: 100%;
   margin-top: 5px;
   border-radius: 3px;
   box-sizing: border-box;
+}
+#regionmenu.collapsed {
+  max-height: 500px;
+  transition: 1.2s;
 }
 
 #regionmenu li {
@@ -300,12 +304,28 @@ img.chooselocation {
   transition: 0.3s;
 }
 
+
+
 /*--------modal start--------*/
+
+#eventform {
+  margin: 10px auto;
+  width: 100%;
+  text-align: center;
+}
+
+#eventform select {
+  width: 91%;
+  padding: 5px;
+  margin: 5px;
+  font-size: 100%;
+}
+
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 11; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    padding-top: 20px; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -318,7 +338,7 @@ img.chooselocation {
 /* Modal Content */
 .modal-content {
     position: relative;
-    background-color: #af3e41;
+    background-color: #fd5659;
     margin: auto;
     padding: 0;
     width: 80%;
@@ -326,18 +346,20 @@ img.chooselocation {
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
-    animation-duration: 0.4s
+    animation-duration: 0.4s;
+    overflow-y: auto;
+
 }
 
 /* Add Animation */
 @-webkit-keyframes animatetop {
-    from {top:-300px; opacity:0}
-    to {top:0; opacity:1}
+    from {left: :-300px; opacity:0}
+    to {left:0; opacity:1}
 }
 
 @keyframes animatetop {
-    from {top:-300px; opacity:0}
-    to {top:0; opacity:1}
+    from {left:-300px; opacity:0}
+    to {left:0; opacity:1}
 }
 
 /* The Close Button */
@@ -346,6 +368,9 @@ img.chooselocation {
     float: right;
     font-size: 28px;
     font-weight: bold;
+    position: absolute;
+    right: 10px;
+    top: 2px;
 }
 
 .close:hover,
@@ -356,21 +381,16 @@ img.chooselocation {
 }
 
 .modal-header {
-    padding: 12px 6px;
     background-color: #af3e41;
     color: white;
     text-align: center;
-
+    padding: 5px;
+    line-height: 2em;
 }
 
 .modal-body {
   padding: 2px 16px;
-}
-
-.modal-footer {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
+  background-color: #fd5659;
 }
 /*--------modal end--------*/
 
@@ -823,7 +843,7 @@ footer.logoutfooter {
 
   .box {
     float: left;
-    width: calc(50% - 47px);
+    width: calc(50% - 68px);
   }
 
   .logo {
@@ -845,7 +865,7 @@ footer.logoutfooter {
 @media (min-width: 960px) {
   .box {
     float: left;
-    width: calc(33.333% - 47px);
+    width: calc(33.333% - 68px);
   }
 
   #registerform {
