@@ -9,7 +9,6 @@
   include("config.php");
 ?>
 
-<!--<a href="index.php#" class="goback">&larr;</a>-->
 
 <?php
 
@@ -37,25 +36,6 @@ $EventID = trim($_GET['EventID']);
     $stmt->bind_result($UserName, $ProfilePicture, $UserID, $Title, $StartDate, $StartTime, $Information, $StreetAdress);
     $stmt->execute();
 
-  /* $gettag = "SELECT Tags.TagName
-                 FROM Tags
-                 JOIN GetTag
-                 ON Tags.TagID=GetTag.TagID
-                 JOIN Event
-                 ON Event.EventID=GetTag.EventID
-                 WHERE Event.EventID=$EventID
-                 ";
-
-    $stmt2 = $db->prepare($gettag);
-    $stmt2->bind_result($TagName);
-    $stmt2->execute();*/
-
-#Here I'm sending us back to index page, the idea is to land on the heading of the same event
-
-
-
-
-
 
     while ($stmt->fetch()) {
         echo "<a href='index.php#". urlencode($UserID) ."' class='goback'>&larr;</a>";
@@ -73,15 +53,40 @@ $EventID = trim($_GET['EventID']);
         echo "</div>";
     }
 
-  /*  while ($stmt2->fetch()) {
-        echo "$TagName";
-    }*/
-
 ?>
+
+<!--Comments---------->
+
+<?php
+echo "<h2 class='commentheader'>Comments</h2>";
+?>
+
+<form action="" method="POST">
+
+  <textarea name="commentfield"></textarea>
+  <div id="logoutbox">
+    <div id="logoutbuttonwrap">
+      <input type="submit" name="postcomment" class="loginbutton" />
+    </div>
+  </div>
+
+</form>
 
 <?php
 
-echo "<h2 class='commentheader'>Comments</h2>";
+if (isset($_POST['postcomment']) && !empty($_POST['postcomment']) ) {
+
+  $comment = htmlentities($_POST['commentfield']);
+  $comment = addslashes($comment);
+
+  $commentquery = ("INSERT INTO Comments(Text)
+                VALUES ('{$comment}')
+                ");
+
+$stmt = $db->prepare($commentquery);
+$stmt->execute();
+
+}
 
 ?>
 

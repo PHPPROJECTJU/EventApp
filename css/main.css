@@ -32,7 +32,23 @@ a {
   text-decoration: none;
 }
 
+/*--all forms basic-----*/
 
+textarea {
+	display: block;
+	margin: 12px 15px;
+	width: 80%;
+	margin-top: 10px;
+	padding: 15px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+}
+
+textarea:focus {
+  outline:none;
+  caret-color: #af3e41;
+}
 
 /*--Main menu------*/
 
@@ -275,6 +291,8 @@ img.chooselocation {
 
 .commentheader {
   margin: 48px 0 0 15px;
+  font-weight: 300;
+  color: #fff;
 }
 
 /*--Displaying event and user info on index---*/
@@ -504,6 +522,7 @@ p.description {
   color: white;
   margin-left: 15px;
   transition: 0.2s;
+  background-color: transparent;
 }
 
 .loginbutton:hover {
@@ -573,15 +592,7 @@ p.description {
 	margin-top: 10px;
 }
 
-#contactform input {
-	display: block;
-	margin: auto;
-	width: 80%;
-	margin-top: 10px;
-	padding: 10px;
-}
-
-#contactform textarea {
+#contactform input[type=text] {
 	display: block;
 	margin: auto;
 	width: 80%;
