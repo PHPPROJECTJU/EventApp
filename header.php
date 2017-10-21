@@ -48,65 +48,61 @@ $username = $_SESSION['username'];
 								</div>
 								 	<div class="modal-body">
 												 <form action="index.php" method="POST">
-								           <table id="eventform">
-								             <tr>
+								           <div id="eventform">
+										             <div class="row">
+										               		Name of Event<input type="text" name="eventname" class="eventregisterbar" placeholder="Name of Event" required>
+										             </div>
 
-								               <td>Name of Event<input type="text" name="eventname" class="registerbar" placeholder="Name of Event" required></td>
-								             </tr>
-								             <tr>
-								               <td>Select your region
-																 	<select name="region" form="eventform" placeholder="Select region">
-																			<option value="" disabled selected>Select your region</option>
-																			<?php
-															            @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
+									               <div class="row">Select your region
+																	 	<select name="region" form="eventform" placeholder="Select region">
+																				<option value="" disabled selected>Select your region</option>
+																				<?php
+																            @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
 
-															            if ($db->connect_error) {
-															                echo "could not connect: " . $db->connect_error;
-															                printf("<br><a href=index.php>Return to home page </a>");
-															                exit();
-															            }
+																            if ($db->connect_error) {
+																                echo "could not connect: " . $db->connect_error;
+																                printf("<br><a href=index.php>Return to home page </a>");
+																                exit();
+																            }
 
-															            $getregion = "SELECT State.state_id, State.state_name
-															                      FROM State
-															                      ";
+																            $getregion = "SELECT State.state_id, State.state_name
+																                      FROM State
+																                      ";
 
-															            $stmt = $db->prepare($getregion);
-															            $stmt->bind_result($regionid, $showregion);
-															            $stmt->execute();
+																            $stmt = $db->prepare($getregion);
+																            $stmt->bind_result($regionid, $showregion);
+																            $stmt->execute();
 
-															              while ($stmt->fetch()) {
-															                  echo "<option>$showregion</option>";
-															              }
-															         ?>
-															 		</select>
-															</td>
-								             </tr>
-														 <tr>
-								               <td>Start date<input type="date" name="startdate" class="registerbar" placeholder="Time for event" required></td>
-								             </tr>
-														 <tr>
-															 	<td>End date<input type="date" name="enddate" class="registerbar" placeholder="Time for event" required></td>
-								             </tr>
-								             <tr>
-								               <td>Start time<input type="time" name="starttime" class="registerbar" placeholder="Time for event" required></td>
-								             </tr>
-														 <tr>
-															 	<td>End time<input type="time" name="endtime" class="registerbar" placeholder="Time for event" required></td>
-								             </tr>
-								             <tr>
-								               <td>Describe your event<input type="textarea" name="description" class="registerbar" placeholder="Description of event" required></td>
-														 <tr>
-								               <td>Select tags
-																 	<select name="tag" form="eventform" placeholder="Select tags">
-																			<option value="" disabled selected>Select tags</option>
-															        <option>First option</option>
-															 		</select>
-															</td>
-								             </tr>
-														 </tr>
-															 <td><input type="submit" class="registerbutton" name="submit" value="Create event"></td>
-														 </tr>
-								           </table>
+																              while ($stmt->fetch()) {
+																                  echo "<option>$showregion</option>";
+																              }
+																         ?>
+																 		</select>
+																</div>
+
+																 <div class="row">
+											               <div class="innerdatewrap"><p>Start date</p><input type="date" name="startdate" class="test" placeholder="Time for event" required></div>
+																		 <div class="innerdatewrap"><p>End date</p><input type="date" name="enddate" class="test" placeholder="Time for event" required></div>
+										             </div>
+										             <div class="row">
+											               <div class="innerdatewrap"><p>Start time</p><input type="time" name="starttime" class="test" placeholder="Time for event" required></div>
+																		 <div class="innerdatewrap"><p>End time</p><input type="time" name="endtime" class="test" placeholder="Time for event" required></div>
+										             </div>
+										             <div class="row">
+										               Describe your event<input type="textarea" name="description" class="eventregisterbar" placeholder="Description of event" required>
+																 </div>
+																 <div class="row">
+										               Select tags
+																		 	<select name="tag" form="eventform" placeholder="Select tags">
+																					<option value="" disabled selected>Select tags</option>
+																	        <option>First option</option>
+																	 		</select>
+																	</div>
+															 		<div>
+																	 		<input type="submit" class="registerbutton" name="submit" value="Create event">
+																 	</div>
+														</div>
+
 								         </form>
 									 </div>
 

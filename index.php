@@ -41,7 +41,7 @@
             $stmt->execute();
 
               while ($stmt->fetch()) {
-                  echo "<li><button href=''>$showregion</button></li>";
+                  echo "<li><button href='' class='regionbuttons'>$showregion</button></li>";
               }
          ?>
        </div>

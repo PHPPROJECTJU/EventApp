@@ -321,6 +321,33 @@ img.chooselocation {
   font-size: 100%;
 }
 
+.eventregisterbar {
+  font-size: 16px;
+  width: 90%;
+  border: none;
+  box-shadow: none;
+  border-radius: 3px;
+  background-color: #eee;
+  padding: 6px 6px 6px 10px;
+  box-sizing: border-box;
+  margin: 1px;
+}
+
+.row {
+  margin-top: 5px;
+}
+
+.innerdatewrap {
+  display: inline-block;
+}
+
+.test {
+  border-radius: 3px;
+  border: none;
+  padding: 6px 6px 6px 7px;
+}
+
+
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -341,7 +368,7 @@ img.chooselocation {
     background-color: #fd5659;
     margin: auto;
     padding: 0;
-    width: 80%;
+    width: 90%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
