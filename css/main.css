@@ -493,14 +493,14 @@ img.chooselocation {
 }
 
 .commentheader {
-  margin: 48px 0 0 15px;
+  margin: 36px 0 0 15px;
   font-weight: 300;
   color: #fff;
 }
 
 .comment {
   float: left;
-  margin: 15px;
+  margin: 24px 15px 0 15px;
 }
 
 .comment a {

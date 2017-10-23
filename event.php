@@ -127,7 +127,7 @@ function postComment($comment) {
     }
 }
 
-if (isset($_POST['postcomment']) && !empty($_POST['postcomment']) ) {
+if (isset($_POST) && !empty($_POST) ) {
   postComment($_POST['commentfield']);
 }
 
