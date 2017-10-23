@@ -60,6 +60,41 @@ $EventID = trim($_GET['EventID']);
 
 <?php
 echo "<h2 class='commentheader'>Comments</h2>";
+
+function postComment($comment) {
+
+  @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
+
+      if ($db->connect_error) {
+          echo "could not connect: " . $db->connect_error;
+          printf("<br><a href=index.php>Return to home page </a>");
+          exit();
+      }
+
+
+  $myusername = $_SESSION['username'];
+  $EventID = trim($_GET['EventID']);
+
+
+    $comment = htmlentities($_POST['commentfield']);
+    $comment = mysqli_real_escape_string($db, $comment);
+
+    $commentquery = ("INSERT INTO Comments (Text, EventID, UserName)
+                  VALUES ('{$comment}', '{$EventID}', '{$myusername}')
+                  ");
+
+    $stmt = $db->prepare($commentquery);
+    $stmt->execute();
+}
+
+if (isset($_POST['postcomment']) ) {
+  postComment($_POST['commentfield']);
+}
+
+
+
+
+
 ?>
 
 <form action="" method="POST">
@@ -73,50 +108,8 @@ echo "<h2 class='commentheader'>Comments</h2>";
 
 </form>
 
-<?php/*
 
-//Here we're going to capture the ID of the user logged in
 
-$myusername = $_SESSION['username'];
-echo $myusername;
-$myUserIDquery = "SELECT User.UserID
-            FROM User
-            WHERE User.UserName = $myusername
-            ";
-$stmt = $db->prepare($myUserIDquery);
-$stmt->bind_result($myUserID);
-$stmt->execute();
-
-while ($stmt->fetch()) {
-    echo $myUserID;
-
-}
-*/
-
-?>
-
-<?php
-
-if (isset($_POST['postcomment']) && !empty($_POST['postcomment']) ) {
-
-  $comment = htmlentities($_POST['commentfield']);
-  $comment = addslashes($comment);
-
-  $commentquery = ("INSERT INTO Comments(Text, UserID, EventID)
-                VALUES ('{$comment}', '{$myUserID}', '{$EventID}')
-                ");
-
-  $stmt = $db->prepare($commentquery);
-  $stmt->execute();
-
-  while ($stmt->fetch()) {
-      echo "comment";
-
-  }
-
-}
-
-?>
 
 <?php
   include("footer.php");
