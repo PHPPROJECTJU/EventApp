@@ -56,12 +56,27 @@ $EventID = trim($_GET['EventID']);
 
 ?>
 
+<!--Comment form---------->
+
+<h2 class='commentheader'>Comments</h2>
+
+<form action="" method="POST">
+
+  <textarea name="commentfield"></textarea>
+  <div id="logoutbox">
+    <div id="logoutbuttonwrap">
+      <input type="submit" name="postcomment" class="loginbutton" />
+    </div>
+  </div>
+
+</form>
+
 <!--Comments---------->
 
 <?php
-echo "<h2 class='commentheader'>Comments</h2>";
 
 function postComment($comment) {
+  include("config.php");
 
   @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
 
@@ -85,30 +100,32 @@ function postComment($comment) {
 
     $stmt = $db->prepare($commentquery);
     $stmt->execute();
+
+    $query = ("SELECT Comments.Text, Comments.UserName, User.ProfilePicture
+              FROM Comments
+              JOIN User
+              ON Comments.UserName=User.UserName
+              WHERE EventID=$EventID
+              ");
+    $stmt2 = $db->prepare($query);
+    $stmt2->bind_result($Text, $Commenter, $Profilepic);
+    $stmt2->execute();
+
+
+    while ($stmt2->fetch()) {
+        echo "<div class='eventpagebox'>";
+        echo $Commenter . " said:";
+        echo  " " . $Text;
+        echo "</div>";
+    }
 }
 
-if (isset($_POST['postcomment']) ) {
+if (isset($_POST['postcomment']) && !empty($_POST['postcomment']) ) {
   postComment($_POST['commentfield']);
 }
 
 
-
-
-
 ?>
-
-<form action="" method="POST">
-
-  <textarea name="commentfield"></textarea>
-  <div id="logoutbox">
-    <div id="logoutbuttonwrap">
-      <input type="submit" name="postcomment" class="loginbutton" />
-    </div>
-  </div>
-
-</form>
-
-
 
 
 <?php
