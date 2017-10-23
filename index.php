@@ -11,7 +11,7 @@
 ?>
 
 <button onclick="goToTop()" id="topButton" title="Go to top">
-    <div class="theup">&uarr;</div> 
+    &uarr;
 </button>
 
 <div class="searchwrapper">
