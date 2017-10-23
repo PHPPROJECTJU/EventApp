@@ -113,11 +113,16 @@ function postComment($comment) {
 
 
     while ($stmt2->fetch()) {
-        echo "<div class='eventpagebox'>";
+        echo "<div class='comment'>";
         echo "<img src='$Profilepic' class='commenterpic'/>";
-        echo "<a class='username' href='user.php?UserID= " . urlencode($UserID) . " '> $Commenter </a>";
-        echo "said:";
-        echo  " " . $Text;
+        echo "<a href='user.php?UserID= " . urlencode($UserID) . " '> $Commenter </a> says";
+        echo "<div id='commentBox'>";
+        echo "<div class='commentarrow'></div>";
+        echo "<div id='commenttext'><p>";
+        echo $Text;
+        echo "</p></div>";
+        echo "</div>";
+        echo "</div>";
         echo "</div>";
     }
 }
