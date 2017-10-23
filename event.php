@@ -73,11 +73,9 @@ echo "<h2 class='commentheader'>Comments</h2>";
 
 </form>
 
-<?php
+<?php/*
 
 //Here we're going to capture the ID of the user logged in
-
-
 
 $myusername = $_SESSION['username'];
 echo $myusername;
@@ -88,10 +86,16 @@ $myUserIDquery = "SELECT User.UserID
 $stmt = $db->prepare($myUserIDquery);
 $stmt->bind_result($myUserID);
 $stmt->execute();
-//
 
+while ($stmt->fetch()) {
+    echo $myUserID;
 
+}
+*/
 
+?>
+
+<?php
 
 if (isset($_POST['postcomment']) && !empty($_POST['postcomment']) ) {
 

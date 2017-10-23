@@ -133,8 +133,10 @@ if (isset($_POST) && !empty($_POST)) {
 
 
 
-
+<script type="text/javascript" src="js/index.js"></script>
 
 <?php
+
   include("footer.php");
+
 ?>
