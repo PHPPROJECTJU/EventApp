@@ -8,15 +8,17 @@
 <?php
   include("config.php");
   include("header.php");
-
-
-
 ?>
+
+<button onclick="goToTop()" id="topButton" title="Go to top">
+    <div class="theup">&uarr;</div> 
+</button>
+
 <div class="searchwrapper">
     <div class="searchwrapper_second">
         <img class="chooselocation" src="img/pin.png">
 
-        <form class="searchform" action="index.php" method="POST">
+        <form class="searcheventsform" action="index.php" method="POST">
               <input type="text" name="searchevent" class="searchbar" placeholder="Search events">
               <input type="submit" class="searchbutton" name="submit" value="GO">
         </form>

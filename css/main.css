@@ -135,6 +135,33 @@ textarea:focus {
   transition: 0.2s;
 }
 
+#topButton {
+  background-color: #fd5659;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  color: white;
+  display: none;
+  position:fixed;
+  right: 8px;
+  bottom: 8px;
+  z-index: 40;
+  border: none;
+  border-radius:50%;
+  width: 45px;
+  height: 45px;
+  transition: 0.2s;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+
+.theup {
+  text-align: center;
+  font-size: 2em;
+  line-height: 33px;
+  width: auto;
+  padding: 10px;
+}
+
 
 #mainmenu ul {
   padding: 24px;
@@ -192,6 +219,11 @@ textarea:focus {
   float: left;
 }
 
+.searcheventsform {
+  float: left;
+  position: relative;
+}
+
 .searchbar {
   font-size: 20px;
   border: none;
@@ -200,6 +232,7 @@ textarea:focus {
   background-color: #eee;
   padding: 6px 6px 6px 15px;
   box-sizing: border-box;
+  position: relative;
 }
 
 input:focus {
@@ -214,10 +247,11 @@ input:focus {
   padding: 6px;
   font-size: 20px;
   width: 69px;
+  height: 39px;
   border-radius: 25px;
   position: absolute;
-  right: 15px;
-  top: 9px;
+  right: 0;
+  top: 0;
 }
 
 .searchbutton:hover {
