@@ -101,20 +101,22 @@ function postComment($comment) {
     $stmt = $db->prepare($commentquery);
     $stmt->execute();
 
-    $query = ("SELECT Comments.Text, Comments.UserName, User.ProfilePicture
+    $query = ("SELECT Comments.Text, Comments.UserName, User.UserID, User.ProfilePicture
               FROM Comments
               JOIN User
               ON Comments.UserName=User.UserName
               WHERE EventID=$EventID
               ");
     $stmt2 = $db->prepare($query);
-    $stmt2->bind_result($Text, $Commenter, $Profilepic);
+    $stmt2->bind_result($Text, $Commenter, $UserID, $Profilepic);
     $stmt2->execute();
 
 
     while ($stmt2->fetch()) {
         echo "<div class='eventpagebox'>";
-        echo $Commenter . " said:";
+        echo "<img src='$Profilepic' class='commenterpic'/>";
+        echo "<a class='username' href='user.php?UserID= " . urlencode($UserID) . " '> $Commenter </a>";
+        echo "said:";
         echo  " " . $Text;
         echo "</div>";
     }

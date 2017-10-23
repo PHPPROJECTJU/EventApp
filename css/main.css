@@ -498,6 +498,11 @@ img.chooselocation {
   color: #fff;
 }
 
+.commenterpic {
+  clip-path: circle(50% at center);
+  width: 33%;
+}
+
 /*--Displaying event and user info on index---*/
 
 
