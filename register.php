@@ -1,6 +1,5 @@
 <?php
   include("config.php");
-  ob_start();
 ?>
 
 <!DOCTYPE html>
@@ -51,8 +50,7 @@
 
     <?php
     if (isset($_POST['submit'])) {
-        // This is the postback so add the book to the database
-        # Get data from form
+
         $username = trim($_POST['username']);
         $email = trim($_POST['email']);
         $password = trim($_POST['password']);
@@ -63,7 +61,6 @@
         $password = addslashes($password);
         $repeatpassword = addslashes($repeatpassword);
 
-        # Open the database using the "librarian" account
     @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
 
         if ($db->connect_error) {
@@ -72,20 +69,26 @@
             exit();
         }
 
-        // Prepare an insert statement and execute it
         $stmt = $db->prepare("INSERT INTO User (User.Username, User.EmailAdress, User.Password) VALUES (?, ?, ?)");
         $stmt->bind_param('sss', $username, $email, $password);
         $stmt->execute();
+        $stmt->close();
 
-        //exit;
+
+          $stmt = $db->prepare("SELECT User.UserID
+                                FROM User
+                                WHERE User.UserName = $username
+                                ");
+          $stmt->bind_param('i',$UserID);
+          $stmt->execute();
+          $stmt->close();
+
 
         printf("<br><br><br><br>User Added!");
-        header("location:createprofile.php?UserID='" . urlencode($UserID) . "'");
-
-
+        header("location:createprofile.php?UserID=" . urlencode($UserID) . "");
+        //exit;
     }
 
-    // Not a postback, so present the book entry form
     ?>
 
 </main>
