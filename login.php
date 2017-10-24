@@ -54,7 +54,6 @@
 		}
     }
 
-
 ?>
 
 <?php endif;?>
@@ -77,6 +76,7 @@
           </div>
       </div>
       <img src="img/event_ually.png" class="startlogo"/>
+
         <form action="" method="POST">
           <table id="registerform">
             <tr>
@@ -89,6 +89,12 @@
             </tr>
           </table>
         </form>
+
+        <?php
+            if ($getpassword !== $password){
+              echo "<p class='wrongpasstext'>Wrong password or username!</p>";
+            }
+        ?>
         <p class="already">Not a member? <a href="register.php" class="loginbutton">Register here</a></p>
 
     </div>
