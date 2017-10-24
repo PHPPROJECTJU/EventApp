@@ -539,14 +539,14 @@ img.chooselocation {
   position: absolute;
   left: -9px;
   top: 16px;
-  z-index: 62;
+
   overflow: hidden;
   float: left;
   clear: right;
 }
 
 #commentBox {
-  z-index: 30;
+
   position: relative;
   margin: 0 0 24px 12px;
   display: block;
