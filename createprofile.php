@@ -82,7 +82,7 @@
       $about = addslashes($about);
 
       # Open the database using the "librarian" account
-  @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
+  @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbnfdfame);
 
       if ($db->connect_error) {
           echo "could not connect: " . $db->connect_error;
