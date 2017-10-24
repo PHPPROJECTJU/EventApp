@@ -63,7 +63,7 @@
         $repeatpassword = addslashes($repeatpassword);
 
         # Open the database using the "librarian" account
-    @ $db = new mysqli('localhost', 'root', '', 'EventApp');
+    @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
 
         if ($db->connect_error) {
             echo "could not connect: " . $db->connect_error;
