@@ -1,5 +1,6 @@
 <?php
   include("config.php");
+  ob_start();
 ?>
 
 <!DOCTYPE html>
@@ -75,9 +76,13 @@
         $stmt = $db->prepare("INSERT INTO User (User.Username, User.EmailAdress, User.Password) VALUES (?, ?, ?)");
         $stmt->bind_param('sss', $username, $email, $password);
         $stmt->execute();
+
+        //exit;
+
         printf("<br><br><br><br>User Added!");
         header("location:createprofile.php?UserID='" . urlencode($UserID) . "'");
-        //exit;
+
+
     }
 
     // Not a postback, so present the book entry form
