@@ -225,7 +225,7 @@ textarea:focus {
   box-shadow: none;
   border-radius: 25px;
   background-color: #eee;
-  padding: 6px 6px 6px 15px;
+  padding: 6px 80px 6px 15px;
   box-sizing: border-box;
   position: relative;
 }
