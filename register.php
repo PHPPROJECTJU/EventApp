@@ -52,7 +52,7 @@
     if (isset($_POST['submit'])) {
         // This is the postback so add the book to the database
         # Get data from form
-        $username = trim($_POST['Username']);
+        $username = trim($_POST['username']);
         $email = trim($_POST['email']);
         $password = trim($_POST['password']);
         $repeatpassword = trim($_POST['repeatpassword']);
@@ -72,8 +72,8 @@
         }
 
         // Prepare an insert statement and execute it
-        $stmt = $db->prepare("INSERT INTO User (User.Username, User.EmailAdress, User.Password) VALUES (?, ?, ?)");
-        $stmt->bind_param('sss', $username, $email, $password);
+        $stmt = $db->prepare("INSERT INTO User (User.Username, User.Password, User.EmailAdress) VALUES (NULL, ?, ?, ?, false, false, false, false, false)");
+        $stmt->bind_param('sss', $username, $password, $email);
         $stmt->execute();
         printf("<br><br><br><br>User Added!");
         //exit;
