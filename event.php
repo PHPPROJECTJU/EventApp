@@ -75,8 +75,7 @@ $EventID = trim($_GET['EventID']);
 
 <?php
 
-function postComment($comment) {
-  include("config.php");
+if (isset($_POST) && !empty($_POST)) {
 
   @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
 
@@ -88,7 +87,6 @@ function postComment($comment) {
 
 
   $myusername = $_SESSION['username'];
-  $EventID = trim($_GET['EventID']);
 
 
     $comment = htmlentities($_POST['commentfield']);
@@ -101,34 +99,31 @@ function postComment($comment) {
     $stmt = $db->prepare($commentquery);
     $stmt->execute();
 
-    $query = ("SELECT Comments.Text, Comments.UserName, User.UserID, User.ProfilePicture
-              FROM Comments
-              JOIN User
-              ON Comments.UserName=User.UserName
-              WHERE EventID=$EventID
-              ");
-    $stmt2 = $db->prepare($query);
-    $stmt2->bind_result($Text, $Commenter, $UserID, $Profilepic);
-    $stmt2->execute();
-
-
-    while ($stmt2->fetch()) {
-        echo "<div class='comment'>";
-        echo "<img src='$Profilepic' class='commenterpic'/>";
-        echo "<a href='user.php?UserID= " . urlencode($UserID) . " '> $Commenter </a> says";
-        echo "<div id='commentBox'>";
-        echo "<div class='commentarrow'></div>";
-        echo "<div id='commenttext'><p>";
-        echo $Text;
-        echo "</p></div>";
-        echo "</div>";
-        echo "</div>";
-        echo "</div>";
-    }
 }
 
-if (isset($_POST) && !empty($_POST)) {
-  postComment($_POST['commentfield']);
+$getcomment = ("SELECT Comments.Text, Comments.UserName, User.UserID, User.ProfilePicture
+          FROM Comments
+          JOIN User
+          ON Comments.UserName=User.UserName
+          WHERE EventID=$EventID
+          ");
+$stmt2 = $db->prepare($getcomment);
+$stmt2->bind_result($Text, $Commenter, $UserID, $Profilepic);
+$stmt2->execute();
+
+
+while ($stmt2->fetch()) {
+    echo "<div class='comment'>";
+    echo "<img src='$Profilepic' class='commenterpic'/>";
+    echo "<a href='user.php?UserID= " . urlencode($UserID) . " '> $Commenter </a> says";
+    echo "<div id='commentBox'>";
+    echo "<div class='commentarrow'></div>";
+    echo "<div id='commenttext'><p>";
+    echo $Text;
+    echo "</p></div>";
+    echo "</div>";
+    echo "</div>";
+    echo "</div>";
 }
 
 
