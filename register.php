@@ -1,5 +1,6 @@
 <?php
   include("config.php");
+  ob_start();
 ?>
 
 <!DOCTYPE html>
@@ -76,6 +77,7 @@
         $stmt->bind_param('sss', $username, $email, $password);
         $stmt->execute();
         printf("<br><br><br><br>User Added!");
+
         header("location:createprofile.php");
         //exit;
     }
