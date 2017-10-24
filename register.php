@@ -25,7 +25,7 @@
       </div>
         <img src="img/event_ually.png" class="startlogo"/>
 
-        <form action="createprofile.php" method="POST">
+        <form action="register.php" method="POST">
           <table id="registerform">
             <tr>
               <td><input type="text" name="username" class="registerbar" placeholder="Username" required></td>
@@ -72,10 +72,11 @@
         }
 
         // Prepare an insert statement and execute it
-        $stmt = $db->prepare("INSERT INTO User (User.Username, User.Password, User.EmailAdress) VALUES (NULL, ?, ?, ?, false, false, false, false, false)");
-        $stmt->bind_param('sss', $username, $password, $email);
+        $stmt = $db->prepare("INSERT INTO User (User.Username, User.EmailAdress, User.Password) VALUES (?, ?, ?)");
+        $stmt->bind_param('sss', $username, $email, $password);
         $stmt->execute();
         printf("<br><br><br><br>User Added!");
+        header("location:createprofile.php");
         //exit;
     }
 
