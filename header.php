@@ -89,7 +89,7 @@ $username = $_SESSION['username'];
 																		 <div class="innerdatewrap"><p>End time</p><input type="time" name="endtime" class="test" placeholder="Time for event" required></div>
 										             </div>
 										             <div class="row">
-										               Describe your event<input type="textarea" name="description" class="eventregisterbar" placeholder="Description of event" required>
+										               Describe your event<textarea rows="4" cols="80" type="textarea" name="description" class="eventregisterbartext" placeholder="Description of event" required></textarea>
 																 </div>
 																 <div class="row">
 										               Select tags

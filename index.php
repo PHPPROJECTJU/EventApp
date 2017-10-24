@@ -43,7 +43,9 @@
             $stmt->execute();
 
               while ($stmt->fetch()) {
-                  echo "<li><button href='' class='regionbuttons'>$showregion</button></li>";
+                  echo "<input type='hidden' name='regionid' value=' . $regionid . '>";
+                  echo "<li><a class='regionbuttons' href='index.php?regionid=' . urlencode($regionid) . ''>$showregion</a></li>";
+
               }
          ?>
        </div>
