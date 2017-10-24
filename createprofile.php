@@ -67,6 +67,8 @@
 
   <?php
   if (isset($_POST['submit'])) {
+
+      
       // This is the postback so add the book to the database
       # Get data from form
       $firstname = trim($_POST['firstname']);
@@ -82,7 +84,7 @@
       $about = addslashes($about);
 
       # Open the database using the "librarian" account
-  @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbnfdfame);
+  @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
 
       if ($db->connect_error) {
           echo "could not connect: " . $db->connect_error;
