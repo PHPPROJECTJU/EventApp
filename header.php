@@ -52,6 +52,9 @@ $username = $_SESSION['username'];
 														<div class="row">
 																 Name of Event<input type="text" name="eventname" class="eventregisterbar" placeholder="Name of Event" required>
 														</div>
+														<div class="row">
+																 Adress<input type="text" name="adress" class="eventregisterbar" placeholder="Name of Event" required>
+														</div>
 
 														<div class="row">
 																<div class="innerdatewrap"><p>Start date</p><input type="date" name="startdate" class="test" placeholder="Time for event" required></div>

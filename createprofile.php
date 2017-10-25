@@ -68,7 +68,7 @@
   <?php
 
   function finishtheuser(){
-
+        session_start();
         include("config.php");
 
         @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
@@ -100,7 +100,6 @@
         $stmt->bind_param('sssss', $firstname, $lastname, $bday, $fileupload, $about);
         $stmt->execute();
         printf("<p class='already'>Login with your new account!<a href='login.php' class='loginbutton'>Sign in</a></p><br>");
-        printf("");
         //exit;
     }
 

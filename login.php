@@ -26,16 +26,30 @@
 
 <?php
 
+@ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
+
+if ($db->connect_error) {
+  echo "could not connect: " . $db->connect_error;
+  exit();
+}
+
 	$getusername =  stripslashes($_POST['getusername']);
 	$getpassword =  stripslashes($_POST['getpassword']);
 
+  $getusername = htmlentities($getusername);
+  $getpassword = htmlentities($getpassword);
 
-	@ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
+  $query = ("SELECT * FROM User WHERE UserName = '{$getusername}' "."AND Password = '{$getpassword}'");
 
-	if ($db->connect_error) {
-		echo "could not connect: " . $db->connect_error;
-		exit();
-	}
+
+  $stmt2 = $db->prepare($query);
+  $stmt2->execute();
+  $stmt2->store_result();
+
+  $totalcount = $stmt2->num_rows();
+
+
+
 
 	$stmt = $db->prepare("SELECT UserName, Password FROM User WHERE UserName = ?");
 	$stmt->bind_param('s', $getusername);
@@ -45,12 +59,11 @@
 
 
     while ($stmt->fetch()) {
-        if ($getpassword == $password)
-		{
-			$_SESSION['username'] = $getusername;
-			header("location:index.php");
-			exit();
-		}
+        if ($getpassword == $password){
+    			$_SESSION['username'] = $getusername;
+    			header("location:index.php");
+    			exit();
+    		}
     }
 
 ?>
@@ -63,7 +76,7 @@
 	  <body>
 		    <main class="red" id="main">
 
-<div id="content">
+<div>
 
 
     <div id="registerbox">
@@ -88,28 +101,15 @@
             </tr>
           </table>
         </form>
-
         <?php
-      	$getpassword =  stripslashes($_POST['getpassword']);
+        if (isset($totalcount)) {
+              if ($totalcount == 0) {
+                  echo "<p class='wrongpasstext'>Wrong username or password. Please try again.</p>";
 
-      	@ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
+              }
+        }
+         ?>
 
-      	if ($db->connect_error) {
-      		echo "could not connect: " . $db->connect_error;
-      		exit();
-      	}
-
-      	$stmt = $db->prepare("SELECT Password FROM User WHERE UserName = ?");
-      	$stmt->bind_param('s', $getpassword);
-      	$stmt->execute();
-
-          $stmt->bind_result($password);
-
-
-            if ($getpassword !== $password){
-              echo "<p class='wrongpasstext'>Wrong password or username!</p>";
-            }
-        ?>
         <p class="already">Not a member? <a href="register.php" class="loginbutton">Register here</a></p>
 
     </div>
