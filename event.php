@@ -83,6 +83,7 @@ displayEvent();
 <?php
 
 function makeComment($comment){
+
   include("config.php");
 
   @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
@@ -98,6 +99,7 @@ function makeComment($comment){
   $EventID = trim($_GET['EventID']);
 
     $comment = $comment;
+    $comment = htmlentities($comment);
     $comment = mysqli_real_escape_string($db, $comment);
 
     $commentquery = ("INSERT INTO Comments (Text, EventID, UserName)
@@ -107,10 +109,12 @@ function makeComment($comment){
     $stmt2 = $db->prepare($commentquery);
     $stmt2->bind_param('sis', $comment, $EventID, $myusername);
     $stmt2->execute();
+
+
 }
 
 
-if (isset($_POST['commentfield'])) {
+if (isset($_POST['postcomment']) && !empty($_POST['commentfield'])) {
   makeComment($_POST['commentfield']);
 }
 
