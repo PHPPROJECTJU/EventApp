@@ -52,6 +52,7 @@ $EventID = trim($_GET['EventID']);
 
 
 
+
     while ($stmt->fetch()) {
         echo "<a href='eventfeed.php#". urlencode($UserID) ."' class='goback'>&larr;</a>";
         echo "<a href='deleteevent.php?EventID=". urlencode($EventID) ."' id='deletebutton'>×</a><br />";
