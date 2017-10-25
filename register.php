@@ -74,18 +74,13 @@
         $stmt->execute();
         $stmt->close();
 
-
-          $stmt = $db->prepare("SELECT User.UserID
-                                FROM User
-                                WHERE User.UserName = $username
-                                ");
-          $stmt->bind_param('i',$UserID);
-          $stmt->execute();
-          $stmt->close();
+        session_start();
+        $UserID = mysqli_insert_id($db);
+        $_SESSION['userid'] = $UserID;
 
 
         printf("<br><br><br><br>User Added!");
-        header("location:createprofile.php?UserID=" . urlencode($UserID) . "");
+        header("location:createprofile.php");
         //exit;
     }
 

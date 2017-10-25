@@ -66,6 +66,9 @@
   </html>
 
   <?php
+
+  echo $_SESSION['userid'];
+
   if (isset($_POST['submit'])) {
       // This is the postback so add the book to the database
       # Get data from form
@@ -82,13 +85,14 @@
       $about = addslashes($about);
 
       # Open the database using the "librarian" account
-  @ $db = new mysqli('localhost', 'root', '', 'EventApp');
+  @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
 
       if ($db->connect_error) {
           echo "could not connect: " . $db->connect_error;
           printf("<br><a href=index.php>Return to home page </a>");
           exit();
       }
+
 
       // Prepare an insert statement and execute it
       $stmt = $db->prepare("UPDATE User SET FirstName='$firstname', LastName='$lastname', Birthdate='$bday', ProfilePicture='$fileupload', About='$about' WHERE UserID=13");
