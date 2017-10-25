@@ -23,7 +23,7 @@
 <main>
 <div id="createprofile">
   <h1>Welcome!<br> Finish your profile</h1>
-  <form action="index.php" method="POST">
+  <form action="createprofile.php" method="POST">
     <table id="registerform">
       <tr>
         <td>
@@ -67,42 +67,54 @@
 
   <?php
 
-  $UserID = $_SESSION['userid'];
+  function finishtheuser(){
+
+        include("config.php");
+        session_start();
+        @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
+
+        if ($db->connect_error) {
+            echo "could not connect: " . $db->connect_error;
+            printf("<br><a href=index.php>Return to home page </a>");
+            exit();
+        }
+
+        $UserID = $_SESSION['userid'];
+
+
+        // This is the postback so add the book to the database
+        # Get data from form
+        $firstname = trim($_POST['firstname']);
+        $lastname = trim($_POST['email']);
+        $bday = trim($_POST['bday']);
+        $fileupload = trim($_POST['fileupload']);
+        $about = trim($_POST['about']);
+
+        $firstname = addslashes($firstname);
+        $lastname = addslashes($lastname);
+        $bday = addslashes($bday);
+        $fileupload = addslashes($fileupload);
+        $about = addslashes($about);
+
+        # Open the database using the "librarian" account
+
+
+
+        // Prepare an insert statement and execute it
+        $stmt = $db->prepare("UPDATE User
+                              SET FirstName='$firstname', LastName='$lastname', Birthdate='$bday', ProfilePicture='profilepics/$fileupload', About='$about'
+                              WHERE UserID=$UserID");
+        $stmt->bind_param('sssss', $firstname, $lastname, $bday, $fileupload, $about);
+        $stmt->execute();
+        printf("<p class='already'>Login with your new account!<a href='login.php' class='loginbutton'>Sign in</a></p><br>");
+        printf("");
+        //exit;
+    }
 
   if (isset($_POST['submit'])) {
-      // This is the postback so add the book to the database
-      # Get data from form
-      $firstname = trim($_POST['firstname']);
-      $lastname = trim($_POST['email']);
-      $bday = trim($_POST['bday']);
-      $fileupload = trim($_POST['fileupload']);
-      $about = trim($_POST['about']);
-
-      $firstname = addslashes($firstname);
-      $lastname = addslashes($lastname);
-      $bday = addslashes($bday);
-      $fileupload = addslashes($fileupload);
-      $about = addslashes($about);
-
-      # Open the database using the "librarian" account
-  @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
-
-      if ($db->connect_error) {
-          echo "could not connect: " . $db->connect_error;
-          printf("<br><a href=index.php>Return to home page </a>");
-          exit();
-      }
-
-
-      // Prepare an insert statement and execute it
-      $stmt = $db->prepare("UPDATE User
-                            SET FirstName='$firstname', LastName='$lastname', Birthdate='$bday', ProfilePicture='$fileupload', About='$about'
-                            WHERE UserID=$UserID");
-      $stmt->bind_param('sssss', $firstname, $lastname, $bday, $fileupload, $about);
-      $stmt->execute();
-      printf("<br><br><br><br>Congratulations!<br>You have now created your Eventually-account.");
-      //exit;
+    finishtheuser();
   }
+
 
   // Not a postback, so present the book entry form
   ?>
