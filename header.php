@@ -144,7 +144,8 @@ $username = $_SESSION['username'];
 			         }
 
 			         // Prepare an insert statement and execute it
-			         $stmt = $db->prepare("INSERT INTO Event (Event.Title, Event.StartDate, Event.EndDate, Event.StartTime, Event.EndTime, Event.Information, Event.Tags) VALUES (?, ?, ?, ?, ?, ?, ?)");
+			         $stmt = $db->prepare("INSERT INTO Event (Event.Title, Event.StartDate, Event.EndDate, Event.StartTime, Event.EndTime, Event.Information, Event.Tags)
+							 												VALUES (?, ?, ?, ?, ?, ?, ?)");
 			         $stmt->bind_param('siiiiss', $eventname, $region, $startdate, $enddate, $starttime, $endtim, $description, $tag);
 			         $stmt->execute();
 			         printf("Event created!");
