@@ -67,7 +67,7 @@
 
   <?php
 
-  echo $_SESSION['userid'];
+  $UserID = $_SESSION['userid'];
 
   if (isset($_POST['submit'])) {
       // This is the postback so add the book to the database
@@ -95,7 +95,9 @@
 
 
       // Prepare an insert statement and execute it
-      $stmt = $db->prepare("UPDATE User SET FirstName='$firstname', LastName='$lastname', Birthdate='$bday', ProfilePicture='$fileupload', About='$about' WHERE UserID=13");
+      $stmt = $db->prepare("UPDATE User
+                            SET FirstName='$firstname', LastName='$lastname', Birthdate='$bday', ProfilePicture='$fileupload', About='$about'
+                            WHERE UserID=$UserID");
       $stmt->bind_param('sssss', $firstname, $lastname, $bday, $fileupload, $about);
       $stmt->execute();
       printf("<br><br><br><br>Congratulations!<br>You have now created your Eventually-account.");

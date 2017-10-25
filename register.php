@@ -1,5 +1,6 @@
 <?php
   include("config.php");
+  ob_start();
 ?>
 
 <!DOCTYPE html>
@@ -80,6 +81,7 @@
 
 
         printf("<br><br><br><br>User Added!");
+
         header("location:createprofile.php");
         //exit;
     }
