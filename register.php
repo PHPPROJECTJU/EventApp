@@ -15,7 +15,7 @@
 	  <body>
 		    <main class="red" id="main">
 
-<div id="content">
+<div>
 
       <div id="aboutbutton" onclick="showAbout()">About</div>
       <div id="aboutBox">
