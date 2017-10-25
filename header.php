@@ -57,25 +57,30 @@ $username = $_SESSION['username'];
 																	 	<select name="region" form="eventform" placeholder="Select region">
 																				<option value="" disabled selected>Select your region</option>
 																				<?php
-																            @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
+																				function getregions(){
 
-																            if ($db->connect_error) {
-																                echo "could not connect: " . $db->connect_error;
-																                printf("<br><a href=index.php>Return to home page </a>");
-																                exit();
-																            }
+																						include ("config.php");
+																						@ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
 
-																            $getregion = "SELECT State.state_id, State.state_name
-																                      FROM State
-																                      ";
+																						if ($db->connect_error) {
+																								echo "could not connect: " . $db->connect_error;
+																								printf("<br><a href=index.php>Return to home page </a>");
+																								exit();
+																						}
 
-																            $stmt = $db->prepare($getregion);
-																            $stmt->bind_result($regionid, $showregion);
-																            $stmt->execute();
+																						$getregion = "SELECT State.state_id, State.state_name
+																											FROM State
+																											";
 
-																              while ($stmt->fetch()) {
-																                  echo "<option value='$regionid'>$showregion</option>";
-																              }
+																						$stmt = $db->prepare($getregion);
+																						$stmt->bind_result($regionid, $showregion);
+																						$stmt->execute();
+
+																						while ($stmt->fetch()) {
+																									echo "<option value='$regionid'>$showregion</option>";
+																						}
+																				};
+																           getregions(); 
 																         ?>
 																 		</select>
 																</div>
