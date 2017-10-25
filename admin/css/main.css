@@ -305,8 +305,6 @@ p.description {
   text-align: center;
   text-decoration: none;
   color: #6EE6F0;
-  background-image: url("../img/gradientbox-5.png");
-  /*linear-gradient(rgba(255,0,0,0), rgba(238, 238, 238,1));*/
   background-size: 100%;
   background-repeat: no-repeat;
   z-index: 10;
