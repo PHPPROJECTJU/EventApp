@@ -47,7 +47,7 @@ $username = $_SESSION['username'];
 								       <h2>Create a new event!</h2>
 								</div>
 								 	<div class="modal-body">
-												 <form action="index.php" method="POST">
+												 <form action="" method="POST">
 								           <div id="eventform">
 										             <div class="row">
 										               		Name of Event<input type="text" name="eventname" class="eventregisterbar" placeholder="Name of Event" required>
@@ -100,7 +100,7 @@ $username = $_SESSION['username'];
 																	 		</select>
 																	</div>
 															 		<div>
-																	 		<input type="submit" class="registerbutton" name="submit" value="Create event">
+																	 		<input type="submit" class="registerbutton" name="createevent" value="Create event">
 																 	</div>
 														</div>
 
@@ -113,46 +113,50 @@ $username = $_SESSION['username'];
 					 </div>
 
 					 <?php
-			     if (isset($_POST['submit'])) {
-			        $eventname = trim($_POST['eventname']);
-			        $region = trim($_POST['region']);
-			        $startdate = trim($_POST['startdate']);
-							$enddate = trim($_POST['enddate']);
-							$starttime = trim($_POST['starttime']);
-							$endtim = trim($_POST['endtime']);
-							$description = trim($_POST['description']);
-			        $tag = trim($_POST['tag']);
-
-							$eventname = addslashes($eventname);
-							$region = addslashes($region);
-							$startdate = addslashes($startdate);
-							$enddate = addslashes($enddate);
-							$starttime = addslashes($starttime);
-							$endtim = addslashes($endtim);
-							$description = addslashes($description);
-							$tag = addslashes($tag);
 
 
+					 function createEvent(){
+						 include("config.php");
 
-			         # Open the database using the "librarian" account
-			     @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
+						 @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
 
-			         if ($db->connect_error) {
-			             echo "could not connect: " . $db->connect_error;
-			             printf("<br><a href=index.php>Return to home page </a>");
-			             exit();
-			         }
+				         if ($db->connect_error) {
+				             echo "could not connect: " . $db->connect_error;
+				             printf("<br><a href=index.php>Return to home page </a>");
+				             exit();
+				         }
 
-			         // Prepare an insert statement and execute it
-			         $stmt = $db->prepare("INSERT INTO Event (Event.Title, Event.StartDate, Event.EndDate, Event.StartTime, Event.EndTime, Event.Information, Event.Tags)
-							 												VALUES (?, ?, ?, ?, ?, ?, ?)");
-			         $stmt->bind_param('siiiiss', $eventname, $region, $startdate, $enddate, $starttime, $endtim, $description, $tag);
-			         $stmt->execute();
-			         printf("Event created!");
-			         //exit;
-			     }
+						        $eventname = trim($_POST['eventname']);
+						        $region = trim($_POST['region']);
+						        $startdate = trim($_POST['startdate']);
+										$enddate = trim($_POST['enddate']);
+										$starttime = trim($_POST['starttime']);
+										$endtim = trim($_POST['endtime']);
+										$description = trim($_POST['description']);
+						        $tag = trim($_POST['tag']);
 
-			     // Not a postback, so present the book entry form
+										$eventname = addslashes($eventname);
+										$region = addslashes($region);
+										$startdate = addslashes($startdate);
+										$enddate = addslashes($enddate);
+										$starttime = addslashes($starttime);
+										$endtim = addslashes($endtim);
+										$description = addslashes($description);
+										$tag = addslashes($tag);
+
+
+
+						         $stmt = $db->prepare("INSERT INTO Event (Event.Title, Event.StartDate, Event.EndDate, Event.StartTime, Event.EndTime, Event.Information, Event.Tags)
+										 												VALUES (?, ?, ?, ?, ?, ?, ?)");
+						         $stmt->bind_param('siiiiss', $eventname, $region, $startdate, $enddate, $starttime, $endtim, $description, $tag);
+						         $stmt->execute();
+						         printf("Event created!");
+					 }
+
+if (isset($_POST['createevent'])) {
+	createEvent();
+}
+
 			     ?>
 
 	      </header>
