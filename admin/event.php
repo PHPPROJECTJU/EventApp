@@ -37,6 +37,20 @@ $EventID = trim($_GET['EventID']);
     $stmt->bind_result($UserName, $ProfilePicture, $UserID, $Title, $StartDate, $StartTime, $Information, $StreetAdress);
     $stmt->execute();
 
+  /* $gettag = "SELECT Tags.TagName
+                 FROM Tags
+                 JOIN GetTag
+                 ON Tags.TagID=GetTag.TagID
+                 JOIN Event
+                 ON Event.EventID=GetTag.EventID
+                 WHERE Event.EventID=$EventID
+                 ";
+
+    $stmt2 = $db->prepare($gettag);
+    $stmt2->bind_result($TagName);
+    $stmt2->execute();*/
+
+
 
     while ($stmt->fetch()) {
         echo "<a href='eventfeed.php#". urlencode($UserID) ."' class='goback'>&larr;</a>";

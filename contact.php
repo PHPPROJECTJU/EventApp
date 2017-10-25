@@ -26,7 +26,7 @@
 
   $adminEmail = "paju1600@student.ju.se";
 
-  if (isset($_POST['submit'])) {
+  if($_POST['submit']) {
       $to = $adminEmail;
       $subject = "Message from Eventually";
       $sender = $_POST["name"];
