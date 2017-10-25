@@ -21,7 +21,6 @@
 
 <!--PHP TERRITORY---------------->
 
-<!--username: testuser. password: testing-->
 
 <?php if(isset($_POST) && !empty($_POST)) : ?>
 

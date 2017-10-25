@@ -70,7 +70,7 @@
   function finishtheuser(){
 
         include("config.php");
-        session_start();
+
         @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
 
         if ($db->connect_error) {
@@ -82,10 +82,8 @@
         $UserID = $_SESSION['userid'];
 
 
-        // This is the postback so add the book to the database
-        # Get data from form
         $firstname = trim($_POST['firstname']);
-        $lastname = trim($_POST['email']);
+        $lastname = trim($_POST['lastname']);
         $bday = trim($_POST['bday']);
         $fileupload = trim($_POST['fileupload']);
         $about = trim($_POST['about']);
@@ -96,11 +94,6 @@
         $fileupload = addslashes($fileupload);
         $about = addslashes($about);
 
-        # Open the database using the "librarian" account
-
-
-
-        // Prepare an insert statement and execute it
         $stmt = $db->prepare("UPDATE User
                               SET FirstName='$firstname', LastName='$lastname', Birthdate='$bday', ProfilePicture='profilepics/$fileupload', About='$about'
                               WHERE UserID=$UserID");
@@ -115,8 +108,6 @@
     finishtheuser();
   }
 
-
-  // Not a postback, so present the book entry form
   ?>
 
 </main>
