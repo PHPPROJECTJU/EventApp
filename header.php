@@ -96,7 +96,7 @@ $username = $_SESSION['username'];
 										               Select tags
 																		 	<select name="tag" form="eventform" placeholder="Select tags">
 																					<option value="" disabled selected>Select tags</option>
-																	        <option>First option</option>
+																	        <option value="firsttag">First option</option>
 																	 		</select>
 																	</div>
 															 		<div>
