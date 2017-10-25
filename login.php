@@ -91,6 +91,22 @@
         </form>
 
         <?php
+      	$getpassword =  stripslashes($_POST['getpassword']);
+
+      	@ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
+
+      	if ($db->connect_error) {
+      		echo "could not connect: " . $db->connect_error;
+      		exit();
+      	}
+
+      	$stmt = $db->prepare("SELECT Password FROM User WHERE UserName = ?");
+      	$stmt->bind_param('s', $getpassword);
+      	$stmt->execute();
+
+          $stmt->bind_result($password);
+
+
             if ($getpassword !== $password){
               echo "<p class='wrongpasstext'>Wrong password or username!</p>";
             }
