@@ -74,7 +74,7 @@ $username = $_SESSION['username'];
 																            $stmt->execute();
 
 																              while ($stmt->fetch()) {
-																                  echo "<option>$showregion</option>";
+																                  echo "<option value='$regionid'>$showregion</option>";
 																              }
 																         ?>
 																 		</select>
