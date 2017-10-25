@@ -20,7 +20,7 @@
 
         <form class="searcheventsform" action="index.php" method="POST">
               <input type="text" name="searchevent" class="searchbar" placeholder="Search events">
-              <input type="submit" class="searchbutton" name="submit" value="GO">
+              <input type="submit" class="searchbutton" name="search" value="GO">
         </form>
     </div>
     <ul id='regionmenu'>
@@ -67,7 +67,7 @@
 
 /*--Search function-----------------------------------------*/
 
-if (isset($_POST) && !empty($_POST)) {
+if (isset($_POST['search']) && !empty($_POST['searchevent'])) {
 
     $searchphrase = htmlentities($_POST['searchevent']);
 
