@@ -56,6 +56,70 @@ $username = $_SESSION['username'];
 																 Adress<input type="text" name="adress" class="eventregisterbar" placeholder="i.e Fortunagatan 16B" required>
 														</div>
 
+														<div class="row">Select your region
+															 <select name="region" form="eventform" placeholder="Select region">
+																	 <option value="" disabled selected>Select your region</option>
+																	 <?php
+																	 function getregions(){
+
+																			 include ("config.php");
+																			 @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
+
+																			 if ($db->connect_error) {
+																					 echo "could not connect: " . $db->connect_error;
+																					 printf("<br><a href=index.php>Return to home page </a>");
+																					 exit();
+																			 }
+
+																			 $getregion = "SELECT State.state_id, State.state_name
+																								 FROM State
+																								 ";
+
+																			 $stmt = $db->prepare($getregion);
+																			 $stmt->bind_result($regionid, $showregion);
+																			 $stmt->execute();
+
+																			 while ($stmt->fetch()) {
+																						 echo "<option value='$regionid'>$showregion</option>";
+																			 }
+																	 };
+																			getregions();
+																		?>
+															 </select>
+													 </div>
+
+														<div class="row">Select your city
+															 <select name="region" form="eventform" placeholder="Select region">
+																	 <option value="" disabled selected>Select city</option>
+																	 <?php
+																	 function getcity(){
+
+																			 include ("config.php");
+																			 @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
+
+																			 if ($db->connect_error) {
+																					 echo "could not connect: " . $db->connect_error;
+																					 printf("<br><a href=index.php>Return to home page </a>");
+																					 exit();
+																			 }
+
+																			 $getcityname = "SELECT City.city_name, City.city_id
+																								 FROM City
+																								 ";
+
+																			 $stmt = $db->prepare($getcityname);
+																			 $stmt->bind_result($showcityname, $cityid);
+																			 $stmt->execute();
+
+																			 while ($stmt->fetch()) {
+																						 echo "<option value='$cityid'>$showcityname</option>";
+																			 }
+																	 };
+																			getcity();
+																		?>
+															 </select>
+													 </div>
+
 														<div class="row">
 																<div class="innerdatewrap"><p>Start date</p><input type="date" name="startdate" class="test" placeholder="Time for event" required></div>
 																<div class="innerdatewrap"><p>Start time</p><input type="time" name="starttime" class="test" placeholder="Time for event" required></div>
