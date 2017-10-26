@@ -31,8 +31,6 @@ function displayEvent(){
                 FROM User
                 JOIN Event
                 ON User.UserID=Event.UserID
-                JOIN Location
-                ON Event.LocationID=Location.LocationID
                 WHERE Event.EventID=$EventID
                 ";
 
@@ -111,7 +109,11 @@ function makeComment($comment){
     $stmt2->execute();
 
     unset($_POST);
-
+    ?>
+      <script>
+          window.location.href = "event.php?EventID=<?php echo $EventID?>";
+      </script>
+      <?php
 }
 
 
