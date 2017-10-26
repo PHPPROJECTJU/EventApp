@@ -222,14 +222,19 @@ $username = $_SESSION['username'];
 										$stmt->bind_param('ssiisssssi', $eventname, $adress, $region, $cityID, $startdate, $enddate, $starttime, $endtime, $description, $categoryID);
 										$stmt->execute();
 
-
-
-
 										printf("Event created!");
+
+										unset($_POST);
+								    ?>
+								      <script>
+								          window.location.href = "index.php";
+								      </script>
+								      <?php
+
 										}
 
 										if (isset($_POST['createevent'])) {
-										createEvent();
+											createEvent();
 										}
 										?>
 

@@ -43,8 +43,6 @@
       <tr>
             <td>
                 <p>Choose a profile picture:</p>
-                <!--Don't really know how to fix this one, heh...-->
-                <!--Uploaded pic should get the id of the user that uploaded the pic and be displayed-->
 
                     <input type="file" name="fileupload" id="fileupload">
                     <br />
@@ -78,6 +76,8 @@
             exit();
         }
 
+        $UserID = $_SESSION['userid'];
+
         #Getting the image upload:
         if (isset($_FILES['fileupload'])) {
 
@@ -96,7 +96,7 @@
               }
 
               if(empty($error)){
-                move_uploaded_file($_FILES['fileupload']['tmp_name'], "profilepics/{$_FILES['fileupload']['name']}");
+                move_uploaded_file($_FILES['fileupload']['tmp_name'], "profilepics/user$UserID.$extension");
               } else {
                   foreach ($error as $err){
                     echo $err;
@@ -108,12 +108,10 @@
         }
 
 
-        $UserID = $_SESSION['userid'];
-
         $firstname = trim($_POST['firstname']);
         $lastname = trim($_POST['lastname']);
         $bday = trim($_POST['bday']);
-        $fileupload = trim($_POST['fileupload']);
+        $fileupload = "user".$UserID.".".$extension;
         $about = trim($_POST['about']);
 
         $firstname = addslashes($firstname);
