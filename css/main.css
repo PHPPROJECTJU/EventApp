@@ -36,8 +36,7 @@ a {
 /*--all forms basic-----*/
 
 textarea {
-	display: block;
-	margin: 12px 15px;
+
 	width: 80%;
 	margin-top: 10px;
 	padding: 15px;
@@ -426,6 +425,7 @@ img.chooselocation {
     animation-name: animatetop;
     animation-duration: 0.4s;
     overflow-y: auto;
+    max-width: 440px;
 
 }
 
@@ -708,6 +708,7 @@ p.description {
   margin: 15px;
   border: 1px solid lightgrey;
   padding: 36px;
+  max-width: 440px;
 }
 
 .profilebutton {
