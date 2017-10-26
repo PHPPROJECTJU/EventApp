@@ -78,12 +78,10 @@ if (isset($_POST['search']) && !empty($_POST['searchevent'])) {
     $searchphrase = addslashes($searchphrase);
 
 
-    $search = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Title, Event.StartDate, Event.StartTime, Event.Information, Location.StreetAdress
+    $search = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Title, Event.StartDate, Event.StartTime, Event.Information, Event.StreetAdress
               FROM User
               JOIN Event
               ON User.UserID=Event.UserID
-              JOIN Location
-              ON Event.LocationID=Location.LocationID
               WHERE Title LIKE '%" . $searchphrase . "%'
               OR Information LIKE '%" . $searchphrase . "%'
               OR UserName LIKE '%" . $searchphrase . "%'
@@ -97,12 +95,10 @@ if (isset($_POST['search']) && !empty($_POST['searchevent'])) {
 
 /*--Getting stuff from database without searching-----------------------------------------*/
 
-      $getevent = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Title, Event.StartDate, Event.StartTime, Event.Information, Location.StreetAdress
+      $getevent = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Title, Event.StartDate, Event.StartTime, Event.Information, Event.StreetAdress
                 FROM User
                 JOIN Event
                 ON User.UserID=Event.UserID
-                JOIN Location
-                ON Event.LocationID=Location.LocationID
                 ORDER BY Event.EventID DESC
                 ";
 
