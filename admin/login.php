@@ -88,12 +88,14 @@ if ($db->connect_error) {
         if (isset($totalcount)) {
               if ($totalcount == 0) {
                   echo "<p class='wrongpasstext'>Wrong username or password. Please try again.</p>";
+                  session_destroy();
 
               } elseif ($isadmin == 0) {
                   echo "<p class='wrongpasstext'>Not an admin.</p>";
+                  session_destroy();
 
               } else {
-                $_SESSION['username'] = $getusername;
+                $_SESSION['adminusername'] = $getusername;
                 header("location:index.php");
               }
         }
