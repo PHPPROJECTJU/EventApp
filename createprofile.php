@@ -1,7 +1,7 @@
 <?php
   session_start();
   if (!isset($_SESSION['username'])) {
-    //header("location:login.php");
+    header("location:login.php");
   }
 ?>
 <?php
@@ -88,11 +88,11 @@
               $error = array ();
 
               if(in_array($extension, $allowedextensions) === false){
-                $error[] = 'This is not an image, upload is allowed only for images.';
+                $error[] = 'Not an allowed file format.';
               }
 
               if($_FILES['fileupload']['size'] > 1000000){
-                $error[]='The file exceeded the upload limit';
+                $error[]='This file is over the 1MB limit.';
               }
 
               if(empty($error)){
@@ -102,11 +102,9 @@
                     echo $err;
                   }
               }
-
         } else {
           echo "not uploaded";
         }
-
 
         $firstname = trim($_POST['firstname']);
         $lastname = trim($_POST['lastname']);
@@ -125,8 +123,12 @@
                               WHERE UserID=$UserID");
         $stmt->bind_param('sssss', $firstname, $lastname, $bday, $fileupload, $about);
         $stmt->execute();
-        printf("<p class='already'>Login with your new account!<a href='login.php' class='loginbutton'>Sign in</a></p><br>");
-        //exit;
+
+        ?>
+          <script>
+              window.location.href = "index.php";
+          </script>
+          <?php
     }
 
   if (isset($_POST['submit'])) {

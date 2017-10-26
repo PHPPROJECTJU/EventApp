@@ -76,12 +76,13 @@
         $stmt->close();
 
         session_start();
+
         $UserID = mysqli_insert_id($db);
         $_SESSION['userid'] = $UserID;
 
 
         printf("<br><br><br><br>User Added!");
-
+        $_SESSION['username'] = $username;
         header("location:createprofile.php");
         //exit;
     }
