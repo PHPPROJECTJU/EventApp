@@ -16,7 +16,6 @@ if (!isset($_SESSION['username'])) {
 }
 
 $username = $_SESSION['username'];
-
 ?>
 
 	  <body>
@@ -32,7 +31,6 @@ $username = $_SESSION['username'];
 								<li><a class ="slide-effect" id="<?php echo ($current_page == 'contact.php') ? 'active' : NULL ?>" href="contact.php">Contact</a></li>
 								<li><a class ="slide-effect" href="logout.php">Logout</a></li>
 							</ul>
-
 						</nav>
 
 						<div id="headbox">
@@ -42,94 +40,94 @@ $username = $_SESSION['username'];
 											 	<div class="theplus">+</div>
 									</div>
 					 </div>
+<!--Everything event modal-->
 
-					 <div id="myModal" class="modal">
+<div id="myModal" class="modal">
 
-					   <!-- Modal content -->
-					   <div class="modal-content">
-						    <div class="modal-header">
-								       <span class="close">&times;</span>
-								       <h2>Create a new event!</h2>
-								</div>
-								 	<div class="modal-body">
-										<form action="" method="POST">
-											<div id="eventform">
-														<div class="row">
-																 Name of Event<input type="text" name="eventname" class="eventregisterbar" placeholder="Name of Event" required>
-														</div>
-														<div class="row">
-																 Adress<input type="text" name="adress" class="eventregisterbar" placeholder="i.e Fortunagatan 16B" required>
-														</div>
+			<div class="modal-content">
+					<div class="modal-header">
+							<span class="close">&times;</span>
+							<h2>Create a new event!</h2>
+					</div>
 
-														<div class="row">Select your region
-															 <select name="region" placeholder="Select region">
-																	 <option value="" disabled selected>Select your region</option>
+					<div class="modal-body">
+							<form action="" method="POST">
+									<div id="eventform">
+											<div class="row">
+													Name of Event
+													<input type="text" name="eventname" class="eventregisterbar" placeholder="Name of Event" required>
+											</div>
+											<div class="row">
+													Adress
+													<input type="text" name="adress" class="eventregisterbar" placeholder="i.e Fortunagatan 16B" required>
+											</div>
+											<div class="row">
+													Select your region
+													<select name="region" placeholder="Select region">
+															<option value="" disabled selected>Select your region</option>
 																	 <?php
-
 																			getregions();
-
 																		?>
-															 </select>
-													 </div>
-
-														<div class="row">Select your city
-															 <select name="city" placeholder="Select city">
-																	 <option value="" disabled selected>Select city</option>
+													</select>
+											</div>
+											<div class="row">
+													Select your city
+													<select name="city" placeholder="Select city">
+															<option value="" disabled selected>Select city</option>
 																	 <?php
-
 																			getcity();
-
 																		?>
-															 </select>
-													 </div>
-
-														<div class="row">
-																<div class="innerdatewrap"><p>Start date</p><input type="date" name="startdate" class="test" placeholder="Time for event" required></div>
-																<div class="innerdatewrap"><p>Start time</p><input type="time" name="starttime" class="test" placeholder="Time for event" required></div>
-
-														</div>
-														<div class="row">
-																<div class="innerdatewrap"><p>End date</p><input type="date" name="enddate" class="test" placeholder="Time for event" required></div>
-																<div class="innerdatewrap"><p>End time</p><input type="time" name="endtime" class="test" placeholder="Time for event" required></div>
-														</div>
-														<div class="row">
-															Describe your event<textarea rows="4" cols="80" type="textarea" name="description" class="eventregisterbartext" placeholder="Description of event" required></textarea>
-														</div>
-
-														<div class="row">Select a tag
-															 <select name="categoryID" placeholder="Select category">
-																	 <option value="">Select category</option>
+													</select>
+											</div>
+											<div class="row">
+													<div class="innerdatewrap">
+															<p>Start date</p>
+															<input type="date" name="startdate" class="test" placeholder="Time for event" required>
+													</div>
+													<div class="innerdatewrap">
+															<p>Start time</p>
+															<input type="time" name="starttime" class="test" placeholder="Time for event" required>
+													</div>
+											</div>
+											<div class="row">
+													<div class="innerdatewrap">
+															<p>End date</p>
+															<input type="date" name="enddate" class="test" placeholder="Time for event" required>
+													</div>
+													<div class="innerdatewrap">
+															<p>End time</p>
+															<input type="time" name="endtime" class="test" placeholder="Time for event" required>
+													</div>
+											</div>
+											<div class="row">
+															Describe your event
+															<textarea rows="4" cols="80" type="textarea" name="description" class="eventregisterbartext" placeholder="Description of event" required>
+															</textarea>
+											</div>
+											<div class="row">
+															Select a tag
+															<select name="categoryID" placeholder="Select category">
+																	<option value="">Select category</option>
 																	 <?php
-
-																					getcategory();
-
+																			getcategory();
 																		?>
 															 </select>
-													 </div>
+											</div>
+											<div>
+													<input type="submit" class="registerbutton" name="createevent" value="Create event">
+												</div>
+								</div>
+						</form>
+			</div>
+</div>
+</div>
 
-														 <div>
-																 <input type="submit" class="registerbutton" name="createevent" value="Create event">
-														 </div>
-											 </div>
+<?php
+if (isset($_POST['createevent'])) {
+		createEvent();
+}
+?>
 
-										</form>
-										</div>
+</header>
 
-
-										</div>
-
-										</div>
-
-										<?php
-
-										if (isset($_POST['createevent'])) {
-											createEvent();
-										}
-										?>
-
-	      </header>
-
-
-
-
-            <div id="content">
+<div id="content">
