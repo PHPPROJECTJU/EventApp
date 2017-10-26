@@ -75,11 +75,11 @@ $username = $_SESSION['username'];
 																								 FROM State
 																								 ";
 
-																			 $stmt = $db->prepare($getregion);
-																			 $stmt->bind_result($regionid, $showregion);
-																			 $stmt->execute();
+																			 $stmt3 = $db->prepare($getregion);
+																			 $stmt3->bind_result($regionid, $showregion);
+																			 $stmt3->execute();
 
-																			 while ($stmt->fetch()) {
+																			 while ($stmt3->fetch()) {
 																						 echo "<option value='$regionid'>$showregion</option>";
 																			 }
 																	 };
@@ -89,7 +89,7 @@ $username = $_SESSION['username'];
 													 </div>
 
 														<div class="row">Select your city
-															 <select name="region" placeholder="Select region">
+															 <select name="city" placeholder="Select city">
 																	 <option value="" disabled selected>Select city</option>
 																	 <?php
 																	 function getcity(){
@@ -107,11 +107,11 @@ $username = $_SESSION['username'];
 																								 FROM City
 																								 ";
 
-																			 $stmt = $db->prepare($getcityname);
-																			 $stmt->bind_result($showcityname, $cityid);
-																			 $stmt->execute();
+																			 $stmt4 = $db->prepare($getcityname);
+																			 $stmt4->bind_result($showcityname, $cityid);
+																			 $stmt4->execute();
 
-																			 while ($stmt->fetch()) {
+																			 while ($stmt4->fetch()) {
 																						 echo "<option value='$cityid'>$showcityname</option>";
 																			 }
 																	 };
@@ -194,7 +194,8 @@ $username = $_SESSION['username'];
 										}
 
 										$eventname = trim($_POST['eventname']);
-
+										$adress = trim($_POST['adress']);
+										$city = trim($_POST['city']);
 										$startdate = trim($_POST['startdate']);
 										$enddate = trim($_POST['enddate']);
 										$starttime = trim($_POST['starttime']);
@@ -203,13 +204,14 @@ $username = $_SESSION['username'];
 										$categoryID = trim($_POST['categoryID']);
 
 										$eventname = addslashes($eventname);
-
+										$adress = addslashes($adress);
+										$city = addslashes($city);
 										$startdate = addslashes($startdate);
 										$enddate = addslashes($enddate);
 										$starttime = addslashes($starttime);
 										$endtim = addslashes($endtim);
 										$description = addslashes($description);
-										//$categoryID = addslashes($categoryID);
+										$categoryID = addslashes($categoryID);
 
 
 
@@ -217,6 +219,15 @@ $username = $_SESSION['username'];
 																			 VALUES (?, ?, ?, ?, ?, ?, ?)");
 										$stmt->bind_param('ssssssi', $eventname, $startdate, $enddate, $starttime, $endtim, $description, $categoryID);
 										$stmt->execute();
+
+
+										$stmt2 = $db->prepare("INSERT INTO Location (Location.StreetAdress, Location.city_id)
+																			 VALUES (?, ?)");
+										$stmt2->bind_param('si', $adress, $cityID);
+										$stmt2->execute();
+
+
+
 										printf("Event created!");
 										}
 
