@@ -57,7 +57,7 @@ $username = $_SESSION['username'];
 														</div>
 
 														<div class="row">Select your region
-															 <select name="region" form="eventform" placeholder="Select region">
+															 <select name="region" placeholder="Select region">
 																	 <option value="" disabled selected>Select your region</option>
 																	 <?php
 																	 function getregions(){
@@ -89,7 +89,7 @@ $username = $_SESSION['username'];
 													 </div>
 
 														<div class="row">Select your city
-															 <select name="region" form="eventform" placeholder="Select region">
+															 <select name="region" placeholder="Select region">
 																	 <option value="" disabled selected>Select city</option>
 																	 <?php
 																	 function getcity(){
@@ -132,6 +132,40 @@ $username = $_SESSION['username'];
 														<div class="row">
 															Describe your event<textarea rows="4" cols="80" type="textarea" name="description" class="eventregisterbartext" placeholder="Description of event" required></textarea>
 														</div>
+
+														<div class="row">Select a tag
+															 <select name="categoryID" placeholder="Select category">
+																	 <option value="">Select category</option>
+																	 <?php
+																			 function getcategory(){
+
+																					 include ("config.php");
+																					 @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
+
+																					 if ($db->connect_error) {
+																							 echo "could not connect: " . $db->connect_error;
+																							 printf("<br><a href=index.php>Return to home page </a>");
+																							 exit();
+																					 }
+
+																					 $getcategory = "SELECT Category.Categoryname, Category.CategoryID
+																										 FROM Category
+																										 ORDER BY Category.Categoryname ASC
+																										 ";
+
+																					 $stmt = $db->prepare($getcategory);
+																					 $stmt->bind_result($getcategoryname, $getcategoryid);
+																					 $stmt->execute();
+
+																					 while ($stmt->fetch()) {
+																								 echo "<option value='$getcategoryid'>$getcategoryname</option>";
+																					 }
+																			 };
+																					getcategory();
+																		?>
+															 </select>
+													 </div>
+
 														 <div>
 																 <input type="submit" class="registerbutton" name="createevent" value="Create event">
 														 </div>
@@ -160,24 +194,28 @@ $username = $_SESSION['username'];
 										}
 
 										$eventname = trim($_POST['eventname']);
+
 										$startdate = trim($_POST['startdate']);
 										$enddate = trim($_POST['enddate']);
 										$starttime = trim($_POST['starttime']);
 										$endtim = trim($_POST['endtime']);
 										$description = trim($_POST['description']);
+										$categoryID = trim($_POST['categoryID']);
 
 										$eventname = addslashes($eventname);
+
 										$startdate = addslashes($startdate);
 										$enddate = addslashes($enddate);
 										$starttime = addslashes($starttime);
 										$endtim = addslashes($endtim);
 										$description = addslashes($description);
+										//$categoryID = addslashes($categoryID);
 
 
 
-										$stmt = $db->prepare("INSERT INTO Event (Event.Title, Event.StartDate, Event.EndDate, Event.StartTime, Event.EndTime, Event.Information)
-																			 VALUES (?, ?, ?, ?, ?, ?)");
-										$stmt->bind_param('ssssss', $eventname, $startdate, $enddate, $starttime, $endtim, $description);
+										$stmt = $db->prepare("INSERT INTO Event (Event.Title, Event.StartDate, Event.EndDate, Event.StartTime, Event.EndTime, Event.Information, Event.CategoryID)
+																			 VALUES (?, ?, ?, ?, ?, ?, ?)");
+										$stmt->bind_param('ssssssi', $eventname, $startdate, $enddate, $starttime, $endtim, $description, $categoryID);
 										$stmt->execute();
 										printf("Event created!");
 										}
