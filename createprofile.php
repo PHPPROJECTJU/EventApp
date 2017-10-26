@@ -23,7 +23,7 @@
 <main>
 <div id="createprofile">
   <h1>Welcome!<br> Finish your profile</h1>
-  <form action="createprofile.php" method="POST">
+  <form action="createprofile.php" method="POST" enctype="multipart/form-data">
     <table id="registerform">
       <tr>
         <td>
@@ -45,10 +45,10 @@
                 <p>Choose a profile picture:</p>
                 <!--Don't really know how to fix this one, heh...-->
                 <!--Uploaded pic should get the id of the user that uploaded the pic and be displayed-->
-                <form action="" method="POST" enctype="multipart/form-data">
+
                     <input type="file" name="fileupload" id="fileupload">
                     <br />
-                </form>
+
             </td>
       </tr>
       <tr>
@@ -68,7 +68,6 @@
   <?php
 
   function finishtheuser(){
-        session_start();
         include("config.php");
 
         @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
@@ -79,8 +78,37 @@
             exit();
         }
 
-        $UserID = $_SESSION['userid'];
+        #Getting the image upload:
+        if (isset($_FILES['fileupload'])) {
 
+              $allowedextensions = array('jpg', 'jpeg', 'gif', 'png');
+
+              $extension = strtolower(substr($_FILES['fileupload']['name'], strrpos($_FILES['fileupload']['name'], '.') + 1));
+
+              $error = array ();
+
+              if(in_array($extension, $allowedextensions) === false){
+                $error[] = 'This is not an image, upload is allowed only for images.';
+              }
+
+              if($_FILES['fileupload']['size'] > 1000000){
+                $error[]='The file exceeded the upload limit';
+              }
+
+              if(empty($error)){
+                move_uploaded_file($_FILES['fileupload']['tmp_name'], "profilepics/{$_FILES['fileupload']['name']}");
+              } else {
+                  foreach ($error as $err){
+                    echo $err;
+                  }
+              }
+
+        } else {
+          echo "not uploaded";
+        }
+
+
+        $UserID = $_SESSION['userid'];
 
         $firstname = trim($_POST['firstname']);
         $lastname = trim($_POST['lastname']);
@@ -104,6 +132,7 @@
     }
 
   if (isset($_POST['submit'])) {
+
     finishtheuser();
   }
 
