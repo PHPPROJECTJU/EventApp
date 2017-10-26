@@ -48,24 +48,6 @@ if ($db->connect_error) {
 
   $totalcount = $stmt2->num_rows();
 
-
-
-
-	$stmt = $db->prepare("SELECT UserName, Password FROM User WHERE UserName = ?");
-	$stmt->bind_param('s', $getusername);
-	$stmt->execute();
-
-    $stmt->bind_result($username, $password);
-
-
-    while ($stmt->fetch()) {
-        if ($getpassword == $password){
-    			$_SESSION['username'] = $getusername;
-    			header("location:index.php");
-    			exit();
-    		}
-    }
-
 ?>
 
 <?php endif;?>
@@ -106,6 +88,9 @@ if ($db->connect_error) {
               if ($totalcount == 0) {
                   echo "<p class='wrongpasstext'>Wrong username or password. Please try again.</p>";
 
+              } else {
+                $_SESSION['username'] = $getusername;
+                header("location:index.php");
               }
         }
          ?>

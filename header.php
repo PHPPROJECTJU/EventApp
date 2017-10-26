@@ -53,7 +53,7 @@ $username = $_SESSION['username'];
 																 Name of Event<input type="text" name="eventname" class="eventregisterbar" placeholder="Name of Event" required>
 														</div>
 														<div class="row">
-																 Adress<input type="text" name="adress" class="eventregisterbar" placeholder="Name of Event" required>
+																 Adress<input type="text" name="adress" class="eventregisterbar" placeholder="i.e Fortunagatan 16B" required>
 														</div>
 
 														<div class="row">
