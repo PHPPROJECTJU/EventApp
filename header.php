@@ -195,36 +195,33 @@ $username = $_SESSION['username'];
 
 										$eventname = trim($_POST['eventname']);
 										$adress = trim($_POST['adress']);
-										$city = trim($_POST['city']);
+										$region = trim($_POST['region']);
+										$cityID = trim($_POST['city']);
 										$startdate = trim($_POST['startdate']);
 										$enddate = trim($_POST['enddate']);
 										$starttime = trim($_POST['starttime']);
-										$endtim = trim($_POST['endtime']);
+										$endtime = trim($_POST['endtime']);
 										$description = trim($_POST['description']);
 										$categoryID = trim($_POST['categoryID']);
 
 										$eventname = addslashes($eventname);
 										$adress = addslashes($adress);
-										$city = addslashes($city);
+										$region = addslashes($region);
+										$cityID = addslashes($cityID);
 										$startdate = addslashes($startdate);
 										$enddate = addslashes($enddate);
 										$starttime = addslashes($starttime);
-										$endtim = addslashes($endtim);
+										$endtime = addslashes($endtime);
 										$description = addslashes($description);
 										$categoryID = addslashes($categoryID);
 
 
 
-										$stmt = $db->prepare("INSERT INTO Event (Event.Title, Event.StartDate, Event.EndDate, Event.StartTime, Event.EndTime, Event.Information, Event.CategoryID)
-																			 VALUES (?, ?, ?, ?, ?, ?, ?)");
-										$stmt->bind_param('ssssssi', $eventname, $startdate, $enddate, $starttime, $endtim, $description, $categoryID);
+										$stmt = $db->prepare("INSERT INTO Event (Event.Title, Event.StreetAdress, Event.state_id, Event.city_id, Event.StartDate, Event.EndDate, Event.StartTime, Event.EndTime, Event.Information, Event.CategoryID)
+																			 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+										$stmt->bind_param('ssiisssssi', $eventname, $adress, $region, $cityID, $startdate, $enddate, $starttime, $endtime, $description, $categoryID);
 										$stmt->execute();
 
-
-										$stmt2 = $db->prepare("INSERT INTO Location (Location.StreetAdress, Location.city_id)
-																			 VALUES (?, ?)");
-										$stmt2->bind_param('si', $adress, $cityID);
-										$stmt2->execute();
 
 
 
