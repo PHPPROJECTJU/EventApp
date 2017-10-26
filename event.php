@@ -52,6 +52,10 @@ function displayEvent(){
           echo "<p><img src='img/time.png' />$StartDate kl $StartTime</p>";
           echo "</div>";
           echo "<p class='description'>$Information</p>";
+          echo "<form action='' method='POST'>";
+          echo "<input type='submit' class='attendsave' name='save' value='Save'>";
+          echo "<input type='submit' class='attendsave' name='attend' value='Attend'>";
+          echo "</form>";
           echo "</div>";
       }
 
