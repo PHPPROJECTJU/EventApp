@@ -16,6 +16,7 @@ if (!isset($_SESSION['username'])) {
 }
 
 $username = $_SESSION['username'];
+
 ?>
 
 	  <body>
@@ -43,7 +44,6 @@ $username = $_SESSION['username'];
 <!--Everything event modal-->
 
 <div id="myModal" class="modal">
-
 			<div class="modal-content">
 					<div class="modal-header">
 							<span class="close">&times;</span>
@@ -121,6 +121,8 @@ $username = $_SESSION['username'];
 			</div>
 </div>
 </div>
+
+<!--create new event-->
 
 <?php
 if (isset($_POST['createevent'])) {
