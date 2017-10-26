@@ -63,7 +63,7 @@ if ($db->connect_error) {
       <div id="aboutBox">
           <div class="arrow"></div>
           <div id="about">
-              <p><b>Welcome to Eventually!</b><br>This is a web application where you can see events hosted nearby. Register and create an event you too. Eventually you'll get some new friend!</p>
+              <p><b>Welcome to Eventually!</b><br>This is a web application where you can see events hosted nearby. Register and create an event you too. Eventually you'll get some new friends!</p>
           </div>
       </div>
       <img src="img/event_ually.png" class="startlogo"/>
