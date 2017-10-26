@@ -1,4 +1,137 @@
 <?php
+
+/*Header.php-------------------------------------------*/
+
+#fetch regions
+
+function getregions(){
+
+    include ("config.php");
+    @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
+
+    if ($db->connect_error) {
+        echo "could not connect: " . $db->connect_error;
+        printf("<br><a href=index.php>Return to home page </a>");
+        exit();
+    }
+
+    $getregion = "SELECT State.state_id, State.state_name
+              FROM State
+              ";
+
+    $stmt3 = $db->prepare($getregion);
+    $stmt3->bind_result($regionid, $showregion);
+    $stmt3->execute();
+
+    while ($stmt3->fetch()) {
+          echo "<option value='$regionid'>$showregion</option>";
+    }
+};
+
+#get cities
+
+function getcity(){
+
+    include ("config.php");
+    @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
+
+    if ($db->connect_error) {
+        echo "could not connect: " . $db->connect_error;
+        printf("<br><a href=index.php>Return to home page </a>");
+        exit();
+    }
+
+    $getcityname = "SELECT City.city_name, City.city_id
+              FROM City
+              ";
+
+    $stmt4 = $db->prepare($getcityname);
+    $stmt4->bind_result($showcityname, $cityid);
+    $stmt4->execute();
+
+    while ($stmt4->fetch()) {
+          echo "<option value='$cityid'>$showcityname</option>";
+    }
+};
+
+#get categories
+
+function getcategory(){
+
+    include ("config.php");
+    @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
+
+    if ($db->connect_error) {
+        echo "could not connect: " . $db->connect_error;
+        printf("<br><a href=index.php>Return to home page </a>");
+        exit();
+    }
+
+    $getcategory = "SELECT Category.Categoryname, Category.CategoryID
+              FROM Category
+              ORDER BY Category.Categoryname ASC
+              ";
+
+    $stmt = $db->prepare($getcategory);
+    $stmt->bind_result($getcategoryname, $getcategoryid);
+    $stmt->execute();
+
+    while ($stmt->fetch()) {
+          echo "<option value='$getcategoryid'>$getcategoryname</option>";
+    }
+};
+
+#creating a new event
+
+function createEvent(){
+    include("config.php");
+
+    @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
+
+    if ($db->connect_error) {
+    echo "could not connect: " . $db->connect_error;
+    printf("<br><a href=index.php>Return to home page </a>");
+    exit();
+    }
+
+    $eventname = trim($_POST['eventname']);
+    $adress = trim($_POST['adress']);
+    $region = trim($_POST['region']);
+    $cityID = trim($_POST['city']);
+    $startdate = trim($_POST['startdate']);
+    $enddate = trim($_POST['enddate']);
+    $starttime = trim($_POST['starttime']);
+    $endtime = trim($_POST['endtime']);
+    $description = trim($_POST['description']);
+    $categoryID = trim($_POST['categoryID']);
+
+    $eventname = addslashes($eventname);
+    $adress = addslashes($adress);
+    $region = addslashes($region);
+    $cityID = addslashes($cityID);
+    $startdate = addslashes($startdate);
+    $enddate = addslashes($enddate);
+    $starttime = addslashes($starttime);
+    $endtime = addslashes($endtime);
+    $description = addslashes($description);
+    $categoryID = addslashes($categoryID);
+
+    $stmt = $db->prepare("INSERT INTO Event (Event.Title, Event.StreetAdress, Event.state_id, Event.city_id, Event.StartDate, Event.EndDate, Event.StartTime, Event.EndTime, Event.Information, Event.CategoryID)
+    									 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param('ssiisssssi', $eventname, $adress, $region, $cityID, $startdate, $enddate, $starttime, $endtime, $description, $categoryID);
+    $stmt->execute();
+
+    printf("Event created!");
+
+    unset($_POST);
+    ?>
+      <script>
+          window.location.href = "index.php";
+      </script>
+      <?php
+
+}
+
 /*Event.php-------------------------------------------*/
 
 #showing the event card
