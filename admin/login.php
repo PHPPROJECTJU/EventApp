@@ -21,38 +21,36 @@
 
 <!--PHP TERRITORY---------------->
 
-<!--username: testuser. password: testing-->
+
 
 <?php if(isset($_POST) && !empty($_POST)) : ?>
 
 <?php
 
+@ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
+
+if ($db->connect_error) {
+  echo "could not connect: " . $db->connect_error;
+  exit();
+}
+
 	$getusername =  stripslashes($_POST['getusername']);
 	$getpassword =  stripslashes($_POST['getpassword']);
 
+  $getusername = htmlentities($getusername);
+  $getpassword = htmlentities($getpassword);
 
-	@ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
-
-	if ($db->connect_error) {
-		echo "could not connect: " . $db->connect_error;
-		exit();
-	}
-
-	$stmt = $db->prepare("SELECT UserName, Password FROM User WHERE UserName = ?");
-	$stmt->bind_param('s', $getusername);
-	$stmt->execute();
-
-    $stmt->bind_result($username, $password);
+  $query = ("SELECT User.Admin FROM User WHERE UserName = '{$getusername}' "."AND Password = '{$getpassword}'");
 
 
-    while ($stmt->fetch()) {
-        if ($getpassword == $password)
-		{
-			$_SESSION['username'] = $getusername;
-			header("location:index.php");
-			exit();
-		}
-    }
+  $stmt2 = $db->prepare($query);
+  $stmt2->bind_result($isadmin);
+  $stmt2->execute();
+  $stmt2->store_result();
+
+  $totalcount = $stmt2->num_rows();
+
+  $stmt2->fetch();
 
 
 ?>
@@ -83,6 +81,29 @@
             </tr>
           </table>
         </form>
+
+        <?php
+
+
+        if (isset($totalcount)) {
+              if ($totalcount == 0) {
+                  echo "<p class='wrongpasstext'>Wrong username or password. Please try again.</p>";
+
+              } elseif ($isadmin == 0) {
+                  echo "<p class='wrongpasstext'>Not an admin.</p>";
+
+              } else {
+                $_SESSION['username'] = $getusername;
+                header("location:index.php");
+              }
+        }
+
+
+
+
+
+         ?>
+
         <p class="already"><a href="../index.php" class="loginbutton">Go to main page</a></p>
 
     </div>
