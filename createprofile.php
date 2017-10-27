@@ -6,6 +6,8 @@
 ?>
 <?php
   include("config.php");
+  include("functions.php");
+
   #Can't really make the min date work?
   $date = date('Y-m-d');
 ?>

@@ -66,11 +66,6 @@
 
         checkUsername();
 
-        if ($password){
-          echo "Passwords don't match";
-          exit();
-        }
-
         if ($repeatpassword != $password){
           echo "Passwords don't match";
           exit();
