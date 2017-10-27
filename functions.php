@@ -188,6 +188,45 @@ function displayEvent(){
 
 }
 
+/*---Register.php-----------------------------------------*/
+
+function checkUsername(){
+  include("config.php");
+
+  @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
+
+  if ($db->connect_error) {
+      echo "could not connect: " . $db->connect_error;
+      printf("<br><a href=index.php>Return to home page </a>");
+      exit();
+  }
+
+  $username = trim($_POST['username']);
+  $username = addslashes($username);
+
+  $query = "SELECT *
+            FROM User
+            WHERE User.UserName = '{$username}'
+            ";
+
+  $stmt8 = $db->prepare($query);
+  $stmt8->execute();
+  $stmt8->store_result();
+
+  $totalcount = $stmt8->num_rows();
+
+  $stmt8->fetch();
+
+  if (isset($totalcount)) {
+        if ($totalcount != 0) {
+          echo "Username already exists";
+          exit();
+        }
+  }
+
+
+};
+
 
 /*-------------------------createprofile.php--------------------------*/
 

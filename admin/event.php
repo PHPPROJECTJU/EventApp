@@ -24,12 +24,10 @@ $EventID = trim($_GET['EventID']);
         exit();
     }
 
-    $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.Title, Event.StartDate, Event.StartTime, Event.Information, Location.StreetAdress
+    $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.Title, Event.StartDate, Event.StartTime, Event.Information, Event.StreetAdress
               FROM User
               JOIN Event
               ON User.UserID=Event.UserID
-              JOIN Location
-              ON Event.LocationID=Location.LocationID
               WHERE Event.EventID=$EventID
               ";
 

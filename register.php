@@ -1,5 +1,7 @@
 <?php
   include("config.php");
+  include("functions.php");
+
   ob_start();
 ?>
 
@@ -61,6 +63,19 @@
         $email = addslashes($email);
         $password = addslashes($password);
         $repeatpassword = addslashes($repeatpassword);
+
+        checkUsername();
+
+        if ($password){
+          echo "Passwords don't match";
+          exit();
+        }
+
+        if ($repeatpassword != $password){
+          echo "Passwords don't match";
+          exit();
+        }
+
 
     @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
 

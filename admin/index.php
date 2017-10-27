@@ -12,7 +12,7 @@ include("header.php");
 
 <?php
 
-$username = ($_SESSION['username']);
+$username = ($_SESSION['adminusername']);
 
  ?>
 

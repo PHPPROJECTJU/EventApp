@@ -61,12 +61,10 @@ if (isset($_POST) && !empty($_POST)) {
 
 /*--Getting stuff from database without searching-----------------------------------------*/
 
-    $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Title, Event.StartDate, Event.StartTime, Event.Information, Location.StreetAdress
+    $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Title, Event.StartDate, Event.StartTime, Event.Information, Event.StreetAdress
                     FROM User
                     JOIN Event
                     ON User.UserID=Event.UserID
-                    JOIN Location
-                    ON Event.LocationID=Location.LocationID
                     ORDER BY Event.EventID DESC
                     ";
 

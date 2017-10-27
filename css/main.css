@@ -704,11 +704,11 @@ p.description {
 
 .profilebox {
   background-color: #fff;
-  width:;
-  margin: 15px;
+  width: calc(100% - 30px);
+  margin: 170px 15px;
   border: 1px solid lightgrey;
   padding: 36px;
-  max-width: 440px;
+  box-sizing: border-box;
 }
 
 .profilebutton {
@@ -726,6 +726,7 @@ p.description {
 #personalprofilepic {
   clip-path: circle(50% at center);
   width: 100%;
+  margin-top: -140px;
 }
 
 .personalusername {
@@ -1011,6 +1012,32 @@ footer.logoutfooter {
     repeat: repeat;
   }
 
+/*--My profile----*/
+
+.profilebox {
+  background-color: #fff;
+  width: 80%;
+  margin: 170px auto 24px auto;
+  border: 1px solid lightgrey;
+  padding: 36px 36px 72px 36px;
+  box-sizing: border-box;
+}
+
+
+/*profile pictures only at the personal profile*/
+#personalprofilepic {
+  clip-path: circle(50% at center);
+  width: 40%;
+  margin-top: -130px;
+}
+
+.personalusername {
+  font-size: 24px;
+  width: 100%;
+  text-align: left;
+  margin-left: 10%;
+}
+
 }
 
 /*=====================================960PX========================================*/
@@ -1026,6 +1053,13 @@ footer.logoutfooter {
 
   .box:nth-child(3n+1) {
     clear: left;
+  }
+
+  /*--My profile----*/
+
+  /*profile pictures only at the personal profile*/
+  #personalprofilepic {
+    width: 30%;
   }
 
 }
