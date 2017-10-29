@@ -84,6 +84,34 @@ function getcategory(){
     }
 };
 
+#get UserID
+
+function getUserID($username){
+    include("config.php");
+
+    @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
+
+    if ($db->connect_error) {
+    echo "could not connect: " . $db->connect_error;
+    printf("<br><a href=index.php>Return to home page </a>");
+    exit();
+    }
+
+    $query = "SELECT UserID
+              FROM User
+              WHERE User.UserName = '{$username}'
+              ";
+
+    $stmt9 = $db->prepare($query);
+    $stmt9->bind_result($userid);
+    $stmt9->execute();
+    $stmt9->store_result();
+    $stmt9->fetch();
+
+    echo '<INPUT type="hidden" name="userid" value=' . $userid . '>';
+
+}
+
 #creating a new event
 
 function createEvent(){
@@ -97,6 +125,7 @@ function createEvent(){
     exit();
     }
 
+    $userid = trim($_POST['userid']);
     $eventname = trim($_POST['eventname']);
     $adress = trim($_POST['adress']);
     $region = trim($_POST['region']);
@@ -108,6 +137,7 @@ function createEvent(){
     $description = trim($_POST['description']);
     $categoryID = trim($_POST['categoryID']);
 
+    $userid = addslashes($userid);
     $eventname = addslashes($eventname);
     $adress = addslashes($adress);
     $region = addslashes($region);
@@ -119,9 +149,9 @@ function createEvent(){
     $description = addslashes($description);
     $categoryID = addslashes($categoryID);
 
-    $stmt = $db->prepare("INSERT INTO Event (Event.Title, Event.StreetAdress, Event.state_id, Event.city_id, Event.StartDate, Event.EndDate, Event.StartTime, Event.EndTime, Event.Information, Event.CategoryID)
-    									 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param('ssiisssssi', $eventname, $adress, $region, $cityID, $startdate, $enddate, $starttime, $endtime, $description, $categoryID);
+    $stmt = $db->prepare("INSERT INTO Event (Event.UserID, Event.Title, Event.StreetAdress, Event.state_id, Event.city_id, Event.StartDate, Event.EndDate, Event.StartTime, Event.EndTime, Event.Information, Event.CategoryID)
+    									 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param('issiisssssi', $userid, $eventname, $adress, $region, $cityID, $startdate, $enddate, $starttime, $endtime, $description, $categoryID);
     $stmt->execute();
 
     printf("Event created!");

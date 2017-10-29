@@ -53,6 +53,11 @@ $username = $_SESSION['username'];
 					<div class="modal-body">
 							<form action="" method="POST">
 									<div id="eventform">
+
+										<?php
+												getUserID($username);
+										 ?>
+
 											<div class="row">
 													Name of Event
 													<input type="text" name="eventname" class="eventregisterbar" placeholder="Name of Event" required>

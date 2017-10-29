@@ -39,7 +39,6 @@ if (isset($_POST['postcomment']) && !empty($_POST['commentfield'])) {
 
 getComment();
 
-
 ?>
 
 
