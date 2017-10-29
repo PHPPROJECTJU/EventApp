@@ -841,6 +841,7 @@ p.description {
 .registerbutton {
 
   margin-top: 24px;
+  background-color: #973335;
   background: #973335 url("../img/account-login-32.png") no-repeat left;
   background-position: 30px;
   color: #fff;
@@ -850,6 +851,22 @@ p.description {
   border-radius: 25px;
 }
 
+.signinbutton {
+
+  margin-top: 24px;
+  background: #973335 url("../img/account-login-32.png") no-repeat left;
+  background-position: 30px;
+  color: #fff;
+  border: none;
+  padding: 10px 40px;
+  font-size: 100%;
+  border-radius: 25px;
+}
+
+.signinbutton:hover {
+  background-color: #af3e41;
+  cursor: pointer;
+}
 
 .registerbutton:hover {
   background-color: #af3e41;
@@ -1038,7 +1055,7 @@ hr {
 .logoutbox {
   height: 300px;
   padding-top: 160px;
-  z-index: 30;
+  z-index: 40;
 }
 
 .logouttext {
@@ -1079,6 +1096,7 @@ footer {
   padding-top: 70px;
   display: block;
   overflow: hidden;
+  z-index: 0;
 }
 
 .footerimg {
@@ -1090,6 +1108,12 @@ footer {
 footer.logoutfooter {
   position: fixed;
   bottom: 0;
+  z-index: 40;
+}
+
+.logoutfooter .footerimg {
+  width: 120%;
+
 }
 
 /*=====================================640PX========================================*/

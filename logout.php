@@ -30,6 +30,7 @@ if (!isset($_SESSION['username'])) {
                   <a href=login.php class="logoutbutton">Return to login page.</a>
                 </div>
               </div>
+              <br  />
 
               <footer class="logoutfooter">
                 <img src="img/skyline-1.png" class="footerimg">
