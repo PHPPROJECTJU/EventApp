@@ -86,7 +86,7 @@ textarea:focus {
     z-index: 30;
     top: 0;
     left: 0;
-    background-color: #fd5659;
+    background-color: #222;
     overflow-x: hidden;
     transition: width 0.2s;
     box-shadow: 14px 0px 45px rgba(0, 0, 0, 0.5);
@@ -177,7 +177,6 @@ textarea:focus {
 
 #mainmenu ul {
   padding: 24px;
-  margin: 0px 0 48px 0;
 }
 
 #mainmenu ul li {
@@ -191,10 +190,15 @@ textarea:focus {
   color: #fff;
 }
 
-#menutoparea {
-  width: 100%;
-  display: block;
-  background-color: #fff;
+#menuitems {
+  margin-left: 24px;
+}
+
+.menuicons {
+  width: 20px;
+  margin-right: 12px;
+  margin-left: -20px;
+  margin-bottom: -4px;
 }
 
 #menuprofilelinks {
@@ -213,7 +217,7 @@ textarea:focus {
 
 #menuprofilelinks ul li a {
   font-size: 24px;
-  color: #000;
+  font-weight: 300;
 }
 
 #menuprofilepic {
@@ -227,7 +231,7 @@ textarea:focus {
   display: block;
   height: 3px;
   width: 100%;
-  background: #fff;
+  background: #fd5659;
 }
 /* Have to display it like inlineblock. Otherwise it will look uggly :) */
 .slide-effect {
@@ -245,7 +249,7 @@ textarea:focus {
 /* Sets width to 100% and therefore it becomes visible. */
 .slide-effect:hover:after {
   width: 100%;
-  background: #fff;
+  background: #fd5659;
 }
 
 
