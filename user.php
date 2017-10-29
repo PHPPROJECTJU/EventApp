@@ -11,10 +11,6 @@
 #This page is for viewing other users
 
 $UserID = trim($_GET['UserID']);
-echo '<INPUT type="hidden" name="bookid" value=' . $UserID . '>';
-
-$UserID = trim($_GET['UserID']);      // From the hidden field
-$UserID = addslashes($UserID);
 
     @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
 
@@ -35,7 +31,7 @@ $UserID = addslashes($UserID);
     $stmt->execute();
 
     while ($stmt->fetch()) {
-        echo "<div class='profilebox'>";
+        echo "<div class='userbox'>";
         echo "<img src='$ProfilePicture' id='personalprofilepic'/>";
         echo "</br><h3 class='personalusername'>$UserName</h3></br></br>";
         echo "Name:</br> $FirstName $LastName</br>";

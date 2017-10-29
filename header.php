@@ -9,6 +9,7 @@
 
 
 <?php
+include("config.php");
 include("functions.php");
 
 if (!isset($_SESSION['username'])) {
@@ -23,10 +24,35 @@ $username = $_SESSION['username'];
 		    <main id="main">
 	      <header id="mainheader">
 
+<?php
+@ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
+
+if ($db->connect_error) {
+echo "could not connect: " . $db->connect_error;
+printf("<br><a href=index.php>Return to home page </a>");
+exit();
+}
+
+$query = "SELECT User.ProfilePicture
+					FROM User
+					WHERE User.UserName = '{$username}'
+					";
+
+$stmt9 = $db->prepare($query);
+$stmt9->bind_result($ProfilePicture);
+$stmt9->execute();
+$stmt9->store_result();
+$stmt9->fetch();
+ ?>
+
+
 						<nav id="mainmenu">
 							<div id="close" onclick="closeNav()">×</div>
 							<ul>
-								<li><a class ="slide-effect" id="<?php echo ($current_page == 'profile.php') ? 'active' : NULL ?>" href="profile.php"><?php echo $username; ?></a></li>
+								<div id="menuprofilelinks">
+										<li><a href="profile.php"><?php echo "<img src='$ProfilePicture' id='menuprofilepic'/>"; ?></a></li>
+										<li><a class ="slide-effect" id="<?php echo ($current_page == 'profile.php') ? 'active' : NULL ?>" href="profile.php"><?php echo $username; ?></a></li>
+								</div>
 								<li><a class ="slide-effect" id="<?php echo ($current_page == 'index.php' || $current_page == '') ? 'active' : NULL ?>" href="index.php">Browse</a></li>
 								<li><a class ="slide-effect" id="<?php echo ($current_page == 'about.php') ? 'active' : NULL ?>" href="about.php">About</a></li>
 								<li><a class ="slide-effect" id="<?php echo ($current_page == 'contact.php') ? 'active' : NULL ?>" href="contact.php">Contact</a></li>

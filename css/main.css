@@ -5,6 +5,7 @@
 
 /*--Basics-----*/
 
+
 * {
   font-family: 'Noto sans';
 }
@@ -17,6 +18,7 @@ body {
 
 #content {
   margin-top: 50px;
+  background-color: #fd5659;
 }
 
 #whitecontent {
@@ -45,9 +47,8 @@ a {
 /*--all forms basic-----*/
 
 textarea {
-
 	width: 80%;
-	margin-top: 10px;
+	margin: 15px;
 	padding: 15px;
   border: none;
   border-radius: 25px;
@@ -71,7 +72,7 @@ textarea:focus {
   left: 0;
   z-index: 50;
   width: 100%;
-  box-shadow: 14px 0px 45px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 45px rgba(0, 0, 0, 0.3);
 }
 
 #headbox {
@@ -189,6 +190,21 @@ textarea:focus {
   color: #fff;
 }
 
+#menuprofilelinks {
+  text-align: center;
+  margin: 24px auto 0 auto;
+}
+
+#menuprofilelinks li {
+  margin: 0 auto;
+}
+
+#menuprofilepic {
+  margin: 0;
+  clip-path: circle(50% at center);
+  width: 100%;
+}
+
 #active.slide-effect:after {
   content: '';
   display: block;
@@ -275,10 +291,10 @@ input:focus {
   background-color: #333;
 }
 .searchwrapper {
-    margin: 72px auto 0 auto;
+    margin: 0 auto;
     display: block;
     overflow: hidden;
-    padding: 5px;
+    padding: 24px 5px 5px 5px;
     position: relative;
 }
 
@@ -532,7 +548,7 @@ img.chooselocation {
   color: #fff;
   background-color: transparent;
   padding: 12px;
-  margin: 72px 15px 24px 15px;
+  margin: 72px 15px 12px 15px;
   border: 2px solid #fff;
   border-radius: 50%;
   width: 28px;
@@ -572,14 +588,12 @@ img.chooselocation {
   position: absolute;
   left: -9px;
   top: 16px;
-
   overflow: hidden;
   float: left;
   clear: right;
 }
 
 #commentBox {
-
   position: relative;
   margin: 0 0 24px 12px;
   display: block;
@@ -683,7 +697,7 @@ p.description {
 /*--personal profile--*/
 
 #myprofileheader {
-  background-color: #b13c3e;
+  background-color: #E34D50;
 }
 
 #profileorevents {
@@ -698,6 +712,7 @@ p.description {
   float: left;
   width: 50%;
   text-align: center;
+  box-shadow: inset 0 0 2em #CC4548;
 }
 
 #profileorevents ul li a {
@@ -716,7 +731,7 @@ p.description {
 .profilebox {
   background-color: #fff;
   width: calc(100% - 30px);
-  margin: 170px 15px;
+  margin: 140px 15px;
   border: 1px solid lightgrey;
   padding: 36px;
   box-sizing: border-box;
@@ -744,11 +759,25 @@ p.description {
   text-align: center;
 }
 
+/*--user.php-------*/
+
+.userbox {
+  background-color: #fff;
+  width: calc(100% - 30px);
+  margin: 190px 15px;
+  border: 1px solid lightgrey;
+  padding: 36px;
+  box-sizing: border-box;
+}
+
 /*--myevents-----*/
 
 /*subheader on myevents page:*/
 #whatevent {
-  background-color: #7e2b2c;
+  background-color: #CC4548;
+}
+
+#chooseeventtype {
 }
 
 #chooseeventtype ul {
@@ -759,6 +788,7 @@ p.description {
   float: left;
   width: 33.33%;
   text-align: center;
+  box-shadow: inset 0 0 2em #B73E40;
 }
 
 #chooseeventtype ul li a {
@@ -771,7 +801,7 @@ p.description {
 }
 
 #chooseeventtype ul li #active{
-  background-color: #973335;
+  background-color: #fd5659;
 }
 
 /*--register-------*/
@@ -892,22 +922,15 @@ p.description {
 
 /*-contact form-*/
 
+#contactform {
+  margin: 0 auto;
+  width: 90%;
+  text-align: center;
+}
+
 #contactform h3 {
 	margin: 0px;
 	text-align: center;
-}
-
-#contactform {
-	padding: 10px;
-	margin-top: 10px;
-}
-
-#contactform input[type=text] {
-	display: block;
-	margin: auto;
-	width: 80%;
-	margin-top: 10px;
-	padding: 10px;
 }
 
 #contactform input[type=submit] {
@@ -1081,7 +1104,7 @@ footer.logoutfooter {
 .profilebox {
   background-color: #fff;
   width: 80%;
-  margin: 170px auto 24px auto;
+  margin: 100px auto 24px auto;
   border: 1px solid lightgrey;
   padding: 36px 36px 72px 36px;
   box-sizing: border-box;

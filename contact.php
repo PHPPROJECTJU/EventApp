@@ -7,15 +7,57 @@
 ?>
 
 <!--Idea is to send input to admin user e-mail-->
+<?php
+
+$username = $_SESSION['username'];
+
+include("config.php");
+
+@ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
+
+if ($db->connect_error) {
+echo "could not connect: " . $db->connect_error;
+printf("<br><a href=index.php>Return to home page </a>");
+exit();
+}
+
+$query = "SELECT User.EmailAdress
+          FROM User
+          WHERE User.UserName = '{$username}'
+          ";
+
+$stmt = $db->prepare($query);
+$stmt->bind_result($email);
+$stmt->execute();
+$stmt->store_result();
+$stmt->fetch();
+
+?>
+
+<div id="headerwrap">
+      <h2 id="aboutheader">Send us a message</h2>
+</div>
+
 <form method="POST" name="contactform" action="contact.php">
-  <div id="contactform">
-      <h3>Contact Eventually</h3>
-        <input type="name" name="name" placeholder="Name" required/>
-        <input type="email" name="email" placeholder="E-Mail" required/>
-        <textarea name="message" placeholder="Message"></textarea>
-        <input type="submit" name="submit" value="Send" />
-  </div>
+
+  <table id="contactform">
+    <tr>
+      <td><input type="text" name="username" class="registerbar" value="<?php echo $username; ?>" required></td>
+    </tr>
+    <tr>
+      <td><input type="text" name="email" class="registerbar" value="<?php echo $email; ?>" required></td>
+    </tr>
+    <tr>
+      <td><textarea name="message" placeholder="Message"></textarea></td>
+    </tr>
+    <tr>
+      <td><input type="submit" class="registerbutton" name="submit" value="Send"></td>
+    </tr>
+  </table>
+
 </form>
+
+
 
 <!--Some of the code below was taken from http://htmldog.com/techniques/formtoemail/ 2017-10-05-->
 
