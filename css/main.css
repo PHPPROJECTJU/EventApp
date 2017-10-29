@@ -86,7 +86,7 @@ textarea:focus {
     z-index: 30;
     top: 0;
     left: 0;
-    background-color: #333;
+    background-color: #fd5659;
     overflow-x: hidden;
     transition: width 0.2s;
     box-shadow: 14px 0px 45px rgba(0, 0, 0, 0.5);
@@ -173,10 +173,11 @@ textarea:focus {
   padding: 0 10px;
 }
 
+/*styling the slideout menu*/
 
 #mainmenu ul {
   padding: 24px;
-  margin: 48px 0px;
+  margin: 0px 0 48px 0;
 }
 
 #mainmenu ul li {
@@ -190,13 +191,29 @@ textarea:focus {
   color: #fff;
 }
 
+#menutoparea {
+  width: 100%;
+  display: block;
+  background-color: #fff;
+}
+
 #menuprofilelinks {
   text-align: center;
   margin: 24px auto 0 auto;
+  width: 60%;
 }
 
-#menuprofilelinks li {
-  margin: 0 auto;
+#menuprofilelinks ul {
+  margin: 0;
+}
+
+#menuprofilelinks ul li {
+  padding: 0;
+}
+
+#menuprofilelinks ul li a {
+  font-size: 24px;
+  color: #000;
 }
 
 #menuprofilepic {
@@ -210,7 +227,7 @@ textarea:focus {
   display: block;
   height: 3px;
   width: 100%;
-  background: #fd5659;
+  background: #fff;
 }
 /* Have to display it like inlineblock. Otherwise it will look uggly :) */
 .slide-effect {
@@ -228,7 +245,7 @@ textarea:focus {
 /* Sets width to 100% and therefore it becomes visible. */
 .slide-effect:hover:after {
   width: 100%;
-  background: #fd5659;
+  background: #fff;
 }
 
 
@@ -468,7 +485,7 @@ img.chooselocation {
 
 /* The Close Button */
 .close {
-    color: white;
+    color: #fd5659;
     float: right;
     font-size: 28px;
     font-weight: bold;
