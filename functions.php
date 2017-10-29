@@ -314,6 +314,7 @@ function getAttendedEvents($myuserid){
             ON Event_User.AttendedID=Event.EventID
             JOIN User
             ON Event_User.HostID=User.UserID
+            WHERE Event_User.UserID=$myuserid
             ";
             $stmt = $db->prepare($query);
             $stmt->bind_result($UserName, $ProfilePicture, $UserID, $Title, $StartDate, $StartTime, $Information, $StreetAdress);
@@ -339,6 +340,50 @@ function getAttendedEvents($myuserid){
             }
 };
 
+/*---Savedevents.php--------------------*/
+
+function getSavedEvents($myuserid){
+  include("config.php");
+
+  @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
+
+  if ($db->connect_error) {
+      echo "could not connect: " . $db->connect_error;
+      printf("<br><a href=index.php>Return to home page </a>");
+      exit();
+  }
+
+  $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.Title, Event.StartDate, Event.StartTime, Event.Information, Event.StreetAdress
+            FROM Event_User
+            JOIN Event
+            ON Event_User.SavedID=Event.EventID
+            JOIN User
+            ON Event_User.HostID=User.UserID
+            WHERE Event_User.UserID=$myuserid
+            ";
+            $stmt = $db->prepare($query);
+            $stmt->bind_result($UserName, $ProfilePicture, $UserID, $Title, $StartDate, $StartTime, $Information, $StreetAdress);
+            $stmt->execute();
+
+
+            while ($stmt->fetch()) {
+                echo "<div class='eventpagebox'>";
+                echo "<h3 class='profiletitle'>$Title</h3>";
+                echo "<span class='pictureandname'>";
+                echo "<img src='$ProfilePicture' class='profilepic'/>";
+                echo "<a class='username' href='user.php?UserID= " . urlencode($UserID) . " '> $UserName </a>";
+                echo "</span>";
+                echo "<div class='specifics'>";
+                echo "<p><img src='img/place.png' />$StreetAdress</p> <br />";
+                echo "<p><img src='img/time.png' />$StartDate kl $StartTime</p>";
+                echo "</div>";
+                echo "<p class='description'>$Information</p>";
+                echo "<form action='' method='POST' name='attendsave'>";
+                echo "<input type='submit' class='attendsave' name='unattend' value='Cancel'>";
+                echo "</form>";
+                echo "</div>";
+            }
+};
 
 /*---Register.php-----------------------------------------*/
 
