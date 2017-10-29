@@ -857,11 +857,8 @@ p.description {
 }
 
 .registerbutton {
-
   margin-top: 24px;
   background-color: #973335;
-  background: #973335 url("../img/account-login-32.png") no-repeat left;
-  background-position: 30px;
   color: #fff;
   border: none;
   padding: 10px 40px;
