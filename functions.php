@@ -146,7 +146,7 @@ function createEvent(){
     $enddate = addslashes($enddate);
     $starttime = addslashes($starttime);
     $endtime = addslashes($endtime);
-    $description = addslashes($description);
+    $description = htmlentities($description);
     $categoryID = addslashes($categoryID);
 
     $stmt = $db->prepare("INSERT INTO Event (Event.UserID, Event.Title, Event.StreetAdress, Event.state_id, Event.city_id, Event.StartDate, Event.EndDate, Event.StartTime, Event.EndTime, Event.Information, Event.CategoryID)

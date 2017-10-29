@@ -19,6 +19,11 @@ body {
   margin-top: 50px;
 }
 
+#whitecontent {
+  background-color: white;
+  overflow: hidden;
+}
+
 p, h3, h2, h1 {
   margin: 0;
 }
@@ -62,6 +67,7 @@ textarea:focus {
   left: 0;
   z-index: 50;
   width: 100%;
+  box-shadow: 14px 0px 45px rgba(0, 0, 0, 0.3);
 }
 
 #headbox {
@@ -141,7 +147,8 @@ textarea:focus {
 }
 
 #topButton {
-  background-color: #fd5659;
+  background-color: transparent;
+  border: 2px solid white;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
   color: white;
   display: none;
@@ -149,7 +156,6 @@ textarea:focus {
   right: 8px;
   bottom: 24px;
   z-index: 40;
-  border: none;
   border-radius:50%;
   width: 45px;
   height: 45px;
@@ -265,7 +271,7 @@ input:focus {
   background-color: #333;
 }
 .searchwrapper {
-    margin: 50px auto 0 auto;
+    margin: 72px auto 0 auto;
     display: block;
     overflow: hidden;
     padding: 5px;
@@ -474,7 +480,7 @@ img.chooselocation {
 
 
 
-/*--boxes----*/
+/*--event boxes----*/
 
 .box {
 	margin: 15px;
@@ -519,10 +525,11 @@ img.chooselocation {
   text-decoration: none;
   font-size: 28px;
   line-height: 28px;
-  color: #000;
-  background-color: #fafafa;
+  color: #fff;
+  background-color: transparent;
   padding: 12px;
-  margin: 15px;
+  margin: 72px 15px 24px 15px;
+  border: 2px solid #fff;
   border-radius: 50%;
   width: 28px;
   height: 28px;
@@ -919,20 +926,54 @@ p.description {
 /*-about page-*/
 
 .about {
-  margin: 20px;
-}
-
-.about cite {
-  font-size: 30px;
-  font-style: oblique;
-}
-
-.about img {
-  width: 100%;
-  padding: 5px;
-  border: 1px black solid;
+  background-color: #fff;
+  margin: 24px auto;
+  padding: 36px 36px 72px 36px;
   box-sizing: border-box;
 }
+
+.about p {
+  text-align: center;
+}
+
+.aboutheader {
+  text-align: center;
+  font-weight: 300;
+}
+
+.about h2 {
+  text-align: center;
+  font-weight: 300;
+}
+
+.featuredimage {
+  position: absolute;
+  height: 100%;
+}
+
+.onwrap {
+  position: absolute;
+  background-color: #fd5659;
+  width: 100%;
+  height: 100%;
+}
+
+.aboutheader {
+  padding: 25%;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: light;
+}
+
+#headerwrap {
+  position: relative;
+  height: 50vh;
+  width: 100%;
+  background-color: #fff;
+}
+
+
 
 .logoutbox {
   height: 300px;
