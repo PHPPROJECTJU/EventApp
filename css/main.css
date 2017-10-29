@@ -482,6 +482,24 @@ img.chooselocation {
 
 }
 
+/* The modal Close Button */
+.close {
+    color: #fff;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    right: 10px;
+    top: 2px;
+}
+
+.close:hover,
+.close:focus {
+    color: #aaa;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 /* Add Animation */
 @-webkit-keyframes animatetop {
     from {left: :-300px; opacity:0}
