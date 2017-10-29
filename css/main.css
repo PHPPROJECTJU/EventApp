@@ -943,6 +943,10 @@ p.description {
   font-weight: 300;
 }
 
+hr {
+  border: 1px solid lightgrey;
+}
+
 #aboutheader {
   text-align: center;
   font-weight: 300;

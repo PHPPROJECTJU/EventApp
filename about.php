@@ -21,11 +21,11 @@
     Welcome to Eventually!
     This is a web application where you can see events hosted nearby you. Go to Browse through the side menu to see what is going on right now, or click the plus button in the header to create your own event.
   </p>
-    <h2>FAQ</h2>
+    <h2>Q&amp;A</h2>
       <ul>
         <li>
             <p class="qa">Q</p><p class="question">I'm not sure if I'll go to an event, but I don't want to lose track of it in the feed. Can I add it to a "maybe" list?</p>
-            <p class="qa">A</p><p class="answer">Absolutely! This is what the Save button is for. You'll find it on the event's page. This will save it to your profile. Only you can view this list.</p>
+            <p class="qa">A</p><p class="answer">Absolutely! This is what the Save button is for. You'll find it on the event's page, and clicking it will save it to your profile. Only you can view this list.</p>
             <hr />
         </li>
         <li>
