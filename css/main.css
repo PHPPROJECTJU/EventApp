@@ -1084,7 +1084,7 @@ footer {
 .footerimg {
   margin: -10px;
   padding: 0;
-  width: 104%;
+  zoom: 100%;
 }
 
 footer.logoutfooter {
@@ -1109,9 +1109,8 @@ footer.logoutfooter {
     width: 50%;
   }
 
-  .footerimg {
-    repeat: repeat;
-  }
+
+
 
 /*--My profile----*/
 
@@ -1161,6 +1160,10 @@ footer.logoutfooter {
   /*profile pictures only at the personal profile*/
   #personalprofilepic {
     width: 30%;
+  }
+
+  .footerimg {
+    zoom: 120%;
   }
 
 }
