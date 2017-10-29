@@ -6,7 +6,7 @@
 /*--Basics-----*/
 
 * {
-  font-family: 'Noto sans'
+  font-family: 'Noto sans';
 }
 
 body {
@@ -22,6 +22,10 @@ body {
 #whitecontent {
   background-color: white;
   overflow: hidden;
+}
+
+p {
+  font-family: 'Raleway';
 }
 
 p, h3, h2, h1 {
@@ -932,48 +936,63 @@ p.description {
   box-sizing: border-box;
 }
 
-.about p {
-  text-align: center;
-}
-
-.aboutheader {
-  text-align: center;
-  font-weight: 300;
-}
-
 .about h2 {
   text-align: center;
+  font-size: 48px;
+  margin-bottom: 48px;
   font-weight: 300;
 }
 
-.featuredimage {
-  position: absolute;
-  height: 100%;
-}
-
-.onwrap {
-  position: absolute;
-  background-color: #fd5659;
-  width: 100%;
-  height: 100%;
-}
-
-.aboutheader {
-  padding: 25%;
+#aboutheader {
+  text-align: center;
+  font-weight: 300;
   text-align: center;
   color: #fff;
   text-transform: uppercase;
-  font-weight: light;
+  position: absolute;
+  width: 100%;
+  top: calc(50% - 16.5px);
 }
+
+.aboutintro {
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  font-weight: 300;
+  margin-bottom: 72px;
+}
+
 
 #headerwrap {
   position: relative;
-  height: 50vh;
+  background-color: #fd5659;
+  height: 30vh;
   width: 100%;
-  background-color: #fff;
+  overflow: hidden;
 }
 
+/*faq q's and a's*/
 
+.qa {
+  font-size: 16px;
+  margin-top: 12px;
+}
+
+.question {
+  font-size: 14px;
+  line-height: 18px;
+  text-align: left;
+  font-weight: 700;
+}
+
+.answer {
+  font-size: 14px;
+  line-height: 18px;
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+/*--log out ---*/
 
 .logoutbox {
   height: 300px;
