@@ -110,10 +110,17 @@ textarea:focus {
   position: absolute;
   right: 0;
   color: #fff;
-  font-size: 450%;
-  margin: 6px 6px 12px 12px;
+  font-size: 350%;
+  margin: 4px 6px 12px 12px;
   padding: 0;
   line-height: 32px;
+}
+
+#close:hover,
+#close:focus {
+    color: #aaa;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .logo {
@@ -204,7 +211,6 @@ textarea:focus {
 #menuprofilelinks {
   text-align: center;
   margin: 24px auto 0 auto;
-  width: 60%;
 }
 
 #menuprofilelinks ul {
@@ -213,17 +219,17 @@ textarea:focus {
 
 #menuprofilelinks ul li {
   padding: 0;
+  width: 100%;
 }
 
 #menuprofilelinks ul li a {
-  font-size: 24px;
   font-weight: 300;
 }
 
 #menuprofilepic {
   margin: 0;
   clip-path: circle(50% at center);
-  width: 100%;
+  width: 50%;
 }
 
 #active.slide-effect:after {
@@ -487,23 +493,6 @@ img.chooselocation {
     to {left:0; opacity:1}
 }
 
-/* The Close Button */
-.close {
-    color: #fd5659;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    position: absolute;
-    right: 10px;
-    top: 2px;
-}
-
-.close:hover,
-.close:focus {
-    color: #aaa;
-    text-decoration: none;
-    cursor: pointer;
-}
 
 .modal-header {
     background-color: #af3e41;
@@ -850,14 +839,18 @@ p.description {
 }
 
 .registerbutton {
+
   margin-top: 24px;
-  background-color: #973335;
+  background: #973335 url("../img/account-login-32.png") no-repeat left;
+  background-position: 30px;
   color: #fff;
   border: none;
   padding: 10px 40px;
   font-size: 100%;
   border-radius: 25px;
 }
+
+
 .registerbutton:hover {
   background-color: #af3e41;
   cursor: pointer;

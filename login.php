@@ -76,7 +76,7 @@ if ($db->connect_error) {
             <tr>
               <td><input type="password" name="getpassword" class="registerbar" placeholder="Password" required></td>
             </tr>
-              <td><input type="submit" class="registerbutton" name="submit" value="Sign in"></td>
+              <td><input type="submit" class="registerbutton" name="submit" value="     Sign in"></td>
             </tr>
           </table>
         </form>
