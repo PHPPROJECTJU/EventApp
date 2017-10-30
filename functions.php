@@ -149,14 +149,14 @@ function createEvent(){
     $description = htmlentities($description);
     $categoryID = addslashes($categoryID);
 
-    $new2starttime = date('H:i', strtotime($starttime));
+
 
 
 
 
     $stmt = $db->prepare("INSERT INTO Event (Event.UserID, Event.Title, Event.StreetAdress, Event.state_id, Event.city_id, Event.StartDate, Event.EndDate, Event.StartTime, Event.EndTime, Event.Information, Event.CategoryID)
     									 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param('issiisssssi', $userid, $eventname, $adress, $region, $cityID, $startdate, $enddate, $new2starttime, $endtime, $description, $categoryID);
+    $stmt->bind_param('issiisssssi', $userid, $eventname, $adress, $region, $cityID, $startdate, $enddate, $starttime, $endtime, $description, $categoryID);
     $stmt->execute();
 
     printf("Event created!");
