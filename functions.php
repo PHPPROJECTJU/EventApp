@@ -149,9 +149,14 @@ function createEvent(){
     $description = htmlentities($description);
     $categoryID = addslashes($categoryID);
 
+    $new2starttime = date('H:i', strtotime($starttime));
+
+
+
+
     $stmt = $db->prepare("INSERT INTO Event (Event.UserID, Event.Title, Event.StreetAdress, Event.state_id, Event.city_id, Event.StartDate, Event.EndDate, Event.StartTime, Event.EndTime, Event.Information, Event.CategoryID)
     									 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param('issiisssssi', $userid, $eventname, $adress, $region, $cityID, $startdate, $enddate, $starttime, $endtime, $description, $categoryID);
+    $stmt->bind_param('issiisssssi', $userid, $eventname, $adress, $region, $cityID, $startdate, $enddate, $new2starttime, $endtime, $description, $categoryID);
     $stmt->execute();
 
     printf("Event created!");
@@ -184,7 +189,7 @@ function displayEvent(){
           exit();
       }
 
-      $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.Title, Event.StartDate, Event.StartTime, Event.Information, Event.StreetAdress
+      $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress
                 FROM User
                 JOIN Event
                 ON User.UserID=Event.UserID
@@ -194,7 +199,6 @@ function displayEvent(){
       $stmt = $db->prepare($query);
       $stmt->bind_result($UserName, $ProfilePicture, $UserID, $Title, $StartDate, $StartTime, $Information, $StreetAdress);
       $stmt->execute();
-
 
       while ($stmt->fetch()) {
           echo "<a href='index.php#". urlencode($UserID) ."' class='goback'>&larr;</a>";
@@ -209,6 +213,7 @@ function displayEvent(){
           echo "<p><img src='img/time.png' />$StartDate kl $StartTime</p>";
           echo "</div>";
           echo "<p class='description'>$Information</p>";
+          echo "<div class='eventbuttonbox'>";
           echo "<form action='' method='POST' name='attendsave'>";
           echo "<input type='submit' class='attendsave' name='save' value='Save'>";
           echo "<input type='submit' class='attendsave' name='attend' value='Attend'>";
@@ -219,9 +224,19 @@ function displayEvent(){
 
           echo "</form>";
           echo "</div>";
+          echo "</div>";
       }
 
-/*No matter if we want to save or attend the event, we need to get the logged in user's ID to insert into the middle table Event_User. We get it by using our previous function getUserID (see above) to echo out a hidden input with the desired ID. When the form is submitted, we can capture the id to use and pass with either the function saveEvent or attendEvent. (se below) Note: We also need the ID of the Event host, hence the hidden input "eventhostid"
+/*
+No matter if we want to save or attend the event,
+we need to get the logged in user's ID to insert
+into the middle table Event_User. We get it by using
+our previous function getUserID (see above) to echo
+out a hidden input with the desired ID. When the form
+is submitted, we can capture the id to use and pass
+with either the function saveEvent or attendEvent.
+(se below) Note: We also need the ID of the Event host,
+hence the hidden input "eventhostid"
 */
 
         if (isset($_POST['save']) OR isset($_POST['attend'])) {
@@ -308,7 +323,7 @@ function getHostedEvents($myuserid){
       exit();
   }
 
-  $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.Title, Event.StartDate, Event.StartTime, Event.Information, Event.StreetAdress
+  $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress
             FROM Event
             JOIN User
             ON Event.UserID=User.UserID
@@ -351,7 +366,7 @@ function getAttendedEvents($myuserid){
       exit();
   }
 
-  $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.Title, Event.StartDate, Event.StartTime, Event.Information, Event.StreetAdress
+  $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress
             FROM Event_User
             JOIN Event
             ON Event_User.AttendedID=Event.EventID
@@ -396,7 +411,7 @@ function getSavedEvents($myuserid){
       exit();
   }
 
-  $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.Title, Event.StartDate, Event.StartTime, Event.Information, Event.StreetAdress
+  $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress
             FROM Event_User
             JOIN Event
             ON Event_User.SavedID=Event.EventID

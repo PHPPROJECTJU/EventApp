@@ -75,7 +75,7 @@ if (isset($_POST['search']) && !empty($_POST['searchevent'])) {
     $searchphrase = addslashes($searchphrase);
 
 
-    $search = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Title, Event.StartDate, Event.StartTime, Event.Information, Event.StreetAdress
+    $search = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress
               FROM User
               JOIN Event
               ON User.UserID=Event.UserID
@@ -92,7 +92,7 @@ if (isset($_POST['search']) && !empty($_POST['searchevent'])) {
 
 /*--Getting stuff from database without searching-----------------------------------------*/
 
-      $getevent = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Title, Event.StartDate, Event.StartTime, Event.Information, Event.StreetAdress
+      $getevent = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress
                 FROM User
                 JOIN Event
                 ON User.UserID=Event.UserID

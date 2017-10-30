@@ -567,6 +567,16 @@ img.chooselocation {
   color: #fff;
   float: left;
   margin: 12px;
+  cursor: pointer;
+}
+
+.attendsave:hover{
+  background-color: #af3e41;
+}
+
+.eventbuttonbox {
+  overflow: hidden;
+  display: inline-block;
 }
 
 .goback {
@@ -692,6 +702,7 @@ img.chooselocation {
   margin: 0;
   float: left;
   font-size: 14px;
+  clear: both;
 }
 
 p.description {
@@ -1134,7 +1145,7 @@ footer.logoutfooter {
 /*=====================================640PX========================================*/
 @media (min-width: 640px) {
 
-  .box {
+  div.eventpagebox, .box {
     float: left;
     width: calc(50% - 68px);
   }
@@ -1181,7 +1192,7 @@ footer.logoutfooter {
 
 /*=====================================960PX========================================*/
 @media (min-width: 960px) {
-  .box {
+  div.eventpagebox, .box {
     float: left;
     width: calc(33.333% - 68px);
   }
