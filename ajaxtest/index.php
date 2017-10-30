@@ -54,14 +54,14 @@
     <div class="city">
         <label>City</label>
         <select name="city" id="cityList">
-            <option value=""></option>
+            <option value="">hehj</option>
 
         </select>
     </div>
 
     <script>
-        function getId(val){
-          //alert(val);
+        function getId(kljsgkljb){
+          //alert(kljsgkljb);
           $.ajax({
               type: "GET",
               url: "getdata.php",
