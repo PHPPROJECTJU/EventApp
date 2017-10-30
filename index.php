@@ -92,15 +92,17 @@ if (isset($_POST['search']) && !empty($_POST['searchevent'])) {
 
 /*--Getting stuff from database without searching-----------------------------------------*/
 
-      $getevent = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress
+      $getevent = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name
                 FROM User
                 JOIN Event
                 ON User.UserID=Event.UserID
+                JOIN City
+                ON Event.city_id=City.city_id
                 ORDER BY Event.EventID DESC
                 ";
 
       $stmt = $db->prepare($getevent);
-      $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Title, $StartDate, $StartTime, $Information, $StreetAdress);
+      $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Title, $StartDate, $StartTime, $Information, $StreetAdress, $cityname);
       $stmt->execute();
 
 
@@ -115,7 +117,7 @@ if (isset($_POST['search']) && !empty($_POST['searchevent'])) {
         echo "<a class='username' href='user.php?UserID= " . urlencode($UserID) . " '> $UserName </a>";
         echo "</span>";
         echo "<div class='specifics'>";
-        echo "<p><img src='img/place.png' />$StreetAdress</p> <br />";
+        echo "<p><img src='img/place.png' />$StreetAdress, $cityname</p> <br />";
         echo "<p><img src='img/time.png' />$StartDate kl $StartTime</p>";
         echo "</div>";
         echo "<p class='description'>$Information</p>";
