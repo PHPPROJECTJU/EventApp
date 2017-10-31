@@ -135,8 +135,7 @@ $stmt9->fetch();
 											</div>
 											<div class="row">
 															Describe your event
-															<textarea rows="4" cols="80" type="textarea" name="description" class="eventregisterbartext" placeholder="Description of event" required>
-															</textarea>
+															<textarea rows="4" cols="80" type="textarea" name="description" class="eventregisterbartext" placeholder="Write some lines about your event!" required></textarea>
 											</div>
 											<div class="row">
 															Select a tag

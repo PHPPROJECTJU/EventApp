@@ -912,6 +912,12 @@ p.description {
   margin: 10px 0 30px 0;
   text-align: center;
 }
+.wrongpasstext2{
+    color: black;
+    display: block;
+    margin: 0 auto;
+    width: 320px;
+}
 
 .loginbutton {
   border: 2px solid white;

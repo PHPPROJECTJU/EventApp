@@ -119,11 +119,13 @@ function updatetheuser(){
 
  $stmt = $db->prepare("UPDATE User
                        SET UserName='$Username', Password='$Password', FirstName='$firstname', LastName='$lastname', Birthdate='$bday', ProfilePicture='profilepics/$fileupload', About='$about'
-                       WHERE User.UserName=$sessionuser");
+                       WHERE User.UserName=$username");
  $stmt->bind_param('sssssss', $Username, $Password, $firstname, $lastname, $bday, $fileupload, $about);
  $stmt->execute();
 
  ?>
+
+ <script type="text/javascript" src="js/index.js"></script>
  <script>
      window.location.href = "index.php";
  </script>

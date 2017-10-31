@@ -483,29 +483,39 @@ function checkUsername(){
 
 function checkpasswordstrength(){
 
+  $password = trim($_POST['password']);
+  $repeatpassword = trim($_POST['repeatpassword']);
+
   $temppass = strlen($password);
   $temppass2 = strlen($repeatpassword);
 
+  $uppercase = preg_match('@[A-Z]@', $password);
+  $lowercase = preg_match('@[a-z]@', $password);
+  $number    = preg_match('@[0-9]@', $password);
+
   if (isset($_POST['submit'])) {
 
-      if ($repeatpassword != $password && $temppass < 8 || $temppass2 < 8){
-        echo "<br><p class='wrongpasstext'>&rarr; Passwords don't match<br>&rarr; Use 8 or more characters as password.</p>";
-        unset($_POST);
-        exit();
-      }
+        if(!$uppercase || !$lowercase || !$number) {
+         echo "<br><p class='wrongpasstext2'><br>&rarr; Too weak password.<br>
+         &rarr;Use at least one uppercase capital letter.<br>
+         &rarr;Use at least one lowercase capital letter.<br>
+         &rarr;Use at least one number between 0-9. </p>";
+         unset($_POST);
+         exit();
+        } else {
 
-      if ($repeatpassword != $password){
-        echo "<br><p class='wrongpasstext'>&rarr; Passwords don't match</p>";
-        unset($_POST);
-        exit();
-      }
+            if ($repeatpassword != $password){
+              echo "<br><p class='wrongpasstext'>&rarr; Passwords don't match</p>";
+              unset($_POST);
+              exit();
+            }
 
-
-      if ($temppass < 8 || $temppass2 < 8){
-        echo "<br><p class='wrongpasstext'>&rarr; Use 8 or more characters as password.</p>";
-        unset($_POST);
-        exit();
-      }
+            if ($temppass < 8 || $temppass2 < 8){
+              echo "<br><p class='wrongpasstext'>&rarr; Use 8 or more characters as password.</p>";
+              unset($_POST);
+              exit();
+            }
+        }
   }
 }
 
