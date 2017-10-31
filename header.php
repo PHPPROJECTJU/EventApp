@@ -65,7 +65,7 @@ $stmt9->fetch();
 
 						<div id="headbox">
 								 <div id="hamb" onclick="openNav()" title="Menu">&#9776;</div>
-								 <a class="logolink" href="index.php"><img class="logo" src="img/eventually.png"/></a>
+								 <a title="Start page" class="logolink" href="index.php"><img class="logo" src="img/eventually.png"/></a>
 									<div id="myBtn" class="createeventbutton" title="Create event">
 											 	<div class="theplus">+</div>
 									</div>
