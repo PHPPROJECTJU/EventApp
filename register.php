@@ -44,6 +44,7 @@
             </tr>
               <td><input type="submit" class="registerbutton" name="submit" value="Register"></td>
             </tr>
+
           </table>
         </form>
 
@@ -66,11 +67,30 @@
 
         checkUsername();
 
-        if ($repeatpassword != $password){
-          echo "Passwords don't match";
-          exit();
-        }
+        $temppass = strlen($password);
+        $temppass2 = strlen($repeatpassword);
 
+        if (isset($_POST['submit'])) {
+
+            if ($repeatpassword != $password && $temppass < 8 || $temppass2 < 8){
+              echo "<br><p class='wrongpasstext'>&rarr; Passwords don't match<br>&rarr; Use 8 or more characters as password.</p>";
+              unset($_POST);
+              exit();
+            }
+
+            if ($repeatpassword != $password){
+              echo "<br><p class='wrongpasstext'>&rarr; Passwords don't match</p>";
+              unset($_POST);
+              exit();
+            }
+
+
+            if ($temppass < 8 || $temppass2 < 8){
+              echo "<br><p class='wrongpasstext'>&rarr; Use 8 or more characters as password.</p>";
+              unset($_POST);
+              exit();
+            }
+        }
 
     @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
 

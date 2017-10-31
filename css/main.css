@@ -907,7 +907,7 @@ p.description {
 }
 
 .wrongpasstext {
-  color: white;
+  color: black;
   display: block;
   margin: 10px 0 30px 0;
   text-align: center;
