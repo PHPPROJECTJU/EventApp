@@ -189,15 +189,17 @@ function displayEvent(){
           exit();
       }
 
-      $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress
+      $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name
                 FROM User
                 JOIN Event
                 ON User.UserID=Event.UserID
+                JOIN City
+                ON Event.city_id=City.city_id
                 WHERE Event.EventID=$EventID
                 ";
 
       $stmt = $db->prepare($query);
-      $stmt->bind_result($UserName, $ProfilePicture, $UserID, $Title, $StartDate, $StartTime, $Information, $StreetAdress);
+      $stmt->bind_result($UserName, $ProfilePicture, $UserID, $Title, $StartDate, $StartTime, $Information, $StreetAdress, $cityname);
       $stmt->execute();
 
       while ($stmt->fetch()) {
@@ -209,7 +211,7 @@ function displayEvent(){
           echo "<a class='username' href='user.php?UserID= " . urlencode($UserID) . " '> $UserName </a>";
           echo "</span>";
           echo "<div class='specifics'>";
-          echo "<p><img src='img/place.png' />$StreetAdress</p> <br />";
+          echo "<p><img src='img/place.png' />$StreetAdress, $cityname</p> <br />";
           echo "<p><img src='img/time.png' />$StartDate kl $StartTime</p>";
           echo "</div>";
           echo "<p class='description'>$Information</p>";
@@ -480,7 +482,6 @@ function getUsersEvents($UserID){
                 echo "</div>";
                 echo "<p class='description'>$Information</p>";
                 echo "<form action='' method='POST' name='attendsave'>";
-                echo "<input type='submit' class='attendsave' name='unattend' value='Cancel'>";
                 echo "</form>";
                 echo "</div>";
             }

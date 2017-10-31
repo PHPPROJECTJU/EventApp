@@ -74,10 +74,12 @@ if (isset($_POST['search']) && !empty($_POST['searchevent'])) {
     $searchphrase = addslashes($searchphrase);
 
 
-    $search = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress
+    $search = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name
               FROM User
               JOIN Event
               ON User.UserID=Event.UserID
+              JOIN City
+              ON Event.city_id=City.city_id
               WHERE Title LIKE '%" . $searchphrase . "%'
               OR Information LIKE '%" . $searchphrase . "%'
               OR UserName LIKE '%" . $searchphrase . "%'
@@ -85,7 +87,7 @@ if (isset($_POST['search']) && !empty($_POST['searchevent'])) {
               ";
 
           $stmt = $db->prepare($search);
-          $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Title, $StartDate, $StartTime, $Information, $StreetAdress);
+          $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Title, $StartDate, $StartTime, $Information, $StreetAdress, $cityname);
           $stmt->execute();
 } else {
 
