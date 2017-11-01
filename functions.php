@@ -446,7 +446,6 @@ function getSavedEvents($myuserid){
                 echo "</div>";
                 echo "<p class='description'>$Information</p>";
                 echo "<form action='' method='POST' name='attendsave'>";
-                echo "<input type='submit' class='attendsave' name='unattend' value='Cancel'>";
                 echo "</form>";
                 echo "</div>";
             }

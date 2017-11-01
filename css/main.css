@@ -12,13 +12,13 @@
 
 body {
   margin: 0;
-  background-color: #fd5659;
+  background-color: #ebebeb;
 }
 
 
 #content {
   margin-top: 50px;
-  background-color: #fd5659;
+  background-color: #ebebeb;
 }
 
 #whitecontent {
@@ -50,9 +50,10 @@ textarea {
 	width: 80%;
 	margin: 15px;
 	padding: 15px;
-  border: none;
-  border-radius: 25px;
+  border: 1px solid lightgrey;
+  border-radius: 15px;
   font-size: 16px;
+
 }
 
 textarea:focus {
@@ -66,7 +67,7 @@ textarea:focus {
   overflow: hidden;
   display: block;
   height: 50px;
-  background-color: #fd5659;
+  background: linear-gradient(to bottom right, #cc2b5e, #753a88);
   position: fixed;
   top: 0;
   left: 0;
@@ -285,7 +286,7 @@ textarea:focus {
 .searchbar {
   font-size: 20px;
   width: 100%;
-  border: none;
+  border: 1px solid lightgrey;
   box-shadow: none;
   border-radius: 25px;
   background-color: #fff;
@@ -300,13 +301,13 @@ input:focus {
 }
 
 .searchbutton {
-  background-color: #333;
+  background-color: #999;
   color: #fff;
   border: none;
   padding: 6px;
   font-size: 20px;
   width: 69px;
-  height: 39px;
+  height: 41px;
   border-radius: 25px;
   position: absolute;
   right: 0;
@@ -540,7 +541,7 @@ img.chooselocation {
 	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
   overflow: hidden;
   height: 300px;
-  border-top: 3px solid grey;
+  border-top: 5px solid #753a88;
   position: relative;
   background-color: #fff;
   border-radius: 5px;
@@ -554,7 +555,7 @@ div.eventpagebox.firsteventbox {
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
     overflow: hidden;
     height: auto;
-    border-top: 3px solid grey;
+    border-top: 5px solid #753a88;
     position: relative;
     background-color: #fff;
     border-radius: 5px;
@@ -566,7 +567,7 @@ div.eventpagebox.firsteventbox {
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
     overflow: hidden;
     height: auto;
-    border-top: 3px solid grey;
+    border-top: 5px solid #753a88;
     position: relative;
     background-color: #fff;
     border-radius: 5px;
@@ -578,7 +579,7 @@ div.eventpagebox.firsteventbox {
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
     overflow: hidden;
     height: auto;
-    border-top: 3px solid grey;
+    border-top: 5px solid #753a88;
     position: relative;
     background-color: #fff;
     border-radius: 5px;
@@ -642,7 +643,7 @@ div.eventpagebox.firsteventbox {
 .commentheader {
   margin: 36px 0 0 15px;
   font-weight: 300;
-  color: #fff;
+  color: gray;
 }
 
 .comment {
@@ -652,7 +653,7 @@ div.eventpagebox.firsteventbox {
 
 .comment a {
   padding-left: 24px;
-  color: #fff;
+  color: gray;
   font-weight: 300;
 }
 
@@ -758,7 +759,7 @@ p.description {
   font-size: 14px;
   float: left;
   margin: 0px 0px;
-  padding: 0px 15px;
+  padding: 0px 10px 10px 10px;
 }
 
 .seemore {
@@ -1203,7 +1204,7 @@ footer.logoutfooter {
 
   div.eventpagebox, .box {
     float: left;
-    width: calc(50% - 68px);
+    width: calc(50% - 24px);
   }
 
   .logo {
@@ -1257,7 +1258,7 @@ footer.logoutfooter {
 @media (min-width: 960px) {
   div.eventpagebox, .box {
     float: left;
-    width: calc(33.333% - 68px);
+    width: calc(33.333% - 24px);
   }
 
   #registerform {
