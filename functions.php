@@ -204,7 +204,7 @@ function displayEvent(){
 
       while ($stmt->fetch()) {
           //echo "<a href='index.php#". urlencode($UserID) ."' class='goback'>&larr;</a>";
-          echo "<div class='eventpagebox'>";
+          echo "<div class='firsteventbox'>";
           echo "<h3 class='profiletitle'>$Title</h3>";
           echo "<span class='pictureandname'>";
           echo "<img src='$ProfilePicture' class='profilepic'/>";
@@ -434,6 +434,7 @@ function getSavedEvents($myuserid){
 
             while ($stmt->fetch()) {
                 echo "<div class='eventpagebox'>";
+                echo "<span class='closedark'>×</span>";
                 echo "<h3 class='profiletitle'>$Title</h3>";
                 echo "<span class='pictureandname'>";
                 echo "<img src='$ProfilePicture' class='profilepic'/>";
@@ -464,19 +465,29 @@ function getUsersEvents($UserID){
       exit();
   }
 
-  $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress
+  $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, Event.EventID
             FROM Event
             JOIN User
             ON Event.UserID = User.UserID
             WHERE Event.UserID = $UserID
             ";
             $stmt = $db->prepare($query);
-            $stmt->bind_result($UserName, $ProfilePicture, $UserID, $Title, $StartDate, $StartTime, $Information, $StreetAdress);
+            $stmt->bind_result($UserName, $ProfilePicture, $UserID, $Title, $StartDate, $StartTime, $Information, $StreetAdress, $EventID);
             $stmt->execute();
 
+/*--------Counter to give first object on page a unique class------*/
+            $count = 0;
 
             while ($stmt->fetch()) {
-                echo "<div class='eventpagebox'>";
+                //echo "<div class='eventpagebox'>";
+
+                echo '<div class="eventpagebox ';
+                if($count == 0) {
+                    echo 'firsteventbox">';
+                }
+                else{
+                    echo '">';
+                }
                 echo "<h3 class='profiletitle'>$Title</h3>";
                 echo "<span class='pictureandname'>";
                 echo "<img src='$ProfilePicture' class='profilepic'/>";
@@ -487,9 +498,12 @@ function getUsersEvents($UserID){
                 echo "<p><img src='img/time.png' />$StartDate kl $StartTime</p>";
                 echo "</div>";
                 echo "<p class='description'>$Information</p>";
+                echo "<a class='seemore' href='event.php?EventID=" . urlencode($EventID) . " '>more...</a>";
                 echo "<form action='' method='POST' name='attendsave'>";
                 echo "</form>";
                 echo "</div>";
+            /*--- incrementing counter-----*/
+            $count++;
             }
 };
 
@@ -698,6 +712,7 @@ function getComment(){
                 JOIN User
                 ON Comments.UserName=User.UserName
                 WHERE EventID=$EventID
+                ORDER BY CommentID DESC
                 ");
       $stmt3 = $db->prepare($getcomment);
       $stmt3->bind_result($Text, $Commenter, $UserID, $Profilepic);
