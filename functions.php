@@ -211,8 +211,8 @@ function displayEvent(){
           echo "<a class='username' href='user.php?UserID= " . urlencode($UserID) . " '> $UserName </a>";
           echo "</span>";
           echo "<div class='specifics'>";
-          echo "<p><img src='img/place.png' />$StreetAdress, $cityname</p> <br />";
-          echo "<p><img src='img/time.png' />$StartDate kl $StartTime</p>";
+          echo "<p><img src='img/place-black.png' />$StreetAdress, $cityname</p> <br />";
+          echo "<p><img src='img/time-black.png' />$StartDate kl $StartTime</p>";
           echo "</div>";
           echo "<p class='description'>$Information</p>";
           echo "<div class='eventbuttonbox'>";
@@ -346,8 +346,8 @@ function getHostedEvents($myuserid){
                 echo "<a class='username' href='user.php?UserID= " . urlencode($UserID) . " '> $UserName </a>";
                 echo "</span>";
                 echo "<div class='specifics'>";
-                echo "<p><img src='img/place.png' />$StreetAdress, $cityname</p> <br />";
-                echo "<p><img src='img/time.png' />$StartDate kl $StartTime</p>";
+                echo "<p><img src='img/place-black.png' />$StreetAdress, $cityname</p> <br />";
+                echo "<p><img src='img/time-black.png' />$StartDate kl $StartTime</p>";
                 echo "</div>";
                 echo "<p class='description'>$Information</p>";
                 echo "<form action='' method='POST' name='attendsave'>";
@@ -393,8 +393,8 @@ function getAttendedEvents($myuserid){
                 echo "<a class='username' href='user.php?UserID= " . urlencode($UserID) . " '> $UserName </a>";
                 echo "</span>";
                 echo "<div class='specifics'>";
-                echo "<p><img src='img/place.png' />$StreetAdress, $cityname</p> <br />";
-                echo "<p><img src='img/time.png' />$StartDate kl $StartTime</p>";
+                echo "<p><img src='img/place-black.png' />$StreetAdress, $cityname</p> <br />";
+                echo "<p><img src='img/time-black.png' />$StartDate kl $StartTime</p>";
                 echo "</div>";
                 echo "<p class='description'>$Information</p>";
                 echo "<form action='' method='POST' name='attendsave'>";
@@ -441,8 +441,8 @@ function getSavedEvents($myuserid){
                 echo "<a class='username' href='user.php?UserID= " . urlencode($UserID) . " '> $UserName </a>";
                 echo "</span>";
                 echo "<div class='specifics'>";
-                echo "<p><img src='img/place.png' />$StreetAdress, $cityname</p> <br />";
-                echo "<p><img src='img/time.png' />$StartDate kl $StartTime</p>";
+                echo "<p><img src='img/place-black.png' />$StreetAdress, $cityname</p> <br />";
+                echo "<p><img src='img/time-black.png' />$StartDate kl $StartTime</p>";
                 echo "</div>";
                 echo "<p class='description'>$Information</p>";
                 echo "<form action='' method='POST' name='attendsave'>";
@@ -493,8 +493,8 @@ function getUsersEvents($UserID){
                 echo "<a class='username' href='user.php?UserID= " . urlencode($UserID) . " '> $UserName </a>";
                 echo "</span>";
                 echo "<div class='specifics'>";
-                echo "<p><img src='img/place.png' />$StreetAdress</p> <br />";
-                echo "<p><img src='img/time.png' />$StartDate kl $StartTime</p>";
+                echo "<p><img src='img/place-black.png' />$StreetAdress</p> <br />";
+                echo "<p><img src='img/time-black.png' />$StartDate kl $StartTime</p>";
                 echo "</div>";
                 echo "<p class='description'>$Information</p>";
                 echo "<a class='seemore' href='event.php?EventID=" . urlencode($EventID) . " '>more...</a>";
@@ -720,7 +720,7 @@ function getComment(){
       while ($stmt3->fetch()) {
           echo "<div class='comment'>";
           echo "<img src='$Profilepic' class='commenterpic'/>";
-          echo "<a href='user.php?UserID= " . urlencode($UserID) . " '> $Commenter </a> says";
+          echo "<a href='user.php?UserID= " . urlencode($UserID) . " '> $Commenter </a> says:";
           echo "<div id='commentBox'>";
           echo "<div class='commentarrow'></div>";
           echo "<div id='commenttext'><p>";

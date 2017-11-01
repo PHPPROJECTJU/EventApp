@@ -12,7 +12,8 @@
 
 body {
   margin: 0;
-  background-color: #ebebeb;
+  background: linear-gradient(to bottom right, #cc2b5e, #753a88);
+  height:100vh;
 }
 
 
@@ -242,7 +243,7 @@ textarea:focus {
   display: block;
   height: 3px;
   width: 100%;
-  background: #fd5659;
+  background: #753a88;
 }
 /* Have to display it like inlineblock. Otherwise it will look uggly :) */
 .slide-effect {
@@ -260,7 +261,7 @@ textarea:focus {
 /* Sets width to 100% and therefore it becomes visible. */
 .slide-effect:hover:after {
   width: 100%;
-  background: #fd5659;
+  background: #753a88;
 }
 
 
@@ -326,7 +327,7 @@ input:focus {
     margin: 0 auto;
     display: block;
     overflow: hidden;
-    padding: 24px 5px 5px 5px;
+    padding: 15px 5px 5px 5px;
     position: relative;
 }
 
@@ -379,10 +380,10 @@ img.chooselocation {
   font-size: 100%;
   outline: none;
   border-radius: 5px;
-  background-color: #fd5659;
+  background-color: #753a88;
   color: white;
   border: none;
-  border-bottom: 2px solid #fd0101;
+  border-bottom: 2px solid lightgray;
   box-sizing: border-box;
 
 }
@@ -421,13 +422,13 @@ img.chooselocation {
 .eventregisterbar {
   font-size: 16px;
   width: 90%;
-  border: none;
   box-shadow: none;
   border-radius: 3px;
   background-color: #fff;
   padding: 6px 6px 6px 10px;
   box-sizing: border-box;
   margin: 1px;
+  border: 1px solid lightgray;
 }
 
 .eventregisterbartext {
@@ -443,6 +444,7 @@ img.chooselocation {
 
 .row {
   margin-top: 5px;
+  color: black;
 }
 
 .innerdatewrap {
@@ -484,6 +486,7 @@ img.chooselocation {
     animation-duration: 0.4s;
     overflow-y: auto;
     max-width: 440px;
+    border-radius: 10px;
 
 }
 
@@ -518,7 +521,7 @@ img.chooselocation {
 
 
 .modal-header {
-    background-color: #af3e41;
+    background: linear-gradient(to bottom right, #cc2b5e, #753a88);
     color: white;
     text-align: center;
     padding: 5px;
@@ -527,7 +530,8 @@ img.chooselocation {
 
 .modal-body {
   padding: 2px 16px;
-  background-color: #fd5659;
+  background: #eee;
+  color: white;
 }
 /*--------modal end--------*/
 
@@ -586,19 +590,17 @@ div.eventpagebox.firsteventbox {
 }
 
 .attendsave {
-  width: 100px;
-  display: block;
-  padding: 10px;
-  box-sizing: border-box;
-  border-radius: 40px;
-  background-color: #fd5659;
-  border: none;
-  outline: none;
-  font-size: 120%;
-  color: #fff;
-  float: left;
-  margin: 12px;
-  cursor: pointer;
+  width: 47.2%;
+    padding: 9px;
+    box-sizing: border-box;
+    border-radius: 40px;
+    background: linear-gradient(to bottom right, #cc2b5e, #753a88);
+    border: none;
+    outline: none;
+    font-size: 100%;
+    color: #fff;
+    margin: 4px;
+    cursor: pointer;
 }
 
 .attendsave:hover{
@@ -619,10 +621,10 @@ div.eventpagebox.firsteventbox {
 }
 
 .eventbuttonbox {
-  overflow: hidden;
-  display: inline-block;
-  float: left;
-  clear: both;
+    display: block;
+    float: left;
+    clear: both;
+    width:100%;
 }
 
 .goback {
@@ -643,12 +645,27 @@ div.eventpagebox.firsteventbox {
 .commentheader {
   margin: 36px 0 0 15px;
   font-weight: 300;
-  color: gray;
+  color: #753a88;
 }
 
 .comment {
   float: left;
   margin: 24px 15px 0 15px;
+}
+
+.submitbutton {
+  border: 2px solid #753a88;
+  padding: 10px 20px;
+  border-radius: 35px;
+  color: #753a88;
+  margin-left: 15px;
+  transition: 0.2s;
+  background-color: transparent;
+  cursor:pointer;
+}
+.submitbutton:hover{
+  background-color: #753a88;
+  color: white;
 }
 
 .comment a {
@@ -692,7 +709,7 @@ div.eventpagebox.firsteventbox {
   padding: 15px;
   top: 30px;
   border-radius: 20px;
-  box-shadow: 8px 8px 24px rgba(0,0,0,0.2);
+  box-shadow: 0px 2px 2px rgba(0,0,0,0.2);
 }
 
 /*--Displaying event and user info on index---*/
@@ -725,7 +742,7 @@ div.eventpagebox.firsteventbox {
 
 .username {
   font-weight: bold;
-  color: #fd5659;
+  color: #753a88;
   width: 100%;
   text-align: center;
   text-decoration: none;
@@ -768,7 +785,7 @@ p.description {
   float: left;
   text-align: center;
   text-decoration: none;
-  color: #fd5659;
+  color: #753a88;
   background-image: url("../img/gradientbox-6.png");
   /*linear-gradient(rgba(255,0,0,0), rgba(238, 238, 238,1));*/
   background-size: 100%;
@@ -787,7 +804,7 @@ p.description {
 /*--personal profile--*/
 
 #myprofileheader {
-  background-color: #E34D50;
+  background-color: #ebebeb;
 }
 
 #profileorevents {
@@ -807,6 +824,7 @@ p.description {
 
 #profileorevents ul li a {
     color: #fff;
+    background-color:#753a88;
     height: 100%;
     width: 100%;
     display: block;
@@ -815,7 +833,8 @@ p.description {
 }
 
 #profileorevents ul li #active{
-  background-color: #fd5659;
+  background-color: #ebebeb;
+  color: darkslategrey;
 }
 
 .profilebox {
@@ -828,15 +847,15 @@ p.description {
 }
 
 .profilebutton {
-  padding: 15px;
-  border-radius: 40px;
-  background-color: #fd5659;
-  border: none;
-  outline: none;
-  font-size: 120%;
-  color: #fff;
-  margin: 0 auto;
-  text-align: center;
+  padding: 12px 18px;
+    border-radius: 40px;
+    background-color: #753a88;
+    border: none;
+    outline: none;
+    color: #fff;
+    margin: 0 auto;
+    width: 137px;
+    display: block;
 }
 /*profile pictures only at the personal profile*/
 #personalprofilepic {
@@ -888,17 +907,17 @@ p.description {
     display: block;
     padding: 12px;
     box-sizing: border-box;
+    background-color: #753a88;
 }
 
 #chooseeventtype ul li #active{
-  background-color: #fd5659;
+  background-color: #ebebeb;
+  color: darkslategrey;
 }
 
 /*--register-------*/
 
-.red {
-  background-color: #fd5659;
-}
+
 
 #registerform {
   margin: 48px auto;
@@ -920,7 +939,7 @@ p.description {
 
 .registerbutton {
   margin-top: 24px;
-  background-color: #973335;
+  background: linear-gradient(to bottom right, #cc2b5e, #753a88);
   color: #fff;
   border: none;
   padding: 10px 40px;
@@ -931,18 +950,20 @@ p.description {
 .signinbutton {
 
   margin-top: 24px;
-  background: #973335 url("../img/account-login-32.png") no-repeat left;
+  background: #fff url("../img/account-login-32.png") no-repeat left;
   background-position: 30px;
-  color: #fff;
+  color: #753a88;
   border: none;
   padding: 10px 40px;
   font-size: 100%;
   border-radius: 25px;
+  border: 2px solid white;
 }
 
 .signinbutton:hover {
-  background-color: #af3e41;
+  background: none;
   cursor: pointer;
+  color: #fff;
 }
 
 .registerbutton:hover {
@@ -958,13 +979,13 @@ p.description {
 }
 
 .wrongpasstext {
-  color: black;
+  color: white;
   display: block;
   margin: 10px 0 30px 0;
   text-align: center;
 }
 .wrongpasstext2{
-    color: black;
+    color: white;
     display: block;
     margin: 0 auto;
     width: 320px;
@@ -982,7 +1003,7 @@ p.description {
 
 .loginbutton:hover {
   border: 2px solid white;
-  color: #fd5659;
+  color: #753a88;
   background-color: white;
 }
 
