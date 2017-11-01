@@ -540,53 +540,50 @@ img.chooselocation {
 /*--event boxes----*/
 
 .box {
-	margin: 7px;
-	padding: 5px;
-	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
-  height: 300px;
-  border-top: 5px solid #753a88;
-  position: relative;
-  background-color: #fff;
-  border-radius: 5px;
+  margin: 10px 0px;
+    padding: 5px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    height: 300px;
+    border-top: 5px solid #753a88;
+    position: relative;
+    background-color: #fff;
+    border-radius: 0px;
 }
 
 /*--event page version:---*/
 
 div.eventpagebox.firsteventbox {
-    margin: 58px 7px 7px 7px;
-    padding: 5px;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-    height: auto;
-    border-top: 5px solid #753a88;
-    position: relative;
-    background-color: #fff;
-    border-radius: 5px;
+  margin: 58px 0px 0px 0px;
+  padding: 5px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  height: auto;
+  border-top: 5px solid #753a88;
+  position: relative;
+  background-color: #fff;
 }
 
 .firsteventbox {
-    margin: 58px 7px 7px 7px;
-    padding: 5px;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-    height: auto;
-    border-top: 5px solid #753a88;
-    position: relative;
-    background-color: #fff;
-    border-radius: 5px;
+  margin: 58px 0px 0px 0px;
+  padding: 5px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  height: auto;
+  border-top: 5px solid #753a88;
+  position: relative;
+  background-color: #fff;
 }
 
 .eventpagebox {
-    margin: 7px 7px 7px 7px;
-    padding: 5px;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-    height: auto;
-    border-top: 5px solid #753a88;
-    position: relative;
-    background-color: #fff;
-    border-radius: 5px;
+  margin: 0px 0px 0px 0px;
+  padding: 5px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  height: auto;
+  border-top: 5px solid #753a88;
+  position: relative;
+  background-color: #fff;
 }
 
 .attendsave {
