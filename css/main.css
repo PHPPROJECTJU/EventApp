@@ -164,9 +164,9 @@ textarea:focus {
 
 #topButton {
   background-color: transparent;
-  border: 2px solid white;
+  border: none;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-  color: white;
+  color: #fd5659;
   display: none;
   position:fixed;
   right: 8px;
@@ -288,7 +288,7 @@ textarea:focus {
   border: none;
   box-shadow: none;
   border-radius: 25px;
-  background-color: #eee;
+  background-color: #fff;
   padding: 6px 80px 6px 15px;
   box-sizing: border-box;
   position: relative;
@@ -344,7 +344,7 @@ img.chooselocation {
 }
 
 #regionmenu {
-  background-color: #eee;
+  background-color: #fff;
   z-index: 100;
   overflow: hidden;
   max-height: 0;
@@ -423,7 +423,7 @@ img.chooselocation {
   border: none;
   box-shadow: none;
   border-radius: 3px;
-  background-color: #eee;
+  background-color: #fff;
   padding: 6px 6px 6px 10px;
   box-sizing: border-box;
   margin: 1px;
@@ -435,7 +435,7 @@ img.chooselocation {
   border: none;
   box-shadow: none;
   border-radius: 3px;
-  background-color: #eee;
+  background-color: #fff;
   padding: 6px 6px 6px 10px;
   box-sizing: border-box;
 }
@@ -536,13 +536,13 @@ img.chooselocation {
 
 .box {
 	margin: 15px;
-	padding: 18px;
+	padding: 5px;
 	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
   overflow: hidden;
   height: 300px;
   border: none;
   position: relative;
-  background-color: #eee;
+  background-color: #fff;
 }
 
 /*--event page version:---*/
@@ -555,7 +555,7 @@ img.chooselocation {
   height: auto;
   border: none;
   position: relative;
-  background-color: #eee;
+  background-color: #fff;
 }
 
 .attendsave {
@@ -625,7 +625,7 @@ img.chooselocation {
   width: 0;
   height: 0;
   border-top: 10px solid transparent;
-  border-right: 10px solid #eee;
+  border-right: 10px solid #fff;
   border-bottom: 10px solid transparent;
   position: absolute;
   left: -9px;
@@ -645,7 +645,7 @@ img.chooselocation {
 
 #commenttext {
   width: 89%;
-  background-color: #eee;
+  background-color: #fff;
   overflow: hidden;
   padding: 15px;
   top: 30px;
@@ -657,6 +657,10 @@ img.chooselocation {
 
 
 .profiletitle {
+  background-color: #222;
+  padding: 12px;
+  color: #fff;
+  font-weight: 300;
   display: block;
   clear: left;
   margin: 0 0 15px 0;
@@ -692,6 +696,7 @@ img.chooselocation {
   width: 60%;
   box-sizing: border-box;
   padding-left: 18px;
+  padding-top: 12px;
 }
 
 .specifics img {
@@ -713,6 +718,7 @@ p.description {
   font-size: 14px;
   float: left;
   margin: 12px 0px;
+  padding: 0px 15px;
 }
 
 .seemore {
@@ -865,7 +871,7 @@ p.description {
   border: none;
   box-shadow: none;
   border-radius: 25px;
-  background-color: #eee;
+  background-color: #fff;
   padding: 6px 6px 6px 17px;
   box-sizing: border-box;
   margin: 12px;
@@ -962,7 +968,7 @@ p.description {
   height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-bottom: 10px solid #eee;
+  border-bottom: 10px solid #fff;
   position: absolute;
   left: 29px;
   top: -10px;
@@ -979,7 +985,7 @@ p.description {
 
 #about {
   width: 89%;
-  background-color: #eee;
+  background-color: #fff;
   overflow: hidden;
   padding: 15px;
   top: 30px;
