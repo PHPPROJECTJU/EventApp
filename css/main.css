@@ -548,7 +548,7 @@ img.chooselocation {
 /*--event page version:---*/
 
 .eventpagebox {
-  margin: 15px;
+  margin: 80px 15px 15px 15px;
 	padding: 18px;
 	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
   overflow: hidden;

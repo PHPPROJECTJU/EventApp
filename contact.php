@@ -48,7 +48,7 @@ $stmt->fetch();
       <td><input type="text" name="email" class="registerbar" value="<?php echo $email; ?>" required></td>
     </tr>
     <tr>
-      <td><textarea name="message" placeholder="Message"></textarea></td>
+      <td><textarea name="message" class="registerbar" placeholder="Message"></textarea></td>
     </tr>
     <tr>
       <td><input type="submit" class="registerbutton" name="submit" value="Send"></td>
