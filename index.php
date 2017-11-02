@@ -22,7 +22,7 @@
     </div>
     <ul id='regionmenu'>
       <div class="liwrapper">
-        <form name="chooseregion">
+        <form action="index.php" name="chooseregion" method="GET">
         <?php
             @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
 
@@ -42,7 +42,7 @@
 
               while ($stmt->fetch()) {
                   echo "<input type='hidden' name='regionid' value=' . $regionid . '>";
-                  echo "<a class='regionbuttons' href='index.php?regionid=" . urlencode($regionid) . "'><li>$showregion</li></a>";
+                  echo "<input type='submit' name='$showregion' class='regionbuttons' value='$showregion'>";
               }
          ?>
        </form>
@@ -91,7 +91,30 @@ if (isset($_POST['search']) && !empty($_POST['searchevent'])) {
           $stmt = $db->prepare($search);
           $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Title, $StartDate, $StartTime, $Information, $StreetAdress, $cityname);
           $stmt->execute();
-} else {
+}
+/*----------------------Getting stuff from database on chosen location-----------------------------------------*/
+else if(isset($_GET[$showregion])){
+
+      $showregion1 = $_GET[$showregion];
+      $search = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name, State.state_name
+                FROM User
+                JOIN Event
+                ON User.UserID=Event.UserID
+                JOIN City
+                ON Event.city_id=City.city_id
+                JOIN State
+                ON City.city_state_id = State.state_id
+                WHERE State.state_name = '$showregion1'
+                ORDER BY Event.EventID DESC
+                ";
+
+            $stmt = $db->prepare($search);
+            $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Title, $StartDate, $StartTime, $Information, $StreetAdress, $cityname, $regionname);
+            $stmt->execute();
+
+}
+
+else {
 
 /*--Getting stuff from database without searching-----------------------------------------*/
 
