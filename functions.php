@@ -480,7 +480,7 @@ function getSavedEvents($myuserid){
       exit();
   }
 
-  $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.Status, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name
+  $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Status, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name
             FROM Event_User
             JOIN Event
             ON Event_User.SavedID=Event.EventID
@@ -491,7 +491,7 @@ function getSavedEvents($myuserid){
             WHERE Event_User.UserID=$myuserid
             ";
             $stmt = $db->prepare($query);
-            $stmt->bind_result($UserName, $ProfilePicture, $UserID, $Status, $Title, $StartDate, $StartTime, $Information, $StreetAdress, $cityname);
+            $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Status, $Title, $StartDate, $StartTime, $Information, $StreetAdress, $cityname);
             $stmt->execute();
 
 
@@ -510,8 +510,6 @@ function getSavedEvents($myuserid){
                 echo "<p><img src='img/time-black.png' />$StartDate<br /> kl $StartTime</p>";
                 echo "</div>";
                 echo "<p class='description'>$Information</p>";
-                echo "<form action='' method='POST' name='attendsave'>";
-                echo "</form>";
                 echo "</div>";
                 }
 
