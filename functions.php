@@ -704,9 +704,11 @@ function getComment(){
           exit();
       }
 
+      $myusername = $_SESSION['username'];
+
       $EventID = trim($_GET['EventID']);
 
-      $getcomment = ("SELECT Comments.Text, Comments.UserName, User.UserID, User.ProfilePicture
+      $getcomment = ("SELECT Comments.CommentID, Comments.Text, Comments.UserName, User.UserID, User.ProfilePicture
                 FROM Comments
                 JOIN User
                 ON Comments.UserName=User.UserName
@@ -714,14 +716,24 @@ function getComment(){
                 ORDER BY CommentID DESC
                 ");
       $stmt3 = $db->prepare($getcomment);
-      $stmt3->bind_result($Text, $Commenter, $UserID, $Profilepic);
+      $stmt3->bind_result($Commentid, $Text, $Commenter, $UserID, $Profilepic);
       $stmt3->execute();
+
 
       while ($stmt3->fetch()) {
           echo "<div class='comment'>";
           echo "<img src='$Profilepic' class='commenterpic'/>";
           echo "<a href='user.php?UserID= " . urlencode($UserID) . " '> $Commenter </a> says:";
           echo "<div id='commentBox'>";
+
+          #If this is our own comment we want to be able to delete it
+          if ($Commenter == $myusername) {
+            echo "<form action='' method='POST'>";
+            echo '<INPUT type="hidden" name="commentid" value=' . $Commentid . '>';
+            echo "<input type='submit' class='closedark' name='deletecomment' value='×'>";
+            echo "</form>";
+          }
+
           echo "<div class='commentarrow'></div>";
           echo "<div id='commenttext'><p>";
           echo $Text;
@@ -730,9 +742,39 @@ function getComment(){
           echo "</div>";
           echo "</div>";
       }
+
+      if (isset($_POST['deletecomment'])) {
+        $Commentid = ($_POST['commentid']);
+        deleteComment($Commentid);
+        unset($_POST);
+        ?>
+        <script>
+            window.location.href = "event.php?EventID=<?php echo $EventID?>";
+        </script>
+        <?php
+      }
 }
 
+function deleteComment($Commentid){
+  include("config.php");
 
+  @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
 
+      if ($db->connect_error) {
+          echo "could not connect: " . $db->connect_error;
+          printf("<br><a href=index.php>Return to home page </a>");
+          exit();
+      }
+
+  $deletecomment = "DELETE FROM
+                  Comments
+                  WHERE
+                  Comments.CommentID = ?
+                  ";
+
+                  $stmt = $db->prepare($deletecomment);
+                  $stmt->bind_param('i', $Commentid);
+                  $response = $stmt->execute();
+}
 
 ?>

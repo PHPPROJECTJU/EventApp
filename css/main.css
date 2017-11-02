@@ -607,6 +607,8 @@ div.eventpagebox.firsteventbox {
 
 .closedark {
   color: gray;
+  background: none;
+  border: none;
   font-size: 28px;
   position: absolute;
   right: 10px;
