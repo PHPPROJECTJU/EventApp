@@ -559,7 +559,7 @@ function checkpasswordstrength(){
   if (isset($_POST['submit'])) {
 
         if(!$uppercase || !$lowercase || !$number) {
-         echo "<br><p class='wrongpasstext2'><br>&rarr; Too weak password.<br>
+         echo "<br><p class='wrongpasstext2'><br>Too weak password.<br>
          &rarr;Use at least one uppercase capital letter.<br>
          &rarr;Use at least one lowercase capital letter.<br>
          &rarr;Use at least one number between 0-9. </p>";

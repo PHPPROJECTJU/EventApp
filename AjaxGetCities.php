@@ -1,9 +1,9 @@
 <?php
-  include_once ("connection.php");
+  include_once ("config.php");
 
-    function getcity(){
+  if(!empty($_POST["state_id"])){
+    $state_id = $_POST["state_id"];
 
-    include ("config.php");
     @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
 
     if ($db->connect_error) {
@@ -14,7 +14,7 @@
 
     $getcityname = "SELECT City.city_name, City.city_id
               FROM City
-              WHERE state_id = val
+              WHERE city_state_id = $state_id
               ";
 
     $stmt4 = $db->prepare($getcityname);
@@ -23,9 +23,6 @@
 
     while ($stmt4->fetch()) {
           echo "<option value='$cityid'>$showcityname</option>";
-      }
-  };
-}
-
+    }
   }
  ?>

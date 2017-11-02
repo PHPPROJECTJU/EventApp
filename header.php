@@ -5,6 +5,7 @@
 	      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	      <link rel="stylesheet" href="css/main.css">
 	      <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,600,700,900|Noto+Sans:300,400,700" rel="stylesheet">
+				<script type="text/javascript" src="js/jquery.min.js"></script>
 	  </head>
 
 
@@ -97,21 +98,39 @@ $stmt9->fetch();
 											</div>
 											<div class="row">
 													Select your region
-													<select name="region" placeholder="Select region">
+													<select name="region" placeholder="Select region" onchange="getId(this.value);">
 															<option value="" disabled selected>Select your region</option>
 																	 <?php
 																			getregions();
 																		?>
 													</select>
 											</div>
+											<script>
+									        function getId(val){
+									          console.log(val)
+									          //$theID = alert(hej);
+									          $.ajax({
+									              type: "POST",
+									               url: "AjaxGetCities.php",
+									               data: "state_id="+val,
+									               success: function(data){
+									              $("#cityList").html(data);
+									               }
+									          });
+									        }
+
+									    </script>
 											<div class="row">
 													Select your city
-													<select name="city" placeholder="Select city">
-															<option value="" disabled selected>Select city</option>
-																	 <?php
-																			getcity();
-																		?>
-													</select>
+													<select name="city" id="cityList">
+
+									            <?php
+									            include ("AjaxGetCities.php");
+									            getcity(val);
+
+									            ?>
+
+									        </select>
 											</div>
 											<div class="row">
 													<div class="innerdatewrap">

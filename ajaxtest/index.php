@@ -51,29 +51,38 @@
     </div>
 
 
-    <div class="city">
-        <label>City</label>
-        <select name="city" id="cityList">
-            <option value="">hehj</option>
 
-        </select>
-    </div>
 
     <script>
-        function getId(kljsgkljb){
-          //alert(kljsgkljb);
+        function getId(val){
+          console.log(val)
+          //$theID = alert(hej);
           $.ajax({
-              type: "GET",
-              url: "getdata.php",
-              data: "state_id="+val,
-              success: function(data){
-                $("#cityList").html(data);
-              }
+              type: "POST",
+               url: "getdata2.php",
+               data: "state_id="+val,
+               success: function(data){
+              $("#cityList").html(data);
+               }
           });
         }
 
     </script>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+    <div class="city">
+        <label>City</label>
+        <select name="city" id="cityList">
+
+            <?php
+            include ("getdata2.php");
+            getcity(val);
+
+            ?>
+
+        </select>
+    </div>
+
+
 </body>
 
 </html>
