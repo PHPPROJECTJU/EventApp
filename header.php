@@ -89,15 +89,21 @@ $stmt9->fetch();
 										 ?>
 
 											<div class="row">
-													Name of Event
+													<p>
+														Name of Event
+													</p>
 													<input type="text" name="eventname" class="eventregisterbar" placeholder="Name of Event" required>
 											</div>
 											<div class="row">
+												<p>
 													Adress
+												</p>
 													<input type="text" name="adress" class="eventregisterbar" placeholder="i.e Fortunagatan 16B" required>
 											</div>
 											<div class="row">
-													Select your region
+												<p>
+														Select your region
+												</p>
 													<select name="region" placeholder="Select region" onchange="getId(this.value);">
 															<option value="" disabled selected>Select your region</option>
 																	 <?php
@@ -121,7 +127,9 @@ $stmt9->fetch();
 
 									    </script>
 											<div class="row">
+												<p>
 													Select your city
+												</p>
 													<select name="city" id="cityList">
 
 									            <?php
@@ -153,11 +161,15 @@ $stmt9->fetch();
 													</div>
 											</div>
 											<div class="row">
-															Describe your event
+												<p>
+													Describe your event
+												</p>
 															<textarea rows="4" cols="80" type="textarea" name="description" class="eventregisterbartext" placeholder="Write some lines about your event!" required></textarea>
 											</div>
 											<div class="row">
-															Select a tag
+												<p>
+													Select a tag
+												</p>
 															<select name="categoryID" placeholder="Select category">
 																	<option value="">Select category</option>
 																	 <?php

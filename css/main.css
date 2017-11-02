@@ -12,7 +12,7 @@
 
 body {
   margin: 0;
-  background: linear-gradient(to bottom right, #cc2b5e, #753a88);
+  background-color: #ebebeb;
   height:100vh;
 }
 
@@ -47,6 +47,10 @@ a {
 
 /*--all forms basic-----*/
 
+select, input[type=text], input[type=date], input[type=time] {
+  font-family: 'Raleway';
+}
+
 textarea {
 	width: 80%;
 	margin: 15px;
@@ -54,10 +58,10 @@ textarea {
   border: 1px solid lightgrey;
   border-radius: 15px;
   font-size: 16px;
-
+  font-family: 'Raleway';
 }
 
-textarea:focus {
+textarea:focus, select:focus, input:focus {
   outline:none;
   caret-color: #af3e41;
 }
@@ -168,7 +172,7 @@ textarea:focus {
   background-color: transparent;
   border: none;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-  color: #fd5659;
+  color: #753a88;
   display: none;
   position:fixed;
   right: 8px;
@@ -718,7 +722,7 @@ div.eventpagebox.firsteventbox {
 
 
 .profiletitle {
-  padding: 12px;
+  padding: 6px 12px 12px 12px;
   color: gray;
   font-weight: 300;
   display: block;
@@ -733,7 +737,7 @@ div.eventpagebox.firsteventbox {
 .pictureandname {
   float: left;
   width: 30%;
-  margin-bottom: 12px;
+  margin-bottom: 18px;
   margin-left: 13px;
 }
 
@@ -755,7 +759,7 @@ div.eventpagebox.firsteventbox {
   float:left;
   width: 60%;
   box-sizing: border-box;
-  padding: 0px 0px 12px 18px;
+  padding: 6px 0px 6px 18px;
 }
 
 .specifics img {
@@ -1129,7 +1133,7 @@ hr {
 
 #headerwrap {
   position: relative;
-  background-color: #fd5659;
+  background-color: #cc2b5e;
   height: 30vh;
   width: 100%;
   overflow: hidden;

@@ -1,7 +1,7 @@
 
             <footer>
-              <img src="img/skyline-3.png" class="footerimg">
-                  <!--<p>© Julia Palm, Albin Johansson, Ellen Brage
+              <!--<img src="img/skyline-3.png" class="footerimg">
+                  <p>© Julia Palm, Albin Johansson, Ellen Brage
                   <br/>Jönköping University <?php echo date("Y");?>
                 </p>-->
             </footer>
