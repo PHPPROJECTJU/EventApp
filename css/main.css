@@ -600,12 +600,12 @@ div.eventpagebox.firsteventbox {
     color: #fff;
     margin: 24px 4px;
     cursor: pointer;
+    text-align: center;
 }
 
 .attendsave:hover{
   background-color: #af3e41;
 }
-
 
 .closedark {
   color: gray;

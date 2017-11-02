@@ -357,8 +357,8 @@ function getHostedEvents($myuserid){
                   echo "</div>";
                   echo "<p class='description'>$Information</p>";
                   echo "<form action='' method='POST' name='hostedbuttons'>";
-                  echo '<INPUT type="hidden" name="eventid" value=' . $EventID . '>';
-                  echo "<input type='submit' class='attendsave' name='gotoevent' value='See event page'>";
+                  echo '<INPUT type="hidden" name="eventid" value='.$EventID.'>';
+                  echo "<a class='attendsave' href='event.php?EventID= " . urlencode($EventID) . " '>See event page</a>";
                   echo "<input type='submit' class='attendsave' name='cancelevent' value='Cancel event'>";
                   echo "</div>";
                   echo "</form>";
@@ -367,12 +367,8 @@ function getHostedEvents($myuserid){
 
                 }
 
-
-            if (isset($_POST['cancelevent']) OR isset($_POST['gotoevent'])) {
-              $EventID = ($_POST['eventid']);
-            }
             if (isset($_POST['cancelevent'])) {
-
+              $EventID = ($_POST['eventid']);
               ?>
               <script>
                   var question = confirm("Do you really want to cancel this event?");
@@ -424,7 +420,7 @@ function getAttendedEvents($myuserid){
       exit();
   }
 
-  $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.Status, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name
+  $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Status, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name
             FROM Event_User
             JOIN Event
             ON Event_User.AttendedID=Event.EventID
@@ -435,7 +431,7 @@ function getAttendedEvents($myuserid){
             WHERE Event_User.UserID=$myuserid
             ";
             $stmt = $db->prepare($query);
-            $stmt->bind_result($UserName, $ProfilePicture, $UserID, $Status, $Title, $StartDate, $StartTime, $Information, $StreetAdress, $cityname);
+            $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Status, $Title, $StartDate, $StartTime, $Information, $StreetAdress, $cityname);
             $stmt->execute();
 
 
@@ -455,15 +451,54 @@ function getAttendedEvents($myuserid){
                 echo "<p class='description'>$Information</p>";
                 echo "<br />";
                 echo "<form action='' method='POST' name='attendedbuttons'>";
-                echo "<div class='canceleventcontainer'>";
-                echo "<input type='submit' class='attendsave' name='gotoevent' value='See event page'>";
+                echo '<INPUT type="hidden" name="eventid" value='.$EventID.'>';
+                echo "<a class='attendsave' href='event.php?EventID= " . urlencode($EventID) . " '>See event page</a>";
                 echo "<input type='submit' class='attendsave' name='unattend' value='Unattend'>";
-                echo "</div>";
+
+                $username = $_SESSION['username'];
+                getUserID($username);
+
                 echo "</form>";
                 echo "</div>";
                 }
 
               }
+
+              if (isset($_POST['unattend'])) {
+                $EventID = ($_POST['eventid']);
+                $myuserid = ($_POST['userid']);
+                unattendEvent($EventID, $myuserid);
+                unset($_POST);
+                ?>
+                  <script>
+                      window.location.href = "attendedevents.php";
+                  </script>
+                <?php
+              }
+}
+
+function unattendEvent($EventID, $myuserid){
+            include("config.php");
+
+            @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
+
+            if ($db->connect_error) {
+                echo "could not connect: " . $db->connect_error;
+                printf("<br><a href=index.php>Return to home page </a>");
+                exit();
+            }
+
+            $query = "DELETE FROM
+                      Event_User
+                      WHERE
+                      AttendedID = ?
+                      AND
+                      UserID = ?
+                      ";
+                      $stmt = $db->prepare($query);
+                      $stmt->bind_param('ii', $EventID, $myuserid);
+                      $response = $stmt->execute();
+
 
 };
 
@@ -499,7 +534,14 @@ function getSavedEvents($myuserid){
               if ($Status == 1) {
 
                 echo "<div class='eventpagebox'>";
-                echo "<span class='closedark'>×</span>";
+                echo "<form action='' method='POST'>";
+
+                $username = $_SESSION['username'];
+                getUserID($username);
+
+                echo '<INPUT type="hidden" name="eventid" value=' . $EventID . '>';
+                echo "<input type='submit' class='closedark' name='unsave' value='×'>";
+                echo "</form>";
                 echo "<h3 class='profiletitle'>$Title</h3>";
                 echo "<span class='pictureandname'>";
                 echo "<img src='$ProfilePicture' class='profilepic'/>";
@@ -510,10 +552,46 @@ function getSavedEvents($myuserid){
                 echo "<p><img src='img/time-black.png' />$StartDate<br /> kl $StartTime</p>";
                 echo "</div>";
                 echo "<p class='description'>$Information</p>";
+                echo "<a class='attendsave' href='event.php?EventID= " . urlencode($EventID) . " '>See event page</a>";
                 echo "</div>";
                 }
-
               }
+
+              if (isset($_POST['unsave'])) {
+                $EventID = ($_POST['eventid']);
+                $myuserid = ($_POST['userid']);
+                unsaveEvent($EventID, $myuserid);
+                unset($_POST);
+                ?>
+                  <script>
+                      window.location.href = "savedevents.php";
+                  </script>
+                <?php
+              }
+};
+
+function unsaveEvent($EventID, $myuserid){
+            include("config.php");
+
+            @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
+
+            if ($db->connect_error) {
+                echo "could not connect: " . $db->connect_error;
+                printf("<br><a href=index.php>Return to home page </a>");
+                exit();
+            }
+
+            $query = "DELETE FROM
+                      Event_User
+                      WHERE
+                      SavedID = ?
+                      AND
+                      UserID = ?
+                      ";
+                      $stmt = $db->prepare($query);
+                      $stmt->bind_param('ii', $EventID, $myuserid);
+                      $response = $stmt->execute();
+
 
 };
 
