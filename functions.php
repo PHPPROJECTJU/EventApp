@@ -1,7 +1,6 @@
 <?php
 
 
-
 /*Header.php-------------------------------------------*/
 
 
@@ -189,7 +188,7 @@ function displayEvent(){
           exit();
       }
 
-      $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name
+      $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.Title, Event.Status, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name
                 FROM User
                 JOIN Event
                 ON User.UserID=Event.UserID
@@ -199,35 +198,40 @@ function displayEvent(){
                 ";
 
       $stmt = $db->prepare($query);
-      $stmt->bind_result($UserName, $ProfilePicture, $UserID, $Title, $StartDate, $StartTime, $Information, $StreetAdress, $cityname);
+      $stmt->bind_result($UserName, $ProfilePicture, $UserID, $Title, $Status, $StartDate, $StartTime, $Information, $StreetAdress, $cityname);
       $stmt->execute();
 
+
       while ($stmt->fetch()) {
-          //echo "<a href='index.php#". urlencode($UserID) ."' class='goback'>&larr;</a>";
-          echo "<div class='firsteventbox'>";
-          echo "<h3 class='profiletitle'>$Title</h3>";
-          echo "<span class='pictureandname'>";
-          echo "<img src='$ProfilePicture' class='profilepic'/>";
-          echo "<a class='username' href='user.php?UserID= " . urlencode($UserID) . " '> $UserName </a>";
-          echo "</span>";
-          echo "<div class='specifics'>";
-          echo "<p><img src='img/place-black.png' />$StreetAdress, $cityname</p> <br />";
-          echo "<p><img src='img/time-black.png' />$StartDate kl $StartTime</p>";
-          echo "</div>";
-          echo "<p class='description'>$Information</p>";
-          echo "<div class='eventbuttonbox'>";
-          echo "<form action='' method='POST' name='attendsave'>";
-          echo "<input type='submit' class='attendsave' name='save' value='Save'>";
-          echo "<input type='submit' class='attendsave' name='attend' value='Attend'>";
-          echo '<INPUT type="hidden" name="eventhostid" value=' . $UserID . '>';
+          if ($Status == 1) {
 
-          $username = $_SESSION['username'];
-          getUserID($username);
+            echo "<div class='firsteventbox'>";
+            echo "<h3 class='profiletitle'>$Title</h3>";
+            echo "<span class='pictureandname'>";
+            echo "<img src='$ProfilePicture' class='profilepic'/>";
+            echo "<a class='username' href='user.php?UserID= " . urlencode($UserID) . " '> $UserName </a>";
+            echo "</span>";
+            echo "<div class='specifics'>";
+            echo "<p><img src='img/place-black.png' />$StreetAdress,<br /> $cityname</p> <br />";
+            echo "<p><img src='img/time-black.png' />$StartDate<br /> kl $StartTime</p>";
+            echo "</div>";
+            echo "<p class='description'>$Information</p>";
+            echo "<div class='eventbuttonbox'>";
+            echo "<form action='' method='POST' name='attendsave'>";
+            echo "<input type='submit' class='attendsave' name='save' value='Save'>";
+            echo "<input type='submit' class='attendsave' name='attend' value='Attend'>";
+            echo '<INPUT type="hidden" name="eventhostid" value=' . $UserID . '>';
 
-          echo "</form>";
-          echo "</div>";
-          echo "</div>";
-      }
+            $username = $_SESSION['username'];
+            getUserID($username);
+
+            echo "</form>";
+            echo "</div>";
+            echo "</div>";
+            }
+
+          }
+
 
 /*
 No matter if we want to save or attend the event,
@@ -325,7 +329,7 @@ function getHostedEvents($myuserid){
       exit();
   }
 
-  $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name
+  $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Status, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name
             FROM Event
             JOIN User
             ON Event.UserID=User.UserID
@@ -335,27 +339,77 @@ function getHostedEvents($myuserid){
             ORDER BY Event.EventID DESC
             ";
             $stmt = $db->prepare($query);
-            $stmt->bind_result($UserName, $ProfilePicture, $UserID, $Title, $StartDate, $StartTime, $Information, $StreetAdress, $cityname);
+            $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Status, $Title, $StartDate, $StartTime, $Information, $StreetAdress, $cityname);
             $stmt->execute();
 
             while ($stmt->fetch()) {
-                echo "<div class='eventpagebox'>";
-                echo "<h3 class='profiletitle'>$Title</h3>";
-                echo "<span class='pictureandname'>";
-                echo "<img src='$ProfilePicture' class='profilepic'/>";
-                echo "<a class='username' href='user.php?UserID= " . urlencode($UserID) . " '> $UserName </a>";
-                echo "</span>";
-                echo "<div class='specifics'>";
-                echo "<p><img src='img/place-black.png' />$StreetAdress, $cityname</p> <br />";
-                echo "<p><img src='img/time-black.png' />$StartDate kl $StartTime</p>";
-                echo "</div>";
-                echo "<p class='description'>$Information</p>";
-                echo "<form action='' method='POST' name='attendsave'>";
-                echo "<input type='submit' class='attendsave' name='unattend' value='Cancel'>";
-                echo "</form>";
-                echo "</div>";
+                if ($Status == 1) {
+
+                  echo "<div class='eventpagebox'>";
+                  echo "<h3 class='profiletitle'>$Title</h3>";
+                  echo "<span class='pictureandname'>";
+                  echo "<img src='$ProfilePicture' class='profilepic'/>";
+                  echo "<a class='username' href='user.php?UserID= " . urlencode($UserID) . " '> $UserName </a>";
+                  echo "</span>";
+                  echo "<div class='specifics'>";
+                  echo "<p><img src='img/place-black.png' />$StreetAdress,<br /> $cityname</p> <br />";
+                  echo "<p><img src='img/time-black.png' />$StartDate<br /> kl $StartTime</p>";
+                  echo "</div>";
+                  echo "<p class='description'>$Information</p>";
+                  echo "<form action='' method='POST' name='hostedbuttons'>";
+                  echo '<INPUT type="hidden" name="eventid" value=' . $EventID . '>';
+                  echo "<input type='submit' class='attendsave' name='gotoevent' value='See event page'>";
+                  echo "<input type='submit' class='attendsave' name='cancelevent' value='Cancel event'>";
+                  echo "</div>";
+                  echo "</form>";
+                  echo "</div>";
+              }
+
+                }
+
+
+            if (isset($_POST['cancelevent']) OR isset($_POST['gotoevent'])) {
+              $EventID = ($_POST['eventid']);
+            }
+            if (isset($_POST['cancelevent'])) {
+
+              ?>
+              <script>
+                  var question = confirm("Do you really want to cancel this event?");
+                  if (question == true) {
+                    <?php
+                    cancelEvent($EventID);
+                    unset($_POST);
+                    ?>
+                  }
+                      window.location.href = "hostedevents.php";
+                  </script>
+                <?php
             }
 }
+
+function cancelEvent($EventID){
+            include("config.php");
+
+            @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
+
+            if ($db->connect_error) {
+                echo "could not connect: " . $db->connect_error;
+                printf("<br><a href=index.php>Return to home page </a>");
+                exit();
+            }
+
+            $query = "UPDATE
+                      Event
+                      SET Status=0
+                      WHERE
+                      Event.EventID = $EventID
+                      ";
+
+                      $stmt = $db->prepare($query);
+                      $stmt->execute();
+
+};
 
 /*---Attendedevents.php--------------------*/
 
@@ -370,7 +424,7 @@ function getAttendedEvents($myuserid){
       exit();
   }
 
-  $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name
+  $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.Status, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name
             FROM Event_User
             JOIN Event
             ON Event_User.AttendedID=Event.EventID
@@ -381,11 +435,13 @@ function getAttendedEvents($myuserid){
             WHERE Event_User.UserID=$myuserid
             ";
             $stmt = $db->prepare($query);
-            $stmt->bind_result($UserName, $ProfilePicture, $UserID, $Title, $StartDate, $StartTime, $Information, $StreetAdress, $cityname);
+            $stmt->bind_result($UserName, $ProfilePicture, $UserID, $Status, $Title, $StartDate, $StartTime, $Information, $StreetAdress, $cityname);
             $stmt->execute();
 
 
             while ($stmt->fetch()) {
+              if ($Status == 1) {
+
                 echo "<div class='eventpagebox'>";
                 echo "<h3 class='profiletitle'>$Title</h3>";
                 echo "<span class='pictureandname'>";
@@ -393,15 +449,22 @@ function getAttendedEvents($myuserid){
                 echo "<a class='username' href='user.php?UserID= " . urlencode($UserID) . " '> $UserName </a>";
                 echo "</span>";
                 echo "<div class='specifics'>";
-                echo "<p><img src='img/place-black.png' />$StreetAdress, $cityname</p> <br />";
-                echo "<p><img src='img/time-black.png' />$StartDate kl $StartTime</p>";
+                echo "<p><img src='img/place-black.png' />$StreetAdress,<br /> $cityname</p> <br />";
+                echo "<p><img src='img/time-black.png' />$StartDate<br /> kl $StartTime</p>";
                 echo "</div>";
                 echo "<p class='description'>$Information</p>";
-                echo "<form action='' method='POST' name='attendsave'>";
-                echo "<input type='submit' class='attendsave' name='unattend' value='Cancel'>";
+                echo "<br />";
+                echo "<form action='' method='POST' name='attendedbuttons'>";
+                echo "<div class='canceleventcontainer'>";
+                echo "<input type='submit' class='attendsave' name='gotoevent' value='See event page'>";
+                echo "<input type='submit' class='attendsave' name='unattend' value='Unattend'>";
+                echo "</div>";
                 echo "</form>";
                 echo "</div>";
-            }
+                }
+
+              }
+
 };
 
 /*---Savedevents.php--------------------*/
@@ -417,7 +480,7 @@ function getSavedEvents($myuserid){
       exit();
   }
 
-  $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name
+  $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.Status, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name
             FROM Event_User
             JOIN Event
             ON Event_User.SavedID=Event.EventID
@@ -428,11 +491,13 @@ function getSavedEvents($myuserid){
             WHERE Event_User.UserID=$myuserid
             ";
             $stmt = $db->prepare($query);
-            $stmt->bind_result($UserName, $ProfilePicture, $UserID, $Title, $StartDate, $StartTime, $Information, $StreetAdress, $cityname);
+            $stmt->bind_result($UserName, $ProfilePicture, $UserID, $Status, $Title, $StartDate, $StartTime, $Information, $StreetAdress, $cityname);
             $stmt->execute();
 
 
             while ($stmt->fetch()) {
+              if ($Status == 1) {
+
                 echo "<div class='eventpagebox'>";
                 echo "<span class='closedark'>×</span>";
                 echo "<h3 class='profiletitle'>$Title</h3>";
@@ -441,14 +506,17 @@ function getSavedEvents($myuserid){
                 echo "<a class='username' href='user.php?UserID= " . urlencode($UserID) . " '> $UserName </a>";
                 echo "</span>";
                 echo "<div class='specifics'>";
-                echo "<p><img src='img/place-black.png' />$StreetAdress, $cityname</p> <br />";
-                echo "<p><img src='img/time-black.png' />$StartDate kl $StartTime</p>";
+                echo "<p><img src='img/place-black.png' />$StreetAdress,<br /> $cityname</p> <br />";
+                echo "<p><img src='img/time-black.png' />$StartDate<br /> kl $StartTime</p>";
                 echo "</div>";
                 echo "<p class='description'>$Information</p>";
                 echo "<form action='' method='POST' name='attendsave'>";
                 echo "</form>";
                 echo "</div>";
-            }
+                }
+
+              }
+
 };
 
 /*---usersevent.php--------------------*/
@@ -493,8 +561,8 @@ function getUsersEvents($UserID){
                 echo "<a class='username' href='user.php?UserID= " . urlencode($UserID) . " '> $UserName </a>";
                 echo "</span>";
                 echo "<div class='specifics'>";
-                echo "<p><img src='img/place-black.png' />$StreetAdress</p> <br />";
-                echo "<p><img src='img/time-black.png' />$StartDate kl $StartTime</p>";
+                echo "<p><img src='img/place-black.png' />$StreetAdress,<br /> $cityname</p> <br />";
+                echo "<p><img src='img/time-black.png' />$StartDate<br /> kl $StartTime</p>";
                 echo "</div>";
                 echo "<p class='description'>$Information</p>";
                 echo "<a class='seemore' href='event.php?EventID=" . urlencode($EventID) . " '>more...</a>";

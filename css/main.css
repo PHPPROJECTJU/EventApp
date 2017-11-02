@@ -589,6 +589,7 @@ div.eventpagebox.firsteventbox {
 
 .attendsave {
   width: 47.2%;
+  float: left;
     padding: 9px;
     box-sizing: border-box;
     border-radius: 40px;
@@ -597,13 +598,14 @@ div.eventpagebox.firsteventbox {
     outline: none;
     font-size: 100%;
     color: #fff;
-    margin: 4px;
+    margin: 24px 4px;
     cursor: pointer;
 }
 
 .attendsave:hover{
   background-color: #af3e41;
 }
+
 
 .closedark {
   color: gray;
@@ -764,12 +766,14 @@ div.eventpagebox.firsteventbox {
 }
 
 .specifics p {
-  font-weight: bold;
+  font-weight: 300;
+  color: grey;
   padding: 6px 0;
   margin: 0;
   float: left;
   font-size: 14px;
   clear: both;
+  text-transform: uppercase;
 }
 
 p.description {

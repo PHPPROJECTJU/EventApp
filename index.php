@@ -119,7 +119,7 @@ else {
 
 /*--Getting stuff from database without searching-----------------------------------------*/
 
-      $getevent = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name
+      $getevent = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Status, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name
                 FROM User
                 JOIN Event
                 ON User.UserID=Event.UserID
@@ -129,7 +129,7 @@ else {
                 ";
 
       $stmt = $db->prepare($getevent);
-      $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Title, $StartDate, $StartTime, $Information, $StreetAdress, $cityname);
+      $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Status, $Title, $StartDate, $StartTime, $Information, $StreetAdress, $cityname);
       $stmt->execute();
 
 
@@ -137,20 +137,23 @@ else {
     } /*<--end of the if/else post isset statement*/
 
     while ($stmt->fetch()) {
-        echo "<div class='box'>";
-        echo "<a name='". urldecode($UserID) ."'><h3 class='profiletitle'>$Title</h3></a>";
-        echo "<span class='pictureandname'>";
-        echo "<img src='$ProfilePicture' class='profilepic'/>";
-        echo "<a class='username' href='user.php?UserID= " . urlencode($UserID) . " '> $UserName </a>";
-        echo "</span>";
-        echo "<div class='specifics'>";
-        echo "<p><img src='img/place-black.png' />$StreetAdress, $cityname</p> <br />";
-        echo "<p><img src='img/time-black.png' />$StartDate kl $StartTime</p>";
-        echo "</div>";
-        echo "<p class='description'>$Information</p>";
-        echo "<a class='seemore' href='event.php?EventID=" . urlencode($EventID) . " '>more...</a>";
-        echo "</div>";
-    }
+        if ($Status == 1) {
+          echo "<div class='box'>";
+          echo "<a name='". urldecode($UserID) ."'><h3 class='profiletitle'>$Title</h3></a>";
+          echo "<span class='pictureandname'>";
+          echo "<img src='$ProfilePicture' class='profilepic'/>";
+          echo "<a class='username' href='user.php?UserID= " . urlencode($UserID) . " '> $UserName </a>";
+          echo "</span>";
+          echo "<div class='specifics'>";
+          echo "<p><img src='img/place-black.png' />$StreetAdress,<br /> $cityname</p> <br />";
+          echo "<p><img src='img/time-black.png' />$StartDate<br /> kl $StartTime</p>";
+          echo "</div>";
+          echo "<p class='description'>$Information</p>";
+          echo "<a class='seemore' href='event.php?EventID=" . urlencode($EventID) . " '>more...</a>";
+          echo "</div>";
+          }
+        }
+
   ?>
 
 </div>
