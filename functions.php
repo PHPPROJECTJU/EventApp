@@ -329,6 +329,7 @@ function getHostedEvents($myuserid){
       exit();
   }
 
+
   $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Status, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name
             FROM Event
             JOIN User
@@ -343,6 +344,8 @@ function getHostedEvents($myuserid){
             $stmt->execute();
 
             while ($stmt->fetch()) {
+
+
                 if ($Status == 1) {
 
                   echo "<div class='eventpagebox'>";
@@ -356,6 +359,11 @@ function getHostedEvents($myuserid){
                   echo "<p><img src='img/time-black.png' />$StartDate<br /> kl $StartTime</p>";
                   echo "</div>";
                   echo "<p class='description'>$Information</p>";
+                  //echo "<p class='description'>Attenders: ";
+                  //howManyAttenders($EventID);
+                  echo "</p>";
+                  echo "<br />";
+                  echo "<br />";
                   echo "<form action='' method='POST' name='hostedbuttons'>";
                   echo '<INPUT type="hidden" name="eventid" value='.$EventID.'>';
                   echo "<a class='attendsave' href='event.php?EventID= " . urlencode($EventID) . " '>See event page</a>";
@@ -382,6 +390,29 @@ function getHostedEvents($myuserid){
                   </script>
                 <?php
             }
+}
+
+function howManyAttenders($EventID){
+    include("config.php");
+
+    @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
+
+    if ($db->connect_error) {
+        echo "could not connect: " . $db->connect_error;
+        printf("<br><a href=index.php>Return to home page </a>");
+        exit();
+    }
+
+    $query = "SELECT * FROM Event_User
+              WHERE Event_User.AttendedID = $EventID
+            ";
+
+            $stmt8 = $db->prepare($query);
+            $stmt8->execute();
+            $stmt8->store_result();
+
+            $totalcount = $stmt8->num_rows();
+            echo $totalcount;
 }
 
 function cancelEvent($EventID){
