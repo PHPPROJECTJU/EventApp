@@ -755,8 +755,7 @@ div.eventpagebox.firsteventbox {
   float:left;
   width: 60%;
   box-sizing: border-box;
-  padding-left: 18px;
-  padding-top: 6px;
+  padding: 0px 0px 12px 18px;
 }
 
 .specifics img {
@@ -771,7 +770,7 @@ div.eventpagebox.firsteventbox {
   padding: 6px 0;
   margin: 0;
   float: left;
-  font-size: 14px;
+  font-size: 13px;
   clear: both;
   text-transform: uppercase;
 }
@@ -952,7 +951,6 @@ p.description {
 }
 
 .signinbutton {
-
   margin-top: 24px;
   background: #fff url("../img/account-login-32.png") no-repeat left;
   background-position: 30px;
@@ -965,7 +963,7 @@ p.description {
 }
 
 .signinbutton:hover {
-  background: none;
+  background-color: transparent;
   cursor: pointer;
   color: #fff;
 }
