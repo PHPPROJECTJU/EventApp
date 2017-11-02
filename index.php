@@ -95,7 +95,8 @@ if (isset($_POST['search']) && !empty($_POST['searchevent'])) {
 /*----------------------Getting stuff from database on chosen location-----------------------------------------*/
 else if(isset($_GET[$showregion])){
 
-      $showregion1 = $_GET[$showregion];
+    $showregion = trim($showregion);
+
       $search = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name, State.state_name
                 FROM User
                 JOIN Event
@@ -104,7 +105,7 @@ else if(isset($_GET[$showregion])){
                 ON Event.city_id=City.city_id
                 JOIN State
                 ON City.city_state_id = State.state_id
-                WHERE State.state_name = '$showregion1'
+                WHERE State.state_name = '$showregion'
                 ORDER BY Event.EventID DESC
                 ";
 
