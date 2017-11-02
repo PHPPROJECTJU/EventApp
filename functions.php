@@ -137,8 +137,8 @@ function createEvent(){
     $categoryID = trim($_POST['categoryID']);
 
     $userid = addslashes($userid);
-    $eventname = addslashes($eventname);
-    $adress = addslashes($adress);
+    $eventname = htmlentities($eventname);
+    $adress = htmlentities($adress);
     $region = addslashes($region);
     $cityID = addslashes($cityID);
     $startdate = addslashes($startdate);
