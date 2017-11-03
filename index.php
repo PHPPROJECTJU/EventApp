@@ -11,6 +11,12 @@
     if (isset($_POST['region'])) {
       $region = $_POST['region'];
       setcookie('region', $region, time() + 24 * 3600);
+      unset($_POST);
+      ?>
+        <script>
+            window.location.href = "index.php";
+        </script>
+        <?php
     }
 ?>
 
@@ -188,9 +194,7 @@ while ($stmt->fetch()) {
               echo "<p class='description'>$Information</p>";
               echo "<a class='seemore' href='event.php?EventID=" . urlencode($EventID) . " '>more...</a>";
               echo "</div>";
-            } elseif ($region != $statename) {
-              echo "none";
-            }//check if the cookie region matches the event region
+            } //check if the cookie region matches the event region
 
         } elseif (!isset($_COOKIE['region'])) {
 
