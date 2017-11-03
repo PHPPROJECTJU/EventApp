@@ -305,6 +305,12 @@ textarea:focus, select:focus, input:focus {
   position: relative;
 }
 
+#inregion {
+  margin: 3px 0 0 0;
+  font-size: 12px;
+  width: 70px;
+}
+
 input:focus {
     outline:none;
     caret-color: #af3e41;

@@ -2,15 +2,16 @@
   session_start();
 
 //Setting a cookie with our region for the search field
-    if (isset($_COOKIE['region'])) {
-      $region = $_COOKIE['region'];
+
+    if (isset($_COOKIE['regionpick'])) {
+      $region = $_COOKIE['regionpick'];
     } else {
-      unset($region);
+      $region = "";
     }
 
-    if (isset($_POST['region'])) {
-      $region = $_POST['region'];
-      setcookie('region', $region, time() + 24 * 3600);
+    if (isset($_POST['regionpick'])) {
+      $region = $_POST['regionpick'];
+      setcookie('regionpick', $region, time() + 24 * 3600);
       unset($_POST);
       ?>
         <script>
@@ -18,6 +19,17 @@
         </script>
         <?php
     }
+
+    if (isset($_POST['allregions'])) {
+      setcookie("regionpick","",time()-24 * 3600);
+      unset($_POST);
+      ?>
+        <script>
+            window.location.href = "index.php";
+        </script>
+        <?php
+    }
+
 ?>
 
 <?php
@@ -38,6 +50,7 @@
               <input type="submit" class="searchbutton" name="search" value="GO">
         </form>
     </div>
+    <p id="inregion"><?php echo $region; ?></p>
     <ul id='regionmenu'>
       <div class="liwrapper">
         <form action="index.php" name="chooseregion" method="POST">
@@ -62,11 +75,9 @@
 
               while ($stmt->fetch()) {
                   echo "<input type='hidden' name='regionid' value=' . $regionid . '>";
-                  echo "<input type='submit' name='region' class='regionbuttons' value='$showregion'>";
+                  echo "<input type='submit' name='regionpick' class='regionbuttons' value='$showregion'>";
               }
-
-
-
+              echo "<input type='submit' name='allregions' class='regionbuttons' value='All regions'>";
          ?>
        </form>
        </div>
@@ -159,26 +170,13 @@ else {
       $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Status, $Title, $StartDate, $StartTime, $Information, $StreetAdress, $cityname, $statename);
       $stmt->execute();
 
-
-
     } /*<--end of the if/else post isset statement*/
-    /*if (isset($_COOKIE['region'])) {
-      $region = $_COOKIE['region'];
-    } else {
-      $region = 0;
-    }
-
-    if (isset($_POST['region'])) {
-      $region = $_POST['region'];
-      setcookie('region', $region, time() + 24 * 3600);
-    }*/
-
 
 
 while ($stmt->fetch()) {
     if ($Status == 1) {
 
-        if (isset($_COOKIE['region'])) {
+        if (isset($_COOKIE['regionpick'])) {
             if ($region == $statename) {
 
               echo "<div class='box'>";
@@ -196,7 +194,7 @@ while ($stmt->fetch()) {
               echo "</div>";
             } //check if the cookie region matches the event region
 
-        } elseif (!isset($_COOKIE['region'])) {
+        } elseif (!isset($_COOKIE['regionpick'])) {
 
               echo "<div class='box'>";
               echo "<a name='". urldecode($UserID) ."'><h3 class='profiletitle'>$Title</h3></a>";
