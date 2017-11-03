@@ -1,5 +1,17 @@
 <?php
   session_start();
+
+//Setting a cookie with our region for the search field
+    if (isset($_COOKIE['region'])) {
+      $region = $_COOKIE['region'];
+    } else {
+      unset($region);
+    }
+
+    if (isset($_POST['region'])) {
+      $region = $_POST['region'];
+      setcookie('region', $region, time() + 24 * 3600);
+    }
 ?>
 
 <?php
@@ -22,7 +34,7 @@
     </div>
     <ul id='regionmenu'>
       <div class="liwrapper">
-        <form action="index.php" name="chooseregion" method="GET">
+        <form action="index.php" name="chooseregion" method="POST">
         <?php
             @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
 
@@ -31,6 +43,8 @@
                 printf("<br><a href=index.php>Return to home page </a>");
                 exit();
             }
+
+
 
             $getregion = "SELECT State.state_id, State.state_name
                       FROM State
@@ -42,8 +56,11 @@
 
               while ($stmt->fetch()) {
                   echo "<input type='hidden' name='regionid' value=' . $regionid . '>";
-                  echo "<input type='submit' name='$showregion' class='regionbuttons' value='$showregion'>";
+                  echo "<input type='submit' name='region' class='regionbuttons' value='$showregion'>";
               }
+
+
+
          ?>
        </form>
        </div>
@@ -76,12 +93,14 @@ if (isset($_POST['search']) && !empty($_POST['searchevent'])) {
     $searchphrase = addslashes($searchphrase);
 
 
-    $search = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name
+    $search = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Status, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name, State.state_name
               FROM User
               JOIN Event
               ON User.UserID=Event.UserID
               JOIN City
               ON Event.city_id=City.city_id
+              JOIN State
+              ON Event.state_id=State.state_id
               WHERE Title LIKE '%" . $searchphrase . "%'
               OR Information LIKE '%" . $searchphrase . "%'
               OR UserName LIKE '%" . $searchphrase . "%'
@@ -89,11 +108,11 @@ if (isset($_POST['search']) && !empty($_POST['searchevent'])) {
               ";
 
           $stmt = $db->prepare($search);
-          $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Title, $StartDate, $StartTime, $Information, $StreetAdress, $cityname);
+          $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Status, $Title, $StartDate, $StartTime, $Information, $StreetAdress, $cityname, $statename);
           $stmt->execute();
 }
 /*----------------------Getting stuff from database on chosen location-----------------------------------------*/
-else if(isset($_GET[$showregion])){
+/*else if(isset($_GET[$showregion])){
 
     $showregion = trim($showregion);
 
@@ -113,48 +132,86 @@ else if(isset($_GET[$showregion])){
             $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Title, $StartDate, $StartTime, $Information, $StreetAdress, $cityname, $regionname);
             $stmt->execute();
 
-}
+}*/
 
 else {
 
 /*--Getting stuff from database without searching-----------------------------------------*/
 
-      $getevent = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Status, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name
+      $getevent = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Status, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name, State.state_name
                 FROM User
                 JOIN Event
                 ON User.UserID=Event.UserID
                 JOIN City
                 ON Event.city_id=City.city_id
+                JOIN State
+                ON Event.state_id=State.state_id
                 ORDER BY Event.EventID DESC
                 ";
 
       $stmt = $db->prepare($getevent);
-      $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Status, $Title, $StartDate, $StartTime, $Information, $StreetAdress, $cityname);
+      $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Status, $Title, $StartDate, $StartTime, $Information, $StreetAdress, $cityname, $statename);
       $stmt->execute();
 
 
 
     } /*<--end of the if/else post isset statement*/
+    /*if (isset($_COOKIE['region'])) {
+      $region = $_COOKIE['region'];
+    } else {
+      $region = 0;
+    }
 
-    while ($stmt->fetch()) {
-        if ($Status == 1) {
-          echo "<div class='box'>";
-          echo "<a name='". urldecode($UserID) ."'><h3 class='profiletitle'>$Title</h3></a>";
-          echo "<span class='pictureandname'>";
-          echo "<img src='$ProfilePicture' class='profilepic'/>";
-          echo "<a class='username' href='user.php?UserID= " . urlencode($UserID) . " '> $UserName </a>";
-          echo "</span>";
-          echo "<div class='specifics'>";
-          echo "<p><img src='img/place-black.png' />$StreetAdress,<br /> $cityname</p> <br />";
-          echo "<p><img src='img/time-black.png' />$StartDate<br /> kl $StartTime</p>";
-          echo "</div>";
-          echo "<p class='description'>$Information</p>";
-          echo "<a class='seemore' href='event.php?EventID=" . urlencode($EventID) . " '>more...</a>";
-          echo "</div>";
-          }
-        }
+    if (isset($_POST['region'])) {
+      $region = $_POST['region'];
+      setcookie('region', $region, time() + 24 * 3600);
+    }*/
 
-  ?>
+
+
+while ($stmt->fetch()) {
+    if ($Status == 1) {
+
+        if (isset($_COOKIE['region'])) {
+            if ($region == $statename) {
+
+              echo "<div class='box'>";
+              echo "<a name='". urldecode($UserID) ."'><h3 class='profiletitle'>$Title</h3></a>";
+              echo "<span class='pictureandname'>";
+              echo "<img src='$ProfilePicture' class='profilepic'/>";
+              echo "<a class='username' href='user.php?UserID= " . urlencode($UserID) . " '> $UserName </a>";
+              echo "</span>";
+              echo "<div class='specifics'>";
+              echo "<p><img src='img/place-black.png' />$StreetAdress,<br /> $cityname</p> <br />";
+              echo "<p><img src='img/time-black.png' />$StartDate<br /> kl $StartTime</p>";
+              echo "</div>";
+              echo "<p class='description'>$Information</p>";
+              echo "<a class='seemore' href='event.php?EventID=" . urlencode($EventID) . " '>more...</a>";
+              echo "</div>";
+            } elseif ($region != $statename) {
+              echo "none";
+            }//check if the cookie region matches the event region
+
+        } elseif (!isset($_COOKIE['region'])) {
+
+              echo "<div class='box'>";
+              echo "<a name='". urldecode($UserID) ."'><h3 class='profiletitle'>$Title</h3></a>";
+              echo "<span class='pictureandname'>";
+              echo "<img src='$ProfilePicture' class='profilepic'/>";
+              echo "<a class='username' href='user.php?UserID= " . urlencode($UserID) . " '> $UserName </a>";
+              echo "</span>";
+              echo "<div class='specifics'>";
+              echo "<p><img src='img/place-black.png' />$StreetAdress,<br /> $cityname</p> <br />";
+              echo "<p><img src='img/time-black.png' />$StartDate<br /> kl $StartTime</p>";
+              echo "</div>";
+              echo "<p class='description'>$Information</p>";
+              echo "<a class='seemore' href='event.php?EventID=" . urlencode($EventID) . " '>more...</a>";
+              echo "</div>";
+          } //cookie check
+    }//if status is 1
+}//while fetch
+
+?>
 
 </div>
 
