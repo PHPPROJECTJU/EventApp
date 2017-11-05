@@ -77,7 +77,7 @@ textarea:focus, select:focus, input:focus {
   overflow: hidden;
   display: block;
   height: 50px;
-  background: linear-gradient(to bottom right, #cc2b5e, #753a88);
+  background: linear-gradient(to bottom right, #9976fc, #4728e2);
   position: fixed;
   top: 0;
   left: 0;
