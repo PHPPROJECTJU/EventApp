@@ -7,7 +7,7 @@
 
 
 * {
-  font-family: 'Noto sans';
+  font-family: 'Raleway';
 }
 
 body {
@@ -49,6 +49,18 @@ a {
   text-decoration: none;
 }
 
+/*header basics*/
+
+#pageheader {
+  text-align: center;
+  font-weight: 300;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  width: 100%;
+  margin: 48px 0px;
+}
+
 /*--all forms basic-----*/
 
 select, input[type=text], input[type=date], input[type=time] {
@@ -71,6 +83,32 @@ textarea:focus, select:focus, input:focus {
   caret-color: #af3e41;
 }
 
+.fileUpload {
+  position: relative;
+  height: 50px;
+  margin: 12px auto;
+  width: 100px;
+}
+
+input[type="file"] {
+    opacity: 0;
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    top: 0;
+    height: inherit;
+    width: inherit;
+}
+
+.uploadbutton {
+  background-color: #fff;
+  border-radius: 25px;
+  position: absolute;
+  padding: 12px 24px;
+  overflow: hidden;
+}
+
+
 /*--Main menu------*/
 
 #mainheader {
@@ -84,6 +122,10 @@ textarea:focus, select:focus, input:focus {
   z-index: 50;
   width: 100%;
   box-shadow: 0px 0px 45px rgba(0, 0, 0, 0.3);
+}
+
+#notloggedin {
+  background: linear-gradient(to bottom right, #9976fc, #4728e2);
 }
 
 #headbox {

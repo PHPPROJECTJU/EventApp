@@ -52,8 +52,8 @@ if ($db->connect_error) {
 <!--PHP TERRITORY end---------------->
 
 
-	  <body>
-		    <main class="red" id="main">
+	  <body id="notloggedin">
+		    <main id="main">
 
 <div>
 

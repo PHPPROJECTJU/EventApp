@@ -9,7 +9,6 @@
 ?>
 
 <!--Formfields should only be required if there is no input from before-->
-<?php echo $username;?>
 <form action="editprofile.php" method="POST" enctype="multipart/form-data">
   <table id="registerform">
     <tr>
@@ -40,8 +39,11 @@
     <tr>
           <td>
               <p>Choose a profile picture:</p>
-                  <input type="file" name="fileupload" id="fileupload">
-                  <br />
+              <div class="fileUpload">
+                <div class="uploadbutton">Upload</div>
+                <input type="file" name="fileupload">
+              </div>
+
           </td>
     </tr>
     <tr>

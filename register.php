@@ -14,8 +14,8 @@
 	      <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,600,700,900|Noto+Sans:300,400,700" rel="stylesheet">
 	  </head>
 
-	  <body>
-		    <main class="red" id="main">
+	  <body id="notloggedin">
+		    <main id="main">
 
 <div>
 

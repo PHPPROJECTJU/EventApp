@@ -22,9 +22,11 @@
 	  </head>
 
 <!--Formfields are required when creating user because all profiles should look the same-->
+<body id="notloggedin">
+
 <main>
 <div id="createprofile">
-  <h1>Welcome!<br> Finish your profile</h1>
+  <h2 id="pageheader">Welcome!<br> Finish your profile</h2>
   <form action="createprofile.php" method="POST" enctype="multipart/form-data">
     <table id="registerform">
       <tr>
@@ -45,9 +47,11 @@
       <tr>
             <td>
                 <p>Choose a profile picture:</p>
-
-                    <input type="file" name="fileupload" id="fileupload">
-                    <br />
+                    <div class="fileUpload">
+                      <div class="uploadbutton">Upload</div>
+                      <input type="file" name="fileupload">
+                    </div>
+                    
 
             </td>
       </tr>
@@ -75,3 +79,4 @@
   ?>
 
 </main>
+</body>
