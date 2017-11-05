@@ -79,7 +79,7 @@ $stmt9->fetch();
 			<div class="modal-content">
 					<div class="modal-header">
 							<span class="close">&times;</span>
-							<h2>Create a new event!</h2>
+							<h2 class="createeventheader">New event</h2>
 					</div>
 
 					<div class="modal-body">
@@ -91,23 +91,21 @@ $stmt9->fetch();
 										 ?>
 
 											<div class="row">
-													<p>
-														Name of Event
-													</p>
-													<input type="text" name="eventname" class="eventregisterbar" placeholder="Name of Event" required>
+													<h4 class="eventheaders">
+														What?
+													</h4>
+													<input type="text" name="eventname" class="eventregisterbar" placeholder="Best birthday ever" required>
 											</div>
 											<div class="row">
-												<p>
-													Adress
-												</p>
-													<input type="text" name="adress" class="eventregisterbar" placeholder="i.e Fortunagatan 16B" required>
+												<h4 class="eventheaders">
+													Where?
+												</h4>
+													<input type="text" name="adress" class="eventregisterbar" placeholder="Fortunagatan 16B" required>
 											</div>
 											<div class="row">
-												<p>
-														Select your region
-												</p>
+
 													<select name="region" placeholder="Select region" onchange="getId(this.value);">
-															<option value="" disabled selected>Select your region</option>
+															<option value="" disabled selected>Select region</option>
 																	 <?php
 																			getregions();
 																		?>
@@ -129,10 +127,9 @@ $stmt9->fetch();
 
 									    </script>
 											<div class="row">
-												<p>
-													Select your city
-												</p>
+
 													<select name="city" id="cityList">
+														<option value="" disabled selected>Select city</option>
 
 									            <?php
 									            include ("AjaxGetCities.php");
@@ -142,8 +139,13 @@ $stmt9->fetch();
 
 									        </select>
 											</div>
+
 											<div class="row">
+												<h4 class="eventheaders">
+													When?
+												</h4>
 													<div class="innerdatewrap">
+
 															<p>Start date</p>
 															<input type="date" name="startdate" class="test" placeholder="Time for event" required>
 													</div>
@@ -163,15 +165,15 @@ $stmt9->fetch();
 													</div>
 											</div>
 											<div class="row">
-												<p>
-													Describe your event
-												</p>
-															<textarea rows="4" cols="80" type="textarea" name="description" class="eventregisterbartext" placeholder="Write some lines about your event!" required></textarea>
+												<h4 class="eventheaders">
+													How?
+												</h4>
+															<textarea rows="4" cols="80" type="textarea" name="description" class="eventregisterbartext" placeholder="Everything you need to know about my event..." required></textarea>
 											</div>
 											<div class="row">
-												<p>
-													Select a tag
-												</p>
+												<h4 class="eventheaders">
+													Categories
+												</h4>
 															<select name="categoryID" placeholder="Select category">
 																	<option value="">Select category</option>
 																	 <?php
@@ -180,7 +182,7 @@ $stmt9->fetch();
 															 </select>
 											</div>
 											<div>
-													<input type="submit" class="registerbutton" name="createevent" value="Create event">
+													<input type="submit" class="colorblockbutton" name="createevent" value="Create event">
 												</div>
 								</div>
 						</form>

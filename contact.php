@@ -51,7 +51,7 @@ $stmt->fetch();
       <td><textarea name="message" class="registerbar" placeholder="Message"></textarea></td>
     </tr>
     <tr>
-      <td><input type="submit" class="registerbutton" name="submit" value="Send"></td>
+      <td><input type="submit" class="colorblockbutton" name="submit" value="Send"></td>
     </tr>
   </table>
 

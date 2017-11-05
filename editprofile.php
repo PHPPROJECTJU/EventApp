@@ -52,7 +52,7 @@
         </td>
     </tr>
     <tr>
-      <td><input type="submit" class="registerbutton" name="submit" value="Register"></td>
+      <td><input type="submit" class="blockbutton" name="submit" value="Register"></td>
     </tr>
   </table>
 </form>

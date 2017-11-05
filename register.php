@@ -42,13 +42,13 @@
             <tr>
               <td><input type="password" name="repeatpassword" class="registerbar" placeholder="Repeat password" required></td>
             </tr>
-              <td><input type="submit" class="registerbutton" name="submit" value="Register"></td>
+              <td><input type="submit" class="blockbutton" name="submit" value="Register"></td>
             </tr>
 
           </table>
         </form>
 
-              <p class="already">Already registered? <a href="login.php" class="loginbutton">Sign in</a></p>
+              <p class="already">Already registered? <a href="login.php" class="transparentbutton">Sign in</a></p>
 
     </div>
 

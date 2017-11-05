@@ -92,7 +92,7 @@ if ($db->connect_error) {
         }
          ?>
 
-        <p class="already">Not a member? <a href="register.php" class="loginbutton">Register here</a></p>
+        <p class="already">Not a member? <a href="register.php" class="transparentbutton">Register here</a></p>
 
     </div>
 

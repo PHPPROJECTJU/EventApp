@@ -12,11 +12,11 @@ if (!isset($_SESSION['username'])) {
 		    <meta charset="UTF-8">
 	      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	      <link rel="stylesheet" href="css/main.css">
-	      <link href="https://fonts.googleapis.com/css?family=Lato|Noto+Sans:300,400,600|Roboto:300,400,600,700" rel="stylesheet">
+	      <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,600,700,900|Noto+Sans:300,400,700" rel="stylesheet">
 	  </head>
 
-<body>
-		<main class="red" id="main">
+<body id="notloggedin">
+		<main id="main">
 
               <?php
                   session_destroy();
@@ -33,10 +33,8 @@ if (!isset($_SESSION['username'])) {
               <br  />
 
               <footer class="logoutfooter">
-                <img src="img/skyline-1.png" class="footerimg">
-                    <!--<p>© Julia Palm, Albin Johansson, Ellen Brage
-                    <br/>Jönköping University <?php echo date("Y");?>
-                  </p>-->
+
+                  
               </footer>
 
 

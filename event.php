@@ -23,11 +23,9 @@ displayEvent();
 <form action="" method="POST">
 
   <textarea name="commentfield"></textarea>
-  <div id="logoutbox">
-    <div id="logoutbuttonwrap">
-      <input type="submit" name="postcomment" class="loginbutton" value="Submit" />
-    </div>
-  </div>
+
+      <input type="submit" name="postcomment" class="commentbutton" value="Submit" />
+
 
 </form>
 

@@ -40,7 +40,7 @@ $username = $_SESSION['username'];
         echo "</br>Birthdate:</br>$Birthdate</br>";
         echo "</br>Email:</br> $EmailAdress</br>";
         echo "</br>About:</br>$About</br>";
-        echo "</br></br><a class='profilebutton' href='editprofile.php'>Edit profile</a>";
+        echo "</br></br><a class='colorbutton' href='editprofile.php'>Edit profile</a>";
         echo "</div>";
     }
 

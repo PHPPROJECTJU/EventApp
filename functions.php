@@ -218,8 +218,8 @@ function displayEvent(){
             echo "<p class='description'>$Information</p>";
             echo "<div class='eventbuttonbox'>";
             echo "<form action='' method='POST' name='attendsave'>";
-            echo "<input type='submit' class='attendsave' name='save' value='Save'>";
-            echo "<input type='submit' class='attendsave' name='attend' value='Attend'>";
+            echo "<input type='submit' class='attendsaveblock' name='save' value='Save'>";
+            echo "<input type='submit' class='attendsaveblock' name='attend' value='Attend'>";
             echo '<INPUT type="hidden" name="eventhostid" value=' . $UserID . '>';
 
             $username = $_SESSION['username'];
@@ -366,8 +366,8 @@ function getHostedEvents($myuserid){
                   echo "<br />";
                   echo "<form action='' method='POST' name='hostedbuttons'>";
                   echo '<INPUT type="hidden" name="eventid" value='.$EventID.'>';
-                  echo "<a class='attendsave' href='event.php?EventID= " . urlencode($EventID) . " '>See event page</a>";
-                  echo "<input type='submit' class='attendsave' name='cancelevent' value='Cancel event'>";
+                  echo "<a class='attendsaveblock' href='event.php?EventID= " . urlencode($EventID) . " '>See event page</a>";
+                  echo "<input type='submit' class='cancelbutton' name='cancelevent' value='Cancel event'>";
                   echo "</div>";
                   echo "</form>";
                   echo "</div>";
@@ -483,8 +483,8 @@ function getAttendedEvents($myuserid){
                 echo "<br />";
                 echo "<form action='' method='POST' name='attendedbuttons'>";
                 echo '<INPUT type="hidden" name="eventid" value='.$EventID.'>';
-                echo "<a class='attendsave' href='event.php?EventID= " . urlencode($EventID) . " '>See event page</a>";
-                echo "<input type='submit' class='attendsave' name='unattend' value='Unattend'>";
+                echo "<a class='attendsaveblock' href='event.php?EventID= " . urlencode($EventID) . " '>See event page</a>";
+                echo "<input type='submit' class='cancelbutton' name='unattend' value='Unattend'>";
 
                 $username = $_SESSION['username'];
                 getUserID($username);
@@ -583,7 +583,7 @@ function getSavedEvents($myuserid){
                 echo "<p><img src='img/time-black.png' />$StartDate<br /> kl $StartTime</p>";
                 echo "</div>";
                 echo "<p class='description'>$Information</p>";
-                echo "<a class='attendsave' href='event.php?EventID= " . urlencode($EventID) . " '>See event page</a>";
+                echo "<a class='attendsaveblock' href='event.php?EventID= " . urlencode($EventID) . " '>See event page</a>";
                 echo "</div>";
                 }
               }

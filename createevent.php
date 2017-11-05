@@ -17,7 +17,7 @@
           Describe your event<textarea rows="4" cols="80" type="textarea" name="description" class="eventregisterbartext" placeholder="Description of event" required></textarea>
         </div>
          <div>
-             <input type="submit" class="registerbutton" name="createevent" value="Create event">
+             <input type="submit" class="blockbutton" name="createevent" value="Create event">
          </div>
    </div>
 
