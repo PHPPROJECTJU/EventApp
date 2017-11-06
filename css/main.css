@@ -111,6 +111,16 @@ input[type="file"] {
   overflow: hidden;
   margin-left
 }
+.uploadbuttondark {
+  background-position: 20px;
+  color: grey;
+  border: 2px solid grey;
+  border-radius: 25px;
+  position: absolute;
+  padding: 10px 25px 10px 25px;
+  overflow: hidden;
+  cursor: pointer;
+}
 
 
 /*--Main menu------*/
@@ -212,10 +222,11 @@ input[type="file"] {
 }
 
 .theplus {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  transition: 0.2s;
+    position: absolute;
+    top: 10px;
+    left: 9px;
+    transition: 0.2s;
+    font-size: 30px;
 }
 
 #topButton {
@@ -492,7 +503,7 @@ img.chooselocation {
 
 .eventheaders {
   text-align: left;
-  margin: 12px 0 6px 14px;
+  margin: 8px 0 6px 18px;
 }
 
 #eventform {
@@ -518,6 +529,33 @@ img.chooselocation {
   box-sizing: border-box;
   margin: 1px;
   border: 1px solid lightgray;
+}
+
+.eventregisterbar80{
+  font-size: 16px;
+  width: 90%;
+  box-shadow: none;
+  border-radius: 3px;
+  background-color: #fff;
+  padding: 6px 6px 6px 10px;
+  box-sizing: border-box;
+  margin: 1px;
+  border: 1px solid lightgray;
+  height: 80px;
+}
+
+.eventregisterbarinput{
+  font-size: 16px;
+  width: 90%;
+  box-shadow: none;
+  border-radius: 3px;
+  background-color: #fff;
+  padding: 6px 6px 6px 10px;
+  box-sizing: border-box;
+  margin: 1px;
+  border: 1px solid lightgray;
+  height: 80px;
+overflow: hidden;
 }
 
 .eventregisterbartext {
@@ -584,8 +622,7 @@ img.chooselocation {
 .close {
     color: #fff;
     float: right;
-    font-size: 28px;
-    font-weight: bold;
+    font-size: 40px;
     position: absolute;
     right: 10px;
     top: 2px;
@@ -987,7 +1024,7 @@ p.description {
 .profilebox {
   background-color: #fff;
   width: calc(100% - 30px);
-  margin: 140px 15px;
+  margin: 17px 15px;
   border: 1px solid lightgrey;
   padding: 36px;
   box-sizing: border-box;
@@ -1007,8 +1044,9 @@ p.description {
 /*profile pictures only at the personal profile*/
 #personalprofilepic {
   clip-path: circle(50% at center);
-  width: 100%;
-  margin-top: -140px;
+  width: 71%;
+  margin: 0 auto;
+  display: block;
 }
 
 .personalusername {
