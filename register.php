@@ -69,6 +69,10 @@
 
         checkpasswordstrength();
 
+        $hashedpassword = password_hash($password, PASSWORD_DEFAULT);
+
+        #Henny1234
+
     @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
 
         if ($db->connect_error) {
@@ -78,7 +82,7 @@
         }
 
         $stmt = $db->prepare("INSERT INTO User (User.Username, User.EmailAdress, User.Password) VALUES (?, ?, ?)");
-        $stmt->bind_param('sss', $username, $email, $password);
+        $stmt->bind_param('sss', $username, $email, $hashedpassword);
         $stmt->execute();
         $stmt->close();
 

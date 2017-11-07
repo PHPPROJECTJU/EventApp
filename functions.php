@@ -922,7 +922,6 @@ function makeComment($comment){
 
     $comment = $comment;
     $comment = htmlentities($comment);
-    $comment = mysqli_real_escape_string($db, $comment);
 
     $commentquery = ("INSERT INTO Comments (Text, EventID, UserName)
                   VALUES (?, ?, ?)
