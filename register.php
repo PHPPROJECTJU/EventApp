@@ -52,53 +52,13 @@
 
     </div>
 
-    <?php
-    if (isset($_POST['submit'])) {
+<?php
 
-        $username = trim($_POST['username']);
-        $email = trim($_POST['email']);
-        $password = trim($_POST['password']);
-        $repeatpassword = trim($_POST['repeatpassword']);
+if (isset($_POST['submit'])) {
+  registerUser();
+}
 
-        $username = addslashes($username);
-        $email = addslashes($email);
-        $password = addslashes($password);
-        $repeatpassword = addslashes($repeatpassword);
-
-        checkUsername();
-
-        checkpasswordstrength();
-
-        $hashedpassword = password_hash($password, PASSWORD_DEFAULT);
-
-        #Henny1234
-
-    @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
-
-        if ($db->connect_error) {
-            echo "could not connect: " . $db->connect_error;
-            printf("<br><a href=index.php>Return to home page </a>");
-            exit();
-        }
-
-        $stmt = $db->prepare("INSERT INTO User (User.Username, User.EmailAdress, User.Password) VALUES (?, ?, ?)");
-        $stmt->bind_param('sss', $username, $email, $hashedpassword);
-        $stmt->execute();
-        $stmt->close();
-
-        session_start();
-
-        $UserID = mysqli_insert_id($db);
-        $_SESSION['userid'] = $UserID;
-
-
-        printf("<br><br><br><br>User Added!");
-        $_SESSION['username'] = $username;
-        header("location:createprofile.php");
-        //exit;
-    }
-
-    ?>
+?>
 
 </main>
 </body>

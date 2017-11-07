@@ -5,6 +5,7 @@
 
 <?php
   include("config.php");
+  include("functions.php");
 ?>
 
 <!DOCTYPE html>
@@ -15,54 +16,6 @@
 	      <link rel="stylesheet" href="css/main.css">
 	      <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,600,700,900|Noto+Sans:300,400,700" rel="stylesheet">
 	  </head>
-
-<!--PHP TERRITORY---------------->
-<?php
-
-function login(){
-  include("config.php");
-
-  @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
-
-  if ($db->connect_error) {
-  echo "could not connect: " . $db->connect_error;
-  exit();
-  }
-
-    $getusername =  stripslashes($_POST['getusername']);
-    $getpassword =  stripslashes($_POST['getpassword']);
-
-    $getusername = htmlentities($getusername);
-    $getpassword = htmlentities($getpassword);
-
-    $query = "SELECT User.Password
-              FROM User
-              WHERE User.UserName = '{$getusername}'
-              ";
-
-              $stmt2 = $db->prepare($query);
-              $stmt2->bind_result($hashedpassword);
-              $stmt2->execute();
-              $stmt2->store_result();
-
-              $totalcount = $stmt2->num_rows();
-
-              $stmt2->fetch();
-
-              if(password_verify($getpassword, $hashedpassword)) {
-                $_SESSION['username'] = $getusername;
-                header("location:index.php");
-              } else {
-                echo "<p class='wrongpasstext'>Wrong username or password. Please try again.</p>";
-              }
-
-}
-
-?>
-
-
-<!--PHP TERRITORY end---------------->
-
 
 	  <body id="notloggedin">
 		    <main id="main">

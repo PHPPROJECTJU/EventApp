@@ -24,49 +24,10 @@
 </form>
 </div>
 
-
-</div>
-
-</div>
-
 <?php
-
-
-function createEvent(){
-include("config.php");
-
-@ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
-
-if ($db->connect_error) {
-echo "could not connect: " . $db->connect_error;
-printf("<br><a href=index.php>Return to home page </a>");
-exit();
-}
-
-$eventname = trim($_POST['eventname']);
-$startdate = trim($_POST['startdate']);
-$enddate = trim($_POST['enddate']);
-$starttime = trim($_POST['starttime']);
-$endtim = trim($_POST['endtime']);
-$description = trim($_POST['description']);
-
-$eventname = addslashes($eventname);
-$startdate = addslashes($startdate);
-$enddate = addslashes($enddate);
-$starttime = addslashes($starttime);
-$endtim = addslashes($endtim);
-$description = addslashes($description);
-
-
-
-$stmt = $db->prepare("INSERT INTO Event (Event.Title, Event.StartDate, Event.EndDate, Event.StartTime, Event.EndTime, Event.Information)
-                   VALUES (?, ?, ?, ?, ?, ?)");
-$stmt->bind_param('ssssss', $eventname, $startdate, $enddate, $starttime, $endtim, $description);
-$stmt->execute();
-printf("Event created!");
-}
 
 if (isset($_POST['createevent'])) {
 createEvent();
 }
+
 ?>

@@ -54,6 +54,8 @@
     <ul id='regionmenu'>
       <div class="liwrapper">
         <form action="index.php" name="chooseregion" method="POST">
+
+
         <?php
             @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
 
@@ -62,8 +64,6 @@
                 printf("<br><a href=index.php>Return to home page </a>");
                 exit();
             }
-
-
 
             $getregion = "SELECT State.state_id, State.state_name
                       FROM State

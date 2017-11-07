@@ -12,8 +12,6 @@
 
 displayEvent();
 
-
-
 ?>
 
 <!--Comment form---------->
