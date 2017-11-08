@@ -218,7 +218,7 @@ function displayEvent(){
             echo "<p class='description'>$Information</p>";
             echo "<div class='eventbuttonbox'>";
             echo "<form action='' method='POST' name='attendsave'>";
-            echo "<input type='submit' class='attendsaveblock' name='save' value='Save'>";
+            echo "<button class='invbutton' onclick='eventAttended()'><input type='submit' class='attendsaveblock' name='save' value='Save'></button>";
             echo "<input type='submit' class='attendsaveblock' name='attend' value='Attend'>";
             echo '<INPUT type="hidden" name="eventhostid" value=' . $UserID . '>';
 

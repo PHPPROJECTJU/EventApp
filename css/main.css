@@ -737,7 +737,11 @@ div.eventpagebox.firsteventbox {
 
 .attendsaveblock {
   font-family: 'Raleway';
-  width: 47.2%;
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  color: #fff;
+  /*font-family: 'Raleway';
   float: left;
     padding: 9px;
     box-sizing: border-box;
@@ -749,10 +753,26 @@ div.eventpagebox.firsteventbox {
     color: #fff;
     margin: 24px 4px;
     cursor: pointer;
-    text-align: center;
+    text-align: center;*/
 }
 
-.attendsaveblock:hover{
+
+.invbutton {
+  float: left;
+    padding: 9px;
+    box-sizing: border-box;
+    border-radius: 40px;
+    background-color: #6c2dff;
+    border: 2px solid #6c2dff;
+    outline: none;
+    color: #fff;
+    margin: 24px 4px;
+    cursor: pointer;
+    text-align: center;
+  width: 47.2%;
+}
+
+.invbutton:hover{
   cursor: pointer;
   background-color: transparent;
   border: 2px solid #6c2dff;
