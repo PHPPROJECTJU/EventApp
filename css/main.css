@@ -579,12 +579,11 @@ overflow: hidden;
   display: inline-block;
 }
 
-.test {
+.test, .firsttime, .secondtime {
   border-radius: 3px;
   border: none;
   padding: 6px 6px 6px 7px;
 }
-
 
 .modal {
     display: none; /* Hidden by default */

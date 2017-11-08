@@ -188,7 +188,7 @@ function displayEvent(){
           exit();
       }
 
-      $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.Title, Event.Status, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name
+      $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.Title, Event.Status, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, DATE_FORMAT(`EndTime`, '%H:%i') AS `EndTime`, Event.Information, Event.StreetAdress, City.city_name
                 FROM User
                 JOIN Event
                 ON User.UserID=Event.UserID
@@ -198,7 +198,7 @@ function displayEvent(){
                 ";
 
       $stmt = $db->prepare($query);
-      $stmt->bind_result($UserName, $ProfilePicture, $UserID, $Title, $Status, $StartDate, $StartTime, $Information, $StreetAdress, $cityname);
+      $stmt->bind_result($UserName, $ProfilePicture, $UserID, $Title, $Status, $StartDate, $StartTime, $EndTime, $Information, $StreetAdress, $cityname);
       $stmt->execute();
 
 
@@ -213,7 +213,7 @@ function displayEvent(){
             echo "</span>";
             echo "<div class='specifics'>";
             echo "<p><img src='img/place-black.png' />$StreetAdress,<br /> $cityname</p> <br />";
-            echo "<p><img src='img/time-black.png' />$StartDate<br /> kl $StartTime</p>";
+            echo "<p><img src='img/time-black.png' />$StartDate<br /> kl $StartTime - $EndTime</p>";
             echo "</div>";
             echo "<p class='description'>$Information</p>";
             echo "<div class='eventbuttonbox'>";

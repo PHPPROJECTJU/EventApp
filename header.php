@@ -3,7 +3,7 @@
 	  <head>
 			<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-				
+
 	      <link rel="stylesheet" href="css/main.css">
 	      <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,600,700,900|Noto+Sans:300,400,700" rel="stylesheet">
 				<script type="text/javascript" src="js/jquery.min.js"></script>
@@ -148,11 +148,11 @@ $stmt9->fetch();
 													<div class="innerdatewrap">
 
 															<p>Start date</p>
-															<input type="date" name="startdate" class="test" placeholder="Time for event" required>
+															<input type="date" name="startdate" class="firsttime" placeholder="Time for event" required>
 													</div>
 													<div class="innerdatewrap">
 															<p>Start time</p>
-															<input type="time" name="starttime" class="test" placeholder="Time for event" required>
+															<input type="time" name="starttime" class="test" placeholder="Time for event" onchange="getFirstTime(this.value)" required>
 													</div>
 											</div>
 											<div class="row">
@@ -162,7 +162,23 @@ $stmt9->fetch();
 													</div>
 													<div class="innerdatewrap">
 															<p>End time</p>
-															<input type="time" name="endtime" class="test" placeholder="Time for event" required>
+															<input type="time" name="endtime" class="secondtime" placeholder="Time for event" onchange="getSecondTime(this.value)" required>
+															<script>
+															var firsttime;
+															var secondtime;
+
+															function getFirstTime(value1){
+											          firsttime = value1;
+																console.log("Value nr 1 is:" + firsttime);
+											        }
+															function getSecondTime(value2){
+											          secondtime = value2;
+																console.log("Value nr 2 is:" + secondtime);
+																if (firsttime >= secondtime){
+																	alert("Hey, it's har making an event end before it starts :)");
+																}
+											        }
+															</script>
 													</div>
 											</div>
 											<div class="row">
