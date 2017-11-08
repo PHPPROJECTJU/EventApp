@@ -14,6 +14,7 @@
 include("config.php");
 include("functions.php");
 
+$date = date('Y-m-d');
 
 
 if (!isset($_SESSION['username'])) {
@@ -148,7 +149,7 @@ $stmt9->fetch();
 													<div class="innerdatewrap">
 
 															<p>Start date</p>
-															<input type="date" name="startdate" class="firsttime" placeholder="Time for event" required>
+															<input type="date" name="startdate" class="firsttime" placeholder="Time for event" min="<?php echo $date;?>" required>
 													</div>
 													<div class="innerdatewrap">
 															<p>Start time</p>
@@ -158,26 +159,41 @@ $stmt9->fetch();
 											<div class="row">
 													<div class="innerdatewrap">
 															<p>End date</p>
-															<input type="date" name="enddate" class="test" placeholder="Time for event" required>
+															<input type="date" name="enddate" class="test" placeholder="Time for event" min="<?php echo $date;?>" required>
 													</div>
 													<div class="innerdatewrap">
 															<p>End time</p>
 															<input type="time" name="endtime" class="secondtime" placeholder="Time for event" onchange="getSecondTime(this.value)" required>
 															<script>
-															var firsttime;
-															var secondtime;
-
-															function getFirstTime(value1){
-											          firsttime = value1;
-																console.log("Value nr 1 is:" + firsttime);
-											        }
-															function getSecondTime(value2){
-											          secondtime = value2;
-																console.log("Value nr 2 is:" + secondtime);
-																if (firsttime >= secondtime){
-																	alert("Hey, it's har making an event end before it starts :)");
-																}
-											        }
+															//function getFirstTime(val){
+											          //console.log(val)
+											        //   $.ajax({
+											        //       type: "POST",
+											        //        url: "AjaxGetTime.php",
+											        //        data: "selected_time="+val,
+											        //        success: function(data){
+											        //       $("#timeInfo").html(data);
+											        //        }
+											        //   });
+											        // }
+																// var firsttime;
+																// var secondtime;
+																//
+																// function getFirstTime(value1){
+												        //   firsttime = value1;
+																// 	console.log("Value nr 1 is:" + firsttime);
+												        // }
+																// function getSecondTime(value2){
+												        //   secondtime = value2;
+																// 	console.log("Value nr 2 is:" + secondtime);
+																//
+																// 	if (firsttime >= secondtime){
+																// 		alert("Hey, it's har making an event end before it starts :)");
+																// 	}
+												        // }
+																// document.getElementById("myBtn").addEventListener("mouseover", function(){
+																//     document.getElementById("demo").innerHTML = "Hello World";
+																// });
 															</script>
 													</div>
 											</div>

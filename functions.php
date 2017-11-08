@@ -136,6 +136,8 @@ function createEvent(){
     $description = trim($_POST['description']);
     $categoryID = trim($_POST['categoryID']);
 
+    checkDateTime();
+
     $userid = addslashes($userid);
     $eventname = htmlentities($eventname);
     $adress = htmlentities($adress);
@@ -147,10 +149,6 @@ function createEvent(){
     $endtime = addslashes($endtime);
     $description = htmlentities($description);
     $categoryID = addslashes($categoryID);
-
-
-
-
 
 
     $stmt = $db->prepare("INSERT INTO Event (Event.UserID, Event.Title, Event.StreetAdress, Event.state_id, Event.city_id, Event.StartDate, Event.EndDate, Event.StartTime, Event.EndTime, Event.Information, Event.CategoryID)
@@ -168,6 +166,22 @@ function createEvent(){
       <?php
 
 }
+
+function checkDateTime(){
+  $startdate = trim($_POST['startdate']);
+  $enddate = trim($_POST['enddate']);
+  $starttime = trim($_POST['starttime']);
+  $endtime = trim($_POST['endtime']);
+
+  if($startdate > $enddate){
+    echo "<p>Make sure the end date is not before the start date.</p>";
+    exit();
+  } elseif($starttime >= $endtime){
+    echo "<p>Hey, it's hard to end an event before it starts!</p>";
+    exit();
+  }
+}
+
 
 /*Event.php-------------------------------------------*/
 
@@ -218,7 +232,7 @@ function displayEvent(){
             echo "<p class='description'>$Information</p>";
             echo "<div class='eventbuttonbox'>";
             echo "<form action='' method='POST' name='attendsave'>";
-            echo "<button class='invbutton' onclick='eventAttended()'><input type='submit' class='attendsaveblock' name='save' value='Save'></button>";
+            echo "<input type='submit' class='attendsaveblock' name='save' value='Save'>";
             echo "<input type='submit' class='attendsaveblock' name='attend' value='Attend'>";
             echo '<INPUT type="hidden" name="eventhostid" value=' . $UserID . '>';
 
