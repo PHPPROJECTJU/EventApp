@@ -10,6 +10,7 @@
 
   #Can't really make the min date work?
   $date = date('Y-m-d');
+
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +42,7 @@
       </tr>
       <tr>
         <td>
-          <input type="date" name="bday" class="registerbar" placeholder="Birthdate" required/>
+          <input type="date" name="bday" class="registerbar" placeholder="Birthdate" max="<?php echo $date;?>" required/>
         </td>
       </tr>
       <tr>
