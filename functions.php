@@ -136,7 +136,7 @@ function createEvent(){
     $description = trim($_POST['description']);
     $categoryID = trim($_POST['categoryID']);
 
-    checkDateTime();
+    //checkDateTime();
 
     $userid = addslashes($userid);
     $eventname = htmlentities($eventname);
@@ -167,20 +167,22 @@ function createEvent(){
 
 }
 
-function checkDateTime(){
-  $startdate = trim($_POST['startdate']);
-  $enddate = trim($_POST['enddate']);
-  $starttime = trim($_POST['starttime']);
-  $endtime = trim($_POST['endtime']);
-
-  if($startdate > $enddate){
-    echo "<p>Make sure the end date is not before the start date.</p>";
-    exit();
-  } elseif($starttime >= $endtime){
-    echo "<p>Hey, it's hard to end an event before it starts!</p>";
-    exit();
-  }
-}
+// function checkDateTime(){
+//   $startdate = trim($_POST['startdate']);
+//   $enddate = trim($_POST['enddate']);
+//   $starttime = trim($_POST['starttime']);
+//   $endtime = trim($_POST['endtime']);
+//
+//   if($startdate > $enddate){
+//     echo "<p>Make sure the end date is not before the start date.</p>";
+//     unset($_POST);
+//     exit();
+//   }elseif($starttime !== $endtime){
+//         echo "<p>Hey, it's hard to end an event before it starts!</p>";
+//         unset($_POST);
+//         exit();
+//   }
+// }
 
 
 /*Event.php-------------------------------------------*/
