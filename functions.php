@@ -235,6 +235,7 @@ function displayEvent(){
             echo "<div class='eventbuttonbox'>";
             echo "<form action='' method='POST' name='attendsave'>";
 
+#If event is saved or attended already, we want to see it on the buttons
             checkIfSaved($EventID);
             checkIfAttended($EventID);
 
@@ -248,6 +249,7 @@ function displayEvent(){
             echo "</div>";
             echo "</div>";
             }
+
 
           }
 
@@ -274,6 +276,28 @@ hence the hidden input "eventhostid"
         }
         else if (isset($_POST['attend'])) {
             attendEvent($myuserid, $EventID, $eventhostid);
+        }
+
+#to be able to unattend or unsave at the event page:
+
+        if (isset($_POST['unattend'])) {
+          $myuserid = trim($_POST['userid']);
+          unattendEvent($EventID, $myuserid);
+          unset($_POST);
+          ?>
+            <script>
+                window.location.href = "event.php?EventID=<?php echo $EventID?>";
+            </script>
+          <?php
+        } else if (isset($_POST['unsave'])) {
+          $myuserid = trim($_POST['userid']);
+          unsaveEvent($EventID, $myuserid);
+          unset($_POST);
+          ?>
+            <script>
+                window.location.href = "event.php?EventID=<?php echo $EventID?>";
+            </script>
+          <?php
         }
 
 }
@@ -309,7 +333,7 @@ function checkIfSaved($EventID){
             $stmt2->fetch();
 
             if ($totalcount != 0) {
-              echo "<input type='submit' class='alreadysaved' name='save' value='Saved'>";
+              echo "<input type='submit' class='cancelbutton' name='unsave' value='Unsave'>";
             } else {
               echo "<input type='submit' class='attendsaveblock' name='save' value='Save'>";
             }
@@ -344,10 +368,12 @@ function checkIfAttended($EventID){
             $stmt2->fetch();
 
             if ($totalcount != 0) {
-              echo "<input type='submit' class='alreadysaved' name='attend' value='Attended'>";
+              echo "<input type='submit' class='cancelbutton' name='unattend' value='Unattend'>";
             } else {
               echo "<input type='submit' class='attendsaveblock' name='attend' value='Attend'>";
             }
+
+
 }
 
 #saving an event
