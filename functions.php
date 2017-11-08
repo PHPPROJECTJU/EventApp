@@ -476,8 +476,8 @@ function getHostedEvents($myuserid){
                   echo "<p><img src='img/time-black.png' />$StartDate<br /> kl $StartTime</p>";
                   echo "</div>";
                   echo "<p class='description'>$Information</p>";
-                  //echo "<p class='description'>Attenders: ";
-                  //howManyAttenders($EventID);
+                  echo "<p class='attenders'>Attenders: ";
+                  howManyAttenders($EventID);
                   echo "</p>";
                   echo "<br />";
                   echo "<br />";
@@ -520,16 +520,39 @@ function howManyAttenders($EventID){
         exit();
     }
 
-    $query = "SELECT * FROM Event_User
+    $query = "SELECT User.UserName, User.UserID
+              FROM Event_User
+              JOIN User
+              ON Event_User.UserID = User.UserID
               WHERE Event_User.AttendedID = $EventID
             ";
 
             $stmt8 = $db->prepare($query);
+            $stmt8->bind_result($attender, $attenderid);
             $stmt8->execute();
             $stmt8->store_result();
 
             $totalcount = $stmt8->num_rows();
-            echo $totalcount;
+
+            echo $totalcount . "<br />";
+            echo "<div id='attenders'>";
+            echo "<a id='seeattenders' onclick='showAttenders();'>See who's coming</a>" . "<br />";
+
+            echo "<div id='attenderbox'>";
+
+            while ($stmt8->fetch()) {
+              if ($totalcount == 1) {
+                echo $attender;
+              } elseif ($totalcount > 1) {
+                echo "<a href='user.php?UserID=".$attenderid."'>".$attender."</a>". "  ";
+              }
+
+            }
+            echo "<div class='attenderarrow'></div>";
+            echo "</div>";
+            echo "</div>";
+
+
 }
 
 function cancelEvent($EventID){

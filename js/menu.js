@@ -15,7 +15,7 @@ function closeNav() {
 }
 
 
-/*--Displayed only on About page--------*/
+/*--Displayed only on not logged in pages--------*/
 
 var aboutBox = document.getElementById("aboutBox");
 
@@ -25,6 +25,17 @@ function showAbout() {
 		} else {
 			aboutBox.style.display = "block";
 		}
+}
+
+/*--Show attenders on hostedevents.php*/
+
+function showAttenders() {
+	var attenderbox = document.getElementById("attenderbox");
+	if (attenderbox.style.display == "block") {
+		attenderbox.style.display = "none";
+	} else {
+		attenderbox.style.display = "block";
+	}
 }
 
 
