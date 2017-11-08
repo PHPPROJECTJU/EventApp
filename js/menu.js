@@ -39,6 +39,8 @@ function showAbout() {
 
 		}
 }*/
+
+
 // -----------------Modal functionalities-----------------
 // Following lines are borrowed from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal2 24 october 2017.
 // Get the modal

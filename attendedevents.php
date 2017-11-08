@@ -49,7 +49,6 @@ $stmt9->fetch();
 
 getAttendedEvents($myuserid);
 
-echo $attended;
 
 ?>
 

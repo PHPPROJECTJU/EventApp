@@ -737,11 +737,7 @@ div.eventpagebox.firsteventbox {
 
 .attendsaveblock {
   font-family: 'Raleway';
-  background-color: transparent;
-  border: none;
-  font-size: 18px;
-  color: #fff;
-  /*font-family: 'Raleway';
+  width: 47.2%;
   float: left;
     padding: 9px;
     box-sizing: border-box;
@@ -753,30 +749,31 @@ div.eventpagebox.firsteventbox {
     color: #fff;
     margin: 24px 4px;
     cursor: pointer;
-    text-align: center;*/
-}
-
-
-.invbutton {
-  float: left;
-    padding: 9px;
-    box-sizing: border-box;
-    border-radius: 40px;
-    background-color: #6c2dff;
-    border: 2px solid #6c2dff;
-    outline: none;
-    color: #fff;
-    margin: 24px 4px;
-    cursor: pointer;
     text-align: center;
-  width: 47.2%;
 }
 
-.invbutton:hover{
+.attendsaveblock:hover{
   cursor: pointer;
   background-color: transparent;
   border: 2px solid #6c2dff;
   color: #6c2dff;
+}
+
+.alreadysaved {
+  font-family: 'Raleway';
+  width: 47.2%;
+  float: left;
+    padding: 9px;
+    box-sizing: border-box;
+    border-radius: 40px;
+    background-color: #9976fc;
+    border: 2px solid #9976fc;
+    outline: none;
+    font-size: 100%;
+    color: #fff;
+    margin: 24px 4px;
+    cursor: pointer;
+    text-align: center;
 }
 
 .cancelbutton {
