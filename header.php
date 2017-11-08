@@ -153,7 +153,7 @@ $stmt9->fetch();
 													</div>
 													<div class="innerdatewrap">
 															<p>Start time</p>
-															<input type="time" name="starttime" class="test" placeholder="Time for event" onchange="getFirstTime(this.value)" required>
+															<input type="time" name="starttime" class="test" placeholder="Time for event" required>
 													</div>
 											</div>
 											<div class="row">
@@ -163,38 +163,7 @@ $stmt9->fetch();
 													</div>
 													<div class="innerdatewrap">
 															<p>End time</p>
-															<input type="time" name="endtime" class="secondtime" placeholder="Time for event" onchange="getSecondTime(this.value)" required>
-															<script>
-															//function getFirstTime(val){
-											          //console.log(val)
-											        //   $.ajax({
-											        //       type: "POST",
-											        //        url: "AjaxGetTime.php",
-											        //        data: "selected_time="+val,
-											        //        success: function(data){
-											        //       $("#timeInfo").html(data);
-											        //        }
-											        //   });
-											        // }
-																// var firsttime;
-																// var secondtime;
-																//
-																// function getFirstTime(value1){
-												        //   firsttime = value1;
-																// 	console.log("Value nr 1 is:" + firsttime);
-												        // }
-																// function getSecondTime(value2){
-												        //   secondtime = value2;
-																// 	console.log("Value nr 2 is:" + secondtime);
-																//
-																// 	if (firsttime >= secondtime){
-																// 		alert("Hey, it's har making an event end before it starts :)");
-																// 	}
-												        // }
-																// document.getElementById("myBtn").addEventListener("mouseover", function(){
-																//     document.getElementById("demo").innerHTML = "Hello World";
-																// });
-															</script>
+															<input type="time" name="endtime" class="secondtime" placeholder="Time for event" required>
 													</div>
 											</div>
 											<div class="row">
