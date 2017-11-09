@@ -155,7 +155,7 @@ else {
 
 /*--Getting stuff from database without searching-----------------------------------------*/
 
-      $getevent = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Status, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name, State.state_name
+      $getevent = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Status, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name, State.state_name, Category.Categoryname
                 FROM User
                 JOIN Event
                 ON User.UserID=Event.UserID
@@ -163,11 +163,13 @@ else {
                 ON Event.city_id=City.city_id
                 JOIN State
                 ON Event.state_id=State.state_id
+                JOIN Category
+                ON Event.CategoryID=Category.CategoryID
                 ORDER BY Event.EventID DESC
                 ";
 
       $stmt = $db->prepare($getevent);
-      $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Status, $Title, $StartDate, $StartTime, $Information, $StreetAdress, $cityname, $statename);
+      $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Status, $Title, $StartDate, $StartTime, $Information, $StreetAdress, $cityname, $statename, $Category);
       $stmt->execute();
 
     } /*<--end of the if/else post isset statement*/
@@ -188,6 +190,7 @@ while ($stmt->fetch()) {
               echo "<div class='specifics'>";
               echo "<p><img src='img/place-black.png' />$StreetAdress,<br /> $cityname</p> <br />";
               echo "<p><img src='img/time-black.png' />$StartDate<br /> kl $StartTime</p>";
+              echo "<p><img src='img/tag-black.png' />$Category</p>";
               echo "</div>";
               echo "<p class='description'>$Information</p>";
               echo "<a class='seemore' href='event.php?EventID=" . urlencode($EventID) . " '>more...</a>";
@@ -205,6 +208,7 @@ while ($stmt->fetch()) {
               echo "<div class='specifics'>";
               echo "<p><img src='img/place-black.png' />$StreetAdress,<br /> $cityname</p> <br />";
               echo "<p><img src='img/time-black.png' />$StartDate<br /> kl $StartTime</p>";
+              echo "<p><img src='img/tag-black.png' />$Category</p>";
               echo "</div>";
               echo "<p class='description'>$Information</p>";
               echo "<a class='seemore' href='event.php?EventID=" . urlencode($EventID) . " '>more...</a>";
