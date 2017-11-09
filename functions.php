@@ -518,7 +518,7 @@ function howManyAttenders($EventID){
         exit();
     }
 
-    $query = "SELECT User.UserName, User.UserID
+    $query = "SELECT User.UserName, User.UserID, User.ProfilePicture
               FROM Event_User
               JOIN User
               ON Event_User.UserID = User.UserID
@@ -526,7 +526,7 @@ function howManyAttenders($EventID){
             ";
 
             $stmt8 = $db->prepare($query);
-            $stmt8->bind_result($attender, $attenderid);
+            $stmt8->bind_result($attender, $attenderid, $attenderpic);
             $stmt8->execute();
             $stmt8->store_result();
 
@@ -540,11 +540,12 @@ function howManyAttenders($EventID){
             #Modal content
             echo "<div class='attmodal-content'>";
             echo "<span class='attclose'>×</span>";
-            echo "<p>Attenders: ";
-            echo $totalcount . "<br />";
+            echo "<p>";
+            echo $totalcount . " attenders so far<br />";
             echo "</p>";
 
             while ($stmt8->fetch()) {
+                echo "<img src='$attenderpic' width='50px'/>";
                 echo "<a href='user.php?UserID=".$attenderid."'>".$attender."</a>". "<br />";
 
             #echo "<div id='attenderbox'>";
@@ -793,34 +794,32 @@ function getUsersEvents($UserID){
             $count = 0;
 
             while ($stmt->fetch()) {
-              if ($Status == 1) {
-                  //echo "<div class='eventpagebox'>";
+                //echo "<div class='eventpagebox'>";
 
-                  echo '<div class="eventpagebox ';
-                  if($count == 0) {
-                      echo 'firsteventbox">';
-                  }
-                  else{
-                      echo '">';
-                  }
-                  echo "<h3 class='profiletitle'>$Title</h3>";
-                  echo "<span class='pictureandname'>";
-                  echo "<img src='$ProfilePicture' class='profilepic'/>";
-                  echo "<a class='username' href='user.php?UserID= " . urlencode($UserID) . " '> $UserName </a>";
-                  echo "</span>";
-                  echo "<div class='specifics'>";
-                  echo "<p><img src='img/place-black.png' />$StreetAdress,<br /> $cityname</p> <br />";
-                  echo "<p><img src='img/time-black.png' />$StartDate<br /> kl $StartTime</p>";
-                  echo "</div>";
-                  echo "<p class='description'>$Information</p>";
-                  echo "<a class='seemore' href='event.php?EventID=" . urlencode($EventID) . " '>more...</a>";
-                  echo "<form action='' method='POST' name='attendsave'>";
-                  echo "</form>";
-                  echo "</div>";
-              }
+                echo '<div class="eventpagebox ';
+                if($count == 0) {
+                    echo 'firsteventbox">';
+                }
+                else{
+                    echo '">';
+                }
+                echo "<h3 class='profiletitle'>$Title</h3>";
+                echo "<span class='pictureandname'>";
+                echo "<img src='$ProfilePicture' class='profilepic'/>";
+                echo "<a class='username' href='user.php?UserID= " . urlencode($UserID) . " '> $UserName </a>";
+                echo "</span>";
+                echo "<div class='specifics'>";
+                echo "<p><img src='img/place-black.png' />$StreetAdress,<br /> $cityname</p> <br />";
+                echo "<p><img src='img/time-black.png' />$StartDate<br /> kl $StartTime</p>";
+                echo "</div>";
+                echo "<p class='description'>$Information</p>";
+                echo "<a class='seemore' href='event.php?EventID=" . urlencode($EventID) . " '>more...</a>";
+                echo "<form action='' method='POST' name='attendsave'>";
+                echo "</form>";
+                echo "</div>";
             /*--- incrementing counter-----*/
             $count++;
-          }
+            }
 };
 
 /*---Register.php-----------------------------------------*/
