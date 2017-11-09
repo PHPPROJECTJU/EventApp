@@ -57,7 +57,7 @@
           </td>
     </tr>
     <tr>
-        <td>
+        <td><h4 class="eventheaders">About</h4>
             <textarea type="text" name="about" class="eventregisterbar80" style="height: 100px;"><?php echo $showabout; ?></textarea>
         </td>
     </tr>

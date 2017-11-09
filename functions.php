@@ -108,7 +108,6 @@ function getUserID($username){
     $stmt9->fetch();
 
     echo '<INPUT type="hidden" name="userid" value=' . $userid . '>';
-
 }
 
 #creating a new event
@@ -1088,9 +1087,19 @@ function finishtheuser(){
        printf("<br><a href=index.php>Return to home page </a>");
        exit();
    }
-
    $sessionuser = $_SESSION['username'];
-   $UserID = $_SESSION['userid'];
+
+   $query = "SELECT UserID
+             FROM User
+             WHERE User.UserName = $sessionuser
+             ";
+
+   $stmt2 = $db->prepare($query);
+   $stmt2->bind_result($UserID);
+   $stmt2->execute();
+   $stmt2->store_result();
+   $stmt2->fetch();
+
    #Getting the image upload:
    if (isset($_FILES['fileupload'])) {
 
@@ -1133,7 +1142,7 @@ function finishtheuser(){
 
    $stmt = $db->prepare("UPDATE User
                          SET FirstName='$firstname', LastName='$lastname', ProfilePicture='profilepics/$fileupload', About='$about'
-                         WHERE UserName=$sessionuser");
+                         WHERE UserID=$UserID");
    $stmt->bind_param('ssss', $firstname, $lastname, $fileupload, $about);
    $stmt->execute();
 
