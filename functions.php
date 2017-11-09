@@ -476,9 +476,7 @@ function getHostedEvents($myuserid){
                   echo "<p><img src='img/time-black.png' />$StartDate<br /> kl $StartTime</p>";
                   echo "</div>";
                   echo "<p class='description'>$Information</p>";
-                  echo "<p class='attenders'>Attenders: ";
                   howManyAttenders($EventID);
-                  echo "</p>";
                   echo "<br />";
                   echo "<br />";
                   echo "<form action='' method='POST' name='hostedbuttons'>";
@@ -534,25 +532,27 @@ function howManyAttenders($EventID){
 
             $totalcount = $stmt8->num_rows();
 
-            echo $totalcount . "<br />";
             echo "<div id='attenders'>";
-            echo "<a id='seeattenders' onclick='showAttenders();'>See who's coming</a>" . "<br />";
+            echo "<button id='seeattenders'>See who's coming</button>" . "<br />";
+            #The Modal
+            echo "<div id='attModal' class='attmodal'>";
 
-            echo "<div id='attenderbox'>";
+            #Modal content
+            echo "<div class='attmodal-content'>";
+            echo "<span class='attclose'>×</span>";
+            echo "<p>Attenders: ";
+            echo $totalcount . "<br />";
+            echo "</p>";
 
             while ($stmt8->fetch()) {
-              if ($totalcount == 1) {
-                echo $attender;
-              } elseif ($totalcount > 1) {
-                echo "<a href='user.php?UserID=".$attenderid."'>".$attender."</a>". "  ";
-              }
+                echo "<a href='user.php?UserID=".$attenderid."'>".$attender."</a>". "<br />";
 
+            #echo "<div id='attenderbox'>";
             }
-            echo "<div class='attenderarrow'></div>";
             echo "</div>";
             echo "</div>";
-
-
+            echo "</div>";
+            #echo "<div class='attenderarrow'></div>";
 }
 
 function cancelEvent($EventID){
