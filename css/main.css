@@ -1334,11 +1334,15 @@ p.attenders {
 
 /* Modal Content/Box */
 .attmodal-content {
-    background-color: #fefefe;
+    background-color: #fff;
     margin: 72px auto; /* 15% from the top and centered */
-    padding: 20px;
     border: 1px solid #888;
+    border-radius: 10px;
     width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.attmodalbody {
+  padding: 24px;
 }
 
 .attclose {
@@ -1350,32 +1354,17 @@ p.attenders {
   margin-top: -12px;
 }
 
-#attenderbox {
-  float: left;
-  display: none;
-  z-index: 30;
-  position: absolute;
-  top: -82px;
-  background-color: #eee;
-  width: 85%;
-  padding: 24px;
-  box-sizing: border-box;
-  border-radius: 25px;
-  box-shadow: 8px 8px 24px rgba(0,0,0,0.2);
+.attenderrow {
+  padding: 6px 0;
+  overflow: hidden;
 }
 
-.attenderarrow {
-  width: 0;
-  height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 10px solid #eee;
-  position: absolute;
-  left: 24px;
-  bottom: -10px;
-  overflow: hidden;
-  float: left;
-  clear: right;
+.attenderrow img {
+  clip-path: circle(50% at center);
+}
+
+.attenderrow a {
+  margin-left: 12px;
 }
 
 #about {

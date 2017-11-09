@@ -536,15 +536,21 @@ function howManyAttenders($EventID){
 
             #Modal content
             echo "<div class='attmodal-content'>";
+            echo "<div class='modal-header'>";
             echo "<span class='attclose'>×</span>";
             echo "<p>";
             echo $totalcount . " attenders so far<br />";
             echo "</p>";
+            echo "</div>";
+            echo "<div class='attmodalbody'>";
 
             while ($stmt8->fetch()) {
+                echo "<div class='attenderrow'>";
                 echo "<img src='$attenderpic' width='50px'/>";
-                echo "<a href='user.php?UserID=".$attenderid."'>".$attender."</a>". "<br />";
+                echo "<a href='user.php?UserID=".$attenderid."'>".$attender."</a>";
+                echo "</div>";
             }
+            echo "</div>";
             echo "</div>";
             echo "</div>";
 
