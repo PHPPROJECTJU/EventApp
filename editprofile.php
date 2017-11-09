@@ -21,13 +21,13 @@
     exit();
     }
 
-    $query = ("SELECT User.UserName, User.FirstName, User.LastName, User.Birthdate, User.About
+    $query = ("SELECT User.UserName, User.FirstName, User.LastName, User.Birthdate, User.About, User.ProfilePicture
               FROM User
               WHERE User.UserName = '{$username}'
               ");
 
     $stmt11 = $db->prepare($query);
-    $stmt11->bind_result($showusername, $showfirstname, $showlastname, $showbirthdate, $showabout);
+    $stmt11->bind_result($showusername, $showfirstname, $showlastname, $showbirthdate, $showabout, $ProfilePicture);
     $stmt11->execute();
     $stmt11->store_result();
     $stmt11->fetch();
@@ -47,9 +47,10 @@
     </tr>
     <tr>
           <td>
-              <p>Choose a profile picture:</p>
+              <?php echo "<img src='$ProfilePicture' id='personalprofilepic'/>";?>
+
               <div class="fileUpload">
-                <div class="uploadbuttondark">Upload</div>
+                <div class="uploadbuttondark">Change profile picture</div>
                 <input type="file" name="fileupload">
               </div>
                   <br/>

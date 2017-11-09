@@ -87,7 +87,6 @@ textarea:focus, select:focus, input:focus, button:focus {
   position: relative;
   height: 50px;
   margin: 12px auto;
-  width: 125px;
 }
 
 input[type="file"] {
@@ -112,15 +111,17 @@ input[type="file"] {
   margin-left
 }
 .uploadbuttondark {
-  background: transparent url("../img/data-transfer-upload-24.png") no-repeat left;
-  background-position: 20px;
-  color: grey;
-  border: 2px solid grey;
-  border-radius: 25px;
-  position: absolute;
-  padding: 10px 25px 10px 40px;
-  overflow: hidden;
-  cursor: pointer;
+  background: transparent url(../img/data-transfer-upload-24-grey.png) no-repeat left;
+    background-position: 19px;
+    background-size: 18px;
+    color: grey;
+    border: 2px solid grey;
+    border-radius: 25px;
+    padding: 10px 10px 10px 40px;
+    cursor: pointer;
+    width: 184px;
+    margin: 0 auto;
+    display: inline-block;
 }
 
 
@@ -1089,7 +1090,7 @@ p.attenders {
 .userbox {
   background-color: #fff;
   width: calc(100% - 30px);
-  margin: 190px 15px;
+  margin: 65px 15px;
   border: 1px solid lightgrey;
   padding: 36px;
   box-sizing: border-box;
@@ -1341,7 +1342,6 @@ p.attenders {
 .attmodal-content {
     background-color: #fff;
     margin: 72px auto; /* 15% from the top and centered */
-    border: 1px solid #888;
     border-radius: 10px;
     width: 90%; /* Could be more or less, depending on screen size */
 }
@@ -1587,7 +1587,6 @@ footer.logoutfooter {
 #personalprofilepic {
   clip-path: circle(50% at center);
   width: 40%;
-  margin-top: -130px;
 }
 
 .personalusername {
