@@ -68,7 +68,7 @@ $stmt->fetch();
   if (isset($_POST['submit'])) {
       $to = $adminEmail;
       $subject = "Message from Eventually";
-      $sender = $_POST["name"];
+      $sender = $_POST["username"];
       $senderEmail = $_POST["email"];
       $message = $_POST["message"];
 
@@ -81,7 +81,6 @@ $stmt->fetch();
   }
 
 #This code should work but we suspect that you need to set up a mail server or have a published site
-#Error, undefined index for submit, check this out!
 
   include("footer.php");
 ?>
