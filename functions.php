@@ -780,14 +780,14 @@ function getUsersEvents($UserID){
       exit();
   }
 
-  $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, Event.EventID
+  $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, Event.EventID, Event.Status
             FROM Event
             JOIN User
             ON Event.UserID = User.UserID
             WHERE Event.UserID = $UserID
             ";
             $stmt = $db->prepare($query);
-            $stmt->bind_result($UserName, $ProfilePicture, $UserID, $Title, $StartDate, $StartTime, $Information, $StreetAdress, $EventID);
+            $stmt->bind_result($UserName, $ProfilePicture, $UserID, $Title, $StartDate, $StartTime, $Information, $StreetAdress, $EventID, $Status);
             $stmt->execute();
 
 /*--------Counter to give first object on page a unique class------*/
@@ -795,31 +795,32 @@ function getUsersEvents($UserID){
 
             while ($stmt->fetch()) {
                 //echo "<div class='eventpagebox'>";
-
-                echo '<div class="eventpagebox ';
-                if($count == 0) {
-                    echo 'firsteventbox">';
-                }
-                else{
-                    echo '">';
-                }
-                echo "<h3 class='profiletitle'>$Title</h3>";
-                echo "<span class='pictureandname'>";
-                echo "<img src='$ProfilePicture' class='profilepic'/>";
-                echo "<a class='username' href='user.php?UserID= " . urlencode($UserID) . " '> $UserName </a>";
-                echo "</span>";
-                echo "<div class='specifics'>";
-                echo "<p><img src='img/place-black.png' />$StreetAdress,<br /> $cityname</p> <br />";
-                echo "<p><img src='img/time-black.png' />$StartDate<br /> kl $StartTime</p>";
-                echo "</div>";
-                echo "<p class='description'>$Information</p>";
-                echo "<a class='seemore' href='event.php?EventID=" . urlencode($EventID) . " '>more...</a>";
-                echo "<form action='' method='POST' name='attendsave'>";
-                echo "</form>";
-                echo "</div>";
-            /*--- incrementing counter-----*/
-            $count++;
+              if ($Status == 1) {
+                  echo '<div class="eventpagebox ';
+                  if($count == 0) {
+                      echo 'firsteventbox">';
+                  }
+                  else{
+                      echo '">';
+                  }
+                  echo "<h3 class='profiletitle'>$Title</h3>";
+                  echo "<span class='pictureandname'>";
+                  echo "<img src='$ProfilePicture' class='profilepic'/>";
+                  echo "<a class='username' href='user.php?UserID= " . urlencode($UserID) . " '> $UserName </a>";
+                  echo "</span>";
+                  echo "<div class='specifics'>";
+                  echo "<p><img src='img/place-black.png' />$StreetAdress,<br /> $cityname</p> <br />";
+                  echo "<p><img src='img/time-black.png' />$StartDate<br /> kl $StartTime</p>";
+                  echo "</div>";
+                  echo "<p class='description'>$Information</p>";
+                  echo "<a class='seemore' href='event.php?EventID=" . urlencode($EventID) . " '>more...</a>";
+                  echo "<form action='' method='POST' name='attendsave'>";
+                  echo "</form>";
+                  echo "</div>";
+              /*--- incrementing counter-----*/
+              $count++;
             }
+          }
 };
 
 /*---Register.php-----------------------------------------*/
