@@ -918,8 +918,9 @@ div.eventpagebox.firsteventbox {
 
 .profiletitle {
   padding: 6px 12px 12px 12px;
-  color: gray;
-  font-weight: 300;
+  color: #6c2dff;
+  font-weight: 600;
+  letter-spacing: 3px;
   display: block;
   clear: left;
   text-transform: uppercase;
