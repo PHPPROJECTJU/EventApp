@@ -793,32 +793,34 @@ function getUsersEvents($UserID){
             $count = 0;
 
             while ($stmt->fetch()) {
-                //echo "<div class='eventpagebox'>";
+              if ($Status == 1) {
+                  //echo "<div class='eventpagebox'>";
 
-                echo '<div class="eventpagebox ';
-                if($count == 0) {
-                    echo 'firsteventbox">';
-                }
-                else{
-                    echo '">';
-                }
-                echo "<h3 class='profiletitle'>$Title</h3>";
-                echo "<span class='pictureandname'>";
-                echo "<img src='$ProfilePicture' class='profilepic'/>";
-                echo "<a class='username' href='user.php?UserID= " . urlencode($UserID) . " '> $UserName </a>";
-                echo "</span>";
-                echo "<div class='specifics'>";
-                echo "<p><img src='img/place-black.png' />$StreetAdress,<br /> $cityname</p> <br />";
-                echo "<p><img src='img/time-black.png' />$StartDate<br /> kl $StartTime</p>";
-                echo "</div>";
-                echo "<p class='description'>$Information</p>";
-                echo "<a class='seemore' href='event.php?EventID=" . urlencode($EventID) . " '>more...</a>";
-                echo "<form action='' method='POST' name='attendsave'>";
-                echo "</form>";
-                echo "</div>";
+                  echo '<div class="eventpagebox ';
+                  if($count == 0) {
+                      echo 'firsteventbox">';
+                  }
+                  else{
+                      echo '">';
+                  }
+                  echo "<h3 class='profiletitle'>$Title</h3>";
+                  echo "<span class='pictureandname'>";
+                  echo "<img src='$ProfilePicture' class='profilepic'/>";
+                  echo "<a class='username' href='user.php?UserID= " . urlencode($UserID) . " '> $UserName </a>";
+                  echo "</span>";
+                  echo "<div class='specifics'>";
+                  echo "<p><img src='img/place-black.png' />$StreetAdress,<br /> $cityname</p> <br />";
+                  echo "<p><img src='img/time-black.png' />$StartDate<br /> kl $StartTime</p>";
+                  echo "</div>";
+                  echo "<p class='description'>$Information</p>";
+                  echo "<a class='seemore' href='event.php?EventID=" . urlencode($EventID) . " '>more...</a>";
+                  echo "<form action='' method='POST' name='attendsave'>";
+                  echo "</form>";
+                  echo "</div>";
+              }
             /*--- incrementing counter-----*/
             $count++;
-            }
+          }
 };
 
 /*---Register.php-----------------------------------------*/
