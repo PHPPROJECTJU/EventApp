@@ -8,9 +8,6 @@
   $date = date('Y-m-d');
 ?>
 
-<!--Formfields should only be required if there is no input from before-->
-<?php $username = $_SESSION['username'];?>
-
 <?php
     $username = $_SESSION['username'];
 
@@ -46,11 +43,6 @@
     <tr>
       <td><h4 class="eventheaders">Lastname</h4>
         <input type="name" name="lastname" class="eventregisterbar" placeholder="<?php echo $showlastname; ?>" />
-      </td>
-    </tr>
-    <tr>
-      <td><h4 class="eventheaders">Birthdate</h4>
-        <input type="date" name="bday" class="eventregisterbar"/>
       </td>
     </tr>
     <tr>

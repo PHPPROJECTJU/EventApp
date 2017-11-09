@@ -1072,7 +1072,7 @@ function finishtheuser(){
    }
 
    $sessionuser = $_SESSION['username'];
-
+   $UserID = $_SESSION['userid'];
    #Getting the image upload:
    if (isset($_FILES['fileupload'])) {
 
@@ -1104,21 +1104,19 @@ function finishtheuser(){
 
    $firstname = trim($_POST['firstname']);
    $lastname = trim($_POST['lastname']);
-   $bday = trim($_POST['bday']);
    $fileupload = "user".$UserID.".".$extension;
    $about = trim($_POST['about']);
 
 
    $firstname = addslashes($firstname);
    $lastname = addslashes($lastname);
-   $bday = addslashes($bday);
    $fileupload = addslashes($fileupload);
    $about = addslashes($about);
 
    $stmt = $db->prepare("UPDATE User
-                         SET FirstName='$firstname', LastName='$lastname', Birthdate='$bday', ProfilePicture='profilepics/$fileupload', About='$about'
+                         SET FirstName='$firstname', LastName='$lastname', ProfilePicture='profilepics/$fileupload', About='$about'
                          WHERE UserName=$sessionuser");
-   $stmt->bind_param('ssss', $firstname, $lastname, $bday, $fileupload, $about);
+   $stmt->bind_param('ssss', $firstname, $lastname, $fileupload, $about);
    $stmt->execute();
 
    ?>

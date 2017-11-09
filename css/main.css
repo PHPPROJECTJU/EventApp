@@ -112,12 +112,13 @@ input[type="file"] {
   margin-left
 }
 .uploadbuttondark {
+  background: transparent url("../img/data-transfer-upload-24.png") no-repeat left;
   background-position: 20px;
   color: grey;
   border: 2px solid grey;
   border-radius: 25px;
   position: absolute;
-  padding: 10px 25px 10px 25px;
+  padding: 10px 25px 10px 40px;
   overflow: hidden;
   cursor: pointer;
 }
