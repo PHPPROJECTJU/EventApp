@@ -1358,18 +1358,16 @@ p.attenders {
   padding: 3px 0;
   overflow: hidden;
   height: 50px;
+
 }
 
 .attenderrow img {
   clip-path: circle(50% at center);
-  float:left;
 }
 
-.attenderrow a {
+.attenderlink {
   margin-left: 12px;
-  margin-bottom: 12px;
-  padding: 50% 0;
-  float:left;
+  bottom: 12px;
 }
 
 #about {
