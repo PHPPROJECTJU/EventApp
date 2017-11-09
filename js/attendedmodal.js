@@ -1,3 +1,5 @@
+//Modal functionality taken and modified from W3Schools Nov 9th 2017
+
 // Get the modal
 var attmodal = document.getElementById('attModal');
 

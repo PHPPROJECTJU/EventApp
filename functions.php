@@ -232,6 +232,7 @@ function displayEvent(){
             echo "<p><img src='img/time-black.png' />$StartDate kl $StartTime - $EndTime</p>";
             echo "</div>";
             echo "<p class='description'>$Information</p>";
+            howManyAttenders($EventID);
             echo "<div class='eventbuttonbox'>";
             echo "<form action='' method='POST' name='attendsave'>";
 
@@ -538,11 +539,10 @@ function howManyAttenders($EventID){
             echo "<div class='attmodal-content'>";
             echo "<div class='modal-header'>";
             echo "<span class='attclose'>×</span>";
-            echo "<p>";
-            echo $totalcount . " attenders so far<br />";
-            echo "</p>";
+            echo "<h2 class='createeventheader'> Who's coming</h2>";
             echo "</div>";
             echo "<div class='attmodalbody'>";
+            echo "<p>".$totalcount . " people attending so far!</p><br />";
 
             while ($stmt8->fetch()) {
                 echo "<div class='attenderrow'>";

@@ -1321,7 +1321,7 @@ p.attenders {
   color: #6c2dff;
 }
 
-/*Attender modal -----*/
+/*Attender modal ----- taken from W3Schools Nov 9th 2017  */
 
 /* The Modal (background) */
 .attmodal {
@@ -1331,8 +1331,8 @@ p.attenders {
     left: 0;
     top: 0;
     width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
+    height: 100vh; /* Full height */
+    overflow: scroll;
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
@@ -1343,7 +1343,7 @@ p.attenders {
     margin: 72px auto; /* 15% from the top and centered */
     border: 1px solid #888;
     border-radius: 10px;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 90%; /* Could be more or less, depending on screen size */
 }
 
 .attmodalbody {
@@ -1372,6 +1372,7 @@ p.attenders {
 }
 
 .attenderlink {
+  color: #4728e2;
   margin-left: 12px;
   float: left;
   margin-top: 15px;
