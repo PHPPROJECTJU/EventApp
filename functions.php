@@ -228,8 +228,8 @@ function displayEvent(){
             echo "<a class='username' href='user.php?UserID= " . urlencode($UserID) . " '> $UserName </a>";
             echo "</span>";
             echo "<div class='specifics'>";
-            echo "<p><img src='img/place-black.png' />$StreetAdress,<br /> $cityname</p> <br />";
-            echo "<p><img src='img/time-black.png' />$StartDate<br /> kl $StartTime - $EndTime</p>";
+            echo "<p><img src='img/place-black.png' />$StreetAdress,  $cityname</p> <br />";
+            echo "<p><img src='img/time-black.png' />$StartDate kl $StartTime - $EndTime</p>";
             echo "</div>";
             echo "<p class='description'>$Information</p>";
             echo "<div class='eventbuttonbox'>";

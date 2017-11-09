@@ -188,8 +188,8 @@ while ($stmt->fetch()) {
               echo "<a class='username' href='user.php?UserID= " . urlencode($UserID) . " '> $UserName </a>";
               echo "</span>";
               echo "<div class='specifics'>";
-              echo "<p><img src='img/place-black.png' />$StreetAdress,<br /> $cityname</p> <br />";
-              echo "<p><img src='img/time-black.png' />$StartDate<br /> kl $StartTime</p>";
+              echo "<p><img src='img/place-black.png' />$StreetAdress, $cityname</p> <br />";
+              echo "<p><img src='img/time-black.png' />$StartDate kl $StartTime</p>";
               echo "<p><img src='img/tag-black.png' />$Category</p>";
               echo "</div>";
               echo "<p class='description'>$Information</p>";
@@ -206,8 +206,8 @@ while ($stmt->fetch()) {
               echo "<a class='username' href='user.php?UserID= " . urlencode($UserID) . " '> $UserName </a>";
               echo "</span>";
               echo "<div class='specifics'>";
-              echo "<p><img src='img/place-black.png' />$StreetAdress,<br /> $cityname</p> <br />";
-              echo "<p><img src='img/time-black.png' />$StartDate<br /> kl $StartTime</p>";
+              echo "<p><img src='img/place-black.png' />$StreetAdress, $cityname</p> <br />";
+              echo "<p><img src='img/time-black.png' />$StartDate kl $StartTime</p>";
               echo "<p><img src='img/tag-black.png' />$Category</p>";
               echo "</div>";
               echo "<p class='description'>$Information</p>";

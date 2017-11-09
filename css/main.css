@@ -942,6 +942,7 @@ div.eventpagebox.firsteventbox {
 }
 
 .username {
+  font-size: 12px;
   font-weight: bold;
   color: #6c2dff;
   width: 100%;
@@ -954,11 +955,11 @@ div.eventpagebox.firsteventbox {
   float:left;
   width: 60%;
   box-sizing: border-box;
-  padding: 6px 0px 6px 18px;
+  padding: 6px 0px 6px 26px;
 }
 
 .specifics img {
-  width: 24px;
+  width: 22px;
   float: left;
   padding-right: 6px;
 }
