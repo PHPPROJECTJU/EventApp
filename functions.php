@@ -477,8 +477,6 @@ function getHostedEvents($myuserid){
                   echo "</div>";
                   echo "<p class='description'>$Information</p>";
                   howManyAttenders($EventID);
-                  echo "<br />";
-                  echo "<br />";
                   echo "<form action='' method='POST' name='hostedbuttons'>";
                   echo '<INPUT type="hidden" name="eventid" value='.$EventID.'>';
                   echo "<a class='attendsaveblock' href='event.php?EventID= " . urlencode($EventID) . " '>See event page</a>";
@@ -532,8 +530,7 @@ function howManyAttenders($EventID){
 
             $totalcount = $stmt8->num_rows();
 
-            echo "<div id='attenders'>";
-            echo "<button id='seeattenders'>See who's coming</button>" . "<br />";
+            echo "<button id='seeattenders'>See who's coming</button>";
             #The Modal
             echo "<div id='attModal' class='attmodal'>";
 
@@ -547,13 +544,10 @@ function howManyAttenders($EventID){
             while ($stmt8->fetch()) {
                 echo "<img src='$attenderpic' width='50px'/>";
                 echo "<a href='user.php?UserID=".$attenderid."'>".$attender."</a>". "<br />";
-
-            #echo "<div id='attenderbox'>";
             }
             echo "</div>";
             echo "</div>";
-            echo "</div>";
-            #echo "<div class='attenderarrow'></div>";
+
 }
 
 function cancelEvent($EventID){

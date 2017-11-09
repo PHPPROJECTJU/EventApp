@@ -78,7 +78,7 @@ textarea {
   resize: none;
 }
 
-textarea:focus, select:focus, input:focus {
+textarea:focus, select:focus, input:focus, button:focus {
   outline:none;
   caret-color: #6c2dff;
 }
@@ -1297,11 +1297,23 @@ p.attenders {
   margin-left: 12px;
 }
 
-#attenders {
-  position: relative;
-  float: left;
-  margin-left: 12px;
-  width: 100%;
+/*hostedevents.php*/
+
+/*button "see who's coming"*/
+#seeattenders {
+  text-decoration: underline;
+  border: none;
+  font-size: 14px;
+  width: 50%;
+  border-radius: 35px;
+  color: grey;
+  margin: 6px 25%;
+  transition: 0.2s;
+  background-color: transparent;
+}
+
+#seeattenders:hover {
+  color: #6c2dff;
 }
 
 /*Attender modal -----*/
