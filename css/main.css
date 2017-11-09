@@ -363,7 +363,7 @@ input[type="file"] {
 }
 
 #inregion {
-  margin: 3px 0 0 0;
+  margin: 3px 0 0 6px;
   font-size: 12px;
   width: 70px;
 }
@@ -412,8 +412,8 @@ input:focus {
 img.chooselocation {
   width: 25px;
   float: left;
-  margin-left: 7px;
-  margin-right: 21px;
+  margin-left: 12px;
+  margin-right: 16px;
   cursor: pointer;
 }
 
@@ -917,7 +917,7 @@ div.eventpagebox.firsteventbox {
 
 
 .profiletitle {
-  padding: 12px 12px 24px 12px;
+  padding: 12px 12px 16px 12px;
   color: #8164ff;
   font-size: 16px;
   font-weight: 600;
@@ -979,6 +979,7 @@ div.eventpagebox.firsteventbox {
 
 p.description {
   font-size: 14px;
+  line-height: 18px;
   float: left;
   margin: 0px 0px;
   padding: 0px 10px 10px 10px;
