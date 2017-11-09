@@ -653,6 +653,7 @@ overflow: hidden;
     text-align: center;
     padding: 5px;
     line-height: 2em;
+    border-radius: 10px 10px 0 0;
 }
 
 .modal-body {
@@ -1346,12 +1347,13 @@ p.attenders {
 }
 
 .attclose {
-  color: #000;
+  color: #fff;
   float: right;
-  font-size: 28px;
-  font-weight: bold;
+  font-size: 32px;
+  font-weight: 400;
   cursor: pointer;
-  margin-top: -12px;
+  margin-top: -4px;
+  margin-right: 4px;
 }
 
 .attenderrow {
