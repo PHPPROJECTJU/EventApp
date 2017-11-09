@@ -780,22 +780,22 @@ function getUsersEvents($UserID){
       exit();
   }
 
-  $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, Event.EventID
+  $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, Event.EventID, Event.Status
             FROM Event
             JOIN User
             ON Event.UserID = User.UserID
             WHERE Event.UserID = $UserID
             ";
             $stmt = $db->prepare($query);
-            $stmt->bind_result($UserName, $ProfilePicture, $UserID, $Title, $StartDate, $StartTime, $Information, $StreetAdress, $EventID);
+            $stmt->bind_result($UserName, $ProfilePicture, $UserID, $Title, $StartDate, $StartTime, $Information, $StreetAdress, $EventID, $Status);
             $stmt->execute();
 
 /*--------Counter to give first object on page a unique class------*/
             $count = 0;
 
             while ($stmt->fetch()) {
+              if($Status == 1){
                 //echo "<div class='eventpagebox'>";
-
                 echo '<div class="eventpagebox ';
                 if($count == 0) {
                     echo 'firsteventbox">';
@@ -820,6 +820,7 @@ function getUsersEvents($UserID){
             /*--- incrementing counter-----*/
             $count++;
             }
+          }
 };
 
 /*---Register.php-----------------------------------------*/
