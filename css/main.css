@@ -1355,16 +1355,21 @@ p.attenders {
 }
 
 .attenderrow {
-  padding: 6px 0;
+  padding: 3px 0;
   overflow: hidden;
+  height: 50px;
 }
 
 .attenderrow img {
   clip-path: circle(50% at center);
+  float:left;
 }
 
 .attenderrow a {
   margin-left: 12px;
+  margin-bottom: 12px;
+  padding: 50% 0;
+  float:left;
 }
 
 #about {

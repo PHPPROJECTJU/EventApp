@@ -53,8 +53,6 @@ getAttendedEvents($myuserid);
 
 ?>
 
-<script type="text/javascript" src="js/attendedmodal.js"></script>
-
 <?php
   include("footer.php");
 ?>
