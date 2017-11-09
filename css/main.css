@@ -1352,8 +1352,8 @@ p.attenders {
   font-size: 32px;
   font-weight: 400;
   cursor: pointer;
-  margin-top: -4px;
-  margin-right: 4px;
+  margin-top: -3px;
+  margin-right: 12px;
 }
 
 .attenderrow {
