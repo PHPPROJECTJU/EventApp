@@ -1501,7 +1501,7 @@ footer.logoutfooter {
 
   div.eventpagebox, .box {
     float: left;
-    width: calc(50% - 24px);
+    width: calc(50% - 10px);
   }
 
   .logo {
@@ -1555,7 +1555,7 @@ footer.logoutfooter {
 @media (min-width: 960px) {
   div.eventpagebox, .box {
     float: left;
-    width: calc(33.333% - 24px);
+    width: calc(33.333% - 10px);
   }
 
   #registerform {
