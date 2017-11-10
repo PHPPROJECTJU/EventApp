@@ -1573,6 +1573,15 @@ footer.logoutfooter {
 /*=====================================640PX========================================*/
 @media (min-width: 640px) {
 
+  .searchwrapper_second {
+    width: 410px;
+    margin: 0 auto;
+  }
+
+  .searcheventsform {
+    width: 350px;
+  }
+
   div.eventpagebox, .box {
     float: left;
     width: calc(50% - 10px);
