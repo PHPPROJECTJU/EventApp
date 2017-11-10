@@ -37,12 +37,12 @@
   <table id="registerform">
     <tr>
       <td><h4 class="eventheaders">Firstname</h4>
-        <input type="name" name="firstname" class="eventregisterbar" placeholder="<?php echo $showfirstname; ?>" />
+        <input type="name" name="firstname" class="eventregisterbar" value="<?php echo $showfirstname; ?>" />
       </td>
     </tr>
     <tr>
       <td><h4 class="eventheaders">Lastname</h4>
-        <input type="name" name="lastname" class="eventregisterbar" placeholder="<?php echo $showlastname; ?>" />
+        <input type="name" name="lastname" class="eventregisterbar" value="<?php echo $showlastname; ?>" />
       </td>
     </tr>
     <tr>

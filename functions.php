@@ -1148,7 +1148,7 @@ function finishtheuser(){
 
    ?>
    <script>
-       window.location.href = "index.php";
+       window.location.href = "editprofile.php";
    </script>
    <?php
   }
