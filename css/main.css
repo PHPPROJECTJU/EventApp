@@ -1043,7 +1043,6 @@ p.attenders {
   /*linear-gradient(rgba(255,0,0,0), rgba(238, 238, 238,1));*/
   background-size: 100%;
   background-repeat: no-repeat;
-  z-index: 10;
   position: absolute;
   padding: 48px 0 24px 0;
   margin: 0 auto;
@@ -1392,6 +1391,7 @@ p.attenders {
   margin: 6px 25%;
   transition: 0.2s;
   background-color: transparent;
+  z-index: 22;
 }
 
 #seeattenders:hover {
@@ -1404,7 +1404,7 @@ p.attenders {
 .attmodal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 40px; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -1896,7 +1896,6 @@ footer.logoutfooter {
   /*user page*/
 
   .userbox {
-    width: 50%;
     margin: 84px auto;
   }
 

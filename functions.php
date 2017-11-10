@@ -482,8 +482,8 @@ function getHostedEvents($myuserid){
                   echo "<p><img src='img/tag-black.png' />$category</p>";
                   echo "</div>";
                   echo "<p class='description'>$Information</p>";
-                  howManyAttenders($EventID);
                   echo "<div class='seemore'>";
+                  howManyAttenders($EventID);
                   echo "<form action='' method='POST' name='hostedbuttons'>";
                   echo '<INPUT type="hidden" name="eventid" value='.$EventID.'>';
                   echo "<a class='attendsaveblock' href='event.php?EventID= " . urlencode($EventID) . " '>See event page</a>";
