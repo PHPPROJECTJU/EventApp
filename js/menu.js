@@ -27,6 +27,16 @@ function showAbout() {
 		}
 }
 
+var passwordquestion = document.getElementById("passwordquestion");
+
+function showPassReqs() {
+		if (PassBox.style.display == "block") {
+			PassBox.style.display = "none";
+		} else {
+			PassBox.style.display = "block";
+		}
+}
+
 /*function showregion() {
 		if (regionmenu.style.height == "500px") {
 			regionmenu.style.height = "0px";

@@ -1181,6 +1181,16 @@ p.attenders {
   margin: 12px;
 }
 
+.qwrap {
+  position:relative
+}
+.question2 {
+  position: absolute;
+  width: 25px;
+  right: 33px;
+  top: 16px;
+}
+
 /*--ALL GENERAL BUTTONS-----*/
 
 .blockbutton {
@@ -1321,12 +1331,31 @@ p.attenders {
   z-index: 62;
   overflow: hidden;
 }
+.arrow2 {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #fff;
+  position: absolute;
+  left: 50%;
+  top: -10px;
+  z-index: 62;
+  overflow: hidden;
+}
 
 #aboutBox {
   display: none;
   z-index: 30;
   position: absolute;
   margin-left: 12px;
+}
+#PassBox {
+  display: none;
+  z-index: 30;
+  position: absolute;
+  margin-left: 12px;
+  margin-top: 7px;
 }
 
 /*hostedevents.php*/
@@ -1413,6 +1442,16 @@ p.attenders {
   top: 30px;
   border-radius: 20px;
   box-shadow: 8px 8px 24px rgba(0,0,0,0.2);
+}
+#PassAbout {
+  width: 87%;
+  background-color: #fff;
+  overflow: hidden;
+  padding: 15px;
+  top: 30px;
+  border-radius: 20px;
+  box-shadow: 8px 8px 24px rgba(0,0,0,0.2);
+  text-align:left;
 }
 
 /*-contact form-*/

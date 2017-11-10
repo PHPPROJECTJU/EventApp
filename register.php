@@ -12,6 +12,7 @@
 	      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	      <link rel="stylesheet" href="css/main.css">
 	      <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,600,700,900|Noto+Sans:300,400,700" rel="stylesheet">
+
 	  </head>
 
 	  <body id="notloggedin">
@@ -34,10 +35,19 @@
               <td><input type="text" name="username" class="registerbar" placeholder="Username" required></td>
             </tr>
             <tr>
-              <td><input type="text" name="email" class="registerbar" placeholder="E-mail address" required></td>
+              <td><input type="email" name="email" class="registerbar" placeholder="E-mail address" required></td>
             </tr>
             <tr>
-              <td><input type="password" name="password" class="registerbar" placeholder="Password" required></td>
+              <td class="qwrap"><input type="password" name="password" class="registerbar" placeholder="Password" required><img src="img/question.png" class="question2" id="passwordquestion" onclick="showPassReqs()"/>
+                <div id="PassBox">
+                    <div class="arrow2"></div>
+                    <div id="PassAbout">
+
+                        <p>Required:<br>&rarr;Lowercase, uppercase and at least one number.<br>&rarr;Use at least 8 characters.</p>
+                    </div>
+                </div>
+              </td>
+
             </tr>
             <tr>
               <td><input type="password" name="repeatpassword" class="registerbar" placeholder="Repeat password" required></td>
@@ -51,7 +61,7 @@
               <p class="already">Already registered? <a href="login.php" class="transparentbutton">Sign in</a></p>
 
     </div>
-
+<script type="text/javascript" src="js/menu.js"></script>
 <?php
 
 if (isset($_POST['submit'])) {
@@ -62,5 +72,5 @@ if (isset($_POST['submit'])) {
 
 </main>
 </body>
-<script type="text/javascript" src="js/menu.js"></script>
+
 </html>
