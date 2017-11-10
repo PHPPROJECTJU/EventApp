@@ -36,16 +36,6 @@
 <form action="editprofile.php" method="POST" enctype="multipart/form-data">
   <table id="registerform">
     <tr>
-      <td><h4 class="eventheaders">Firstname</h4>
-        <input type="name" name="firstname" class="eventregisterbar" value="<?php echo $showfirstname; ?>" />
-      </td>
-    </tr>
-    <tr>
-      <td><h4 class="eventheaders">Lastname</h4>
-        <input type="name" name="lastname" class="eventregisterbar" value="<?php echo $showlastname; ?>" />
-      </td>
-    </tr>
-    <tr>
           <td>
               <?php echo "<img src='$ProfilePicture' id='personalprofilepic'/>";?>
 
@@ -56,6 +46,17 @@
                   <br/>
           </td>
     </tr>
+    <tr>
+      <td><h4 class="eventheaders">Firstname</h4>
+        <input type="name" name="firstname" class="eventregisterbar" value="<?php echo $showfirstname; ?>" />
+      </td>
+    </tr>
+    <tr>
+      <td><h4 class="eventheaders">Lastname</h4>
+        <input type="name" name="lastname" class="eventregisterbar" value="<?php echo $showlastname; ?>" />
+      </td>
+    </tr>
+
     <tr>
         <td><h4 class="eventheaders">About</h4>
             <textarea type="text" name="about" class="eventregisterbar80" style="height: 100px;"><?php echo $showabout; ?></textarea>
