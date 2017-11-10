@@ -469,7 +469,6 @@ function getHostedEvents($myuserid){
 
 
                 if ($Status == 1) {
-
                   echo "<div class='eventpagebox'>";
                   echo "<h3 class='profiletitle'>$Title</h3>";
                   echo "<span class='pictureandname'>";
@@ -490,9 +489,13 @@ function getHostedEvents($myuserid){
                   echo "</div>";
                   echo "</form>";
                   echo "</div>";
+              }   else if ($Status != 1){
+                  echo "<div class='noEvent'>";
+                  echo "<p>You have no hosted events. Return to <a href='index.php'>HOMEPAGE</a>";
+                  echo "</div">;
               }
 
-                }
+            }
 
             if (isset($_POST['cancelevent'])) {
               $EventID = ($_POST['eventid']);
