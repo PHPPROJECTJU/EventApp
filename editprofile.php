@@ -39,8 +39,12 @@
 
               <div class="fileUpload">
                 <div class="uploadbuttondark">Change profile picture</div>
-                <input type="file" name="fileupload">
+                <!--Following onchange-function for preview new profile picture is found at http://jsbin.com/uboqu3/1/edit?html,js,output friday 10 nov 2017-->
+                <input onchange="readURL(this);" type="file" name="fileupload">
+
               </div>
+              <p>Selected profile picture:</p><br>
+              <img id="blah" src="#" alt="" />
                   <br/>
           </td>
     </tr>
@@ -65,6 +69,23 @@
     </tr>
   </table>
 </form>
+
+<!--Following onchange-function for preview new profile picture is found at http://jsbin.com/uboqu3/1/edit?html,js,output friday 10 nov 2017-->
+<script>
+
+    function readURL(input) {
+              if (input.files && input.files[0]) {
+                  var reader = new FileReader();
+                  reader.onload = function (e) {
+                      $('#blah')
+                          .attr('src', e.target.result)
+                          .width(200)
+                          .height(200);
+                  };
+                  reader.readAsDataURL(input.files[0]);
+              }
+      }
+</script
 
 
 <!--Same code as in create profile but changed INSERT into UPDATE and took away required message-->
