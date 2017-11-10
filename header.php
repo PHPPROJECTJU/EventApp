@@ -170,7 +170,25 @@ $stmt9->fetch();
 												<h4 class="eventheaders">
 													How?
 												</h4>
-															<textarea rows="4" cols="80" type="textarea" name="description" class="eventregisterbartext" placeholder="Everything you need to know about my event..." required></textarea>
+												<!--Following function where we count characters in text field is based on http://www.java-samples.com/showtutorial.php?tutorialid=733 friday 10 nov 2017-->
+															<textarea maxlength="500" rows="4" cols="80" type="textarea" name="description" class="eventregisterbartext" placeholder="Everything you need to know about my event..." onblur="textCounter(this,this.form.counter,500);" onkeyup="textCounter(this,this.form.counter,500);" required></textarea>
+															<br>
+															<div class="countwrap">
+																<input class="charcount" onblur="textCounter(this.form.recipients,this,500);" disabled  onfocus="this.blur();" tabindex="999" maxlength="3" size="3" value="500" name="counter">
+																<p class="charlefttext">characters left: </p>
+															</div>
+															<script>
+															function textCounter( field, countfield, maxlimit ) {
+																	 if ( field.value.length > maxlimit ) {
+																	  field.value = field.value.substring( 0, maxlimit );
+																	  field.blur();
+																	  field.focus();
+																	  return false;
+																	 } else {
+																	  countfield.value = maxlimit - field.value.length;
+																	 }
+															}
+															</script>
 											</div>
 											<div class="row">
 												<h4 class="eventheaders">

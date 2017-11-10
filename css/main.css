@@ -615,7 +615,25 @@ overflow: hidden;
     overflow-y: auto;
     max-width: 440px;
     border-radius: 10px;
+}
 
+.charlefttext {
+  display: inline;
+  float: right;
+  font-size: 90%;
+}
+
+.charcount {
+  background-color: #ebebeb;
+  border: none;
+  display: inline;
+  float: right;
+  font-size: 80%;
+}
+
+.countwrap {
+  overflow: hidden;
+  width: 90%;
 }
 
 /* The modal Close Button */
