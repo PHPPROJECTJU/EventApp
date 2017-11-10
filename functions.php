@@ -1100,8 +1100,21 @@ function finishtheuser(){
    $stmt2->store_result();
    $stmt2->fetch();
 
-   #Getting the image upload:
-   if (isset($_FILES['fileupload'])) {
+   $firstname = trim($_POST['firstname']);
+   $lastname = trim($_POST['lastname']);
+   $about = trim($_POST['about']);
+
+   $firstname = addslashes($firstname);
+   $lastname = addslashes($lastname);
+   $about = addslashes($about);
+
+   if(empty($_FILES['fileupload']['name'])){
+     $stmt = $db->prepare("UPDATE User
+                           SET FirstName='$firstname', LastName='$lastname', About='$about'
+                           WHERE UserID=$UserID");
+     $stmt->bind_param('sss', $firstname, $lastname, $about);
+     $stmt->execute();
+   }elseif (isset($_FILES['fileupload'])) {
 
          $allowedextensions = array('jpg', 'jpeg', 'gif', 'png');
 
@@ -1124,27 +1137,24 @@ function finishtheuser(){
                echo $err;
              }
          }
+
+
+            $fileupload = "user".$UserID.".".$extension;
+            $fileupload = addslashes($fileupload);
+
+            $stmt = $db->prepare("UPDATE User
+                                  SET FirstName='$firstname', LastName='$lastname', ProfilePicture='profilepics/$fileupload', About='$about'
+                                  WHERE UserID=$UserID");
+            $stmt->bind_param('ssss', $firstname, $lastname, $fileupload, $about);
+            $stmt->execute();
+
    } else {
      echo "not uploaded";
    }
 
 
-   $firstname = trim($_POST['firstname']);
-   $lastname = trim($_POST['lastname']);
-   $fileupload = "user".$UserID.".".$extension;
-   $about = trim($_POST['about']);
 
 
-   $firstname = addslashes($firstname);
-   $lastname = addslashes($lastname);
-   $fileupload = addslashes($fileupload);
-   $about = addslashes($about);
-
-   $stmt = $db->prepare("UPDATE User
-                         SET FirstName='$firstname', LastName='$lastname', ProfilePicture='profilepics/$fileupload', About='$about'
-                         WHERE UserID=$UserID");
-   $stmt->bind_param('ssss', $firstname, $lastname, $fileupload, $about);
-   $stmt->execute();
 
    ?>
    <script>

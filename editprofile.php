@@ -7,7 +7,6 @@
   #Can't really make the min date work?
   #$date = date('Y-m-d');
 ?>
-
 <?php
     $username = $_SESSION['username'];
 
@@ -32,7 +31,6 @@
     $stmt11->store_result();
     $stmt11->fetch();
 ?>
-
 <form action="editprofile.php" method="POST" enctype="multipart/form-data">
   <table id="registerform">
     <tr>
@@ -63,11 +61,10 @@
         </td>
     </tr>
     <tr>
-      <td><input type="submit" class="colorbutton" name="submit" value="Update profile"></td>
+      <td><input type="submit" class="colorbutton" name="submit" value="Save changes"></td>
     </tr>
   </table>
 </form>
-
 
 
 <!--Same code as in create profile but changed INSERT into UPDATE and took away required message-->
