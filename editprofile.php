@@ -37,7 +37,7 @@
           <td>
               <?php echo "<img src='$ProfilePicture' id='personalprofilepic'/>";?>
 
-              <div class="fileUpload">
+              <div class="fileUploaddark">
                 <div class="uploadbuttondark">Change profile picture</div>
                 <!--Following onchange-function for preview new profile picture is found at http://jsbin.com/uboqu3/1/edit?html,js,output friday 10 nov 2017-->
                 <input onchange="readURL(this);" type="file" name="fileupload">

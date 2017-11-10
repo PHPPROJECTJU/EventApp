@@ -111,6 +111,14 @@ input[type="file"] {
   overflow: hidden;
   margin: 0 auto;
 }
+
+.fileUploaddark {
+  position: relative;
+  height: 50px;
+  margin: 12px auto;
+  width: 256px;
+}
+
 .uploadbuttondark {
   background: transparent url(../img/data-transfer-upload-24-grey.png) no-repeat left;
     background-position: 19px;
@@ -1653,6 +1661,11 @@ footer.logoutfooter {
 
   #registerform {
     width: 50%;
+  }
+
+  #registerform2 {
+      margin: 84px auto;
+      width: 60%;
   }
 
   .question2 {
