@@ -491,8 +491,8 @@ function getHostedEvents($myuserid){
                   echo "</div>";
               }   else if ($Status != 1){
                   echo "<div class='noEvent'>";
-                  echo "<p>You have no hosted events. Return to <a href='index.php'>HOMEPAGE</a>";
-                  echo "</div">;
+                  echo "<p>You are not hosting any event. Return to <a href='index.php'>HOMEPAGE</a>";
+                  echo "</div>";
               }
 
             }
@@ -643,6 +643,10 @@ function getAttendedEvents($myuserid){
 
                 echo "</form>";
                 echo "</div>";
+                } else if ($Status != 1){
+                    echo "<div class='noEvent'>";
+                    echo "<p>You are not attending any events. Return to <a href='index.php'>HOMEPAGE</a>";
+                    echo "</div>";
                 }
 
               }
@@ -740,6 +744,10 @@ function getSavedEvents($myuserid){
                 echo "<p class='description'>$Information</p>";
                 echo "<a class='attendsaveblock' href='event.php?EventID= " . urlencode($EventID) . " '>See event page</a>";
                 echo "</div>";
+                } else if ($Status != 1){
+                    echo "<div class='noEvent'>";
+                    echo "<p>You have not saved any events. Return to <a href='index.php'>HOMEPAGE</a>";
+                    echo "</div>";
                 }
               }
 
