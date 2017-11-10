@@ -1134,12 +1134,13 @@ p.attenders {
 
 /*--register-------*/
 
-
-
 #registerform {
-  margin: 48px auto;
-  width: 90%;
-  text-align: center;
+    margin: 67px auto;
+    width: 90%;
+    text-align: center;
+    background: #fff;
+    border: 1px solid lightgrey;
+    padding: 20px;
 }
 
 .registerbar {
