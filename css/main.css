@@ -732,6 +732,17 @@ div.eventpagebox.firsteventbox {
   background-color: #fff;
 }
 
+.profileeventbox {
+  margin: 0px 0px 0px 0px;
+  height: 400px;
+  padding: 5px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  border-top: 5px solid #6c2dff;
+  position: relative;
+  background-color: #fff;
+}
+
 .attendsave {
   font-family: 'Raleway';
   width: 47.2%;
@@ -1622,7 +1633,7 @@ footer.logoutfooter {
     width: 350px;
   }
 
-  div.eventpagebox, .box {
+  div.eventpagebox, .box, .profileeventbox {
     float: left;
     width: calc(50% - 10px);
   }
@@ -1740,7 +1751,7 @@ footer.logoutfooter {
 }
 
 .createeventbutton {
-  left: 270px;
+  left: 280px;
 }
 
 #hamb, #close {
@@ -1828,7 +1839,7 @@ footer.logoutfooter {
 }
 
 
-  div.eventpagebox, .box {
+  div.eventpagebox, .box, .profileeventbox {
     float: left;
     width: calc(33.333% - 10px);
   }
