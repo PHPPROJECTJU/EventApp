@@ -1189,6 +1189,7 @@ p.attenders {
   width: 25px;
   right: 33px;
   top: 16px;
+  cursor: pointer;
 }
 
 /*--ALL GENERAL BUTTONS-----*/
