@@ -1832,10 +1832,10 @@ footer.logoutfooter {
 }
 
 #menuprofilelinks ul li a#logout2 {
-  width: 32px;
+  width: 22px;
   height: 50px;
-  margin: 0;
-  background: transparent url('../img/account-logout-32.png') no-repeat left;
+  margin: -2px 0 0 0;
+  background: transparent url('../img/account-logout-22.png') no-repeat left;
   background-position: 0px;
   margin-left: -12px;
   display: inline-block;
