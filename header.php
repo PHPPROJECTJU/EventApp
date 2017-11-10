@@ -57,7 +57,7 @@ $stmt9->fetch();
 								<ul>
 												<li><a href="profile.php"><?php echo "<img src='$ProfilePicture' id='menuprofilepic'/>"; ?></a></li>
 												<li><img src="img/user-32.png" class="menuicons" /><a class ="slide-effect" id="<?php echo ($current_page == 'profile.php') ? 'active' : NULL ?>" href="profile.php"><?php echo $username; ?></a></li>
-												<li><a href="logout.php" id="logout2"></a></li>
+												<li><a href="logout.php" id="logout2" title="Logout"></a></li>
 							  </ul>
 										</div>
 

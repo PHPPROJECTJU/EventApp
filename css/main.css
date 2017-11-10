@@ -1708,26 +1708,25 @@ footer.logoutfooter {
 @media (min-width: 960px) {
 
   #headbox {
-    overflow: hidden;
     width: 200px;
     display: inline;
     float: left;
   }
   .logo {
-    width: 180px;
-    margin: 13.7px 0 13.7px 12px;
+    width: 250px;
+    margin: 10.9px 0 10.9px 12px;
   }
 
   .logolink {
     display: inline;
     margin: 0;
-    width: 180px;
+    width: 250px;
     overflow: hidden;
   }
 
   #mainmenu {
     height: 50px;
-    width: 75%;
+    width: 60%;
     position: relative;
     z-index: 0;
     background-color: transparent;
@@ -1741,7 +1740,7 @@ footer.logoutfooter {
 }
 
 .createeventbutton {
-  left: 210px;
+  left: 270px;
 }
 
 #hamb, #close {
