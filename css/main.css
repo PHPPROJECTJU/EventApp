@@ -1639,22 +1639,59 @@ footer.logoutfooter {
     width: 50%;
   }
 
+  .question2 {
+    right: 25px;
+}
+
+/*event.php*/
+
+  .firsteventbox {
+    width: 60%;
+    margin: 84px auto 24px auto;
+  }
+
+  .commentarea {
+    width: 60%;
+    margin: 0 auto;
+  }
+
   div.eventpagebox.firsteventbox {
     margin: 7px 7px 7px 7px;
   }
 
+  /*user and profile page*/
 
-
-
-/*--My profile----*/
+.userbox {
+  width: 60%;
+  margin: 84px auto;
+}
 
 .profilebox {
-  background-color: #fff;
-  width: 80%;
-  margin: 100px auto 24px auto;
-  border: 1px solid lightgrey;
-  padding: 36px 36px 72px 36px;
-  box-sizing: border-box;
+  width: 60%;
+  margin: 36px auto;
+}
+
+
+/*about page*/
+
+.about, #contactform {
+  width: 75%;
+}
+
+#headerwrap {
+  height: 50vh;
+}
+
+/*contact page*/
+
+#contactform {
+  width: 60%;
+}
+
+/*hostedevents*/
+
+.attmodal-content {
+  width: 400px;
 }
 
 
@@ -1664,17 +1701,134 @@ footer.logoutfooter {
   width: 40%;
 }
 
-.personalusername {
-  font-size: 24px;
-  width: 100%;
-  text-align: left;
-  margin-left: 10%;
-}
 
 }
 
 /*=====================================960PX========================================*/
 @media (min-width: 960px) {
+
+  #headbox {
+    overflow: hidden;
+    width: 200px;
+    display: inline;
+    float: left;
+  }
+  .logo {
+    width: 180px;
+    margin: 13.7px 0 13.7px 12px;
+  }
+
+  .logolink {
+    display: inline;
+    margin: 0;
+    width: 180px;
+    overflow: hidden;
+  }
+
+  #mainmenu {
+    height: 50px;
+    width: 75%;
+    position: relative;
+    z-index: 0;
+    background-color: transparent;
+    overflow: hidden;
+    float: right;
+    box-shadow: none;
+}
+
+#logout1 {
+  display: none;
+}
+
+.createeventbutton {
+  left: 210px;
+}
+
+#hamb, #close {
+    display: none;
+}
+
+#mainmenu ul {
+  padding: 0;
+}
+
+#mainmenu ul li {
+  list-style: none;
+  padding: 0 24px;
+  float: left;
+  height: 50px;
+  width: auto;
+}
+
+#mainmenu ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+
+#menuitems {
+  display: inline;
+  float: left;
+  margin: 0;
+  height: 50px;
+}
+
+.menuicons {
+  display: none;
+}
+
+#menuprofilelinks {
+  text-align: center;
+  margin: 0;
+  overflow: hidden;
+  height: inherit;
+  float: right;
+}
+
+#menuprofilelinks ul {
+  height: inherit;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+#menuprofilelinks ul li {
+  padding: 0 12px;
+  width: auto;
+  height: inherit;
+}
+
+#menuprofilelinks ul li a {
+  font-weight: 300;
+  overflow: hidden;
+}
+
+#menuprofilelinks ul li a#logout2 {
+  width: 32px;
+  height: 50px;
+  margin: 0;
+  background: transparent url('../img/account-logout-32.png') no-repeat left;
+  background-position: 0px;
+  margin-left: -12px;
+  display: inline-block;
+}
+
+.slide-effect {
+  margin-top: 12px;
+  margin-left: -12px;
+}
+
+#menuprofilepic {
+  height: 46px;
+  width: 46px;
+  margin-top: 2px;
+}
+
+.createeventbutton {
+  z-index: 50;
+}
+
+
   div.eventpagebox, .box {
     float: left;
     width: calc(33.333% - 10px);
@@ -1683,6 +1837,10 @@ footer.logoutfooter {
   #registerform {
     width: 30%;
   }
+
+  .question2 {
+    right: 20px;
+}
 
   .box:nth-child(3n+1) {
     clear: left;
@@ -1693,6 +1851,37 @@ footer.logoutfooter {
   /*profile pictures only at the personal profile*/
   #personalprofilepic {
     width: 30%;
+  }
+
+  /*event.php*/
+
+  .firsteventbox {
+    width: 50%;
+    margin: 84px auto 24px auto;
+  }
+
+  .commentarea {
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  /*user page*/
+
+  .userbox {
+    width: 50%;
+    margin: 84px auto;
+  }
+
+  /*about page*/
+
+  .about {
+    width: 50%;
+  }
+
+  /*contact page*/
+
+  #contactform {
+    width: 40%;
   }
 
   .footerimg {

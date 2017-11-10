@@ -57,6 +57,7 @@ $stmt9->fetch();
 								<ul>
 												<li><a href="profile.php"><?php echo "<img src='$ProfilePicture' id='menuprofilepic'/>"; ?></a></li>
 												<li><img src="img/user-32.png" class="menuicons" /><a class ="slide-effect" id="<?php echo ($current_page == 'profile.php') ? 'active' : NULL ?>" href="profile.php"><?php echo $username; ?></a></li>
+												<li><a href="logout.php" id="logout2"></a></li>
 							  </ul>
 										</div>
 
@@ -64,7 +65,7 @@ $stmt9->fetch();
 								<li><img src="img/literature-32.png" class="menuicons" /><a class ="slide-effect" id="<?php echo ($current_page == 'index.php' || $current_page == '') ? 'active' : NULL ?>" href="index.php">Browse</a></li>
 								<li><img src="img/info-32.png" class="menuicons" /><a class ="slide-effect" id="<?php echo ($current_page == 'about.php') ? 'active' : NULL ?>" href="about.php">About</a></li>
 								<li><img src="img/mail-2-32.png" class="menuicons" /><a class ="slide-effect" id="<?php echo ($current_page == 'contact.php') ? 'active' : NULL ?>" href="contact.php">Contact</a></li>
-								<li><img src="img/account-logout-32.png" class="menuicons" /><a class ="slide-effect" href="logout.php">Logout</a></li>
+								<li><img src="img/account-logout-32.png" class="menuicons" /><a class ="slide-effect" href="logout.php" id="logout1">Logout</a></li>
 							</ul>
 						</nav>
 
@@ -220,4 +221,4 @@ if (isset($_POST['createevent'])) {
 
 </header>
 
-<div id="content">
+<section id="content">

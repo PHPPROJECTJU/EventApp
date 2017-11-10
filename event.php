@@ -16,11 +16,13 @@ displayEvent();
 
 <!--Comment form---------->
 
+<section class='commentarea'>
+
 <h2 class='commentheader'>Comments</h2>
 
 <form action="" method="POST">
 
-  <textarea name="commentfield"></textarea>
+  <textarea class='registerbar' rows='4' name="commentfield"></textarea>
 
       <input type="submit" name="postcomment" class="commentbutton" value="Submit" />
 
@@ -38,6 +40,7 @@ if (isset($_POST['postcomment']) && !empty($_POST['commentfield'])) {
 getComment();
 
 ?>
+</section>
 
 <script type="text/javascript" src="js/attendedmodal.js"></script>
 
