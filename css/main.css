@@ -1852,10 +1852,6 @@ footer.logoutfooter {
   margin-top: 5px;
 }
 
-.createeventbutton {
-  z-index: 50;
-}
-
 
   div.eventpagebox, .box, .profileeventbox {
     float: left;
