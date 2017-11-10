@@ -18,6 +18,8 @@
 	  <head>
 		    <meta charset="UTF-8">
 	      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+				<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	      <link rel="stylesheet" href="css/main.css">
 	      <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,600,700,900|Noto+Sans:300,400,700" rel="stylesheet">
 	  </head>
@@ -50,8 +52,11 @@
                 <p>Choose a profile picture:</p>
                     <div class="fileUpload">
                       <div class="uploadbutton">Upload</div>
-                      <input type="file" name="fileupload">
+                      <input onchange="readURL(this);" type="file" name="fileupload">
                     </div>
+                    <p>Selected profile picture:</p><br>
+                    <img id="blah" src="#" alt="" />
+                        <br/>
 
 
             </td>
@@ -66,6 +71,21 @@
       </tr>
     </table>
   </form>
+  <script>
+
+      function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $('#blah')
+                            .attr('src', e.target.result)
+                            .width(200)
+                            .height(200);
+                    };
+                    reader.readAsDataURL(input.files[0]);
+                }
+        }
+  </script>
 </div>
 
   </html>

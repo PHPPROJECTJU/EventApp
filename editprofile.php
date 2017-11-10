@@ -32,7 +32,7 @@
     $stmt11->fetch();
 ?>
 <form action="editprofile.php" method="POST" enctype="multipart/form-data">
-  <table id="registerform">
+  <table id="registerform2">
     <tr>
           <td>
               <?php echo "<img src='$ProfilePicture' id='personalprofilepic'/>";?>
@@ -85,7 +85,7 @@
                   reader.readAsDataURL(input.files[0]);
               }
       }
-</script
+</script>
 
 
 <!--Same code as in create profile but changed INSERT into UPDATE and took away required message-->
