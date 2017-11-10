@@ -13,7 +13,7 @@
 body {
   margin: 0;
   background-color: #ebebeb;
-  height:100vh;
+  height: 120vh;
 }
 
 
@@ -87,6 +87,7 @@ textarea:focus, select:focus, input:focus, button:focus {
   position: relative;
   height: 50px;
   margin: 12px auto;
+  width: 125px;
 }
 
 input[type="file"] {
@@ -108,7 +109,7 @@ input[type="file"] {
   position: absolute;
   padding: 10px 25px 10px 40px;
   overflow: hidden;
-  margin-left
+  margin: 0 auto;
 }
 .uploadbuttondark {
   background: transparent url(../img/data-transfer-upload-24-grey.png) no-repeat left;
@@ -734,7 +735,7 @@ div.eventpagebox.firsteventbox {
 
 .profileeventbox {
   margin: 0px 0px 0px 0px;
-  height: 400px;
+  height: 360px;
   padding: 5px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
   overflow: hidden;
@@ -1623,6 +1624,10 @@ footer.logoutfooter {
 
 /*=====================================640PX========================================*/
 @media (min-width: 640px) {
+
+  #aboutBox {
+    width: 50%;
+  }
 
   .searchwrapper_second {
     width: 410px;
