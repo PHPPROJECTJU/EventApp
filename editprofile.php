@@ -5,7 +5,7 @@
   include("config.php");
   include("header.php");
   #Can't really make the min date work?
-  $date = date('Y-m-d');
+  #$date = date('Y-m-d');
 ?>
 
 <?php

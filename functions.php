@@ -1091,7 +1091,7 @@ function finishtheuser(){
 
    $query = "SELECT UserID
              FROM User
-             WHERE User.UserName = $sessionuser
+             WHERE User.UserName = '{$sessionuser}'
              ";
 
    $stmt2 = $db->prepare($query);
