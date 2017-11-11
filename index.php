@@ -121,7 +121,7 @@ if (isset($_POST['search']) && !empty($_POST['searchevent'])) {
               ON Event.state_id=State.state_id
               JOIN Category
               ON Event.CategoryID=Category.CategoryID
-              WHERE Event.EndDate >= CURDATE()-1 AND Title LIKE '%" . $searchphrase . "%'
+              WHERE (Event.EndDate >= CURDATE()-1) AND Title LIKE '%" . $searchphrase . "%'
               OR Information LIKE '%" . $searchphrase . "%'
               OR UserName LIKE '%" . $searchphrase . "%'
               OR Categoryname LIKE '%" . $searchphrase . "%'
