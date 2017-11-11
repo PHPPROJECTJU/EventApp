@@ -43,17 +43,17 @@
       </tr>
       <tr>
         <td>
-          <input type="date" name="bday" class="registerbar" placeholder="Birthdate" max="<?php echo $date;?>" required/>
+          <input type="date" name="bday" class="registerbar3" placeholder="Birthdate" max="<?php echo $date;?>" required/>
         </td>
       </tr>
       <tr>
             <td>
-                <p>Choose a profile picture:</p>
+                <p class="createpage">Choose a profile picture:</p>
                     <div class="fileUpload">
                       <div class="uploadbutton">Upload</div>
                       <input onchange="readURL(this);" type="file" name="fileupload">
                     </div>
-                    <p>Selected profile picture:</p><br>
+                    <p class="createpage">Selected profile picture:</p><br>
                     <img id="blah" src="#" alt="" />
                         <br/>
 
@@ -62,7 +62,7 @@
       </tr>
       <tr>
           <td>
-              <textarea name="about" placeholder="Tell me something about yourself!" class="registerbar"></textarea>
+              <textarea name="about" placeholder="Tell me something about yourself!" class="registerbar2"></textarea>
           </td>
       </tr>
       <tr>

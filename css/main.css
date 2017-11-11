@@ -1203,6 +1203,34 @@ p.attenders {
   margin: 12px;
 }
 
+.registerbar2 {
+  font-size: 16px;
+  width: 90%;
+  border: none;
+  box-shadow: none;
+  border-radius: 25px;
+  background-color: #fff;
+  padding: 12px 6px 6px 17px;
+  box-sizing: border-box;
+  margin: 12px;
+  height: 90px;
+}
+
+.registerbar3 {
+  font-size: 16px;
+  width: 90%;
+  border: none;
+  box-shadow: none;
+  border-radius: 25px;
+  background-color: #fff;
+  padding: 6px 6px 6px 17px;
+  box-sizing: border-box;
+  margin: 12px;
+}
+p.createpage {
+  color: white;
+}
+
 .qwrap {
   position:relative
 }
