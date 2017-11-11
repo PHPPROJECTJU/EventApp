@@ -15,6 +15,7 @@
 	      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	      <link rel="stylesheet" href="css/main.css">
 	      <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,600,700,900|Noto+Sans:300,400,700" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
 	  </head>
 
 	  <body id="notloggedin">
@@ -24,7 +25,7 @@
 
 
     <div id="registerbox">
-      <div id="aboutbutton" onclick="showAbout()">About</div>
+      <div id="aboutbutton">About</div>
       <div id="aboutBox">
           <div class="arrow"></div>
           <div id="about">
@@ -62,4 +63,15 @@
 </main>
 </body>
 <script type="text/javascript" src="js/menu.js"></script>
+<script>
+  $('#aboutBox').css("display", "none");
+
+  $(document).on('click', function(e) {
+  if ( $(e.target).closest('#aboutbutton').length ) {
+      $("#aboutBox").css("display", "block");
+  }else if ( ! $(e.target).closest('#aboutBox').length ) {
+      $('#aboutBox').css("display", "none");
+  }
+  });
+</script>
 </html>

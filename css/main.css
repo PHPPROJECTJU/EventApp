@@ -1209,7 +1209,7 @@ p.attenders {
 .question2 {
   position: absolute;
   width: 25px;
-  right: 33px;
+  right: 30px;
   top: 16px;
   cursor: pointer;
 }
@@ -1369,7 +1369,6 @@ p.attenders {
 
 #aboutBox {
   display: none;
-  z-index: 30;
   position: absolute;
   margin-left: 12px;
 }
@@ -1484,6 +1483,7 @@ p.attenders {
   box-shadow: 8px 8px 24px rgba(0,0,0,0.2);
 }
 #PassAbout {
+
   width: 87%;
   background-color: #fff;
   overflow: hidden;
@@ -1882,7 +1882,7 @@ footer.logoutfooter {
   }
 
   .question2 {
-    right: 20px;
+    right: 30px;
 }
 
 /*--Comment delete--*/

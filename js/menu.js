@@ -17,15 +17,15 @@ function closeNav() {
 
 /*--Displayed only on not logged in pages--------*/
 
-var aboutBox = document.getElementById("aboutBox");
-
-function showAbout() {
-		if (aboutBox.style.display == "block") {
-			aboutBox.style.display = "none";
-		} else {
-			aboutBox.style.display = "block";
-		}
-}
+// var aboutBox = document.getElementById("aboutBox");
+//
+// function showAbout() {
+// 		if (aboutBox.style.display == "block") {
+// 			aboutBox.style.display = "none";
+// 		} else {
+// 			aboutBox.style.display = "block";
+// 		}
+// }
 
 var passwordquestion = document.getElementById("passwordquestion");
 
