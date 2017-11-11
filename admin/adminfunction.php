@@ -109,8 +109,9 @@ function adminDisplayEvent(){
               echo "</div>";
               echo "<p class='description'>$Information</p>";
               echo "<p class='description'><b>Event ends:</b> $EndDate kl $EndTime</p>";
+              echo "<br />";
+              echo "<br />";
             }
-            howManyAttenders($EventID);
             echo "</div>";
             }
 

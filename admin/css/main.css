@@ -47,6 +47,7 @@ ul, li {
 
 a {
   text-decoration: none;
+  color: #0d73aa;
 }
 
 /*header basics*/
@@ -81,56 +82,6 @@ textarea {
 textarea:focus, select:focus, input:focus, button:focus {
   outline:none;
   caret-color: #0d73aa;
-}
-
-.fileUpload {
-  position: relative;
-  height: 50px;
-  margin: 12px auto;
-  width: 125px;
-}
-
-input[type="file"] {
-    opacity: 0;
-    position: absolute;
-    margin: 0 auto;
-    left: 0;
-    top: 0;
-    height: inherit;
-    width: inherit;
-}
-
-.uploadbutton {
-  background: transparent url("../img/data-transfer-upload-24.png") no-repeat left;
-  background-position: 20px;
-  color: #fff;
-  border: 2px solid white;
-  border-radius: 25px;
-  position: absolute;
-  padding: 10px 25px 10px 40px;
-  overflow: hidden;
-  margin: 0 auto;
-}
-
-.fileUploaddark {
-  position: relative;
-  height: 50px;
-  margin: 12px auto;
-  width: 256px;
-}
-
-.uploadbuttondark {
-  background: transparent url(../img/data-transfer-upload-24-grey.png) no-repeat left;
-    background-position: 19px;
-    background-size: 18px;
-    color: grey;
-    border: 2px solid grey;
-    border-radius: 25px;
-    padding: 10px 10px 10px 40px;
-    cursor: pointer;
-    width: 184px;
-    margin: 0 auto;
-    display: inline-block;
 }
 
 /*--Main menu------*/
