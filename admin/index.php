@@ -15,8 +15,9 @@ include("header.php");
 $username = ($_SESSION['adminusername']);
 
  ?>
-
-<h1>Welcome, <?=$username?>!</h1>
+ <div id="headerwrap">
+       <h2 id="aboutheader">Welcome, <?=$username?>!</h2>
+ </div>
 
                 <?php
                 @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
@@ -36,10 +37,10 @@ $username = ($_SESSION['adminusername']);
                 $stmt->execute();
 
                 while ($stmt->fetch()) {
-                    echo "<h3>";
+                    echo "<div class='about'>";
+                    echo "<p class='aboutintro'>";
                     echo "There are currently ";
-                    echo $numberofusers . " registered users";
-                    echo "</h3>";
+                    echo $numberofusers . " registered users ";
                 }
 
                 $howmanyevents = "SELECT COUNT(*) FROM Event";
@@ -49,10 +50,10 @@ $username = ($_SESSION['adminusername']);
                 $stmt->execute();
 
                 while ($stmt->fetch()) {
-                    echo "<h3>";
                     echo "and " . $numberofevents . " active events";
                     echo " on Eventually.";
-                    echo "</h3>";
+                    echo "</p>";
+                    echo "</div>";
                 }
 
 /*---end---------------------------------------------*/
