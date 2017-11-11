@@ -357,7 +357,7 @@ input[type="file"] {
 .searcheventsform {
   float: left;
   position: relative;
-  width: 80%;
+  width: 100%;
 }
 
 .searchbar {
@@ -407,6 +407,7 @@ input:focus {
 }
 .searchwrapper {
     margin: 0 auto;
+    width: 100%;
     display: block;
     overflow: hidden;
     padding: 15px 5px 5px 5px;
@@ -414,9 +415,10 @@ input:focus {
 }
 
 .searchwrapper_second {
+  width: 80%;
   overflow: hidden;
-  margin-top: 4px;
   box-sizing: border-box;
+  margin: 0 auto;
 }
 
 img.chooselocation {
@@ -1672,8 +1674,7 @@ footer.logoutfooter {
   }
 
   .searchwrapper_second {
-    width: 410px;
-    margin: 0 auto;
+    width: 350px;
   }
 
   .searcheventsform {

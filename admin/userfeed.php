@@ -1,35 +1,5 @@
 <?php
   session_start();
-
-//Setting a cookie with our region for the search field
-
-    if (isset($_COOKIE['regionpick'])) {
-      $region = $_COOKIE['regionpick'];
-    } else {
-      $region = "";
-    }
-
-    if (isset($_POST['regionpick'])) {
-      $region = $_POST['regionpick'];
-      setcookie('regionpick', $region, time() + 24 * 3600);
-      unset($_POST);
-      ?>
-        <script>
-            window.location.href = "userfeed.php";
-        </script>
-        <?php
-    }
-
-    if (isset($_POST['allregions'])) {
-      setcookie("regionpick","",time()-24 * 3600);
-      unset($_POST);
-      ?>
-        <script>
-            window.location.href = "userfeed.php";
-        </script>
-        <?php
-    }
-
 ?>
 
 <?php
@@ -42,45 +12,11 @@
 
 <div class="searchwrapper">
     <div class="searchwrapper_second">
-        <img class="chooselocation" src="img/pin.png" title="Choose location">
-
         <form class="searcheventsform" action="userfeed.php" method="POST">
               <input type="text" name="searchevent" class="searchbar" placeholder="Search users">
               <input type="submit" class="searchbutton" name="search" value="GO">
         </form>
     </div>
-    <p id="inregion"><?php echo $region; ?></p>
-    <ul id='regionmenu'>
-      <div class="liwrapper">
-        <form action="userfeed.php" name="chooseregion" method="POST">
-
-
-        <?php
-            @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
-
-            if ($db->connect_error) {
-                echo "could not connect: " . $db->connect_error;
-                printf("<br><a href=index.php>Return to home page </a>");
-                exit();
-            }
-
-            $getregion = "SELECT State.state_id, State.state_name
-                      FROM State
-                      ";
-
-            $stmt = $db->prepare($getregion);
-            $stmt->bind_result($regionid, $showregion);
-            $stmt->execute();
-
-              while ($stmt->fetch()) {
-                  echo "<input type='hidden' name='regionid' value=' . $regionid . '>";
-                  echo "<input type='submit' name='regionpick' class='regionbuttons' value='$showregion'>";
-              }
-              echo "<input type='submit' name='allregions' class='regionbuttons' value='All regions'>";
-         ?>
-       </form>
-       </div>
-     </ul>
 </div>
 
 <div id="browse">
