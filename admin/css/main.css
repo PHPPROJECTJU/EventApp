@@ -691,16 +691,6 @@ overflow: hidden;
 }
 /*--------modal end--------*/
 
-/*delete events, comments or users button*/
-
-#deletebutton {
-  color: gray;
-  background: none;
-  border: none;
-  font-size: 42px;
-  float: right;
-  cursor: pointer;
-}
 
 
 /*--event boxes----*/
@@ -1116,7 +1106,7 @@ p.attenders {
 .profilebox {
   background-color: #fff;
   width: calc(100% - 30px);
-  margin: 60px 15px;
+  margin: 17px 15px;
   border: 1px solid lightgrey;
   padding: 36px;
   box-sizing: border-box;
@@ -1732,7 +1722,7 @@ footer.logoutfooter {
 
 .profilebox {
   width: 60%;
-  margin: 72px auto;
+  margin: 36px auto;
 }
 
 
