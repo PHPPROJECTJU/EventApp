@@ -1,13 +1,12 @@
 <?php
   ob_start();
   session_start();
-  if (!isset($_SESSION['adminusername'])) {
-    //header("location:login.php");
-  }
 ?>
 
 <?php
-  include("config.php");
+  include("../config.php");
+  include("../functions.php");
+  include("adminfunction.php");
 ?>
 
 <!DOCTYPE html>
@@ -16,97 +15,46 @@
 		    <meta charset="UTF-8">
 	      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	      <link rel="stylesheet" href="css/main.css">
-	      <link href="https://fonts.googleapis.com/css?family=Lato|Noto+Sans:300,400,600|Roboto:300,400,600,700" rel="stylesheet">
+	      <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,600,700,900|Noto+Sans:300,400,700" rel="stylesheet">
 	  </head>
 
-<!--PHP TERRITORY---------------->
+	  <body id="notloggedin">
+		    <main id="main">
 
-
-
-<?php if(isset($_POST) && !empty($_POST)) : ?>
-
-<?php
-
-@ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
-
-if ($db->connect_error) {
-  echo "could not connect: " . $db->connect_error;
-  exit();
-}
-
-	$getusername =  stripslashes($_POST['getusername']);
-	$getpassword =  stripslashes($_POST['getpassword']);
-
-  $getusername = htmlentities($getusername);
-  $getpassword = htmlentities($getpassword);
-
-  $query = ("SELECT User.Admin FROM User WHERE UserName = '{$getusername}' "."AND Password = '{$getpassword}'");
-
-
-  $stmt2 = $db->prepare($query);
-  $stmt2->bind_result($isadmin);
-  $stmt2->execute();
-  $stmt2->store_result();
-
-  $totalcount = $stmt2->num_rows();
-
-  $stmt2->fetch();
-
-
-?>
-
-<?php endif;?>
-
-<!--PHP TERRITORY end---------------->
-
-
-	  <body>
-		    <main class="red" id="main">
-
-<div id="content">
+<div>
 
 
     <div id="registerbox">
+      <div id="aboutbutton" onclick="showAbout()">About</div>
+      <div id="aboutBox">
+          <div class="arrow"></div>
+          <div id="about">
+              <p><b>Welcome to Eventually!</b><br>This is a web application where you can see events hosted nearby. Register and create an event you too. Eventually you'll get some new friends!</p>
+          </div>
+      </div>
+      <img src="img/eventually_admin.png" class="startlogo"/>
 
-      <img src="img/eventually_admin.png" class="adminstartlogo"/>
         <form action="" method="POST">
-          <table id="adminloginform">
+          <table id="registerform">
             <tr>
-              <td><input type="text" name="getusername" class="registerbar" placeholder="username" required></td>
+              <td><input type="text" name="getusername" class="registerbar" placeholder="Username" required></td>
             </tr>
             <tr>
-              <td><input type="password" name="getpassword" class="registerbar" placeholder="password" required></td>
+              <td><input type="password" name="getpassword" class="registerbar" placeholder="Password" required></td>
             </tr>
-              <td><input type="submit" class="registerbutton" name="submit" value="Sign in"></td>
+              <td><input type="submit" class="signinbutton" name="submit" value="     Sign in"></td>
             </tr>
           </table>
         </form>
 
-        <?php
+        <?php if(isset($_POST) && !empty($_POST)) {
 
+          adminlogin();
 
-        if (isset($totalcount)) {
-              if ($totalcount == 0) {
-                  echo "<p class='wrongpasstext'>Wrong username or password. Please try again.</p>";
-                  session_destroy();
-
-              } elseif ($isadmin == 0) {
-                  echo "<p class='wrongpasstext'>Not an admin.</p>";
-                  session_destroy();
-
-              } else {
-                $_SESSION['adminusername'] = $getusername;
-                header("location:index.php");
-              }
-        }
-
-
-
-
-
+          }
          ?>
 
-        <p class="already"><a href="../index.php" class="loginbutton">Go to main page</a></p>
+        <p class="already">Not a member? <a href="register.php" class="transparentbutton">Register here</a></p>
 
     </div>
 
