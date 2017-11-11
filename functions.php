@@ -950,6 +950,8 @@ function registerUser(){
 
         session_start();
 
+        ini_set('session.cookie_httponly', true);
+
         $UserID = mysqli_insert_id($db);
         $_SESSION['userid'] = $UserID;
 
@@ -1116,6 +1118,8 @@ function finishtheuser(){
     exit();
     }
 
+    ini_set('session.cookie_httponly', true);
+
     mysqli_real_escape_string($db, $_POST['getusername']);
 
       $getusername =  stripslashes($_POST['getusername']);
@@ -1139,6 +1143,7 @@ function finishtheuser(){
                 $stmt2->fetch();
 
                 if(password_verify($getpassword, $hashedpassword)) {
+
                   $_SESSION['username'] = $getusername;
                   header("location:index.php");
                 } else {
@@ -1180,7 +1185,7 @@ function finishtheuser(){
 
    $firstname = addslashes($firstname);
    $lastname = addslashes($lastname);
-   $about = addslashes($about);
+   $about = htmlentities($db, $about);
 
    if(empty($_FILES['fileupload']['name'])){
      $stmt = $db->prepare("UPDATE User
@@ -1262,6 +1267,7 @@ function makeComment($comment){
 
     $comment = $comment;
     $comment = htmlentities($comment);
+#we don't do the real escape string because that adds slashes to the comment text
 
     $commentquery = ("INSERT INTO Comments (Text, EventID, UserName)
                   VALUES (?, ?, ?)

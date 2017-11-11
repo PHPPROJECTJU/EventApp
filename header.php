@@ -17,9 +17,6 @@ include("functions.php");
 
 $date = date('Y-m-d');
 
-
-
-
 $username = $_SESSION['username'];
 
 ?>

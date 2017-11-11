@@ -7,6 +7,8 @@ if (!isset($_SESSION['username'])) {
 
 //Setting a cookie with our region for the search field
 
+ini_set('session.cookie_httponly', true);
+
     if (isset($_COOKIE['regionpick'])) {
       $region = $_COOKIE['regionpick'];
     } else {
@@ -40,6 +42,8 @@ if (!isset($_SESSION['username'])) {
   include("config.php");
   include("header.php");
 ?>
+
+
 
 <button onclick="goToTop()" id="topButton" title="Go to top">
     &uarr;
