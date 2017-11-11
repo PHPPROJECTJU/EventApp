@@ -851,17 +851,18 @@ function getUsersEvents($UserID){
             ON Event.city_id=City.city_id
             JOIN Category
             ON Event.CategoryID=Category.CategoryID
-            WHERE Event.UserID = $UserID AND Event.EndDate >= CURDATE()-1
+            WHERE Event.UserID = $UserID AND Event.Status = 1 AND Event.EndDate >= CURDATE()-1
             ";
             $stmt = $db->prepare($query);
             $stmt->bind_result($UserName, $ProfilePicture, $UserID, $Title, $StartDate, $EndDate, $StartTime, $EndTime, $Information, $StreetAdress, $cityname, $EventID, $Status, $category);
             $stmt->execute();
+            $stmt->store_result();
+            $totalcount = $stmt->num_rows();
 
 /*--------Counter to give first object on page a unique class------*/
             $count = 0;
 
             while ($stmt->fetch()) {
-              if($Status == 1){
                 //echo "<div class='eventpagebox'>";
                 echo '<div class="eventpagebox ';
                 if($count == 0) {
@@ -895,7 +896,13 @@ function getUsersEvents($UserID){
                 echo "</div>";
             /*--- incrementing counter-----*/
             $count++;
-            }
+          }
+
+          if ($totalcount == 0) {
+              echo "<div class='noRows'>";
+              echo "<p>The user is not hosting any events</p>";
+              echo "<p>Return to <a href='index.php'>HOME</a></p>";
+              echo "</div>";
           }
 };
 
