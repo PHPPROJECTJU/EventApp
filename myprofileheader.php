@@ -1,9 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['username'])) {
-  header("location:login.php");
-}
-?>
 <header id="myprofileheader">
     <nav id="profileorevents">
         <ul>
