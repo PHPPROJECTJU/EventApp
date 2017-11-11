@@ -1116,6 +1116,8 @@ function finishtheuser(){
     exit();
     }
 
+    mysqli_real_escape_string($db, $_POST['getusername']);
+
       $getusername =  stripslashes($_POST['getusername']);
       $getpassword =  stripslashes($_POST['getpassword']);
 
