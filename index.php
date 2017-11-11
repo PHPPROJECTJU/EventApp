@@ -110,7 +110,7 @@ if (isset($_POST['search']) && !empty($_POST['searchevent'])) {
     $searchphrase = addslashes($searchphrase);
 
 
-    $search = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Status, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name, State.state_name
+    $search = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Status, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name, State.state_name, Category.Categoryname
               FROM User
               JOIN Event
               ON User.UserID=Event.UserID
@@ -118,6 +118,8 @@ if (isset($_POST['search']) && !empty($_POST['searchevent'])) {
               ON Event.city_id=City.city_id
               JOIN State
               ON Event.state_id=State.state_id
+              JOIN Category
+              ON Event.CategoryID=Category.CategoryID
               WHERE Title LIKE '%" . $searchphrase . "%'
               OR Information LIKE '%" . $searchphrase . "%'
               OR UserName LIKE '%" . $searchphrase . "%'
@@ -125,33 +127,9 @@ if (isset($_POST['search']) && !empty($_POST['searchevent'])) {
               ";
 
           $stmt = $db->prepare($search);
-          $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Status, $Title, $StartDate, $StartTime, $Information, $StreetAdress, $cityname, $statename);
+          $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Status, $Title, $StartDate, $StartTime, $Information, $StreetAdress, $cityname, $statename, $Category);
           $stmt->execute();
-}
-/*----------------------Getting stuff from database on chosen location-----------------------------------------*/
-/*else if(isset($_GET[$showregion])){
-
-    $showregion = trim($showregion);
-
-      $search = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name, State.state_name
-                FROM User
-                JOIN Event
-                ON User.UserID=Event.UserID
-                JOIN City
-                ON Event.city_id=City.city_id
-                JOIN State
-                ON City.city_state_id = State.state_id
-                WHERE State.state_name = '$showregion'
-                ORDER BY Event.EventID DESC
-                ";
-
-            $stmt = $db->prepare($search);
-            $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Title, $StartDate, $StartTime, $Information, $StreetAdress, $cityname, $regionname);
-            $stmt->execute();
-
-}*/
-
-else {
+} else {
 
 /*--Getting stuff from database without searching-----------------------------------------*/
 
