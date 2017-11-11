@@ -43,7 +43,7 @@
 
 <div class="searchwrapper">
     <div class="searchwrapper_second">
-        <img class="chooselocation" src="img/pin.png" title="Choose location">
+        <img class="chooselocation" src="img/redpin.png" title="Choose location">
 
         <form class="searcheventsform" action="index.php" method="POST">
               <input type="text" name="searchevent" class="searchbar" placeholder="Search events">
