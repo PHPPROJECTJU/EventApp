@@ -80,7 +80,7 @@ textarea {
 
 textarea:focus, select:focus, input:focus, button:focus {
   outline:none;
-  caret-color: #6c2dff;
+  caret-color: #0d73aa;
 }
 
 .fileUpload {
@@ -243,7 +243,7 @@ input[type="file"] {
   background-color: transparent;
   border: none;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-  color: #6c2dff;
+  color: #0d73aa;
   display: none;
   position:fixed;
   right: 8px;
@@ -379,7 +379,7 @@ input[type="file"] {
 
 input:focus {
     outline:none;
-    caret-color: #6c2dff;
+    caret-color: #0d73aa;
 }
 
 .searchbutton {
@@ -477,7 +477,7 @@ img.chooselocation {
 }
 
 .regionbuttons {
-  background-color: #6c2dff;
+  background-color: #0d73aa;
   padding: 6px 12px;
   border: none;
   border-radius: 5px;
@@ -700,7 +700,7 @@ overflow: hidden;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     height: 300px;
-    border-top: 5px solid #6c2dff;
+    border-top: 5px solid #0d73aa;
     position: relative;
     background-color: #fff;
     border-radius: 0px;
@@ -714,7 +714,7 @@ div.eventpagebox.firsteventbox {
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
   overflow: hidden;
   height: auto;
-  border-top: 5px solid #6c2dff;
+  border-top: 5px solid #0d73aa;
   position: relative;
   background-color: #fff;
 }
@@ -725,7 +725,7 @@ div.eventpagebox.firsteventbox {
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
   overflow: hidden;
   height: auto;
-  border-top: 5px solid #6c2dff;
+  border-top: 5px solid #0d73aa;
   position: relative;
   background-color: #fff;
 }
@@ -736,7 +736,7 @@ div.eventpagebox.firsteventbox {
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
   overflow: hidden;
   height: auto;
-  border-top: 5px solid #6c2dff;
+  border-top: 5px solid #0d73aa;
   position: relative;
   background-color: #fff;
 }
@@ -747,7 +747,7 @@ div.eventpagebox.firsteventbox {
   padding: 5px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
   overflow: hidden;
-  border-top: 5px solid #6c2dff;
+  border-top: 5px solid #0d73aa;
   position: relative;
   background-color: #fff;
 }
@@ -760,10 +760,10 @@ div.eventpagebox.firsteventbox {
     box-sizing: border-box;
     border-radius: 40px;
     background-color: transparent;
-    border: 2px solid #6c2dff;
+    border: 2px solid #0d73aa;
     outline: none;
     font-size: 100%;
-    color: #6c2dff;
+    color: #0d73aa;
     margin: 24px 4px;
     cursor: pointer;
     text-align: center;
@@ -771,7 +771,7 @@ div.eventpagebox.firsteventbox {
 
 .attendsave:hover{
   cursor: pointer;
-  background-color: #6c2dff;
+  background-color: #0d73aa;
   color: #fff;
 }
 
@@ -782,8 +782,8 @@ div.eventpagebox.firsteventbox {
     padding: 9px;
     box-sizing: border-box;
     border-radius: 40px;
-    background-color: #6c2dff;
-    border: 2px solid #6c2dff;
+    background-color: #0d73aa;
+    border: 2px solid #0d73aa;
     outline: none;
     font-size: 100%;
     color: #fff;
@@ -795,8 +795,8 @@ div.eventpagebox.firsteventbox {
 .attendsaveblock:hover{
   cursor: pointer;
   background-color: transparent;
-  border: 2px solid #6c2dff;
-  color: #6c2dff;
+  border: 2px solid #0d73aa;
+  color: #0d73aa;
 }
 
 .alreadysaved {
@@ -880,13 +880,13 @@ div.eventpagebox.firsteventbox {
 .commentheader {
   margin: 36px 0 0 15px;
   font-weight: 300;
-  color: #6c2dff;
+  color: #0d73aa;
 }
 
 .commentbutton {
   background-color: transparent;
-  color: #6c2dff;
-  border: 2px solid #6c2dff;
+  color: #0d73aa;
+  border: 2px solid #0d73aa;
   padding: 10px 20px;
   font-size: 100%;
   border-radius: 25px;
@@ -896,9 +896,9 @@ div.eventpagebox.firsteventbox {
 
 .commentbutton:hover {
   cursor: pointer;
-  background-color: #6c2dff;
+  background-color: #0d73aa;
   color: #fff;
-  border: 2px solid #6c2dff;
+  border: 2px solid #0d73aa;
 }
 
 
@@ -956,7 +956,7 @@ div.eventpagebox.firsteventbox {
 
 .profiletitle {
   padding: 12px 12px 16px 12px;
-  color: #8164ff;
+  color: #0d73aa;
   font-size: 16px;
   font-weight: 600;
   letter-spacing: 3px;
@@ -984,7 +984,7 @@ div.eventpagebox.firsteventbox {
 .username {
   font-size: 12px;
   font-weight: bold;
-  color: #6c2dff;
+  color: #0d73aa;
   width: 100%;
   text-align: center;
   text-decoration: none;
@@ -1038,7 +1038,7 @@ p.attenders {
   float: left;
   text-align: center;
   text-decoration: none;
-  color: #6c2dff;
+  color: #0d73aa;
   background-image: url("../img/gradientbox-6.png");
   /*linear-gradient(rgba(255,0,0,0), rgba(238, 238, 238,1));*/
   background-size: 100%;
@@ -1076,7 +1076,7 @@ p.attenders {
 
 #profileorevents ul li a {
     color: #fff;
-    background-color:#6c2dff;
+    background-color:#0d73aa;
     height: 100%;
     width: 100%;
     display: block;
@@ -1101,7 +1101,7 @@ p.attenders {
 .profilebutton {
   padding: 12px 18px;
     border-radius: 40px;
-    background-color: #6c2dff;
+    background-color: #0d73aa;
     border: none;
     outline: none;
     color: #fff;
@@ -1153,7 +1153,7 @@ p.attenders {
   float: left;
   width: 33.33%;
   text-align: center;
-  background-color: #6c2dff;
+  background-color: #0d73aa;
   box-shadow: inset 0 0 2em #6122f4;
 }
 
@@ -1216,7 +1216,7 @@ p.attenders {
 .blockbutton {
   margin-top: 24px;
   background-color: #fff;
-  color: #6c2dff;
+  color: #0d73aa;
   border: none;
   padding: 10px 40px;
   font-size: 100%;
@@ -1242,15 +1242,15 @@ p.attenders {
 
 .transparentbutton:hover {
   border: 2px solid white;
-  color: #6c2dff;
+  color: #0d73aa;
   background-color: white;
 }
 
 .colorbutton {
   margin-top: 24px;
   background-color: transparent;
-  color: #6c2dff;
-  border: 2px solid #6c2dff;
+  color: #0d73aa;
+  border: 2px solid #0d73aa;
   padding: 10px 40px;
   font-size: 100%;
   border-radius: 25px;
@@ -1258,15 +1258,15 @@ p.attenders {
 
 .colorbutton:hover {
   cursor: pointer;
-  background-color: #6c2dff;
+  background-color: #0d73aa;
   color: #fff;
 }
 
 .colorblockbutton {
   margin-top: 24px;
-  background-color: #6c2dff;
+  background-color: #0d73aa;
   color: #fff;
-  border: 2px solid #6c2dff;
+  border: 2px solid #0d73aa;
   padding: 10px 40px;
   font-size: 100%;
   border-radius: 25px;
@@ -1275,15 +1275,15 @@ p.attenders {
 .colorblockbutton:hover {
   cursor: pointer;
   background-color: transparent;
-  color: #6c2dff;
-  border: 2px solid #6c2dff;
+  color: #0d73aa;
+  border: 2px solid #0d73aa;
 }
 
 .signinbutton {
   margin-top: 24px;
   background: #fff url("../img/account-login-24-purpblue.png") no-repeat left;
   background-position: 30px;
-  color: #6c2dff;
+  color: #0d73aa;
   border: none;
   padding: 10px 40px;
   font-size: 100%;
@@ -1395,7 +1395,7 @@ p.attenders {
 }
 
 #seeattenders:hover {
-  color: #6c2dff;
+  color: #0d73aa;
 }
 
 /*Attender modal ----- taken from W3Schools Nov 9th 2017  */
@@ -1595,7 +1595,7 @@ a.logoutbutton {
 
 a.logoutbutton:hover {
   border: 2px solid white;
-  color: #6c2dff;
+  color: #0d73aa;
   background-color: white;
 }
 
