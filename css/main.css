@@ -494,7 +494,6 @@ img.chooselocation {
 
 .liwrapper {
   overflow:hidden;
-  padding-bottom: 10px;
   transition: 0.3s;
   border: 1px solid lightgrey;
 }
