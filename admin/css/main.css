@@ -1841,6 +1841,11 @@ footer.logoutfooter {
   display: inline-block;
 }
 
+#adminname {
+  display: inline-block;
+  margin-top: 12px;
+}
+
 .slide-effect {
   margin-top: 12px;
   margin-left: -12px;

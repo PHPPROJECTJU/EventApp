@@ -22,7 +22,7 @@ if (!isset($_SESSION['adminusername'])) {
 	header("location:login.php");
 }
 
-$username = $_SESSION['username'];
+$username = $_SESSION['adminusername'];
 
 ?>
 
@@ -56,16 +56,15 @@ $stmt9->fetch();
 									<div id="close" onclick="closeNav()">×</div>
 										<div id="menuprofilelinks">
 								<ul>
-												<li><a href="profile.php"><?php echo "<img src='$ProfilePicture' id='menuprofilepic'/>"; ?></a></li>
-												<li><img src="img/user-32.png" class="menuicons" /><a class ="slide-effect" id="<?php echo ($current_page == 'profile.php') ? 'active' : NULL ?>" href="profile.php"><?php echo $username; ?></a></li>
+												<li><img src="img/user-32.png" class="menuicons" /><a id="adminname"><?php echo $username; ?></a></li>
 												<li><a href="logout.php" id="logout2" title="Logout"></a></li>
 							  </ul>
 										</div>
 
 								<ul id="menuitems">
-								<li><img src="img/literature-32.png" class="menuicons" /><a class ="slide-effect" id="<?php echo ($current_page == 'index.php' || $current_page == '') ? 'active' : NULL ?>" href="index.php">Browse</a></li>
-								<li><img src="img/info-32.png" class="menuicons" /><a class ="slide-effect" id="<?php echo ($current_page == 'about.php') ? 'active' : NULL ?>" href="about.php">About</a></li>
-								<li><img src="img/mail-2-32.png" class="menuicons" /><a class ="slide-effect" id="<?php echo ($current_page == 'contact.php') ? 'active' : NULL ?>" href="contact.php">Contact</a></li>
+								<li><img src="img/literature-32.png" class="menuicons" /><a class ="slide-effect" id="<?php echo ($current_page == 'eventfeed.php' || $current_page == '') ? 'active' : NULL ?>" href=eventfeed.php>Events</a></li>
+								<li><img src="img/info-32.png" class="menuicons" /><a class ="slide-effect" id="<?php echo ($current_page == 'userfeed.php') ? 'active' : NULL ?>" href="userfeed.php">Users</a></li>
+								<li><img src="img/mail-2-32.png" class="menuicons" /><a class ="slide-effect" id="<?php echo ($current_page == 'rules.php') ? 'active' : NULL ?>" href="rules.php">Rules</a></li>
 								<li><img src="img/account-logout-32.png" class="menuicons" /><a class ="slide-effect" href="logout.php" id="logout1">Logout</a></li>
 							</ul>
 						</nav>
@@ -73,9 +72,6 @@ $stmt9->fetch();
 						<div id="headbox">
 								 <div id="hamb" onclick="openNav()" title="Menu">&#9776;</div>
 								 <a title="Start page" class="logolink" href="index.php"><img class="logo" src="img/eventually.png"/></a>
-									<div id="myBtn" class="createeventbutton" title="Create event">
-											 	<div class="theplus">+</div>
-									</div>
 					 </div>
 
 
