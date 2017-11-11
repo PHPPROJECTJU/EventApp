@@ -25,13 +25,7 @@
 
 
     <div id="registerbox">
-      <div id="aboutbutton" onclick="showAbout()">About</div>
-      <div id="aboutBox">
-          <div class="arrow"></div>
-          <div id="about">
-              <p><b>Welcome to the admin page!</b><br>This page is only made for site admins. If you're an Eventually member, please login as usual <a href="../login.php">here</a></p>
-          </div>
-      </div>
+
       <img src="img/eventually_admin.png" class="startlogo"/>
 
         <form action="" method="POST">
