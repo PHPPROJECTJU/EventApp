@@ -45,7 +45,7 @@
         <img class="chooselocation" src="img/pin.png" title="Choose location">
 
         <form class="searcheventsform" action="userfeed.php" method="POST">
-              <input type="text" name="searchevent" class="searchbar" placeholder="Search events">
+              <input type="text" name="searchevent" class="searchbar" placeholder="Search users">
               <input type="submit" class="searchbutton" name="search" value="GO">
         </form>
     </div>

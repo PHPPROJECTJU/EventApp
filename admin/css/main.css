@@ -201,7 +201,7 @@ input[type="file"] {
 }
 
 .logo {
-  width: 180px;
+  width: 200px;
   margin: 0 auto;
   display: inline;
 }
@@ -209,7 +209,8 @@ input[type="file"] {
 .logolink {
   display: block;
   margin: 15px auto;
-  width: 180px;
+  padding-left: 24px;
+  width: 200px;
 }
 
 .createeventbutton {
@@ -1674,10 +1675,11 @@ footer.logoutfooter {
   }
 
   .logo {
-    width: 250px;
+    width: 270px;
   }
 
   .logolink {
+    width: 270px;
     margin-top:10px;
   }
 
@@ -1764,14 +1766,14 @@ footer.logoutfooter {
     float: left;
   }
   .logo {
-    width: 250px;
+    width: 270px;
     margin: 10.9px 0 10.9px 12px;
   }
 
   .logolink {
     display: inline;
     margin: 0;
-    width: 250px;
+    width: 270px;
     overflow: hidden;
   }
 
