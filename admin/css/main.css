@@ -1675,12 +1675,13 @@ footer.logoutfooter {
   }
 
   .logo {
-    width: 270px;
+    width: 320px;
   }
 
   .logolink {
-    width: 270px;
-    margin-top:10px;
+    width: 320px;
+    margin-top:12px;
+    padding: 0;
   }
 
   #registerform {
@@ -1766,14 +1767,12 @@ footer.logoutfooter {
     float: left;
   }
   .logo {
-    width: 270px;
     margin: 10.9px 0 10.9px 12px;
   }
 
   .logolink {
     display: inline;
     margin: 0;
-    width: 270px;
     overflow: hidden;
   }
 
