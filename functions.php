@@ -203,7 +203,7 @@ function displayEvent(){
           exit();
       }
 
-      $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.Title, Event.Status, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, DATE_FORMAT(`EndTime`, '%H:%i') AS `EndTime`, Event.Information, Event.StreetAdress, City.city_name, Category.Categoryname
+      $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.Title, Event.Status, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(EndDate, '%D %M, %Y') AS `EndDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, DATE_FORMAT(`EndTime`, '%H:%i') AS `EndTime`, Event.Information, Event.StreetAdress, City.city_name, Category.Categoryname
                 FROM User
                 JOIN Event
                 ON User.UserID=Event.UserID
@@ -215,7 +215,7 @@ function displayEvent(){
                 ";
 
       $stmt = $db->prepare($query);
-      $stmt->bind_result($UserName, $ProfilePicture, $UserID, $Title, $Status, $StartDate, $StartTime, $EndTime, $Information, $StreetAdress, $cityname, $category);
+      $stmt->bind_result($UserName, $ProfilePicture, $UserID, $Title, $Status, $StartDate, $EndDate, $StartTime, $EndTime, $Information, $StreetAdress, $cityname, $category);
       $stmt->execute();
 
 
@@ -230,10 +230,18 @@ function displayEvent(){
             echo "</span>";
             echo "<div class='specifics'>";
             echo "<p><img src='img/place-black.png' />$StreetAdress<br>  $cityname</p> <br />";
-            echo "<p><img src='img/time-black.png' />$StartDate <br>kl $StartTime - $EndTime</p>";
-            echo "<p><img src='img/tag-black.png' />$category</p>";
-            echo "</div>";
-            echo "<p class='description'>$Information</p>";
+            if($StartDate == $EndDate){
+              echo "<p><img src='img/time-black.png' />$StartDate <br>kl $StartTime - $EndTime</p>";
+              echo "<p><img src='img/tag-black.png' />$category</p>";
+              echo "</div>";
+              echo "<p class='description'>$Information</p>";
+            } elseif ($StartDate !== $EndDate){
+              echo "<p><img src='img/time-black.png' />$StartDate <br>kl $StartTime</p>";
+              echo "<p><img src='img/tag-black.png' />$category</p>";
+              echo "</div>";
+              echo "<p class='description'>$Information</p>";
+              echo "<p class='description'><b>Event ends:</b> $EndDate kl $EndTime</p>";
+            }
             howManyAttenders($EventID);
             echo "<div class='eventbuttonbox'>";
             echo "<form action='' method='POST' name='attendsave'>";
@@ -448,7 +456,7 @@ function getHostedEvents($myuserid){
       exit();
   }
 
-  $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Status, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, DATE_FORMAT(`EndTime`, '%H:%i') AS `EndTime`, Event.Information, Event.StreetAdress, City.city_name, Category.Categoryname
+  $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Status, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(EndDate, '%D %M, %Y') AS `EndDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, DATE_FORMAT(`EndTime`, '%H:%i') AS `EndTime`, Event.Information, Event.StreetAdress, City.city_name, Category.Categoryname
             FROM Event
             JOIN User
             ON Event.UserID=User.UserID
@@ -460,7 +468,7 @@ function getHostedEvents($myuserid){
             ORDER BY Event.EventID DESC
             ";
             $stmt = $db->prepare($query);
-            $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Status, $Title, $StartDate, $StartTime, $EndTime, $Information, $StreetAdress, $cityname, $category);
+            $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Status, $Title, $StartDate, $EndDate, $StartTime, $EndTime, $Information, $StreetAdress, $cityname, $category);
             $stmt->execute();
             $stmt->store_result();
             $totalcount = $stmt->num_rows();
@@ -475,10 +483,18 @@ function getHostedEvents($myuserid){
                   echo "</span>";
                   echo "<div class='specifics'>";
                   echo "<p><img src='img/place-black.png' />$StreetAdress<br /> $cityname</p> <br />";
-                  echo "<p><img src='img/time-black.png' />$StartDate<br /> kl $StartTime - $EndTime</p>";
-                  echo "<p><img src='img/tag-black.png' />$category</p>";
-                  echo "</div>";
-                  echo "<p class='description'>$Information</p>";
+                  if($StartDate == $EndDate){
+                    echo "<p><img src='img/time-black.png' />$StartDate <br>kl $StartTime - $EndTime</p>";
+                    echo "<p><img src='img/tag-black.png' />$category</p>";
+                    echo "</div>";
+                    echo "<p class='description'>$Information</p>";
+                  } elseif ($StartDate !== $EndDate){
+                    echo "<p><img src='img/time-black.png' />$StartDate <br>kl $StartTime</p>";
+                    echo "<p><img src='img/tag-black.png' />$category</p>";
+                    echo "</div>";
+                    echo "<p class='description'>$Information</p>";
+                    echo "<p class='description'><b>Event ends:</b> $EndDate kl $EndTime</p>";
+                  }
                   howManyAttenders($EventID);
                   echo "<form action='' method='POST' name='hostedbuttons'>";
                   echo '<INPUT type="hidden" name="eventid" value='.$EventID.'>';
@@ -602,7 +618,7 @@ function getAttendedEvents($myuserid){
       exit();
   }
 
-  $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Status, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, DATE_FORMAT(`EndTime`, '%H:%i') AS `EndTime`, Event.Information, Event.StreetAdress, City.city_name, Category.Categoryname
+  $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Status, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(EndDate, '%D %M, %Y') AS `EndDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, DATE_FORMAT(`EndTime`, '%H:%i') AS `EndTime`, Event.Information, Event.StreetAdress, City.city_name, Category.Categoryname
             FROM Event_User
             JOIN Event
             ON Event_User.AttendedID=Event.EventID
@@ -616,7 +632,7 @@ function getAttendedEvents($myuserid){
             ";
 
             $stmt = $db->prepare($query);
-            $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Status, $Title, $StartDate, $StartTime, $EndTime, $Information, $StreetAdress, $cityname, $category);
+            $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Status, $Title, $StartDate, $EndDate, $StartTime, $EndTime, $Information, $StreetAdress, $cityname, $category);
             $stmt->execute();
             $stmt->store_result();
             $totalcount = $stmt->num_rows();
@@ -631,10 +647,18 @@ function getAttendedEvents($myuserid){
                 echo "</span>";
                 echo "<div class='specifics'>";
                 echo "<p><img src='img/place-black.png' />$StreetAdress<br /> $cityname</p> <br />";
-                echo "<p><img src='img/time-black.png' />$StartDate<br /> kl $StartTime - $EndTime</p>";
-                echo "<p><img src='img/tag-black.png' />$category</p>";
-                echo "</div>";
-                echo "<p class='description'>$Information</p>";
+                if($StartDate == $EndDate){
+                  echo "<p><img src='img/time-black.png' />$StartDate <br>kl $StartTime - $EndTime</p>";
+                  echo "<p><img src='img/tag-black.png' />$category</p>";
+                  echo "</div>";
+                  echo "<p class='description'>$Information</p>";
+                } elseif ($StartDate !== $EndDate){
+                  echo "<p><img src='img/time-black.png' />$StartDate <br>kl $StartTime</p>";
+                  echo "<p><img src='img/tag-black.png' />$category</p>";
+                  echo "</div>";
+                  echo "<p class='description'>$Information</p>";
+                  echo "<p class='description'><b>Event ends:</b> $EndDate kl $EndTime</p>";
+                }
                 echo "<br />";
                 echo "<form action='' method='POST' name='attendedbuttons'>";
                 echo '<INPUT type="hidden" name="eventid" value='.$EventID.'>';
@@ -707,7 +731,7 @@ function getSavedEvents($myuserid){
       exit();
   }
 
-  $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Status, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, DATE_FORMAT(`EndTime`, '%H:%i') AS `EndTime`, Event.Information, Event.StreetAdress, City.city_name, Category.Categoryname
+  $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Status, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(EndDate, '%D %M, %Y') AS `EndDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, DATE_FORMAT(`EndTime`, '%H:%i') AS `EndTime`, Event.Information, Event.StreetAdress, City.city_name, Category.Categoryname
             FROM Event_User
             JOIN Event
             ON Event_User.SavedID=Event.EventID
@@ -721,7 +745,7 @@ function getSavedEvents($myuserid){
             ";
 
             $stmt = $db->prepare($query);
-            $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Status, $Title, $StartDate, $StartTime, $EndTime, $Information, $StreetAdress, $cityname, $category);
+            $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Status, $Title, $StartDate, $EndDate, $StartTime, $EndTime, $Information, $StreetAdress, $cityname, $category);
             $stmt->execute();
             $stmt->store_result();
             $totalcount = $stmt->num_rows();
@@ -744,10 +768,18 @@ function getSavedEvents($myuserid){
                 echo "</span>";
                 echo "<div class='specifics'>";
                 echo "<p><img src='img/place-black.png' />$StreetAdress<br /> $cityname</p> <br />";
-                echo "<p><img src='img/time-black.png' />$StartDate<br /> kl $StartTime - $EndTime</p>";
-                echo "<p><img src='img/tag-black.png' />$category</p>";
-                echo "</div>";
-                echo "<p class='description'>$Information</p>";
+                if($StartDate == $EndDate){
+                  echo "<p><img src='img/time-black.png' />$StartDate <br>kl $StartTime - $EndTime</p>";
+                  echo "<p><img src='img/tag-black.png' />$category</p>";
+                  echo "</div>";
+                  echo "<p class='description'>$Information</p>";
+                } elseif ($StartDate !== $EndDate){
+                  echo "<p><img src='img/time-black.png' />$StartDate <br>kl $StartTime</p>";
+                  echo "<p><img src='img/tag-black.png' />$category</p>";
+                  echo "</div>";
+                  echo "<p class='description'>$Information</p>";
+                  echo "<p class='description'><b>Event ends:</b> $EndDate kl $EndTime</p>";
+                }
                 echo "<a class='attendsaveblock' href='event.php?EventID= " . urlencode($EventID) . " '>See event page</a>";
                 echo "</div>";
 

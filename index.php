@@ -125,6 +125,7 @@ if (isset($_POST['search']) && !empty($_POST['searchevent'])) {
               OR Information LIKE '%" . $searchphrase . "%'
               OR UserName LIKE '%" . $searchphrase . "%'
               OR Categoryname LIKE '%" . $searchphrase . "%'
+              AND Event.EndDate >= CURDATE()-1
               ORDER BY Event.EventID DESC
               ";
 
@@ -145,6 +146,7 @@ if (isset($_POST['search']) && !empty($_POST['searchevent'])) {
                 ON Event.state_id=State.state_id
                 JOIN Category
                 ON Event.CategoryID=Category.CategoryID
+                WHERE Event.EndDate >= CURDATE()-1   /*----Don't display older events than one day after current date.---*/
                 ORDER BY Event.EventID DESC
                 ";
 
