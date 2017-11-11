@@ -111,7 +111,7 @@ if (isset($_POST['search']) && !empty($_POST['searchevent'])) {
     $searchphrase = addslashes($searchphrase);
 
 
-    $search = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Status, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name, State.state_name, Category.Categoryname
+    $search = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Status, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, Event.EndDate, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name, State.state_name, Category.Categoryname
               FROM User
               JOIN Event
               ON User.UserID=Event.UserID
@@ -121,16 +121,16 @@ if (isset($_POST['search']) && !empty($_POST['searchevent'])) {
               ON Event.state_id=State.state_id
               JOIN Category
               ON Event.CategoryID=Category.CategoryID
-              WHERE Title LIKE '%" . $searchphrase . "%'
+              WHERE Event.EndDate >= CURDATE()-1 AND Title LIKE '%" . $searchphrase . "%'
               OR Information LIKE '%" . $searchphrase . "%'
               OR UserName LIKE '%" . $searchphrase . "%'
               OR Categoryname LIKE '%" . $searchphrase . "%'
-              AND Event.EndDate >= CURDATE()-1
+
               ORDER BY Event.EventID DESC
               ";
 
           $stmt = $db->prepare($search);
-          $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Status, $Title, $StartDate, $StartTime, $Information, $StreetAdress, $cityname, $statename, $Category);
+          $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Status, $Title, $StartDate, $EndDate, $StartTime, $Information, $StreetAdress, $cityname, $statename, $Category);
           $stmt->execute();
 } else {
 
