@@ -13,7 +13,7 @@
 <?php
 include("config.php");
 include("../functions.php");
-("adminfunctions.php");
+include("adminfunction.php");
 
 $date = date('Y-m-d');
 
