@@ -29,7 +29,7 @@
       <div id="aboutBox">
           <div class="arrow"></div>
           <div id="about">
-              <p><b>Welcome to Eventually!</b><br>This is a web application where you can see events hosted nearby. Register and create an event you too. Eventually you'll get some new friends!</p>
+              <p><b>Welcome to the admin page!</b><br>This page is only made for site admins. If you're an Eventually member, please login as usual <a href="../login.php">here</a></p>
           </div>
       </div>
       <img src="img/eventually_admin.png" class="startlogo"/>
@@ -54,7 +54,7 @@
           }
          ?>
 
-        <p class="already">Not a member? <a href="register.php" class="transparentbutton">Register here</a></p>
+        <p class="already">Not an admin? <a href="../index.php" class="transparentbutton">Go to main page</a></p>
 
     </div>
 
