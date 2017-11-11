@@ -22,7 +22,7 @@ displayEvent();
 
 <form action="" method="POST">
 
-  <textarea class='registerbar' rows='4' name="commentfield"></textarea>
+  <textarea class='registerbar' rows='4'  maxlength="200" name="commentfield"></textarea>
 
       <input type="submit" name="postcomment" class="commentbutton" value="Submit" />
 
