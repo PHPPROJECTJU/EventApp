@@ -1380,6 +1380,22 @@ p.attenders {
 
 /*hostedevents.php*/
 
+.noRows {
+  margin-top: 60px;
+  padding: 20px;
+}
+
+.noRows p {
+  color: #999;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 26px;
+}
+
+.noRows a {
+  /*text-decoration: underline;*/
+}
+
 /*button "see who's coming"*/
 #seeattenders {
   text-decoration: underline;

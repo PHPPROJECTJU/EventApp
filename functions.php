@@ -376,7 +376,6 @@ function checkIfAttended($EventID){
               echo "<input type='submit' class='attendsaveblock' name='attend' value='Attend'>";
             }
 
-
 }
 
 #saving an event
@@ -449,7 +448,6 @@ function getHostedEvents($myuserid){
       exit();
   }
 
-
   $query = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Status, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, DATE_FORMAT(`EndTime`, '%H:%i') AS `EndTime`, Event.Information, Event.StreetAdress, City.city_name, Category.Categoryname
             FROM Event
             JOIN User
@@ -458,19 +456,18 @@ function getHostedEvents($myuserid){
             ON Event.city_id=City.city_id
             JOIN Category
             ON Event.CategoryID=Category.CategoryID
-            WHERE Event.UserID=$myuserid
+            WHERE Event.UserID=$myuserid AND Event.Status = 1
             ORDER BY Event.EventID DESC
             ";
             $stmt = $db->prepare($query);
             $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Status, $Title, $StartDate, $StartTime, $EndTime, $Information, $StreetAdress, $cityname, $category);
             $stmt->execute();
+            $stmt->store_result();
+            $totalcount = $stmt->num_rows();
 
             while ($stmt->fetch()) {
 
-
-                if ($Status == 1) {
-
-                  echo "<div class='profileeventbox'>";
+                  echo "<div class='eventpagebox'>";
                   echo "<h3 class='profiletitle'>$Title</h3>";
                   echo "<span class='pictureandname'>";
                   echo "<img src='$ProfilePicture' class='profilepic'/>";
@@ -482,7 +479,6 @@ function getHostedEvents($myuserid){
                   echo "<p><img src='img/tag-black.png' />$category</p>";
                   echo "</div>";
                   echo "<p class='description'>$Information</p>";
-                  echo "<div class='seemore'>";
                   howManyAttenders($EventID);
                   echo "<form action='' method='POST' name='hostedbuttons'>";
                   echo '<INPUT type="hidden" name="eventid" value='.$EventID.'>';
@@ -491,10 +487,17 @@ function getHostedEvents($myuserid){
                   echo "</div>";
                   echo "</form>";
                   echo "</div>";
-                  echo "</div>";
-              }
 
-                }
+            }
+
+            //echo $totalcount;
+
+            if ($totalcount == 0) {
+              echo "<div class='noRows'>";
+              echo "<p>You are not hosting any events</p>";
+              echo "<p>Return to <a href='index.php'>HOME</a></p>";
+              echo "</div>";
+            }
 
             if (isset($_POST['cancelevent'])) {
               $EventID = ($_POST['eventid']);
@@ -609,17 +612,18 @@ function getAttendedEvents($myuserid){
             ON Event.city_id=City.city_id
             JOIN Category
             ON Event.CategoryID=Category.CategoryID
-            WHERE Event_User.UserID=$myuserid
+            WHERE Event_User.UserID=$myuserid AND Event.Status = 1
             ";
+
             $stmt = $db->prepare($query);
             $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Status, $Title, $StartDate, $StartTime, $EndTime, $Information, $StreetAdress, $cityname, $category);
             $stmt->execute();
-
+            $stmt->store_result();
+            $totalcount = $stmt->num_rows();
 
             while ($stmt->fetch()) {
-              if ($Status == 1) {
 
-                echo "<div class='profileeventbox'>";
+                echo "<div class='eventpagebox'>";
                 echo "<h3 class='profiletitle'>$Title</h3>";
                 echo "<span class='pictureandname'>";
                 echo "<img src='$ProfilePicture' class='profilepic'/>";
@@ -631,20 +635,25 @@ function getAttendedEvents($myuserid){
                 echo "<p><img src='img/tag-black.png' />$category</p>";
                 echo "</div>";
                 echo "<p class='description'>$Information</p>";
-                echo "<div class='seemore'>";
+                echo "<br />";
                 echo "<form action='' method='POST' name='attendedbuttons'>";
                 echo '<INPUT type="hidden" name="eventid" value='.$EventID.'>';
                 echo "<a class='attendsaveblock' href='event.php?EventID= " . urlencode($EventID) . " '>See event page</a>";
                 echo "<input type='submit' class='cancelbutton' name='unattend' value='Unattend'>";
-                echo "</div>";
 
                 $username = $_SESSION['username'];
                 getUserID($username);
 
                 echo "</form>";
                 echo "</div>";
-                }
 
+              }
+
+              if ($totalcount == 0) {
+                echo "<div class='noRows'>";
+                echo "<p>You are not attending any events</p>";
+                echo "<p>Return to <a href='index.php'>HOME</a></p>";
+                echo "</div>";
               }
 
               if (isset($_POST['unattend'])) {
@@ -708,17 +717,18 @@ function getSavedEvents($myuserid){
             ON Event.city_id=City.city_id
             JOIN Category
             ON Event.CategoryID=Category.CategoryID
-            WHERE Event_User.UserID=$myuserid
+            WHERE Event_User.UserID=$myuserid AND Event.Status = 1
             ";
+
             $stmt = $db->prepare($query);
             $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Status, $Title, $StartDate, $StartTime, $EndTime, $Information, $StreetAdress, $cityname, $category);
             $stmt->execute();
-
+            $stmt->store_result();
+            $totalcount = $stmt->num_rows();
 
             while ($stmt->fetch()) {
-              if ($Status == 1) {
 
-                echo "<div class='profileeventbox'>";
+                echo "<div class='eventpagebox'>";
                 echo "<form action='' method='POST'>";
 
                 $username = $_SESSION['username'];
@@ -738,11 +748,16 @@ function getSavedEvents($myuserid){
                 echo "<p><img src='img/tag-black.png' />$category</p>";
                 echo "</div>";
                 echo "<p class='description'>$Information</p>";
-                echo "<div class='seemore'>";
                 echo "<a class='attendsaveblock' href='event.php?EventID= " . urlencode($EventID) . " '>See event page</a>";
                 echo "</div>";
+
+              }
+
+              if ($totalcount == 0) {
+                echo "<div class='noRows'>";
+                echo "<p>You have not saved any events</p>";
+                echo "<p>Return to <a href='index.php'>HOME</a></p>";
                 echo "</div>";
-                }
               }
 
               if (isset($_POST['unsave'])) {
