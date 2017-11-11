@@ -15,7 +15,7 @@
       unset($_POST);
       ?>
         <script>
-            window.location.href = "index.php";
+            window.location.href = "eventfeed.php";
         </script>
         <?php
     }
@@ -25,7 +25,7 @@
       unset($_POST);
       ?>
         <script>
-            window.location.href = "index.php";
+            window.location.href = "eventfeed.php";
         </script>
         <?php
     }
@@ -44,7 +44,7 @@
     <div class="searchwrapper_second">
         <img class="chooselocation" src="img/pin.png" title="Choose location">
 
-        <form class="searcheventsform" action="index.php" method="POST">
+        <form class="searcheventsform" action="eventfeed.php" method="POST">
               <input type="text" name="searchevent" class="searchbar" placeholder="Search events">
               <input type="submit" class="searchbutton" name="search" value="GO">
         </form>
@@ -99,7 +99,7 @@
 /*--Search function-----------------------------------------*/
 
 if (isset($_POST['search']) && !empty($_POST['searchevent'])) {
-    echo "<a href='index.php' style='text-align:center; cursor:pointer; display: block; width:150px; margin: 0 auto;color:#999; border:none; text-decoration:underline; font-size:75%;' >RESET SEARCHBAR</a>";
+    echo "<a href='eventfeed.php' style='text-align:center; cursor:pointer; display: block; width:150px; margin: 0 auto;color:#999; border:none; text-decoration:underline; font-size:75%;' >RESET SEARCHBAR</a>";
 
     $searchphrase = htmlentities($_POST['searchevent']);
 
@@ -200,9 +200,6 @@ while ($stmt->fetch()) {
 
 </div>
 
-
-
-<script type="text/javascript" src="js/index.js"></script>
 
 <?php
 

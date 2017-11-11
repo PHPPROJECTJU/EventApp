@@ -710,7 +710,7 @@ overflow: hidden;
 
 .userfeedbox {
   margin: 10px 0px;
-    padding: 5px;
+    padding: 5px 5px 20px 5px;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     border-top: 5px solid #0d73aa;
