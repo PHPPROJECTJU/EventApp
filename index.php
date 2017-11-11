@@ -1,5 +1,9 @@
 <?php
-  session_start();
+session_start();
+if (!isset($_SESSION['username'])) {
+	header("location:login.php");
+}
+
 
 //Setting a cookie with our region for the search field
 

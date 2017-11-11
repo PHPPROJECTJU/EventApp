@@ -1,3 +1,11 @@
+<?php
+ob_start();
+if (!isset($_SESSION['username'])) {
+	header("location:login.php");
+}
+
+?>
+
 <!DOCTYPE html>
 	  <html lang="en">
 	  <head>
@@ -17,9 +25,7 @@ include("functions.php");
 $date = date('Y-m-d');
 
 
-if (!isset($_SESSION['username'])) {
-	header("location:login.php");
-}
+
 
 $username = $_SESSION['username'];
 
