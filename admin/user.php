@@ -57,13 +57,18 @@ $UserID = addslashes($UserID);
     }
 
     if (isset($_POST['deleteuser'])) {
-      $UserID = ($_POST['userid']);
-      adminDeleteUser($UserID);
-      unset($_POST);
+      $Commentid = ($_POST['userid']);
       ?>
       <script>
+        var question = confirm("Do you really want to delete this user?");
+        if (question == true) {
+        <?php
+          adminDeleteUser($UserID);
+          unset($_POST);
+        ?>
+        }
           window.location.href = "userfeed.php";
-      </script>
+          </script>
       <?php
     }
 

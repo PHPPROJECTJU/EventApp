@@ -76,8 +76,6 @@ $search = "SELECT User.UserID, User.UserName, User.ProfilePicture
 
 while ($stmt->fetch()) {
 
-        if (isset($_COOKIE['regionpick'])) {
-            if ($region == $statename) {
 
               echo "<div class='userfeedbox'>";
               echo "<img src='../$ProfilePicture' id='feedprofilepic'/>";
@@ -86,18 +84,7 @@ while ($stmt->fetch()) {
               echo "<h3 class='personalusername'>$UserName</h3>";
               echo "</a>";
               echo "</div>";
-            } //check if the cookie region matches the event region
 
-        } elseif (!isset($_COOKIE['regionpick'])) {
-
-          echo "<div class='userfeedbox'>";
-          echo "<img src='../$ProfilePicture' id='feedprofilepic'/>";
-          echo "</br>";
-          echo "<a href='user.php?UserID=" . urlencode($UserID) . " '>";
-          echo "<h3 class='personalusername'>$UserName</h3>";
-          echo "</a>";
-          echo "</div>";
-          } //cookie check
 }//while fetch
 
 ?>

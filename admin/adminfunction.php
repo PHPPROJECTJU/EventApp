@@ -115,14 +115,20 @@ function adminDisplayEvent(){
             echo "</div>";
             }
 
+
             if (isset($_POST['deleteevent'])) {
               $EventID = ($_POST['eventid']);
-              adminDeleteEvent($EventID);
-              unset($_POST);
               ?>
               <script>
+                var question = confirm("Do you really want to delete this event?");
+                if (question == true) {
+                <?php
+                  adminDeleteEvent($EventID);
+                  unset($_POST);
+                ?>
+                }
                   window.location.href = "eventfeed.php";
-              </script>
+                  </script>
               <?php
             }
 
@@ -180,12 +186,17 @@ function adminGetComment(){
 
       if (isset($_POST['deletecomment'])) {
         $Commentid = ($_POST['commentid']);
-        deleteComment($Commentid);
-        unset($_POST);
         ?>
         <script>
+          var question = confirm("Do you really want to delete this comment?");
+          if (question == true) {
+          <?php
+            deleteComment($Commentid);
+            unset($_POST);
+          ?>
+          }
             window.location.href = "event.php?EventID=<?php echo $EventID?>";
-        </script>
+            </script>
         <?php
       }
 }

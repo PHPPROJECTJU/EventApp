@@ -1857,10 +1857,6 @@ footer.logoutfooter {
     right: 20px;
 }
 
-  .box:nth-child(3n+1) {
-    clear: left;
-  }
-
   /*--My profile----*/
 
   /*profile pictures only at the personal profile*/

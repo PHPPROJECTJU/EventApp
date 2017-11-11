@@ -12,7 +12,7 @@
 
 <div class="searchwrapper">
     <div class="searchwrapper_second">
-        <form class="searcheventsform" action="userfeed.php" method="POST">
+        <form class="searcheventsform" action="eventfeed.php" method="POST">
               <input type="text" name="searchevent" class="searchbar" placeholder="Search events">
               <input type="submit" class="searchbutton" name="search" value="GO">
         </form>
@@ -93,9 +93,6 @@ if (isset($_POST['search']) && !empty($_POST['searchevent'])) {
 while ($stmt->fetch()) {
     if ($Status == 1) {
 
-        if (isset($_COOKIE['regionpick'])) {
-            if ($region == $statename) {
-
               echo "<div class='box'>";
               echo "<a name='". urldecode($UserID) ."'><h3 class='profiletitle'>$Title</h3></a>";
               echo "<span class='pictureandname'>";
@@ -110,25 +107,7 @@ while ($stmt->fetch()) {
               echo "<p class='description'>$Information</p>";
               echo "<a class='seemore' href='event.php?EventID=" . urlencode($EventID) . " '>more...</a>";
               echo "</div>";
-            } //check if the cookie region matches the event region
 
-        } elseif (!isset($_COOKIE['regionpick'])) {
-
-              echo "<div class='box'>";
-              echo "<a name='". urldecode($UserID) ."'><h3 class='profiletitle'>$Title</h3></a>";
-              echo "<span class='pictureandname'>";
-              echo "<img src='../$ProfilePicture' class='profilepic'/>";
-              echo "<a class='username' href='user.php?UserID= " . urlencode($UserID) . " '> $UserName </a>";
-              echo "</span>";
-              echo "<div class='specifics'>";
-              echo "<p><img src='img/place-black.png' />$StreetAdress<br> $cityname</p> <br />";
-              echo "<p><img src='img/time-black.png' />$StartDate <br>kl $StartTime</p>";
-              echo "<p><img src='img/tag-black.png' />$Category</p>";
-              echo "</div>";
-              echo "<p class='description'>$Information</p>";
-              echo "<a class='seemore' href='event.php?EventID=" . urlencode($EventID) . " '>more...</a>";
-              echo "</div>";
-          } //cookie check
     }//if status is 1
 }//while fetch
 
