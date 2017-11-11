@@ -164,55 +164,6 @@ textarea:focus, select:focus, input:focus, button:focus {
   width: 200px;
 }
 
-.createeventbutton {
-  color: white;
-  position:absolute;
-  right: 8px;
-  top: 8px;
-  border: 2px solid white;
-  border-radius:50%;
-  padding: 10px;
-  line-height: 12px;
-  font-size: 1.5em;
-  width: 10px;
-  height: 10px;
-  transition: 0.2s;
-  cursor: pointer;
-}
-.createeventbutton:hover {
-  background-color: rgba(255,255,255,0.3);
-}
-
-.theplus {
-    position: absolute;
-    top: 10px;
-    left: 9px;
-    transition: 0.2s;
-    font-size: 30px;
-}
-
-#topButton {
-  background-color: transparent;
-  border: none;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-  color: #0d73aa;
-  display: none;
-  position:fixed;
-  right: 8px;
-  bottom: 24px;
-  z-index: 40;
-  border-radius:50%;
-  width: 45px;
-  height: 45px;
-  transition: 0.2s;
-  cursor: pointer;
-  overflow: hidden;
-  text-align: center;
-  font-size: 1.5em;
-  line-height: 33px;
-  padding: 0 10px;
-}
-
 /*styling the slideout menu*/
 
 #mainmenu ul {
@@ -323,12 +274,6 @@ textarea:focus, select:focus, input:focus, button:focus {
   position: relative;
 }
 
-#inregion {
-  margin: 3px 0 0 6px;
-  font-size: 12px;
-  width: 70px;
-}
-
 input:focus {
     outline:none;
     caret-color: #0d73aa;
@@ -372,79 +317,6 @@ input:focus {
   margin: 0 auto;
 }
 
-img.chooselocation {
-  width: 25px;
-  float: left;
-  margin-left: 12px;
-  margin-right: 16px;
-  cursor: pointer;
-}
-
-#regionmenu {
-  background-color: #fff;
-  z-index: 100;
-  overflow: hidden;
-  max-height: 0;
-  transition: 0.5s;
-  clear: both;
-  width: 100%;
-  margin-top: 5px;
-  border-radius: 3px;
-  box-sizing: border-box;
-}
-#regionmenu.collapsed {
-  max-height: 600px;
-  transition: 1.2s;
-}
-
-#regionmenu li a{
-  color: white;
-}
-
-#regionmenu li {
-  float: left;
-  text-align: justify;
-  box-sizing: border-box;
-}
-#regionmenu li {
-  padding: 5px 8px;
-  border: black solid 1px;
-  margin: 8px auto 0px 8px;
-  overflow: hidden;
-  cursor: pointer;
-  font-size: 100%;
-  outline: none;
-  border-radius: 5px;
-  background-color: #0d73aa;
-  color: white;
-  border: none;
-  border-bottom: 2px solid lightgray;
-  box-sizing: border-box;
-
-}
-#regionmenu li:hover{
-  background-color: #af3e41;
-}
-#regionmenu li:active{
-
-   transform: translateY(1px);
-}
-
-.regionbuttons {
-  background-color: #0d73aa;
-  padding: 6px 12px;
-  border: none;
-  border-radius: 5px;
-  margin: 3px;
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.regionbuttons:hover{
-  background-color: #6a6ae8;
-}
-
 
 .liwrapper {
   overflow:hidden;
@@ -454,169 +326,6 @@ img.chooselocation {
 }
 
 
-
-/*--------modal start--------*/
-
-.createeventheader {
-  font-size: 22px;
-  font-weight: 300;
-  text-align: center;
-  color: #fff;
-  text-transform: uppercase;
-}
-
-.eventheaders {
-  text-align: left;
-  margin: 8px 0 6px 18px;
-}
-
-#eventform {
-  margin: 10px auto;
-  width: 100%;
-  text-align: center;
-}
-
-#eventform select {
-  width: 91%;
-  padding: 5px;
-  margin: 5px;
-  font-size: 100%;
-}
-
-.eventregisterbar {
-  font-size: 16px;
-  width: 90%;
-  box-shadow: none;
-  border-radius: 3px;
-  background-color: #fff;
-  padding: 6px 6px 6px 10px;
-  box-sizing: border-box;
-  margin: 1px;
-  border: 1px solid lightgray;
-}
-
-.eventregisterbar80{
-  font-size: 16px;
-  width: 90%;
-  box-shadow: none;
-  border-radius: 3px;
-  background-color: #fff;
-  padding: 6px 6px 6px 10px;
-  box-sizing: border-box;
-  margin: 1px;
-  border: 1px solid lightgray;
-  height: 80px;
-}
-
-.eventregisterbarinput{
-  font-size: 16px;
-  width: 90%;
-  box-shadow: none;
-  border-radius: 3px;
-  background-color: #fff;
-  padding: 6px 6px 6px 10px;
-  box-sizing: border-box;
-  margin: 1px;
-  border: 1px solid lightgray;
-  height: 80px;
-overflow: hidden;
-}
-
-.eventregisterbartext {
-  margin: 3px 0;
-  font-size: 16px;
-  width: 90%;
-  border: none;
-  box-shadow: none;
-  border-radius: 3px;
-  background-color: #fff;
-  padding: 6px 6px 6px 10px;
-  box-sizing: border-box;
-}
-
-.row {
-  margin-top: 5px;
-  color: black;
-}
-
-.innerdatewrap {
-  display: inline-block;
-}
-
-.test, .firsttime, .secondtime {
-  border-radius: 3px;
-  border: none;
-  padding: 6px 6px 6px 7px;
-}
-
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 11; /* Sit on top */
-    padding-top: 20px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content */
-.modal-content {
-    position: relative;
-    background-color: #ff324a;
-    margin: auto;
-    padding: 0;
-    width: 90%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 0.4s;
-    animation-name: animatetop;
-    animation-duration: 0.4s;
-    overflow-y: auto;
-    max-width: 440px;
-    border-radius: 10px;
-}
-
-.charlefttext {
-  display: inline;
-  float: right;
-  font-size: 90%;
-}
-
-.charcount {
-  background-color: #ebebeb;
-  border: none;
-  display: inline;
-  float: right;
-  font-size: 80%;
-}
-
-.countwrap {
-  overflow: hidden;
-  width: 90%;
-}
-
-/* The modal Close Button */
-.close {
-    color: #fff;
-    float: right;
-    font-size: 40px;
-    position: absolute;
-    right: 10px;
-    top: 2px;
-}
-
-.close:hover,
-.close:focus {
-    color: #aaa;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* Add Animation */
 @-webkit-keyframes animatetop {
     from {left: :-300px; opacity:0}
     to {left:0; opacity:1}
@@ -627,24 +336,6 @@ overflow: hidden;
     to {left:0; opacity:1}
 }
 
-
-.modal-header {
-    background: linear-gradient(to bottom right, #1cb5c9, #0d73aa);
-    color: white;
-    text-align: center;
-    padding: 5px;
-    line-height: 2em;
-    border-radius: 8px 8px 0 0;
-}
-
-.modal-body {
-  padding: 2px 16px;
-  background: #eee;
-  color: white;
-}
-/*--------modal end--------*/
-
-/*delete events, comments or users button*/
 
 #deletebutton {
   color: gray;
@@ -729,93 +420,6 @@ div.eventpagebox.firsteventbox {
   background-color: #fff;
 }
 
-.attendsave {
-  font-family: 'Raleway';
-  width: 47.2%;
-  float: left;
-    padding: 9px;
-    box-sizing: border-box;
-    border-radius: 40px;
-    background-color: transparent;
-    border: 2px solid #0d73aa;
-    outline: none;
-    font-size: 100%;
-    color: #0d73aa;
-    margin: 24px 4px;
-    cursor: pointer;
-    text-align: center;
-}
-
-.attendsave:hover{
-  cursor: pointer;
-  background-color: #0d73aa;
-  color: #fff;
-}
-
-.attendsaveblock {
-  font-family: 'Raleway';
-  width: 47.2%;
-  float: left;
-    padding: 9px;
-    box-sizing: border-box;
-    border-radius: 40px;
-    background-color: #0d73aa;
-    border: 2px solid #0d73aa;
-    outline: none;
-    font-size: 100%;
-    color: #fff;
-    margin: 24px 4px;
-    cursor: pointer;
-    text-align: center;
-}
-
-.attendsaveblock:hover{
-  cursor: pointer;
-  background-color: transparent;
-  border: 2px solid #0d73aa;
-  color: #0d73aa;
-}
-
-.alreadysaved {
-  font-family: 'Raleway';
-  width: 47.2%;
-  float: left;
-    padding: 9px;
-    box-sizing: border-box;
-    border-radius: 40px;
-    background-color: #9976fc;
-    border: 2px solid #9976fc;
-    outline: none;
-    font-size: 100%;
-    color: #fff;
-    margin: 24px 4px;
-    cursor: pointer;
-    text-align: center;
-}
-
-.cancelbutton {
-  font-family: 'Raleway';
-  width: 47.2%;
-  float: left;
-    padding: 9px;
-    box-sizing: border-box;
-    border-radius: 40px;
-    background-color: transparent;
-    border: 2px solid #ff324a;
-    outline: none;
-    font-size: 100%;
-    color: #ff324a;
-    margin: 24px 4px;
-    cursor: pointer;
-    text-align: center;
-}
-
-.cancelbutton:hover{
-  cursor: pointer;
-  background-color: #ff324a;
-  border: 2px solid #ff324a;
-  color: #fff;
-}
 
 .closedark {
   color: gray;
@@ -837,21 +441,6 @@ div.eventpagebox.firsteventbox {
     float: left;
     clear: both;
     width:100%;
-}
-
-.goback {
-  text-decoration: none;
-  font-size: 28px;
-  line-height: 28px;
-  color: #fff;
-  background-color: transparent;
-  padding: 12px;
-  margin: 72px 15px 12px 15px;
-  border: 2px solid #fff;
-  border-radius: 50%;
-  width: 28px;
-  height: 28px;
-  display: block;
 }
 
 .commentheader {
@@ -997,7 +586,7 @@ p.description {
   line-height: 18px;
   float: left;
   margin: 0px 0px;
-  padding: 0px 10px 10px 10px;
+  padding: 0px 10px 30px 10px;
 }
 
 p.attenders {
@@ -1026,44 +615,6 @@ p.attenders {
   bottom: 0px;
   left: 0;
   text-align: center;
-}
-
-
-
-/*--personal profile--*/
-
-#myprofileheader {
-  background-color: #ebebeb;
-}
-
-#profileorevents {
-  overflow: hidden;
-}
-
-#profileorevents ul {
-  overflow: hidden;
-}
-
-#profileorevents ul li {
-  float: left;
-  width: 50%;
-  text-align: center;
-  box-shadow: inset 0 0 2em #CC4548;
-}
-
-#profileorevents ul li a {
-    color: #fff;
-    background-color:#0d73aa;
-    height: 100%;
-    width: 100%;
-    display: block;
-    padding: 12px;
-    box-sizing: border-box;
-}
-
-#profileorevents ul li #active{
-  background-color: #ebebeb;
-  color: darkslategrey;
 }
 
 .profilebox {
@@ -1122,42 +673,6 @@ p.attenders {
   box-sizing: border-box;
 }
 
-/*--myevents-----*/
-
-/*subheader on myevents page:*/
-#whatevent {
-  background-color: #CC4548;
-}
-
-#chooseeventtype {
-}
-
-#chooseeventtype ul {
-  overflow: hidden;
-}
-
-#chooseeventtype ul li {
-  float: left;
-  width: 33.33%;
-  text-align: center;
-  background-color: #0d73aa;
-  box-shadow: inset 0 0 2em #6122f4;
-}
-
-#chooseeventtype ul li a {
-    color: #fff;
-    height: 100%;
-    width: 100%;
-    display: block;
-    padding: 12px;
-    box-sizing: border-box;
-
-}
-
-#chooseeventtype ul li #active{
-  background-color: #ebebeb;
-  color: darkslategrey;
-}
 
 /*--register-------*/
 
@@ -1365,83 +880,6 @@ p.attenders {
   margin-top: 7px;
 }
 
-/*hostedevents.php*/
-
-/*button "see who's coming"*/
-#seeattenders {
-  text-decoration: underline;
-  border: none;
-  font-size: 14px;
-  width: 50%;
-  border-radius: 35px;
-  color: grey;
-  margin: 6px 25%;
-  transition: 0.2s;
-  background-color: transparent;
-  z-index: 22;
-}
-
-#seeattenders:hover {
-  color: #0d73aa;
-}
-
-/*Attender modal ----- taken from W3Schools Nov 9th 2017  */
-
-/* The Modal (background) */
-.attmodal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 40px; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100vh; /* Full height */
-    overflow: scroll;
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content/Box */
-.attmodal-content {
-    background-color: #fff;
-    margin: 72px auto; /* 15% from the top and centered */
-    border-radius: 10px;
-    width: 90%; /* Could be more or less, depending on screen size */
-}
-
-.attmodalbody {
-  padding: 24px;
-}
-
-.attclose {
-  color: #fff;
-  float: right;
-  font-size: 32px;
-  font-weight: 400;
-  cursor: pointer;
-  margin-top: -3px;
-  margin-right: 12px;
-}
-
-.attenderrow {
-  padding: 10px 0;
-  overflow: hidden;
-  height: 50px;
-  border-bottom: 1px solid #e4e4e4;
-}
-
-.attenderrow img {
-  clip-path: circle(50% at center);
-  float: left;
-}
-
-.attenderlink {
-  color: #0d73aa;
-  margin-left: 12px;
-  float: left;
-  margin-top: 15px;
-}
-
 #about {
   width: 89%;
   background-color: #fff;
@@ -1460,26 +898,6 @@ p.attenders {
   border-radius: 20px;
   box-shadow: 8px 8px 24px rgba(0,0,0,0.2);
   text-align:left;
-}
-
-/*-contact form-*/
-
-#contactform {
-  margin: 48px auto 0 auto;
-  width: 90%;
-  text-align: center;
-}
-
-#contactform h3 {
-	margin: 0px;
-	text-align: center;
-}
-
-/*-create profile-*/
-
-#createprofile {
-  text-align: center;
-  margin: 20px;
 }
 
 /*-about page-*/
@@ -1691,7 +1109,7 @@ footer.logoutfooter {
 
 /*about page*/
 
-.about, #contactform {
+.about {
   width: 75%;
 }
 
@@ -1699,17 +1117,6 @@ footer.logoutfooter {
   height: 50vh;
 }
 
-/*contact page*/
-
-#contactform {
-  width: 60%;
-}
-
-/*hostedevents*/
-
-.attmodal-content {
-  width: 400px;
-}
 
 
 /*profile pictures only at the personal profile*/
@@ -1886,12 +1293,6 @@ footer.logoutfooter {
 
   .about {
     width: 50%;
-  }
-
-  /*contact page*/
-
-  #contactform {
-    width: 40%;
   }
 
   .footerimg {
