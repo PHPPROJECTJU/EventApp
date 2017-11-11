@@ -3,8 +3,10 @@
 	  <head>
 			<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	      <link rel="stylesheet" href="css/main.css">
-	      <link href="https://fonts.googleapis.com/css?family=Lato|Noto+Sans:300,400,600|Roboto:300,400,600,700" rel="stylesheet">
+	      <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,600,700,900|Noto+Sans:300,400,700" rel="stylesheet">
+				<script type="text/javascript" src="../js/jquery.min.js"></script>
 	  </head>
 
 	  <body>

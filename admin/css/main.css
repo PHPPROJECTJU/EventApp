@@ -5,20 +5,37 @@
 
 /*--Basics-----*/
 
+
 * {
-  font-family: 'Noto sans'
+  font-family: 'Raleway';
 }
 
 body {
   margin: 0;
-  background-color: #6EE6F0;
+  background-color: #ebebeb;
+  height: 120vh;
 }
 
 
 #content {
+  margin-top: 50px;
+  background-color: #ebebeb;
 }
 
-p, h3, h2, h1 {
+#whitecontent {
+  background-color: white;
+  overflow: hidden;
+}
+
+p {
+  font-family: 'Raleway';
+}
+
+h1, h2, h3, h4, a {
+  font-family: 'Noto sans';
+}
+
+p, h4, h3, h2, h1 {
   margin: 0;
 }
 
@@ -32,7 +49,89 @@ a {
   text-decoration: none;
 }
 
+/*header basics*/
 
+#pageheader {
+  text-align: center;
+  font-weight: 300;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  width: 100%;
+  margin: 48px 0px;
+}
+
+/*--all forms basic-----*/
+
+select, input[type=text], input[type=date], input[type=time] {
+  font-family: 'Raleway';
+}
+
+textarea {
+	width: 80%;
+	margin: 15px;
+	padding: 15px;
+  border: 1px solid lightgrey;
+  border-radius: 15px;
+  font-size: 16px;
+  font-family: 'Raleway';
+  resize: none;
+}
+
+textarea:focus, select:focus, input:focus, button:focus {
+  outline:none;
+  caret-color: #6c2dff;
+}
+
+.fileUpload {
+  position: relative;
+  height: 50px;
+  margin: 12px auto;
+  width: 125px;
+}
+
+input[type="file"] {
+    opacity: 0;
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    top: 0;
+    height: inherit;
+    width: inherit;
+}
+
+.uploadbutton {
+  background: transparent url("../img/data-transfer-upload-24.png") no-repeat left;
+  background-position: 20px;
+  color: #fff;
+  border: 2px solid white;
+  border-radius: 25px;
+  position: absolute;
+  padding: 10px 25px 10px 40px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.fileUploaddark {
+  position: relative;
+  height: 50px;
+  margin: 12px auto;
+  width: 256px;
+}
+
+.uploadbuttondark {
+  background: transparent url(../img/data-transfer-upload-24-grey.png) no-repeat left;
+    background-position: 19px;
+    background-size: 18px;
+    color: grey;
+    border: 2px solid grey;
+    border-radius: 25px;
+    padding: 10px 10px 10px 40px;
+    cursor: pointer;
+    width: 184px;
+    margin: 0 auto;
+    display: inline-block;
+}
 
 /*--Main menu------*/
 
@@ -40,7 +139,17 @@ a {
   overflow: hidden;
   display: block;
   height: 50px;
-  background-color: #6EE6F0;
+  background: linear-gradient(to bottom right, #1cb5c9, #0d73aa);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  width: 100%;
+  box-shadow: 0px 0px 45px rgba(0, 0, 0, 0.3);
+}
+
+#notloggedin {
+  background: linear-gradient(to bottom right, #1cb5c9, #0d73aa);
 }
 
 #headbox {
@@ -54,7 +163,7 @@ a {
     z-index: 30;
     top: 0;
     left: 0;
-    background-color: #333;
+    background-color: #222;
     overflow-x: hidden;
     transition: width 0.2s;
     box-shadow: 14px 0px 45px rgba(0, 0, 0, 0.5);
@@ -78,23 +187,84 @@ a {
   position: absolute;
   right: 0;
   color: #fff;
-  font-size: 450%;
-  margin: 6px 6px 12px 12px;
+  font-size: 350%;
+  margin: 4px 6px 12px 12px;
   padding: 0;
   line-height: 32px;
+}
+
+#close:hover,
+#close:focus {
+    color: #aaa;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .logo {
   width: 180px;
   margin: 0 auto;
-  overflow: hidden;
-  display: block;
-  margin-top: 15px;
+  display: inline;
 }
+
+.logolink {
+  display: block;
+  margin: 15px auto;
+  width: 180px;
+}
+
+.createeventbutton {
+  color: white;
+  position:absolute;
+  right: 8px;
+  top: 8px;
+  border: 2px solid white;
+  border-radius:50%;
+  padding: 10px;
+  line-height: 12px;
+  font-size: 1.5em;
+  width: 10px;
+  height: 10px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.createeventbutton:hover {
+  background-color: rgba(255,255,255,0.3);
+}
+
+.theplus {
+    position: absolute;
+    top: 10px;
+    left: 9px;
+    transition: 0.2s;
+    font-size: 30px;
+}
+
+#topButton {
+  background-color: transparent;
+  border: none;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  color: #6c2dff;
+  display: none;
+  position:fixed;
+  right: 8px;
+  bottom: 24px;
+  z-index: 40;
+  border-radius:50%;
+  width: 45px;
+  height: 45px;
+  transition: 0.2s;
+  cursor: pointer;
+  overflow: hidden;
+  text-align: center;
+  font-size: 1.5em;
+  line-height: 33px;
+  padding: 0 10px;
+}
+
+/*styling the slideout menu*/
 
 #mainmenu ul {
   padding: 24px;
-  margin: 48px 0px;
 }
 
 #mainmenu ul li {
@@ -108,12 +278,47 @@ a {
   color: #fff;
 }
 
+#menuitems {
+  margin-left: 24px;
+}
+
+.menuicons {
+  width: 20px;
+  margin-right: 12px;
+  margin-left: -20px;
+  margin-bottom: -4px;
+}
+
+#menuprofilelinks {
+  text-align: center;
+  margin: 24px auto 0 auto;
+}
+
+#menuprofilelinks ul {
+  margin: 0;
+}
+
+#menuprofilelinks ul li {
+  padding: 0;
+  width: 100%;
+}
+
+#menuprofilelinks ul li a {
+  font-weight: 300;
+}
+
+#menuprofilepic {
+  margin: 0;
+  clip-path: circle(50% at center);
+  width: 50%;
+}
+
 #active.slide-effect:after {
   content: '';
   display: block;
   height: 3px;
   width: 100%;
-  background: #6EE6F0;
+  background: #0d73aa;
 }
 /* Have to display it like inlineblock. Otherwise it will look uggly :) */
 .slide-effect {
@@ -131,7 +336,7 @@ a {
 /* Sets width to 100% and therefore it becomes visible. */
 .slide-effect:hover:after {
   width: 100%;
-  background: #6EE6F0;
+  background: #0d73aa;
 }
 
 
@@ -144,44 +349,51 @@ a {
   text-align: center;
 }
 
-.searchwrapper {
-  margin: 0 auto;
-  display: block;
-  overflow: hidden;
-  padding: 5px;
-  position: relative;
-}
-
 .searchform {
   float: left;
 }
 
+.searcheventsform {
+  float: left;
+  position: relative;
+  width: 80%;
+}
+
 .searchbar {
-    font-size: 20px;
-    border: none;
-    box-shadow: none;
-    border-radius: 25px;
-    background-color: #eee;
-    padding: 6px 6px 6px 15px;
-    box-sizing: border-box;
-  }
+  font-size: 20px;
+  width: 100%;
+  border: 1px solid lightgrey;
+  box-shadow: none;
+  border-radius: 25px;
+  background-color: #fff;
+  padding: 6px 80px 6px 15px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+#inregion {
+  margin: 3px 0 0 6px;
+  font-size: 12px;
+  width: 70px;
+}
 
 input:focus {
     outline:none;
-    caret-color: #4DA1A8;
+    caret-color: #6c2dff;
 }
 
 .searchbutton {
-  background-color: #333;
+  background-color: #999;
   color: #fff;
   border: none;
   padding: 6px;
   font-size: 20px;
   width: 69px;
+  height: 37px;
   border-radius: 25px;
   position: absolute;
-  right: 15px;
-  top: 5px;
+  right: 0;
+  top: 0;
 }
 
 .searchbutton:hover {
@@ -192,42 +404,473 @@ input:focus {
 .searchbutton:active {
   background-color: #333;
 }
+.searchwrapper {
+    margin: 0 auto;
+    display: block;
+    overflow: hidden;
+    padding: 15px 5px 5px 5px;
+    position: relative;
+}
 
-/*--boxes----*/
+.searchwrapper_second {
+  overflow: hidden;
+  margin-top: 4px;
+  box-sizing: border-box;
+}
+
+img.chooselocation {
+  width: 25px;
+  float: left;
+  margin-left: 12px;
+  margin-right: 16px;
+  cursor: pointer;
+}
+
+#regionmenu {
+  background-color: #fff;
+  z-index: 100;
+  overflow: hidden;
+  max-height: 0;
+  transition: 0.5s;
+  clear: both;
+  width: 100%;
+  margin-top: 5px;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+#regionmenu.collapsed {
+  max-height: 600px;
+  transition: 1.2s;
+}
+
+#regionmenu li a{
+  color: white;
+}
+
+#regionmenu li {
+  float: left;
+  text-align: justify;
+  box-sizing: border-box;
+}
+#regionmenu li {
+  padding: 5px 8px;
+  border: black solid 1px;
+  margin: 8px auto 0px 8px;
+  overflow: hidden;
+  cursor: pointer;
+  font-size: 100%;
+  outline: none;
+  border-radius: 5px;
+  background-color: #0d73aa;
+  color: white;
+  border: none;
+  border-bottom: 2px solid lightgray;
+  box-sizing: border-box;
+
+}
+#regionmenu li:hover{
+  background-color: #af3e41;
+}
+#regionmenu li:active{
+
+   transform: translateY(1px);
+}
+
+.regionbuttons {
+  background-color: #6c2dff;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  margin: 3px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.regionbuttons:hover{
+  background-color: #6a6ae8;
+}
+
+
+.liwrapper {
+  overflow:hidden;
+  padding-bottom: 10px;
+  transition: 0.3s;
+  border: 1px solid lightgrey;
+}
+
+
+
+/*--------modal start--------*/
+
+.createeventheader {
+  font-size: 22px;
+  font-weight: 300;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.eventheaders {
+  text-align: left;
+  margin: 8px 0 6px 18px;
+}
+
+#eventform {
+  margin: 10px auto;
+  width: 100%;
+  text-align: center;
+}
+
+#eventform select {
+  width: 91%;
+  padding: 5px;
+  margin: 5px;
+  font-size: 100%;
+}
+
+.eventregisterbar {
+  font-size: 16px;
+  width: 90%;
+  box-shadow: none;
+  border-radius: 3px;
+  background-color: #fff;
+  padding: 6px 6px 6px 10px;
+  box-sizing: border-box;
+  margin: 1px;
+  border: 1px solid lightgray;
+}
+
+.eventregisterbar80{
+  font-size: 16px;
+  width: 90%;
+  box-shadow: none;
+  border-radius: 3px;
+  background-color: #fff;
+  padding: 6px 6px 6px 10px;
+  box-sizing: border-box;
+  margin: 1px;
+  border: 1px solid lightgray;
+  height: 80px;
+}
+
+.eventregisterbarinput{
+  font-size: 16px;
+  width: 90%;
+  box-shadow: none;
+  border-radius: 3px;
+  background-color: #fff;
+  padding: 6px 6px 6px 10px;
+  box-sizing: border-box;
+  margin: 1px;
+  border: 1px solid lightgray;
+  height: 80px;
+overflow: hidden;
+}
+
+.eventregisterbartext {
+  margin: 3px 0;
+  font-size: 16px;
+  width: 90%;
+  border: none;
+  box-shadow: none;
+  border-radius: 3px;
+  background-color: #fff;
+  padding: 6px 6px 6px 10px;
+  box-sizing: border-box;
+}
+
+.row {
+  margin-top: 5px;
+  color: black;
+}
+
+.innerdatewrap {
+  display: inline-block;
+}
+
+.test, .firsttime, .secondtime {
+  border-radius: 3px;
+  border: none;
+  padding: 6px 6px 6px 7px;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 11; /* Sit on top */
+    padding-top: 20px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #ff324a;
+    margin: auto;
+    padding: 0;
+    width: 90%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    overflow-y: auto;
+    max-width: 440px;
+    border-radius: 10px;
+}
+
+.charlefttext {
+  display: inline;
+  float: right;
+  font-size: 90%;
+}
+
+.charcount {
+  background-color: #ebebeb;
+  border: none;
+  display: inline;
+  float: right;
+  font-size: 80%;
+}
+
+.countwrap {
+  overflow: hidden;
+  width: 90%;
+}
+
+/* The modal Close Button */
+.close {
+    color: #fff;
+    float: right;
+    font-size: 40px;
+    position: absolute;
+    right: 10px;
+    top: 2px;
+}
+
+.close:hover,
+.close:focus {
+    color: #aaa;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {left: :-300px; opacity:0}
+    to {left:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {left:-300px; opacity:0}
+    to {left:0; opacity:1}
+}
+
+
+.modal-header {
+    background: linear-gradient(to bottom right, #1cb5c9, #0d73aa);
+    color: white;
+    text-align: center;
+    padding: 5px;
+    line-height: 2em;
+    border-radius: 8px 8px 0 0;
+}
+
+.modal-body {
+  padding: 2px 16px;
+  background: #eee;
+  color: white;
+}
+/*--------modal end--------*/
+
+
+
+/*--event boxes----*/
 
 .box {
-	margin: 15px;
-	padding: 18px;
-	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
-  height: 300px;
-  border: 1px solid lightgrey;
-  position: relative;
-  background-color: #eee;
+  margin: 10px 0px;
+    padding: 5px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    height: 300px;
+    border-top: 5px solid #6c2dff;
+    position: relative;
+    background-color: #fff;
+    border-radius: 0px;
 }
 
 /*--event page version:---*/
 
-.eventpagebox {
-  margin: 15px;
-  margin-top: 0;
-	padding: 18px;
-	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+div.eventpagebox.firsteventbox {
+  margin: 58px 0px 0px 0px;
+  padding: 5px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
   overflow: hidden;
   height: auto;
-  border: 1px solid lightgrey;
+  border-top: 5px solid #6c2dff;
   position: relative;
-  background-color: #eee;
+  background-color: #fff;
+}
+
+.firsteventbox {
+  margin: 58px 0px 0px 0px;
+  padding: 5px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  height: auto;
+  border-top: 5px solid #6c2dff;
+  position: relative;
+  background-color: #fff;
+}
+
+.eventpagebox {
+  margin: 0px 0px 0px 0px;
+  padding: 5px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  height: auto;
+  border-top: 5px solid #6c2dff;
+  position: relative;
+  background-color: #fff;
+}
+
+.profileeventbox {
+  margin: 0px 0px 0px 0px;
+  height: 360px;
+  padding: 5px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  border-top: 5px solid #6c2dff;
+  position: relative;
+  background-color: #fff;
+}
+
+.attendsave {
+  font-family: 'Raleway';
+  width: 47.2%;
+  float: left;
+    padding: 9px;
+    box-sizing: border-box;
+    border-radius: 40px;
+    background-color: transparent;
+    border: 2px solid #6c2dff;
+    outline: none;
+    font-size: 100%;
+    color: #6c2dff;
+    margin: 24px 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.attendsave:hover{
+  cursor: pointer;
+  background-color: #6c2dff;
+  color: #fff;
+}
+
+.attendsaveblock {
+  font-family: 'Raleway';
+  width: 47.2%;
+  float: left;
+    padding: 9px;
+    box-sizing: border-box;
+    border-radius: 40px;
+    background-color: #6c2dff;
+    border: 2px solid #6c2dff;
+    outline: none;
+    font-size: 100%;
+    color: #fff;
+    margin: 24px 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.attendsaveblock:hover{
+  cursor: pointer;
+  background-color: transparent;
+  border: 2px solid #6c2dff;
+  color: #6c2dff;
+}
+
+.alreadysaved {
+  font-family: 'Raleway';
+  width: 47.2%;
+  float: left;
+    padding: 9px;
+    box-sizing: border-box;
+    border-radius: 40px;
+    background-color: #9976fc;
+    border: 2px solid #9976fc;
+    outline: none;
+    font-size: 100%;
+    color: #fff;
+    margin: 24px 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.cancelbutton {
+  font-family: 'Raleway';
+  width: 47.2%;
+  float: left;
+    padding: 9px;
+    box-sizing: border-box;
+    border-radius: 40px;
+    background-color: transparent;
+    border: 2px solid #ff324a;
+    outline: none;
+    font-size: 100%;
+    color: #ff324a;
+    margin: 24px 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.cancelbutton:hover{
+  cursor: pointer;
+  background-color: #ff324a;
+  border: 2px solid #ff324a;
+  color: #fff;
+}
+
+.closedark {
+  color: gray;
+  background: none;
+  border: none;
+  font-size: 28px;
+  position: absolute;
+  right: 10px;
+  top: 0;
+  cursor: pointer;
+}
+
+.closedark:hover {
+    color: black;
+}
+
+.eventbuttonbox {
+    display: block;
+    float: left;
+    clear: both;
+    width:100%;
 }
 
 .goback {
   text-decoration: none;
   font-size: 28px;
   line-height: 28px;
-  color: #000;
-  background-color: #fafafa;
+  color: #fff;
+  background-color: transparent;
   padding: 12px;
-  margin: 15px;
+  margin: 72px 15px 12px 15px;
+  border: 2px solid #fff;
   border-radius: 50%;
   width: 28px;
   height: 28px;
@@ -235,17 +878,90 @@ input:focus {
 }
 
 .commentheader {
-  margin: 48px 0 0 15px;
+  margin: 36px 0 0 15px;
+  font-weight: 300;
+  color: #6c2dff;
 }
 
+.commentbutton {
+  background-color: transparent;
+  color: #6c2dff;
+  border: 2px solid #6c2dff;
+  padding: 10px 20px;
+  font-size: 100%;
+  border-radius: 25px;
+  float: right;
+  margin-right: 24px;
+}
+
+.commentbutton:hover {
+  cursor: pointer;
+  background-color: #6c2dff;
+  color: #fff;
+  border: 2px solid #6c2dff;
+}
+
+
+.comment {
+  float: left;
+  margin: 20px 15px 0 15px;
+}
+
+.comment a {
+  padding-left: 24px;
+  color: gray;
+  font-weight: 300;
+}
+
+.commenterpic {
+  clip-path: circle(50% at center);
+  width: 25%;
+  float: left;
+}
+
+.commentarrow {
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-right: 10px solid #fff;
+  border-bottom: 10px solid transparent;
+  position: absolute;
+  left: -9px;
+  top: 16px;
+  overflow: hidden;
+  float: left;
+  clear: right;
+}
+
+#commentBox {
+  position: relative;
+  margin: 0 0 24px 12px;
+  display: block;
+  float: left;
+  width: 60%;
+}
+
+#commenttext {
+  width: 89%;
+  background-color: #fff;
+  overflow: hidden;
+  padding: 15px;
+  top: 30px;
+  border-radius: 20px;
+  box-shadow: 0px 2px 2px rgba(0,0,0,0.2);
+}
 
 /*--Displaying event and user info on index---*/
 
 
 .profiletitle {
+  padding: 12px 12px 16px 12px;
+  color: #8164ff;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 3px;
   display: block;
   clear: left;
-  margin: 0 0 6px 0;
   text-transform: uppercase;
   text-align: center;
 }
@@ -255,8 +971,9 @@ input:focus {
 /*this is a span that contains profilepic and username*/
 .pictureandname {
   float: left;
-  width: 40%;
-  margin-bottom: 12px;
+  width: 30%;
+  margin-bottom: 18px;
+  margin-left: 13px;
 }
 
 .profilepic {
@@ -265,8 +982,9 @@ input:focus {
 }
 
 .username {
+  font-size: 12px;
   font-weight: bold;
-  color: #6EE6F0;
+  color: #6c2dff;
   width: 100%;
   text-align: center;
   text-decoration: none;
@@ -277,38 +995,54 @@ input:focus {
   float:left;
   width: 60%;
   box-sizing: border-box;
-  padding-left: 18px;
+  padding: 6px 0px 6px 26px;
 }
 
 .specifics img {
-  width: 24px;
+  width: 22px;
   float: left;
   padding-right: 6px;
 }
 
 .specifics p {
-  font-weight: bold;
+  font-weight: 300;
+  color: grey;
   padding: 6px 0;
   margin: 0;
   float: left;
-  font-size: 14px;
+  font-size: 13px;
+  clear: both;
+  text-transform: uppercase;
 }
 
 p.description {
   font-size: 14px;
+  line-height: 18px;
   float: left;
-  margin: 12px 0px;
+  margin: 0px 0px;
+  padding: 0px 10px 10px 10px;
+}
+
+p.attenders {
+  font-size: 14px;
+  width: 100%;
+  float: left;
+  clear: both;
+  margin: 0px 0px;
+  padding: 0px 10px 10px 10px;
 }
 
 .seemore {
   display: block;
   width: 100%;
+  float: left;
   text-align: center;
   text-decoration: none;
-  color: #6EE6F0;
+  color: #6c2dff;
+  background-image: url("../img/gradientbox-6.png");
+  /*linear-gradient(rgba(255,0,0,0), rgba(238, 238, 238,1));*/
   background-size: 100%;
   background-repeat: no-repeat;
-  z-index: 10;
   position: absolute;
   padding: 48px 0 24px 0;
   margin: 0 auto;
@@ -317,58 +1051,98 @@ p.description {
   text-align: center;
 }
 
-/*users' profiles-----*/
+
+
+/*--personal profile--*/
+
+#myprofileheader {
+  background-color: #ebebeb;
+}
+
+#profileorevents {
+  overflow: hidden;
+}
+
+#profileorevents ul {
+  overflow: hidden;
+}
+
+#profileorevents ul li {
+  float: left;
+  width: 50%;
+  text-align: center;
+  box-shadow: inset 0 0 2em #CC4548;
+}
+
+#profileorevents ul li a {
+    color: #fff;
+    background-color:#6c2dff;
+    height: 100%;
+    width: 100%;
+    display: block;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+#profileorevents ul li #active{
+  background-color: #ebebeb;
+  color: darkslategrey;
+}
 
 .profilebox {
-  background-color: #eee;
-  margin: 15px;
+  background-color: #fff;
+  width: calc(100% - 30px);
+  margin: 17px 15px;
   border: 1px solid lightgrey;
   padding: 36px;
-}
-
-#personalprofilepic {
-  clip-path: circle(50% at center);
-  width: 100%;
-}
-
-/*this one is only displayed in the feed, needs to be shorter*/
-
-.profileboxfeed {
-  background-color: #eee;
-  height:260px;
-  margin: 15px;
-  border: 1px solid lightgrey;
-  padding: 18px;
-  overflow: hidden;
-  position: relative;
+  box-sizing: border-box;
 }
 
 .profilebutton {
-  padding: 15px;
-  border-radius: 40px;
-  background-color: #6EE6F0;
-  border: none;
-  outline: none;
-  font-size: 120%;
-  color: #fff;
-  margin: 0 auto;
+  padding: 12px 18px;
+    border-radius: 40px;
+    background-color: #6c2dff;
+    border: none;
+    outline: none;
+    color: #fff;
+    margin: 0 auto;
+    width: 137px;
+    display: block;
 }
 /*profile pictures only at the personal profile*/
-.profilepicfeed {
+#personalprofilepic {
   clip-path: circle(50% at center);
-  width: 60%;
-  margin: 12px calc(25% - 18px) 0 calc(25% - 18px);
+  width: 71%;
+  margin: 0 auto;
+  display: block;
+}
+#blah {
+  clip-path: circle(50% at center);
 }
 
 .personalusername {
   text-align: center;
 }
 
+/*--user.php-------*/
+
+.userbox {
+  background-color: #fff;
+  width: calc(100% - 30px);
+  margin: 65px 15px;
+  border: 1px solid lightgrey;
+  padding: 36px;
+  box-sizing: border-box;
+}
+
 /*--myevents-----*/
 
 /*subheader on myevents page:*/
 #whatevent {
-  background-color: #7e2b2c;
+  background-color: #CC4548;
+}
+
+#chooseeventtype {
 }
 
 #chooseeventtype ul {
@@ -379,6 +1153,8 @@ p.description {
   float: left;
   width: 33.33%;
   text-align: center;
+  background-color: #6c2dff;
+  box-shadow: inset 0 0 2em #6122f4;
 }
 
 #chooseeventtype ul li a {
@@ -388,22 +1164,28 @@ p.description {
     display: block;
     padding: 12px;
     box-sizing: border-box;
+
 }
 
 #chooseeventtype ul li #active{
-  background-color: #973335;
+  background-color: #ebebeb;
+  color: darkslategrey;
 }
 
-/*--register/login-------*/
+/*--register-------*/
 
-.red {
-  background-color: #6EE6F0;
-}
-
-#adminloginform {
-  margin: 18px auto 48px auto;
+#registerform {
+  margin: 48px auto;
   width: 90%;
   text-align: center;
+}
+#registerform2 {
+    margin: 67px auto;
+    width: 90%;
+    text-align: center;
+    background: #fff;
+    border: 1px solid lightgrey;
+    padding: 20px;
 }
 
 .registerbar {
@@ -412,21 +1194,112 @@ p.description {
   border: none;
   box-shadow: none;
   border-radius: 25px;
-  background-color: #eee;
-  padding: 6px 6px 6px 24px;
+  background-color: #fff;
+  padding: 6px 6px 6px 17px;
   box-sizing: border-box;
   margin: 12px;
 }
 
-.registerbutton {
+.qwrap {
+  position:relative
+}
+.question2 {
+  position: absolute;
+  width: 25px;
+  right: 33px;
+  top: 16px;
+  cursor: pointer;
+}
+
+/*--ALL GENERAL BUTTONS-----*/
+
+.blockbutton {
   margin-top: 24px;
-  background-color: #333;
-  color: #fff;
+  background-color: #fff;
+  color: #6c2dff;
   border: none;
-  padding: 6px 24px;
-  font-size: 23px;
+  padding: 10px 40px;
+  font-size: 100%;
+  border-radius: 25px;
+  border: 2px solid white;
+}
+
+.blockbutton:hover {
+  background-color: transparent;
+  cursor: pointer;
+  color: #fff;
+}
+
+.transparentbutton {
+  border: 2px solid white;
+  padding: 10px 20px;
+  border-radius: 35px;
+  color: white;
+  margin-left: 15px;
+  transition: 0.2s;
+  background-color: transparent;
+}
+
+.transparentbutton:hover {
+  border: 2px solid white;
+  color: #6c2dff;
+  background-color: white;
+}
+
+.colorbutton {
+  margin-top: 24px;
+  background-color: transparent;
+  color: #6c2dff;
+  border: 2px solid #6c2dff;
+  padding: 10px 40px;
+  font-size: 100%;
   border-radius: 25px;
 }
+
+.colorbutton:hover {
+  cursor: pointer;
+  background-color: #6c2dff;
+  color: #fff;
+}
+
+.colorblockbutton {
+  margin-top: 24px;
+  background-color: #6c2dff;
+  color: #fff;
+  border: 2px solid #6c2dff;
+  padding: 10px 40px;
+  font-size: 100%;
+  border-radius: 25px;
+}
+
+.colorblockbutton:hover {
+  cursor: pointer;
+  background-color: transparent;
+  color: #6c2dff;
+  border: 2px solid #6c2dff;
+}
+
+.signinbutton {
+  margin-top: 24px;
+  background: #fff url("../img/account-login-24-purpblue.png") no-repeat left;
+  background-position: 30px;
+  color: #6c2dff;
+  border: none;
+  padding: 10px 40px;
+  font-size: 100%;
+  border-radius: 25px;
+  border: 2px solid white;
+}
+
+.signinbutton:hover {
+  background: #fff url("../img/account-login-24.png") no-repeat left;
+  background-position: 30px;
+  background-color: transparent;
+  cursor: pointer;
+  color: #fff;
+}
+
+/*---------*/
 
 .startlogo {
   width: 150px;
@@ -435,72 +1308,268 @@ p.description {
   margin-top: 24px;
 }
 
-/*Version of startlogo with margin upwards*/
-.adminstartlogo {
-  width: 150px;
-  margin: 106px auto 0 auto;
-  display: block;
-}
-
-.loginbutton {
-  border: 2px solid white;
-  padding: 10px 20px;
-  border-radius: 35px;
+.wrongpasstext {
   color: white;
-  margin-left: 15px;
-  transition: 0.2s;
+  display: block;
+  margin: 10px 0 30px 0;
+  text-align: center;
 }
-
-.loginbutton:hover {
-  border: 2px solid white;
-  color: #6EE6F0;
-  background-color: white;
+.wrongpasstext2{
+    color: white;
+    display: block;
+    margin: 0 auto;
+    width: 320px;
 }
 
 .already {
   margin: 0 auto;
   width: 90%;
   text-align: center;
+  color: white;
 }
 
 .already a{
   text-decoration: none;
 }
 
-.registerbutton {
-  margin-top: 24px;
-  background-color: #4DA1A8;
-  color: #fff;
-  border: none;
-  padding: 10px 40px;
-  font-size: 100%;
-  border-radius: 25px;
-}
-.registerbutton:hover {
-  background-color: #58B8C0;
+#aboutbutton {
+  display: inline-block;
   cursor: pointer;
+  margin: 30px;
+  color: #fff;
 }
 
-/*-deleting stuff-*/
+.arrow {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #fff;
+  position: absolute;
+  left: 29px;
+  top: -10px;
+  z-index: 62;
+  overflow: hidden;
+}
+.arrow2 {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #fff;
+  position: absolute;
+  left: 50%;
+  top: -10px;
+  z-index: 62;
+  overflow: hidden;
+}
 
-#deletebutton {
- cursor: pointer;
-text-align: right;
-display: block;
- color: red;
- font-size: 450%;
- padding: 0;
- line-height: 32px;
- margin: -24px 15px -12px 15px;
+#aboutBox {
+  display: none;
+  z-index: 30;
+  position: absolute;
+  margin-left: 12px;
+}
+#PassBox {
+  display: none;
+  z-index: 30;
+  position: absolute;
+  margin-left: 12px;
+  margin-top: 7px;
+}
+
+/*hostedevents.php*/
+
+/*button "see who's coming"*/
+#seeattenders {
+  text-decoration: underline;
+  border: none;
+  font-size: 14px;
+  width: 50%;
+  border-radius: 35px;
+  color: grey;
+  margin: 6px 25%;
+  transition: 0.2s;
+  background-color: transparent;
+  z-index: 22;
+}
+
+#seeattenders:hover {
+  color: #6c2dff;
+}
+
+/*Attender modal ----- taken from W3Schools Nov 9th 2017  */
+
+/* The Modal (background) */
+.attmodal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 40px; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100vh; /* Full height */
+    overflow: scroll;
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.attmodal-content {
+    background-color: #fff;
+    margin: 72px auto; /* 15% from the top and centered */
+    border-radius: 10px;
+    width: 90%; /* Could be more or less, depending on screen size */
+}
+
+.attmodalbody {
+  padding: 24px;
+}
+
+.attclose {
+  color: #fff;
+  float: right;
+  font-size: 32px;
+  font-weight: 400;
+  cursor: pointer;
+  margin-top: -3px;
+  margin-right: 12px;
+}
+
+.attenderrow {
+  padding: 10px 0;
+  overflow: hidden;
+  height: 50px;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.attenderrow img {
+  clip-path: circle(50% at center);
+  float: left;
+}
+
+.attenderlink {
+  color: #0d73aa;
+  margin-left: 12px;
+  float: left;
+  margin-top: 15px;
+}
+
+#about {
+  width: 89%;
+  background-color: #fff;
+  overflow: hidden;
+  padding: 15px;
+  top: 30px;
+  border-radius: 20px;
+  box-shadow: 8px 8px 24px rgba(0,0,0,0.2);
+}
+#PassAbout {
+  width: 87%;
+  background-color: #fff;
+  overflow: hidden;
+  padding: 15px;
+  top: 30px;
+  border-radius: 20px;
+  box-shadow: 8px 8px 24px rgba(0,0,0,0.2);
+  text-align:left;
+}
+
+/*-contact form-*/
+
+#contactform {
+  margin: 48px auto 0 auto;
+  width: 90%;
+  text-align: center;
+}
+
+#contactform h3 {
+	margin: 0px;
+	text-align: center;
+}
+
+/*-create profile-*/
+
+#createprofile {
+  text-align: center;
+  margin: 20px;
+}
+
+/*-about page-*/
+
+.about {
+  background-color: #fff;
+  margin: 24px auto;
+  padding: 36px 36px 72px 36px;
+  box-sizing: border-box;
+}
+
+.about h2 {
+  text-align: center;
+  font-size: 48px;
+  margin-bottom: 48px;
+  font-weight: 300;
+}
+
+hr {
+  border: 1px solid lightgrey;
+}
+
+#aboutheader {
+  text-align: center;
+  font-weight: 300;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  position: absolute;
+  width: 100%;
+  top: calc(50% - 16.5px);
+}
+
+.aboutintro {
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  font-weight: 300;
+  margin-bottom: 72px;
 }
 
 
-/*-----*/
+#headerwrap {
+  position: relative;
+  background-color: #0d73aa;
+  height: 30vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/*faq q's and a's*/
+
+.qa {
+  font-size: 16px;
+  margin-top: 12px;
+}
+
+.question {
+  font-size: 14px;
+  line-height: 18px;
+  text-align: left;
+  font-weight: 700;
+}
+
+.answer {
+  font-size: 14px;
+  line-height: 18px;
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+/*--log out ---*/
 
 .logoutbox {
   height: 300px;
   padding-top: 160px;
-  z-index: 30;
+  z-index: 40;
 }
 
 .logouttext {
@@ -526,7 +1595,7 @@ a.logoutbutton {
 
 a.logoutbutton:hover {
   border: 2px solid white;
-  color: #6EE6F0;
+  color: #6c2dff;
   background-color: white;
 }
 
@@ -541,56 +1610,305 @@ footer {
   padding-top: 70px;
   display: block;
   overflow: hidden;
+  z-index: 0;
 }
 
 .footerimg {
   margin: -10px;
   padding: 0;
-  width: 104%;
+  zoom: 100%;
 }
 
 footer.logoutfooter {
   position: fixed;
   bottom: 0;
+  z-index: 40;
 }
 
+.logoutfooter .footerimg {
+  width: 120%;
+
+}
 
 /*=====================================640PX========================================*/
 @media (min-width: 640px) {
 
-  .box {
+  #aboutBox {
+    width: 50%;
+  }
+
+  .searchwrapper_second {
+    width: 410px;
+    margin: 0 auto;
+  }
+
+  .searcheventsform {
+    width: 350px;
+  }
+
+  div.eventpagebox, .box, .profileeventbox {
     float: left;
-    width: calc(50% - 47px);
+    width: calc(50% - 10px);
   }
 
   .logo {
     width: 250px;
-    margin-top: 10px;
+  }
+
+  .logolink {
+    margin-top:10px;
   }
 
   #registerform {
     width: 50%;
   }
 
-  .footerimg {
-    repeat: repeat;
+  #registerform2 {
+      margin: 84px auto;
+      width: 60%;
   }
+
+  .question2 {
+    right: 25px;
+}
+
+/*event.php*/
+
+  .firsteventbox {
+    width: 60%;
+    margin: 84px auto 24px auto;
+  }
+
+  .commentarea {
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  div.eventpagebox.firsteventbox {
+    margin: 7px 7px 7px 7px;
+  }
+
+  /*user and profile page*/
+
+.userbox {
+  width: 60%;
+  margin: 84px auto;
+}
+
+.profilebox {
+  width: 60%;
+  margin: 36px auto;
+}
+
+
+/*about page*/
+
+.about, #contactform {
+  width: 75%;
+}
+
+#headerwrap {
+  height: 50vh;
+}
+
+/*contact page*/
+
+#contactform {
+  width: 60%;
+}
+
+/*hostedevents*/
+
+.attmodal-content {
+  width: 400px;
+}
+
+
+/*profile pictures only at the personal profile*/
+#personalprofilepic {
+  clip-path: circle(50% at center);
+  width: 40%;
+}
+
 
 }
 
 /*=====================================960PX========================================*/
 @media (min-width: 960px) {
-  .box {
+
+  #headbox {
+    width: 200px;
+    display: inline;
     float: left;
-    width: calc(33.333% - 47px);
+  }
+  .logo {
+    width: 250px;
+    margin: 10.9px 0 10.9px 12px;
+  }
+
+  .logolink {
+    display: inline;
+    margin: 0;
+    width: 250px;
+    overflow: hidden;
+  }
+
+  #mainmenu {
+    height: 50px;
+    width: 60%;
+    position: relative;
+    z-index: 0;
+    background-color: transparent;
+    overflow: hidden;
+    float: right;
+    box-shadow: none;
+}
+
+#logout1 {
+  display: none;
+}
+
+.createeventbutton {
+  left: 280px;
+}
+
+#hamb, #close {
+    display: none;
+}
+
+#mainmenu ul {
+  padding: 0;
+}
+
+#mainmenu ul li {
+  list-style: none;
+  padding: 0 24px;
+  float: left;
+  height: 50px;
+  width: auto;
+}
+
+#mainmenu ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+
+#menuitems {
+  display: inline;
+  float: left;
+  margin: 0;
+  height: 50px;
+}
+
+.menuicons {
+  display: none;
+}
+
+#menuprofilelinks {
+  text-align: center;
+  margin: 0;
+  overflow: hidden;
+  height: inherit;
+  float: right;
+}
+
+#menuprofilelinks ul {
+  height: inherit;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+#menuprofilelinks ul li {
+  padding: 0 12px;
+  width: auto;
+  height: inherit;
+}
+
+#menuprofilelinks ul li a {
+  font-weight: 300;
+  overflow: hidden;
+}
+
+#menuprofilelinks ul li a#logout2 {
+  width: 22px;
+  height: 50px;
+  margin: -2px 0 0 0;
+  background: transparent url('../img/account-logout-22.png') no-repeat left;
+  background-position: 0px;
+  margin-left: -12px;
+  display: inline-block;
+}
+
+.slide-effect {
+  margin-top: 12px;
+  margin-left: -12px;
+}
+
+#menuprofilepic {
+  height: 40px;
+  width: 40px;
+  margin-top: 5px;
+}
+
+
+  div.eventpagebox, .box, .profileeventbox {
+    float: left;
+    width: calc(33.333% - 10px);
   }
 
   #registerform {
     width: 30%;
   }
 
+  .question2 {
+    right: 20px;
+}
+
   .box:nth-child(3n+1) {
     clear: left;
+  }
+
+  /*--My profile----*/
+
+  /*profile pictures only at the personal profile*/
+  #personalprofilepic {
+    width: 30%;
+  }
+
+  /*event.php*/
+
+  .firsteventbox {
+    width: 50%;
+    margin: 84px auto 24px auto;
+  }
+
+  .commentarea {
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  /*user page*/
+
+  .userbox {
+    margin: 84px auto;
+  }
+
+  /*about page*/
+
+  .about {
+    width: 50%;
+  }
+
+  /*contact page*/
+
+  #contactform {
+    width: 40%;
+  }
+
+  .footerimg {
+    zoom: 130%;
   }
 
 }
