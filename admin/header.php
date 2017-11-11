@@ -62,9 +62,10 @@ $stmt9->fetch();
 										</div>
 
 								<ul id="menuitems">
-								<li><img src="img/literature-32.png" class="menuicons" /><a class ="slide-effect" id="<?php echo ($current_page == 'eventfeed.php' || $current_page == '') ? 'active' : NULL ?>" href=eventfeed.php>Events</a></li>
-								<li><img src="img/info-32.png" class="menuicons" /><a class ="slide-effect" id="<?php echo ($current_page == 'userfeed.php') ? 'active' : NULL ?>" href="userfeed.php">Users</a></li>
-								<li><img src="img/mail-2-32.png" class="menuicons" /><a class ="slide-effect" id="<?php echo ($current_page == 'rules.php') ? 'active' : NULL ?>" href="rules.php">Rules</a></li>
+								<li><img src="img/home-7-32.png" class="menuicons" /><a class ="slide-effect" id="<?php echo ($current_page == 'index.php' || $current_page == '') ? 'active' : NULL ?>" href=index.php>Home</a></li>
+								<li><img src="img/calendar-11-32.png" class="menuicons" /><a class ="slide-effect" id="<?php echo ($current_page == 'eventfeed.php') ? 'active' : NULL ?>" href=eventfeed.php>Events</a></li>
+								<li><img src="img/user-32.png" class="menuicons" /><a class ="slide-effect" id="<?php echo ($current_page == 'userfeed.php') ? 'active' : NULL ?>" href="userfeed.php">Users</a></li>
+								<li><img src="img/info-32.png" class="menuicons" /><a class ="slide-effect" id="<?php echo ($current_page == 'rules.php') ? 'active' : NULL ?>" href="rules.php">Rules</a></li>
 								<li><img src="img/account-logout-32.png" class="menuicons" /><a class ="slide-effect" href="logout.php" id="logout1">Logout</a></li>
 							</ul>
 						</nav>

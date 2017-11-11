@@ -52,7 +52,7 @@
     <p id="inregion"><?php echo $region; ?></p>
     <ul id='regionmenu'>
       <div class="liwrapper">
-        <form action="index.php" name="chooseregion" method="POST">
+        <form action="eventfeed.php" name="chooseregion" method="POST">
 
 
         <?php

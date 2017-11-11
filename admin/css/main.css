@@ -706,6 +706,19 @@ overflow: hidden;
     border-radius: 0px;
 }
 
+/*--user feed boxes----*/
+
+.userfeedbox {
+  margin: 10px 0px;
+    padding: 5px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    border-top: 5px solid #0d73aa;
+    position: relative;
+    background-color: #fff;
+    border-radius: 0px;
+}
+
 /*--event page version:---*/
 
 div.eventpagebox.firsteventbox {
@@ -1116,6 +1129,15 @@ p.attenders {
   margin: 0 auto;
   display: block;
 }
+
+
+#feedprofilepic {
+  width: 30%;
+  clip-path: circle(50% at center);
+  margin: 12px auto 0 auto;
+  display: block;
+}
+
 #blah {
   clip-path: circle(50% at center);
 }
@@ -1646,7 +1668,7 @@ footer.logoutfooter {
     width: 350px;
   }
 
-  div.eventpagebox, .box, .profileeventbox {
+  div.eventpagebox, .box, .profileeventbox, .userfeedbox {
     float: left;
     width: calc(50% - 10px);
   }
@@ -1858,7 +1880,7 @@ footer.logoutfooter {
 }
 
 
-  div.eventpagebox, .box, .profileeventbox {
+  div.eventpagebox, .box, .profileeventbox, .userfeedbox {
     float: left;
     width: calc(33.333% - 10px);
   }
