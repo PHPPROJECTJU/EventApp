@@ -100,6 +100,7 @@
 /*--Search function-----------------------------------------*/
 
 if (isset($_POST['search']) && !empty($_POST['searchevent'])) {
+    echo "<a href='index.php' style='text-align:center; cursor:pointer; display: block; width:150px; margin: 0 auto;color:#999; border:none; text-decoration:underline; font-size:75%;' >RESET SEARCHBAR</a>";
 
     $searchphrase = htmlentities($_POST['searchevent']);
 
@@ -123,6 +124,7 @@ if (isset($_POST['search']) && !empty($_POST['searchevent'])) {
               WHERE Title LIKE '%" . $searchphrase . "%'
               OR Information LIKE '%" . $searchphrase . "%'
               OR UserName LIKE '%" . $searchphrase . "%'
+              OR Categoryname LIKE '%" . $searchphrase . "%'
               ORDER BY Event.EventID DESC
               ";
 
