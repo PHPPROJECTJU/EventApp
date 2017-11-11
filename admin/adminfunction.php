@@ -83,7 +83,14 @@ function adminDisplayEvent(){
           if ($Status == 1) {
 
             echo "<div class='firsteventbox'>";
-            echo "<div id='deletebutton'>×</div>";
+
+            #to be able to delete event
+            echo "<form action='' method='POST'>";
+            echo '<INPUT type="hidden" name="eventid" value=' . $EventID . '>';
+            echo "<input type='submit' class='closedark' name='deleteevent' value='×'>";
+            echo "</form>";
+            #
+
             echo "<h3 class='profiletitle'>$Title</h3>";
             echo "<span class='pictureandname'>";
             echo "<img src='../$ProfilePicture' class='profilepic'/>";
@@ -107,56 +114,19 @@ function adminDisplayEvent(){
             echo "</div>";
             }
 
+            if (isset($_POST['deleteevent'])) {
+              $EventID = ($_POST['eventid']);
+              adminDeleteEvent($EventID);
+              unset($_POST);
+              ?>
+              <script>
+                  window.location.href = "eventfeed.php";
+              </script>
+              <?php
+            }
+
 
           }
-
-
-/*
-No matter if we want to save or attend the event,
-we need to get the logged in user's ID to insert
-into the middle table Event_User. We get it by using
-our previous function getUserID (see above) to echo
-out a hidden input with the desired ID. When the form
-is submitted, we can capture the id to use and pass
-with either the function saveEvent or attendEvent.
-(se below) Note: We also need the ID of the Event host,
-hence the hidden input "eventhostid"
-*/
-
-        if (isset($_POST['save']) OR isset($_POST['attend'])) {
-            $myuserid = trim($_POST['userid']);
-            $eventhostid = trim($_POST['eventhostid']);
-        }
-
-        if (isset($_POST['save'])) {
-            saveEvent($myuserid, $EventID, $eventhostid);
-        }
-        else if (isset($_POST['attend'])) {
-            attendEvent($myuserid, $EventID, $eventhostid);
-        }
-
-#to be able to unattend or unsave at the event page:
-
-        if (isset($_POST['unattend'])) {
-          $myuserid = trim($_POST['userid']);
-          unattendEvent($EventID, $myuserid);
-          unset($_POST);
-          ?>
-            <script>
-                window.location.href = "event.php?EventID=<?php echo $EventID?>";
-            </script>
-          <?php
-        } else if (isset($_POST['unsave'])) {
-          $myuserid = trim($_POST['userid']);
-          unsaveEvent($EventID, $myuserid);
-          unset($_POST);
-          ?>
-            <script>
-                window.location.href = "event.php?EventID=<?php echo $EventID?>";
-            </script>
-          <?php
-        }
-
 }
 
 #getting and displaying comments
@@ -171,8 +141,6 @@ function adminGetComment(){
           printf("<br><a href=index.php>Return to home page </a>");
           exit();
       }
-
-      $myusername = $_SESSION['username'];
 
       $EventID = trim($_GET['EventID']);
 
@@ -194,13 +162,11 @@ function adminGetComment(){
           echo "<a href='user.php?UserID= " . urlencode($UserID) . " '> $Commenter </a> says:";
           echo "<div id='commentBox'>";
 
-          #If this is our own comment we want to be able to delete it
-          if ($Commenter == $myusername) {
+          #To be able to delete a comment
             echo "<form action='' method='POST'>";
             echo '<INPUT type="hidden" name="commentid" value=' . $Commentid . '>';
             echo "<input type='submit' class='closedark' name='deletecomment' value='×'>";
             echo "</form>";
-          }
 
           echo "<div class='commentarrow'></div>";
           echo "<div id='commenttext'><p>";
@@ -223,6 +189,51 @@ function adminGetComment(){
       }
 }
 
+function adminDeleteEvent($EventID){
+  include("config.php");
+
+  @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
+
+      if ($db->connect_error) {
+          echo "could not connect: " . $db->connect_error;
+          printf("<br><a href=index.php>Return to home page </a>");
+          exit();
+      }
+
+  $deleteevent = "UPDATE Event
+                  SET Status=0
+                  WHERE
+                  Event.EventID = ?
+                  ";
+
+                  $stmt = $db->prepare($deleteevent);
+                  $stmt->bind_param('i', $EventID);
+                  $response = $stmt->execute();
+}
+
+function adminDeleteUser($UserID){
+
+  include("config.php");
+
+  @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
+
+      if ($db->connect_error) {
+          echo "could not connect: " . $db->connect_error;
+          printf("<br><a href=index.php>Return to home page </a>");
+          exit();
+      }
+
+  $deleteuser =   "DELETE FROM
+                  User
+                  WHERE
+                  User.UserID = ?
+                  ";
+
+                  $stmt = $db->prepare($deleteuser);
+                  $stmt->bind_param('i', $UserID);
+                  $response = $stmt->execute();
+
+}
 
 
 ?>

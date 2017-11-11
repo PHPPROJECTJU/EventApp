@@ -39,7 +39,14 @@ $UserID = addslashes($UserID);
 
     while ($stmt->fetch()) {
         echo "<div class='profilebox'>";
-        echo "<div id='deletebutton'>×</div>";
+
+        #to be able to delete user
+        echo "<form action='' method='POST'>";
+        echo '<INPUT type="hidden" name="userid" value=' . $UserID . '>';
+        echo "<input type='submit' class='closedark' name='deleteuser' value='×'>";
+        echo "</form>";
+        #
+
         echo "<img src='../$ProfilePicture' id='personalprofilepic'/>";
         echo "</br><h3 class='personalusername'>$UserName</h3></br></br>";
         echo "Name:</br> $FirstName $LastName</br>";
@@ -48,6 +55,17 @@ $UserID = addslashes($UserID);
         echo "</br>About:</br>$About</br>";
         echo "</br></br><a class='profilebutton' href='hostedevents.php?UserID= " . urlencode($UserID) . " '>See hosted events</a>";
         echo "</div>";
+    }
+
+    if (isset($_POST['deleteuser'])) {
+      $UserID = ($_POST['userid']);
+      adminDeleteUser($UserID);
+      unset($_POST);
+      ?>
+      <script>
+          window.location.href = "userfeed.php";
+      </script>
+      <?php
     }
 
 ?>

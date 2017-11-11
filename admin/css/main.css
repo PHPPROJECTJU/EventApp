@@ -1120,6 +1120,7 @@ p.attenders {
   border: 1px solid lightgrey;
   padding: 36px;
   box-sizing: border-box;
+  position: relative;
 }
 
 .profilebutton {
@@ -1314,7 +1315,7 @@ p.attenders {
 
 .signinbutton {
   margin-top: 24px;
-  background: #fff url("../img/account-login-24-purpblue.png") no-repeat left;
+  background: #fff url("../img/account-login-24-blue.png") no-repeat left;
   background-position: 30px;
   color: #0d73aa;
   border: none;
