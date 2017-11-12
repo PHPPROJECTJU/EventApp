@@ -375,12 +375,11 @@ input[type="file"] {
 #inregion {
   margin: 3px 0 0 6px;
   font-size: 12px;
-  width: 70px;
+  width: 53px;
 }
 
 #together {
   float: left;
-  margin-left: 10px;
 }
 
 input:focus {
@@ -1691,7 +1690,7 @@ footer.logoutfooter {
   }
 
   .searchwrapper_second {
-    width: 410px;
+    width: 436px;
     margin: 0 auto;
   }
 
