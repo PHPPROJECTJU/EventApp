@@ -1185,7 +1185,7 @@ function finishtheuser(){
 
    $firstname = addslashes($firstname);
    $lastname = addslashes($lastname);
-   $about = htmlentities($db, $about);
+   $about = htmlentities($about);
 
    if(empty($_FILES['fileupload']['name'])){
      $stmt = $db->prepare("UPDATE User
