@@ -143,6 +143,16 @@ if (isset($_POST['search']) && !empty($_POST['searchevent'])) {
           $stmt = $db->prepare($search);
           $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Status, $Title, $StartDate, $EndDate, $StartTime, $Information, $StreetAdress, $cityname, $statename, $Category);
           $stmt->execute();
+          $stmt->store_result();
+
+          $totalcount1 = $stmt->num_rows();
+
+
+    			if ($totalcount1==0) {
+    					echo "<div class='noRows'>";
+    					echo "<p>Sorry, there are no events avaliable here.<br><a href='index.php'> Return to home</a></p>";
+    					echo "</div>";
+    			}
 
 } else {
 
@@ -158,7 +168,7 @@ if (isset($_POST['search']) && !empty($_POST['searchevent'])) {
                 ON Event.state_id=State.state_id
                 JOIN Category
                 ON Event.CategoryID=Category.CategoryID
-                WHERE Event.EndDate >= CURDATE()-1 AND Event.Status = 1   /*----Don't display older events than one day after current date.---*/
+                WHERE Event.EndDate >= CURDATE()-1 AND Event.Status = 1 /*----Don't display older events than one day after current date.---*/
                 ORDER BY Event.EventID DESC
                 ";
 
