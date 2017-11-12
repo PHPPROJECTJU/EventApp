@@ -5,9 +5,9 @@
 # http://www.sequelpro.com/
 # https://github.com/sequelpro/sequelpro
 #
-# Värd: 127.0.0.1 (MySQL 5.6.35)
+# Värd: 127.0.0.1 (MySQL 5.5.5-10.1.26-MariaDB)
 # Databas: EventApp
-# Genereringstid: 2017-11-12 11:41:10 +0000
+# Genereringstid: 2017-11-12 12:20:48 +0000
 # ************************************************************
 
 
@@ -1769,7 +1769,14 @@ VALUES
 	(153,'Nice! Will keep a pace of 4:30/km just fyi.',110,'Karen'),
 	(154,'Sweet! I\'ll be around just that day.',110,'Robben'),
 	(155,'Sweet! Shall I bring my own food, or do we order pizza?',112,'Mike_Mike'),
-	(156,'Can I join? Never watched a swedish footbll game before.',111,'Mike_Mike');
+	(156,'Can I join? Never watched a swedish footbll game before.',111,'Mike_Mike'),
+	(157,'Geez Mike, don\'t write your life\'s story',113,'firebirdie'),
+	(158,'You owe me a pizza dude :D',77,'firebirdie'),
+	(159,'Oooh how fun with a masquerade!',74,'Emelie_K'),
+	(160,'Like who for example? :)',115,'Emelie_K'),
+	(161,'You think you got what it takes, Albin? ;)',110,'Emelie_K'),
+	(162,'I\'ll have 10 beers and still beat you',109,'_EMphasizer_'),
+	(163,'Can\'t freaking wait!! Did you read the early review?',78,'_EMphasizer_');
 
 /*!40000 ALTER TABLE `Comments` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1791,7 +1798,6 @@ CREATE TABLE `Event` (
   `Status` tinyint(1) NOT NULL DEFAULT '1',
   `UserID` int(11) NOT NULL,
   `CategoryID` varchar(50) NOT NULL DEFAULT '',
-  `Comments` varchar(500) NOT NULL,
   `StreetAdress` varchar(40) NOT NULL DEFAULT '',
   `city_id` int(11) NOT NULL,
   `state_id` int(11) NOT NULL,
@@ -1801,24 +1807,25 @@ CREATE TABLE `Event` (
 LOCK TABLES `Event` WRITE;
 /*!40000 ALTER TABLE `Event` DISABLE KEYS */;
 
-INSERT INTO `Event` (`EventID`, `Title`, `StartDate`, `EndDate`, `StartTime`, `EndTime`, `Information`, `Status`, `UserID`, `CategoryID`, `Comments`, `StreetAdress`, `city_id`, `state_id`)
+INSERT INTO `Event` (`EventID`, `Title`, `StartDate`, `EndDate`, `StartTime`, `EndTime`, `Information`, `Status`, `UserID`, `CategoryID`, `StreetAdress`, `city_id`, `state_id`)
 VALUES
-	(72,'End of exam period!!','2017-12-19','2017-12-19','19:00:00.000000','04:00:00.000000','Welcome to my apartment for a grand celebration of the exam period ending! I\'ll provide some neat snacks, but bring your own beverage. Every student in town is welcome!',1,43,'1','','V&auml;derkvarnsgatan 34',958,14),
-	(73,'Winter hike','2017-12-18','2017-12-18','09:00:00.000000','15:00:00.000000','Join me on my 20 km winter hike in F&auml;rnebofj&auml;rden! Everyone brings their own lunch bag, coffee and whatever you\'ll want. The hike will take around 5 hours in time, plus stops. The idea is to really enjoy the nature and company so we\'ll go easy! Let me know as early as possible if you\'re interested.',1,34,'3','','F&auml;rnebofj&auml;rden',36,2),
-	(74,'New year\'s eve','2017-12-31','2018-01-01','18:00:00.000000','11:00:00.000000','This year I\'m throwing out an open invitation for my new year\'s eve party! It\'ll take place in my house at Drottninggatan. \r\nTHEME: Classic masquerade, which is OPEN TO INTERPRETATION. \r\nThere will be snacks and punsch, please bring anything else you\'d like to eat or drink.',1,39,'6','','Drottninggatan 13',395,8),
-	(75,'Halmstad Tattoo Festival meetup','2018-01-27','2018-01-27','13:00:00.000000','23:00:00.000000','Anyone going to the Tattoo Festival? Join my meetup of tattoo devotees. We start by visiting the festival, then move on to get some burgers and beers at O\'learys in town. Come on tattoo lovers!!',1,40,'13','','Industrigatan 3',199,5),
-	(76,'Karaoke night','2018-01-20','2018-01-21','19:30:00.000000','03:00:00.000000','Finally a karaoke bar opened up in Kallekrona! I\'ll go there the 20th of Jan. Who\'s coming? Afterparty at my place.',1,32,'1','','Kungsgatan 4',17,1),
-	(77,'Christmas LAN','2017-12-22','2017-12-23','17:00:00.000000','11:00:00.000000','Time for this years\' amazing christmas LAN! All games will go in a nice christmassy tone. \r\n As usual you\'re welcome to bring sleepover stuff and sleep on my floor. We\'ll order pizza or something for dinner. Now tell your friends!!',1,38,'14','','Hulug&aring;rdsgatan 65',532,10),
-	(78,'Black mirror season premiere','2017-12-28','2017-12-28','17:00:00.000000','23:00:00.000000','Black mirror season 4 is coming out the 28th of December, and we\'re bingewatching it at my house! We\'ll fire up Netflix at 18:00, should be about 5-6 hours of watching... we\'ll probably need food, so pizza order maybe? Anyways, expect a great night with quality television, so hyped! :D',1,41,'8','','G&aring;rdsgatan 23',106,3),
-	(109,'Bowling night','2017-11-24','2017-11-24','20:00:00.000000','22:00:00.000000','Does someone wants to join me for a bowling evening? Looking for three guys to drink some beer and hang out with. Try to beat me if you can!',1,51,'14','','Klostergatan 56',345,7),
-	(110,'Evening run','2017-11-24','2017-11-24','20:00:00.000000','21:00:00.000000','Me and my dog will take a long run tonight and it would be fun if anyone joined! We will run two laps around Rocksj&ouml;n in J&ouml;nk&ouml;ping. See you!',1,52,'5','','Knektaparken',345,7),
-	(111,'J-S&ouml;dra away','2017-11-30','2017-11-30','09:00:00.000000','21:00:00.000000','Sup! On sunday I want to see J&ouml;nk&ouml;ping win against Trelleborg and stay in allsvenskan next year as well. Who joins me? I\'ve got car and leave J&ouml;nk&ouml;ping at 9am from the train station. First come, first served!',1,53,'5','','V&aring;ngavallen',743,11),
-	(112,'Code night','2017-11-24','2017-11-25','22:00:00.000000','09:00:00.000000','We will code all night. Join our code party! Make me a call when you\'re here, I might have too loud music on and wont here when you ring on the bell.',1,55,'14','','Everstreet 12',128,4),
-	(113,'Djurg&aring;rden - Hv71','2017-11-30','2017-11-30','15:00:00.000000','18:00:00.000000','Simple as this. Book your tickets. I have seat at section F155 Right.',1,56,'5','','Ericsson Globe',861,12),
-	(114,'Street dance course','2017-12-02','2017-12-02','15:00:00.000000','17:00:00.000000','I\'ve never tried street dance before and thought it could be cool to try it out. Don\'t be embarrassed!',0,56,'20','','T&auml;nsticksomr&aring;det',345,7),
-	(115,'Dance festival','2017-12-02','2017-12-02','15:00:00.000000','23:59:00.000000','Dance festival all night long! Please come visit the Dance festival in J&ouml;nk&ouml;ping. There are a lot of professionals coming!',1,57,'20','','T&auml;ndsticksomr&aring;det',345,7),
-	(116,'Dinner night','2017-12-03','2017-12-03','20:00:00.000000','23:00:00.000000','Looking for new friends and planned a night where we cook good food and eat together. Want to know a little bit more about you before you come here, so if you are interested comment below and I can get to know you a bit better!',1,59,'10','','Contact me for adress',355,7),
-	(117,'S&ouml;dra hemma!','2017-11-29','2017-11-29','15:00:00.000000','18:00:00.000000','S&ouml;dra-Trelleborg. It\'s gonna be awesome! Bike from down town at 14.30.',1,54,'5','','Vallen',345,7);
+	(72,'End of exam period!!','2017-12-19','2017-12-19','19:00:00.000000','04:00:00.000000','Welcome to my apartment for a grand celebration of the exam period ending! I\'ll provide some neat snacks, but bring your own beverage. Every student in town is welcome!',1,43,'1','V&auml;derkvarnsgatan 34',958,14),
+	(73,'Winter hike','2017-12-18','2017-12-18','09:00:00.000000','15:00:00.000000','Join me on my 20 km winter hike in F&auml;rnebofj&auml;rden! Everyone brings their own lunch bag, coffee and whatever you\'ll want. The hike will take around 5 hours in time, plus stops. The idea is to really enjoy the nature and company so we\'ll go easy! Let me know as early as possible if you\'re interested.',1,34,'3','F&auml;rnebofj&auml;rden',36,2),
+	(74,'New year\'s eve','2017-12-31','2018-01-01','18:00:00.000000','11:00:00.000000','This year I\'m throwing out an open invitation for my new year\'s eve party! It\'ll take place in my house at Drottninggatan. \r\nTHEME: Classic masquerade, which is OPEN TO INTERPRETATION. \r\nThere will be snacks and punsch, please bring anything else you\'d like to eat or drink.',1,39,'6','Drottninggatan 13',395,8),
+	(75,'Halmstad Tattoo Festival meetup','2018-01-27','2018-01-27','13:00:00.000000','23:00:00.000000','Anyone going to the Tattoo Festival? Join my meetup of tattoo devotees. We start by visiting the festival, then move on to get some burgers and beers at O\'learys in town. Come on tattoo lovers!!',1,40,'13','Industrigatan 3',199,5),
+	(76,'Karaoke night','2018-01-20','2018-01-21','19:30:00.000000','03:00:00.000000','Finally a karaoke bar opened up in Kallekrona! I\'ll go there the 20th of Jan. Who\'s coming? Afterparty at my place.',1,32,'1','Kungsgatan 4',17,1),
+	(77,'Christmas LAN','2017-12-22','2017-12-23','17:00:00.000000','11:00:00.000000','Time for this years\' amazing christmas LAN! All games will go in a nice christmassy tone. \r\n As usual you\'re welcome to bring sleepover stuff and sleep on my floor. We\'ll order pizza or something for dinner. Now tell your friends!!',1,38,'14','Hulug&aring;rdsgatan 65',532,10),
+	(78,'Black mirror season premiere','2017-12-28','2017-12-28','17:00:00.000000','23:00:00.000000','Black mirror season 4 is coming out the 28th of December, and we\'re bingewatching it at my house! We\'ll fire up Netflix at 18:00, should be about 5-6 hours of watching... we\'ll probably need food, so pizza order maybe? Anyways, expect a great night with quality television, so hyped! :D',1,41,'8','G&aring;rdsgatan 23',106,3),
+	(109,'Bowling night','2017-11-24','2017-11-24','20:00:00.000000','22:00:00.000000','Does someone wants to join me for a bowling evening? Looking for three guys to drink some beer and hang out with. Try to beat me if you can!',1,51,'14','Klostergatan 56',345,7),
+	(110,'Evening run','2017-11-24','2017-11-24','20:00:00.000000','21:00:00.000000','Me and my dog will take a long run tonight and it would be fun if anyone joined! We will run two laps around Rocksj&ouml;n in J&ouml;nk&ouml;ping. See you!',1,52,'5','Knektaparken',345,7),
+	(111,'J-S&ouml;dra away','2017-11-30','2017-11-30','09:00:00.000000','21:00:00.000000','Sup! On sunday I want to see J&ouml;nk&ouml;ping win against Trelleborg and stay in allsvenskan next year as well. Who joins me? I\'ve got car and leave J&ouml;nk&ouml;ping at 9am from the train station. First come, first served!',1,53,'5','V&aring;ngavallen',743,11),
+	(112,'Code night','2017-11-24','2017-11-25','22:00:00.000000','09:00:00.000000','We will code all night. Join our code party! Make me a call when you\'re here, I might have too loud music on and wont here when you ring on the bell.',1,55,'14','Everstreet 12',128,4),
+	(113,'Djurg&aring;rden - Hv71','2017-11-30','2017-11-30','15:00:00.000000','18:00:00.000000','Simple as this. Book your tickets. I have seat at section F155 Right.',1,56,'5','Ericsson Globe',861,12),
+	(114,'Street dance course','2017-12-02','2017-12-02','15:00:00.000000','17:00:00.000000','I\'ve never tried street dance before and thought it could be cool to try it out. Don\'t be embarrassed!',0,56,'20','T&auml;nsticksomr&aring;det',345,7),
+	(115,'Dance festival','2017-12-02','2017-12-02','15:00:00.000000','23:59:00.000000','Dance festival all night long! Please come visit the Dance festival in J&ouml;nk&ouml;ping. There are a lot of professionals coming!',1,57,'20','T&auml;ndsticksomr&aring;det',345,7),
+	(116,'Dinner night','2017-12-03','2017-12-03','20:00:00.000000','23:00:00.000000','Looking for new friends and planned a night where we cook good food and eat together. Want to know a little bit more about you before you come here, so if you are interested comment below and I can get to know you a bit better!',1,59,'10','Contact me for adress',355,7),
+	(117,'S&ouml;dra hemma!','2017-11-29','2017-11-29','15:00:00.000000','18:00:00.000000','S&ouml;dra-Trelleborg. It\'s gonna be awesome! Bike from down town at 14.30.',1,54,'5','Vallen',345,7),
+	(118,'I perform at Bryggan','2017-11-24','2017-11-24','21:00:00.000000','22:00:00.000000','Come see my first live performance at Bryggan friday night! I\'ll be accompanied by my lovely friend with a guitar, Michael Borg. We\'ll be performing some nice, slow songs so get your cozy mood on.',1,60,'22','Slottsgatan 5',1577,20);
 
 /*!40000 ALTER TABLE `Event` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1899,39 +1906,21 @@ VALUES
 	(56,74,NULL,39),
 	(54,113,NULL,56),
 	(54,112,NULL,55),
-	(54,110,NULL,52);
+	(54,110,NULL,52),
+	(60,110,NULL,52),
+	(60,NULL,75,40),
+	(60,113,NULL,56),
+	(60,NULL,117,54),
+	(60,77,NULL,38),
+	(61,74,NULL,39),
+	(61,NULL,117,54),
+	(61,NULL,115,57),
+	(61,NULL,113,56),
+	(62,118,NULL,60),
+	(62,109,NULL,51),
+	(62,78,NULL,41);
 
 /*!40000 ALTER TABLE `Event_User` ENABLE KEYS */;
-UNLOCK TABLES;
-
-
-# Tabelldump Location
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `Location`;
-
-CREATE TABLE `Location` (
-  `LocationID` int(11) NOT NULL AUTO_INCREMENT,
-  `StreetAdress` varchar(255) NOT NULL,
-  `city_id` int(11) NOT NULL,
-  PRIMARY KEY (`LocationID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-LOCK TABLES `Location` WRITE;
-/*!40000 ALTER TABLE `Location` DISABLE KEYS */;
-
-INSERT INTO `Location` (`LocationID`, `StreetAdress`, `city_id`)
-VALUES
-	(1,'Kyrkogatan 15',0),
-	(2,'Drottninggatan 15',0),
-	(3,'Ringgatan 34',25),
-	(6,'Kungsgatan 12',7),
-	(7,'Riddargatan 55',14),
-	(8,'',0),
-	(9,'Hejgatan 16',7),
-	(10,'Hejgatan 16',447);
-
-/*!40000 ALTER TABLE `Location` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
@@ -2022,7 +2011,10 @@ VALUES
 	(55,'Robben','$2y$10$b8Ca8zADg/dHUym30M.JcOIDywX8vHwVyyTUdpJdhfLpXKP9xmXaK','rob@robben.com','Rob','Clark','1980-05-02','Im Rob! Attend my events. They will be aweome.','profilepics/user55.jpg',0),
 	(56,'Mike_Mike','$2y$10$2RtNAhidtJmTEkh83c08wOkyrjLnA2/f4aRZAPjxu/8pMQOCFKpUa','mike@mike.se','Mike','Scott','1990-07-07','Im Scott! Mike Scott!','profilepics/user56.jpg',0),
 	(57,'JessieJay','$2y$10$FNVd4l/ef7upn6/01eTPqeTTAyzBWPSQtWQ2CKrLeZbJ4nkQOswS.','jessie@jay.com','Jessie','Jay','1993-08-09','Hi there, Im jessie. Im 24 years old and looking for exciting events.','profilepics/user57.jpg',0),
-	(59,'Helene','$2y$10$cwfsHpZcEgYRb4HXWdrB5e.AoJQBmbwcJN5/oa1TyWgYiq/9CxOXq','helene@helene.se','Helene','Karlsson','1980-03-03','Hi Im Helene! I\'m a mother of two and have a lovely husband named Mike.','profilepics/user59.jpg',0);
+	(59,'Helene','$2y$10$cwfsHpZcEgYRb4HXWdrB5e.AoJQBmbwcJN5/oa1TyWgYiq/9CxOXq','helene@helene.se','Helene','Karlsson','1980-03-03','Hi Im Helene! I\'m a mother of two and have a lovely husband named Mike.','profilepics/user59.jpg',0),
+	(60,'firebirdie','$2y$10$nFv8eJWO1C.eaMmd2hNH3eujhPYKbxynohJNUUJLdxg2cZLfXXqDu','wendela.ohlsson@gmail.com','Wendela','Ohlsson','1996-04-19','21-year old music fantast dreaming to become a pop singer! Check out my Youtube channel: firebirdieWendela','profilepics/user60.jpg',0),
+	(61,'Emelie_K','$2y$10$bqd4CEMuewWNqNIszp3z9usZ3mjQSxVdggMzTF5Mzm8PGW.JyokMW','emeliekjellberg3@gmail.com','Emelie','Kjellberg','1991-09-02','Newly graduated architect looking to meet some new people!','profilepics/user61.jpg',0),
+	(62,'_EMphasizer_','$2y$10$YNFtKfJx6ELp5Mum4FlBju2WvqpLAg3DEe3xhZ1qAMD4P0AC1F9dG','emphasizer203@outlook.com','Emanuel','Jones','1988-05-07','Generally happy guy, looking to get out of the house more... Concerts are my main thing, and I\'m a metal type of guy.','profilepics/user62.jpeg',0);
 
 /*!40000 ALTER TABLE `User` ENABLE KEYS */;
 UNLOCK TABLES;
