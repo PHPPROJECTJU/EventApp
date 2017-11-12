@@ -756,14 +756,6 @@ function getSavedEvents($myuserid){
             while ($stmt->fetch()) {
 
                 echo "<div class='profileeventbox'>";
-                echo "<form action='' method='POST'>";
-
-                $username = $_SESSION['username'];
-                getUserID($username);
-
-                echo '<INPUT type="hidden" name="eventid" value=' . $EventID . '>';
-                echo "<input type='submit' class='closedark' name='unsave' value='×'>";
-                echo "</form>";
                 echo "<h3 class='profiletitle'>$Title</h3>";
                 echo "<span class='pictureandname'>";
                 echo "<img src='$ProfilePicture' class='profilepic'/>";
@@ -784,7 +776,16 @@ function getSavedEvents($myuserid){
                   echo "<p class='description'><b>Event ends:</b> $EndDate kl $EndTime</p>";
                 }
                 echo "<div class='seemore'>";
+                echo "<form action='' method='POST' name='attendedbuttons'>";
+                echo '<INPUT type="hidden" name="eventid" value='.$EventID.'>';
                 echo "<a class='attendsaveblock' href='event.php?EventID= " . urlencode($EventID) . " '>See event page</a>";
+                echo "<input type='submit' class='cancelbutton' name='unsave' value='Unsave'>";
+
+                $username = $_SESSION['username'];
+                getUserID($username);
+
+                echo "</form>";
+
                 echo "</div>";
                 echo "</div>";
 
