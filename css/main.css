@@ -356,30 +356,35 @@ input[type="file"] {
 .searcheventsform {
   float: left;
   position: relative;
-  width: 80%;
+  width: 71%;
 }
 
 .searchbar {
-  font-size: 20px;
-  width: 100%;
-  border: 1px solid lightgrey;
-  box-shadow: none;
-  border-radius: 25px;
-  background-color: #fff;
-  padding: 6px 80px 6px 15px;
-  box-sizing: border-box;
-  position: relative;
-  float: left;
+  font-size: 19px;
+      width: 100%;
+      border: 1px solid lightgrey;
+      box-shadow: none;
+      border-radius: 25px;
+      background-color: #fff;
+      padding: 6px 65px 6px 15px;
+      box-sizing: border-box;
+      position: relative;
+      float: left;
 }
 
 #inregion {
-  margin: 3px 0 0 6px;
+
   font-size: 12px;
-  width: 53px;
+    /* width: 32px; */
+    text-align: center;
+    /* display: inline; */
+    /* display: block; */
+    /* margin: 0 auto; */
 }
 
 #together {
   float: left;
+  width: 60px;
 }
 
 input:focus {
@@ -391,14 +396,14 @@ input:focus {
   background-color: #8164ff;
   color: #fff;
   border: none;
-  padding: 6px;
-  font-size: 20px;
-  width: 69px;
-  height: 37px;
+  padding: 6px 6px;
+  font-size: 19px;
+  width: 62px;
+  height: 34px;
   border-radius: 25px;
   position: absolute;
   right: 0;
-  top: 0;
+  top: 1px;
 }
 
 .searchbutton:hover {
@@ -425,10 +430,9 @@ input:focus {
 
 img.chooselocation {
   width: 25px;
-  float: left;
-  margin-left: 12px;
-  margin-right: 16px;
   cursor: pointer;
+  display: block;
+  margin: 0 auto;
 }
 
 #regionmenu {
@@ -1690,10 +1694,13 @@ footer.logoutfooter {
   }
 
   .searchwrapper_second {
-    width: 436px;
+    width: 452px;
     margin: 0 auto;
   }
 
+#together{
+  width: 90px;
+}
   .searcheventsform {
     width: 350px;
   }
