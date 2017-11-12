@@ -1012,9 +1012,9 @@ function checkpasswordstrength(){
 
         if(!$uppercase || !$lowercase || !$number) {
          echo "<br><p class='wrongpasstext2'><br>Too weak password.<br>
-         &rarr;Use at least one uppercase capital letter.<br>
-         &rarr;Use at least one lowercase capital letter.<br>
-         &rarr;Use at least one number between 0-9. </p>";
+         &rarr;Use both uppercase and lowercase letters.<br>
+         &rarr;Use at least one number between 0-9.
+         &rarr;Use at least 8 characters.<br></p>";
          unset($_POST);
          exit();
         } else {
