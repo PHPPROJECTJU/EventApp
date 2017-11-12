@@ -51,18 +51,21 @@ ini_set('session.cookie_httponly', true);
 
 <div class="searchwrapper">
     <div class="searchwrapper_second">
-        <img class="chooselocation" src="img/redpin.png" title="Choose location">
+
+				<div id="together">
+	        <img class="chooselocation" src="img/redpin.png" title="Choose location">
+					<p id="inregion"><?php echo $region; ?></p>
+				</div>
 
         <form class="searcheventsform" action="index.php" method="POST">
               <input type="text" name="searchevent" class="searchbar" placeholder="Search events">
               <input type="submit" class="searchbutton" name="search" value="GO">
         </form>
     </div>
-    <p id="inregion"><?php echo $region; ?></p>
+
     <ul id='regionmenu'>
       <div class="liwrapper">
         <form action="index.php" name="chooseregion" method="POST">
-
 
         <?php
             @ $db = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
@@ -140,6 +143,7 @@ if (isset($_POST['search']) && !empty($_POST['searchevent'])) {
           $stmt = $db->prepare($search);
           $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Status, $Title, $StartDate, $EndDate, $StartTime, $Information, $StreetAdress, $cityname, $statename, $Category);
           $stmt->execute();
+
 } else {
 
 /*--Getting stuff from database without searching-----------------------------------------*/
@@ -154,19 +158,27 @@ if (isset($_POST['search']) && !empty($_POST['searchevent'])) {
                 ON Event.state_id=State.state_id
                 JOIN Category
                 ON Event.CategoryID=Category.CategoryID
-                WHERE Event.EndDate >= CURDATE()-1   /*----Don't display older events than one day after current date.---*/
+                WHERE Event.EndDate >= CURDATE()-1 AND Event.Status = 1   /*----Don't display older events than one day after current date.---*/
                 ORDER BY Event.EventID DESC
                 ";
 
       $stmt = $db->prepare($getevent);
       $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Status, $Title, $StartDate, $StartTime, $Information, $StreetAdress, $cityname, $statename, $Category);
       $stmt->execute();
+			$stmt->store_result();
+			$totalcount = $stmt->num_rows();
+
+			echo $totalcount;
+			if ($totalcount == 0 ) {
+					echo "<div class='noRows'>";
+					echo "<p>There are no events hosted in $region</p>";
+					echo "<p>Return to <a href='index.php'>HOME</a></p>";
+					echo "</div>";
+			}
 
     } /*<--end of the if/else post isset statement*/
 
-
 while ($stmt->fetch()) {
-    if ($Status == 1) {
 
         if (isset($_COOKIE['regionpick'])) {
             if ($region == $statename) {
@@ -204,7 +216,7 @@ while ($stmt->fetch()) {
               echo "<a class='seemore' href='event.php?EventID=" . urlencode($EventID) . " '>more...</a>";
               echo "</div>";
           } //cookie check
-    }//if status is 1
+
 }//while fetch
 
 ?>

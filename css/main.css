@@ -369,12 +369,18 @@ input[type="file"] {
   padding: 6px 80px 6px 15px;
   box-sizing: border-box;
   position: relative;
+  float: left;
 }
 
 #inregion {
   margin: 3px 0 0 6px;
   font-size: 12px;
   width: 70px;
+}
+
+#together {
+  float: left;
+  margin-left: 10px;
 }
 
 input:focus {
