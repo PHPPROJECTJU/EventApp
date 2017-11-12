@@ -132,7 +132,7 @@ if (isset($_POST['search']) && !empty($_POST['searchevent'])) {
 	              ON Event.state_id=State.state_id
 	              JOIN Category
 	              ON Event.CategoryID=Category.CategoryID
-	              WHERE (Event.EndDate >= CURDATE()-1) AND (State.state_name = '{$region}') AND (Title LIKE '%" . $searchphrase . "%'
+	              WHERE (Event.EndDate >= CURDATE()-1) AND (Event.Status = 1) AND (State.state_name = '{$region}') AND (Title LIKE '%" . $searchphrase . "%'
 	              OR Information LIKE '%" . $searchphrase . "%'
 	              OR UserName LIKE '%" . $searchphrase . "%'
 	              OR Categoryname LIKE '%" . $searchphrase . "%')
@@ -150,7 +150,7 @@ if (isset($_POST['search']) && !empty($_POST['searchevent'])) {
 	              ON Event.state_id=State.state_id
 	              JOIN Category
 	              ON Event.CategoryID=Category.CategoryID
-	              WHERE (Event.EndDate >= CURDATE()-1) AND (Title LIKE '%" . $searchphrase . "%'
+	              WHERE (Event.EndDate >= CURDATE()-1) AND (Event.Status = 1) AND (Title LIKE '%" . $searchphrase . "%'
 	              OR Information LIKE '%" . $searchphrase . "%'
 	              OR UserName LIKE '%" . $searchphrase . "%'
 	              OR Categoryname LIKE '%" . $searchphrase . "%')
@@ -194,7 +194,7 @@ if (isset($_POST['search']) && !empty($_POST['searchevent'])) {
 	                ON Event.state_id=State.state_id
 	                JOIN Category
 	                ON Event.CategoryID=Category.CategoryID
-	                WHERE Event.EndDate >= CURDATE()-1 AND Event.Status = 1 AND State.state_name = '{$region}'
+	                WHERE (Event.EndDate >= CURDATE()-1) AND (Event.Status = 1) AND (State.state_name = '{$region}')
 	                ORDER BY Event.EventID DESC
 	                ";
 			} else {
@@ -208,7 +208,7 @@ if (isset($_POST['search']) && !empty($_POST['searchevent'])) {
 	                ON Event.state_id=State.state_id
 	                JOIN Category
 	                ON Event.CategoryID=Category.CategoryID
-	                WHERE Event.EndDate >= CURDATE()-1 AND Event.Status = 1 /*----Don't display older events than one day after current date.---*/
+	                WHERE (Event.EndDate >= CURDATE()-1) AND (Event.Status = 1) /*----Don't display older events than one day after current date.---*/
 	                ORDER BY Event.EventID DESC
 	                ";
 			}
@@ -232,6 +232,7 @@ if (isset($_POST['search']) && !empty($_POST['searchevent'])) {
     } /*<--end of the if/else post isset statement*/
 
 while ($stmt->fetch()) {
+
 
         if (isset($_COOKIE['regionpick'])) {
             if ($region == $statename) {
