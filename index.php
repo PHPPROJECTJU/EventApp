@@ -121,56 +121,98 @@ if (isset($_POST['search']) && !empty($_POST['searchevent'])) {
 
     $searchphrase = addslashes($searchphrase);
 
+		if (isset($_COOKIE['regionpick'])) {
+			$search = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Status, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, Event.EndDate, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name, State.state_name, Category.Categoryname
+	              FROM User
+	              JOIN Event
+	              ON User.UserID=Event.UserID
+	              JOIN City
+	              ON Event.city_id=City.city_id
+	              JOIN State
+	              ON Event.state_id=State.state_id
+	              JOIN Category
+	              ON Event.CategoryID=Category.CategoryID
+	              WHERE (Event.EndDate >= CURDATE()-1) AND (State.state_name = '{$region}') AND (Title LIKE '%" . $searchphrase . "%'
+	              OR Information LIKE '%" . $searchphrase . "%'
+	              OR UserName LIKE '%" . $searchphrase . "%'
+	              OR Categoryname LIKE '%" . $searchphrase . "%')
 
-    $search = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Status, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, Event.EndDate, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name, State.state_name, Category.Categoryname
-              FROM User
-              JOIN Event
-              ON User.UserID=Event.UserID
-              JOIN City
-              ON Event.city_id=City.city_id
-              JOIN State
-              ON Event.state_id=State.state_id
-              JOIN Category
-              ON Event.CategoryID=Category.CategoryID
-              WHERE (Event.EndDate >= CURDATE()-1) AND (Title LIKE '%" . $searchphrase . "%'
-              OR Information LIKE '%" . $searchphrase . "%'
-              OR UserName LIKE '%" . $searchphrase . "%'
-              OR Categoryname LIKE '%" . $searchphrase . "%')
+	              ORDER BY Event.EventID DESC
+	              ";
+		} else {
+			$search = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Status, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, Event.EndDate, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name, State.state_name, Category.Categoryname
+	              FROM User
+	              JOIN Event
+	              ON User.UserID=Event.UserID
+	              JOIN City
+	              ON Event.city_id=City.city_id
+	              JOIN State
+	              ON Event.state_id=State.state_id
+	              JOIN Category
+	              ON Event.CategoryID=Category.CategoryID
+	              WHERE (Event.EndDate >= CURDATE()-1) AND (Title LIKE '%" . $searchphrase . "%'
+	              OR Information LIKE '%" . $searchphrase . "%'
+	              OR UserName LIKE '%" . $searchphrase . "%'
+	              OR Categoryname LIKE '%" . $searchphrase . "%')
 
-              ORDER BY Event.EventID DESC
-              ";
+	              ORDER BY Event.EventID DESC
+	              ";
+		}
+
+
+
 
           $stmt = $db->prepare($search);
           $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Status, $Title, $StartDate, $EndDate, $StartTime, $Information, $StreetAdress, $cityname, $statename, $Category);
           $stmt->execute();
           $stmt->store_result();
 
-          $totalcount1 = $stmt->num_rows();
+          $totalcount = $stmt->num_rows();
 
 
-    			if ($totalcount1==0) {
-    					echo "<div class='noRows'>";
-    					echo "<p>Sorry, there are no events avaliable here.<br><a href='index.php'> Return to home</a></p>";
-    					echo "</div>";
-    			}
+					if ($totalcount == 0 ) {
+							echo "<div class='noRows'>";
+							echo "<p>There are no events matching your search</p>";
+							echo "<form method='POST' action='index.php'>";
+							echo "<input type='submit' id='seeattenders' name='allregions' value='Continue browsing'>";
+							echo "</form>";
+							echo "</div>";
+					}
 
 } else {
 
 /*--Getting stuff from database without searching-----------------------------------------*/
 
-      $getevent = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Status, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name, State.state_name, Category.Categoryname
-                FROM User
-                JOIN Event
-                ON User.UserID=Event.UserID
-                JOIN City
-                ON Event.city_id=City.city_id
-                JOIN State
-                ON Event.state_id=State.state_id
-                JOIN Category
-                ON Event.CategoryID=Category.CategoryID
-                WHERE Event.EndDate >= CURDATE()-1 AND Event.Status = 1 /*----Don't display older events than one day after current date.---*/
-                ORDER BY Event.EventID DESC
-                ";
+			if (isset($_COOKIE['regionpick'])) {
+				$getevent = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Status, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name, State.state_name, Category.Categoryname
+	                FROM User
+	                JOIN Event
+	                ON User.UserID=Event.UserID
+	                JOIN City
+	                ON Event.city_id=City.city_id
+	                JOIN State
+	                ON Event.state_id=State.state_id
+	                JOIN Category
+	                ON Event.CategoryID=Category.CategoryID
+	                WHERE Event.EndDate >= CURDATE()-1 AND Event.Status = 1 AND State.state_name = '{$region}'
+	                ORDER BY Event.EventID DESC
+	                ";
+			} else {
+				$getevent = "SELECT User.UserName, User.ProfilePicture, User.UserID, Event.EventID, Event.Status, Event.Title, DATE_FORMAT(StartDate, '%D %M, %Y') AS `StartDate`, DATE_FORMAT(`StartTime`, '%H:%i') AS `StartTime`, Event.Information, Event.StreetAdress, City.city_name, State.state_name, Category.Categoryname
+	                FROM User
+	                JOIN Event
+	                ON User.UserID=Event.UserID
+	                JOIN City
+	                ON Event.city_id=City.city_id
+	                JOIN State
+	                ON Event.state_id=State.state_id
+	                JOIN Category
+	                ON Event.CategoryID=Category.CategoryID
+	                WHERE Event.EndDate >= CURDATE()-1 AND Event.Status = 1 /*----Don't display older events than one day after current date.---*/
+	                ORDER BY Event.EventID DESC
+	                ";
+			}
+
 
       $stmt = $db->prepare($getevent);
       $stmt->bind_result($UserName, $ProfilePicture, $UserID, $EventID, $Status, $Title, $StartDate, $StartTime, $Information, $StreetAdress, $cityname, $statename, $Category);
@@ -178,11 +220,12 @@ if (isset($_POST['search']) && !empty($_POST['searchevent'])) {
 			$stmt->store_result();
 			$totalcount = $stmt->num_rows();
 
-			echo $totalcount;
 			if ($totalcount == 0 ) {
 					echo "<div class='noRows'>";
-					echo "<p>There are no events hosted in $region</p>";
-					echo "<p>Return to <a href='index.php'>HOME</a></p>";
+					echo "<p>There are no events matching your search</p>";
+					echo "<form method='POST' action='index.php'>";
+					echo "<input type='submit' id='seeattenders' name='allregions' value='Continue browsing'>";
+					echo "</form>";
 					echo "</div>";
 			}
 
@@ -225,6 +268,7 @@ while ($stmt->fetch()) {
               echo "<p class='description'>$Information</p>";
               echo "<a class='seemore' href='event.php?EventID=" . urlencode($EventID) . " '>more...</a>";
               echo "</div>";
+
           } //cookie check
 
 }//while fetch

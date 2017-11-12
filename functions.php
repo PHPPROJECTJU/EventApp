@@ -513,7 +513,6 @@ function getHostedEvents($myuserid){
             if ($totalcount == 0) {
               echo "<div class='noRows'>";
               echo "<p>You are not hosting any events</p>";
-              echo "<p>Return to <a href='index.php'>HOME</a></p>";
               echo "</div>";
             }
 
@@ -679,7 +678,6 @@ function getAttendedEvents($myuserid){
               if ($totalcount == 0) {
                 echo "<div class='noRows'>";
                 echo "<p>You are not attending any events</p>";
-                echo "<p>Return to <a href='index.php'>HOME</a></p>";
                 echo "</div>";
               }
 
@@ -794,7 +792,6 @@ function getSavedEvents($myuserid){
               if ($totalcount == 0) {
                 echo "<div class='noRows'>";
                 echo "<p>You have not saved any events</p>";
-                echo "<p>Return to <a href='index.php'>HOME</a></p>";
                 echo "</div>";
               }
 
