@@ -6,10 +6,6 @@
   include("header.php");
 ?>
 
-<button onclick="goToTop()" id="topButton" title="Go to top">
-    &uarr;
-</button>
-
 <div class="searchwrapper">
     <div class="searchwrapper_second">
         <form class="searcheventsform" action="eventfeed.php" method="POST">
